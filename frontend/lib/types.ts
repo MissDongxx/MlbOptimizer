@@ -1,0 +1,102 @@
+export type Site = "dk" | "fd";
+export type LineupStatus = "confirmed" | "expected" | "unconfirmed" | "dnp";
+
+export interface GameSummary {
+  game_id: number;
+  game_time: string;
+  away_team: string;
+  home_team: string;
+  away_starter?: Starter | null;
+  home_starter?: Starter | null;
+  away_lineup_confirmed: boolean;
+  home_lineup_confirmed: boolean;
+  venue?: string | null;
+}
+
+export interface Starter {
+  name: string;
+  mlbam_id?: number | null;
+  hand?: "L" | "R" | null;
+}
+
+export interface Player {
+  mlbam_id: number;
+  name: string;
+  team: string;
+  opponent: string;
+  position: string[];
+  salary_dk: number;
+  salary_fd: number;
+  batting_order: number | null;
+  opposing_pitcher: string | null;
+  opposing_pitcher_hand: "L" | "R" | null;
+  lineup_status: LineupStatus;
+  projected_dk: number;
+  projected_fd: number;
+  projection_source:
+    | "15d_counts_cached_season_splits"
+    | "season_avg_fallback"
+    | "mock_projection"
+    | "user_override";
+  last_15_avg_dk: number;
+  vs_lhp_avg: number;
+  vs_rhp_avg: number;
+  last_updated: string;
+}
+
+export interface PlayerPoolResponse {
+  game_date: string;
+  last_updated: string;
+  games: GameSummary[];
+  players: Player[];
+  message?: string | null;
+}
+
+export interface OptimizerSettings {
+  stack_team: string | null;
+  stack_count: number;
+  pitcher_vs_batter_same_team: "allow" | "avoid";
+  min_salary_used: number;
+  unique_lineups: boolean;
+}
+
+export interface PlayerInput {
+  mlbam_id: number;
+  name: string;
+  team: string;
+  position: string[];
+  salary: number;
+  projected_points: number;
+  lock: boolean;
+  exclude: boolean;
+  max_exposure: number;
+}
+
+export interface OptimizeRequest {
+  site: Site;
+  num_lineups: number;
+  players: PlayerInput[];
+  settings: OptimizerSettings;
+}
+
+export interface LineupPlayer {
+  mlbam_id: number;
+  name: string;
+  position_slot: string;
+  salary: number;
+  projected_points: number;
+  team: string;
+}
+
+export interface Lineup {
+  lineup_number: number;
+  players: LineupPlayer[];
+  total_salary: number;
+  projected_points: number;
+}
+
+export interface OptimizeResponse {
+  lineups: Lineup[];
+  solve_time_ms: number;
+  warnings: string[];
+}

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: lineuplab-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install uv && uv sync
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: https://lineuplab.io
+      - key: USE_MOCK_DATA
+        value: false
+    disk:
+      name: cache
+      mountPath: /opt/render/project/src/backend/cache
+      sizeGB: 1

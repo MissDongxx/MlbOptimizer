@@ -1,0 +1,26 @@
+[project]
+name = "lineuplab-backend"
+version = "0.1.0"
+description = "FastAPI backend for LineupLab MLB DFS optimizer"
+requires-python = ">=3.12"
+dependencies = [
+    "apscheduler>=3.10.4",
+    "fastapi>=0.115.0",
+    "pandas>=2.2.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "pybaseball>=2.2.7",
+    "pydfs-lineup-optimizer>=3.6.1",
+    "python-dotenv>=1.0.1",
+    "MLB-StatsAPI>=1.8.1",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

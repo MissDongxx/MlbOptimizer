@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f4f6f8;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.08), transparent 280px),
+    #f4f6f8;
+  color: #111827;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.table-scroll {
+  scrollbar-width: thin;
+}

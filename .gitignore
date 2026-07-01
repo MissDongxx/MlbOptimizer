@@ -1,0 +1,21 @@
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+backend/.env
+backend/cache/*.json
+!backend/cache/.gitkeep
+
+# Node / Next
+node_modules/
+.next/
+out/
+frontend/.env.local
+frontend/.turbo/
+
+# Logs
+*.log
