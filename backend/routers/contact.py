@@ -33,9 +33,11 @@ def submit_contact(payload: ContactRequest, request: Request) -> ContactResponse
     if _brevo_configured():
         try:
             _upsert_brevo_contact(payload)
-            notify_email = os.getenv("BREVO_NOTIFY_EMAIL")
+            notify_email = os.getenv("BREVO_NOTIFY_EMAIL", "").strip()
             if notify_email:
                 _send_brevo_email(payload, request, notify_email)
+            else:
+                logger.warning("BREVO_NOTIFY_EMAIL is not configured; notification email was skipped")
         except RuntimeError as exc:
             logger.exception("Brevo contact sync failed")
             raise HTTPException(
