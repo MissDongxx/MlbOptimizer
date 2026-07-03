@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Literal
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 
 Site = Literal["dk", "fd"]
@@ -149,3 +149,22 @@ class HealthResponse(BaseModel):
     last_lineup_refresh: datetime | None
     players_loaded: int
     statsapi_available: bool
+
+
+class ContactRequest(BaseModel):
+    email: EmailStr
+    message: str | None = Field(default=None, max_length=2000)
+    company: str | None = Field(default=None, max_length=120)
+
+    @field_validator("message")
+    @classmethod
+    def normalize_message(cls, value: str | None) -> str | None:
+        if value is None:
+            return value
+        trimmed = value.strip()
+        return trimmed or None
+
+
+class ContactResponse(BaseModel):
+    ok: bool
+    message: str

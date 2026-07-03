@@ -145,7 +145,7 @@ export function PlayerPool({
         <span className="w-20 shrink-0" />
       </div>
 
-      <div className="flex-1 md:min-h-0">
+      <div className="flex-1 md:min-h-0 md:overflow-y-auto">
         {filtered.map((player) => (
           <PlayerRow
             key={player.mlbam_id}
@@ -165,7 +165,7 @@ export function PlayerPool({
         ))}
       </div>
 
-      <div className="sticky bottom-0 bg-gradient-to-t from-white via-white to-transparent px-4 pb-4 pt-2 md:static md:bg-none md:bg-transparent md:px-4 md:pb-4 md:pt-2">
+      <div className="sticky bottom-0 shrink-0 bg-gradient-to-t from-white via-white to-transparent px-4 pb-4 pt-2 md:static md:bg-none md:bg-transparent md:px-4 md:pb-4 md:pt-2">
         {salaryWarning ? (
           <p className="mb-2 rounded-lg border border-yellow-200 bg-yellow-50 px-3 py-2 text-xs text-yellow-800">
             {salaryWarning}

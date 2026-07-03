@@ -19,7 +19,7 @@ import { LineupGrid } from "@/components/LineupGrid";
 import { PlayerPool, projectionFor, salaryFor } from "@/components/PlayerPool";
 import { SettingsPanel } from "@/components/SettingsPanel";
 import { TopStacks } from "@/components/TopStacks";
-import { fetchTodaysPlayers, runOptimizer } from "@/lib/api";
+import { fetchTodaysPlayers, runOptimizer, sendContactMessage } from "@/lib/api";
 import type { OptimizeResponse, OptimizerSettings, PlayerPoolResponse, Site } from "@/lib/types";
 
 interface CsvOverrideRow {
@@ -318,6 +318,11 @@ export default function Home() {
   const [csvMatchResult, setCsvMatchResult] = useState<CsvMatchResult | null>(null);
   const [lockedPlayers, setLockedPlayers] = useState<Record<string, boolean>>({});
   const [excludedPlayers, setExcludedPlayers] = useState<Record<string, boolean>>({});
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+  const [contactCompany, setContactCompany] = useState("");
+  const [contactStatus, setContactStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [sendingContact, setSendingContact] = useState(false);
 
   useEffect(() => {
     loadPlayers();
@@ -355,6 +360,29 @@ export default function Home() {
       setError(err instanceof Error ? err.message : "Failed to load players");
     } finally {
       setLoadingPlayers(false);
+    }
+  }
+
+  async function handleContactSubmit() {
+    setSendingContact(true);
+    setContactStatus(null);
+    try {
+      const response = await sendContactMessage({
+        email: contactEmail,
+        message: contactMessage,
+        company: contactCompany,
+      });
+      setContactStatus({ type: "success", message: response.message });
+      setContactEmail("");
+      setContactMessage("");
+      setContactCompany("");
+    } catch (err) {
+      setContactStatus({
+        type: "error",
+        message: err instanceof Error ? err.message : "Could not send your message. Please try again later.",
+      });
+    } finally {
+      setSendingContact(false);
     }
   }
 
@@ -748,7 +776,7 @@ export default function Home() {
 
             <main className="glass-panel hidden min-h-0 flex-1 overflow-hidden rounded-2xl border border-border md:flex">
               <aside className="w-72 shrink-0 overflow-y-auto border-r border-border/80">{settingsPanel}</aside>
-              <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">{poolPanel}</div>
+              <div className="flex min-w-0 flex-1 flex-col overflow-hidden">{poolPanel}</div>
               <aside className="w-[420px] shrink-0 overflow-y-auto border-l border-border/80">{lineupsPanel}</aside>
             </main>
           </>
@@ -917,42 +945,75 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <form
-            action="mailto:support@DiamScore.com"
+          <div
             className="rounded-2xl border border-border bg-white p-4 shadow-sm"
-            encType="text/plain"
-            method="post"
           >
             <div className="text-sm font-semibold">Get slate updates</div>
             <p className="mt-1 text-xs leading-5 text-muted-foreground">
               Leave your email and we will collect feedback, feature requests, and early access interest.
             </p>
             <div className="mt-3 grid gap-2">
+              <label className="sr-only" htmlFor="contact-email">Email</label>
               <input
+                autoComplete="email"
                 className="focus-ring h-10 rounded-xl border border-border bg-white px-3 text-sm shadow-sm"
+                id="contact-email"
+                maxLength={254}
                 name="email"
+                onChange={(event) => setContactEmail(event.target.value)}
                 placeholder="you@example.com"
                 required
                 type="email"
+                value={contactEmail}
               />
+              <label className="sr-only" htmlFor="contact-message">Message</label>
               <textarea
                 className="focus-ring min-h-20 resize-none rounded-xl border border-border bg-white px-3 py-2 text-sm shadow-sm"
+                id="contact-message"
+                maxLength={2000}
                 name="message"
+                onChange={(event) => setContactMessage(event.target.value)}
                 placeholder="Tell us what you want DiamScore to add next"
+                value={contactMessage}
               />
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="contact-company">Company</label>
+                <input
+                  autoComplete="off"
+                  id="contact-company"
+                  name="company"
+                  onChange={(event) => setContactCompany(event.target.value)}
+                  tabIndex={-1}
+                  value={contactCompany}
+                />
+              </div>
               <button
-                className="focus-ring inline-flex h-10 items-center justify-center rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-teal-900/10"
-                type="submit"
+                className="focus-ring flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-teal-900/10 disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={sendingContact || !contactEmail}
+                onClick={handleContactSubmit}
+                type="button"
               >
-                Send to support
+                {sendingContact ? "Sending..." : "Send to support"}
               </button>
+              {contactStatus ? (
+                <div
+                  className={`rounded-xl border px-3 py-2 text-xs ${
+                    contactStatus.type === "success"
+                      ? "border-green-200 bg-green-50 text-green-800"
+                      : "border-red-200 bg-red-50 text-red-700"
+                  }`}
+                  role="status"
+                >
+                  {contactStatus.message}
+                </div>
+              ) : null}
             </div>
             <div className="mt-3 space-y-1 text-xs text-muted-foreground">
               <div>Projections updated daily</div>
               <div>Data from MLB Stats API</div>
               <div>Free forever for 20 lineups</div>
             </div>
-          </form>
+          </div>
         </div>
       </footer>
     </div>

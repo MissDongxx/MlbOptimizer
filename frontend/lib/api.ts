@@ -1,5 +1,16 @@
 import type { OptimizeRequest, OptimizeResponse, PlayerPoolResponse } from "./types";
 
+interface ContactRequest {
+  email: string;
+  message?: string;
+  company?: string;
+}
+
+interface ContactResponse {
+  ok: boolean;
+  message: string;
+}
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 const REQUEST_TIMEOUT_MS = 8000;
 
@@ -22,6 +33,19 @@ export async function runOptimizer(request: OptimizeRequest): Promise<OptimizeRe
     throw new Error(err?.detail || "Optimization failed");
   }
   return res.json();
+}
+
+export async function sendContactMessage(request: ContactRequest): Promise<ContactResponse> {
+  const res = await fetchWithTimeout(`${API_URL}/contact/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok) {
+    throw new Error(body?.detail || "Could not send your message. Please try again later.");
+  }
+  return body;
 }
 
 async function fetchWithTimeout(input: string, init: RequestInit = {}) {

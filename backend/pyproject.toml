@@ -8,6 +8,7 @@ dependencies = [
     "fastapi>=0.115.0",
     "pandas>=2.2.0",
     "pydantic>=2.8.0",
+    "email-validator>=2.2.0",
     "pydantic-settings>=2.4.0",
     "pybaseball>=2.2.7",
     "pydfs-lineup-optimizer>=3.6.1",
