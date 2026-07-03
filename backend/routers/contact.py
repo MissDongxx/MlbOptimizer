@@ -19,6 +19,7 @@ router = APIRouter()
 SUPPORT_EMAIL = "support@DiamScore.com"
 CONTACT_SUBMISSIONS_KEY = "contact_submissions"
 BREVO_SEND_EMAIL_URL = "https://api.brevo.com/v3/smtp/email"
+BREVO_CONTACTS_URL = "https://api.brevo.com/v3/contacts"
 
 
 @router.post("/", response_model=ContactResponse, status_code=status.HTTP_202_ACCEPTED)
@@ -27,23 +28,39 @@ def submit_contact(payload: ContactRequest, request: Request) -> ContactResponse
         logger.info("Dropped contact form honeypot submission from %s", _client_ip(request))
         return ContactResponse(ok=True, message="Thanks. Your message has been received.")
 
+    _store_contact_submission(payload, request)
+
     if _brevo_configured():
         try:
-            _send_brevo_email(payload, request)
+            _upsert_brevo_contact(payload)
+            notify_email = os.getenv("BREVO_NOTIFY_EMAIL")
+            if notify_email:
+                _send_brevo_email(payload, request, notify_email)
         except RuntimeError as exc:
-            logger.exception("Brevo contact email delivery failed")
+            logger.exception("Brevo contact sync failed")
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail=str(exc),
             ) from exc
     else:
         logger.warning("Brevo is not configured; storing contact submission locally")
-        _store_contact_submission(payload, request)
 
     return ContactResponse(ok=True, message="Thanks. Your message has been received.")
 
 
-def _send_brevo_email(payload: ContactRequest, request: Request) -> None:
+def _upsert_brevo_contact(payload: ContactRequest) -> None:
+    list_id = _optional_int_env("BREVO_LIST_ID")
+    body: dict[str, object] = {
+        "email": str(payload.email),
+        "updateEnabled": True,
+    }
+    if list_id:
+        body["listIds"] = [list_id]
+    status_code = _send_brevo_request(BREVO_CONTACTS_URL, body)
+    logger.info("Brevo synced contact %s with HTTP %s", payload.email, status_code)
+
+
+def _send_brevo_email(payload: ContactRequest, request: Request, notify_email: str) -> None:
     api_key = os.getenv("BREVO_API_KEY")
     sender_email = os.getenv("BREVO_SENDER_EMAIL", SUPPORT_EMAIL)
     sender_name = os.getenv("BREVO_SENDER_NAME", "DiamScore")
@@ -67,15 +84,23 @@ def _send_brevo_email(payload: ContactRequest, request: Request) -> None:
     """
     body = {
         "sender": {"email": sender_email, "name": sender_name},
-        "to": [{"email": SUPPORT_EMAIL, "name": "DiamScore Support"}],
+        "to": [{"email": notify_email, "name": "DiamScore Support"}],
         "replyTo": {"email": str(payload.email)},
         "subject": subject,
         "textContent": plain_body,
         "htmlContent": html_body,
     }
+    status_code = _send_brevo_request(BREVO_SEND_EMAIL_URL, body)
+    logger.info("Brevo accepted contact notification email with HTTP %s", status_code)
+
+
+def _send_brevo_request(url: str, body: dict[str, object]) -> int:
+    api_key = os.getenv("BREVO_API_KEY")
+    if not api_key:
+        raise RuntimeError("Brevo API key is not configured.")
     request_body = json.dumps(body).encode("utf-8")
     brevo_request = UrlRequest(
-        BREVO_SEND_EMAIL_URL,
+        url,
         data=request_body,
         headers={
             "accept": "application/json",
@@ -88,12 +113,22 @@ def _send_brevo_email(payload: ContactRequest, request: Request) -> None:
         with urlopen(brevo_request, timeout=10) as response:
             if response.status >= 400:
                 raise RuntimeError(f"Brevo returned HTTP {response.status}")
-            logger.info("Brevo accepted contact email for delivery with HTTP %s", response.status)
+            return response.status
     except HTTPError as exc:
         details = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"Brevo returned HTTP {exc.code}: {details}") from exc
     except URLError as exc:
         raise RuntimeError(f"Brevo request failed: {exc.reason}") from exc
+
+
+def _optional_int_env(name: str) -> int | None:
+    value = os.getenv(name)
+    if not value:
+        return None
+    try:
+        return int(value)
+    except ValueError as exc:
+        raise RuntimeError(f"{name} must be an integer.") from exc
 
 
 def _brevo_configured() -> bool:

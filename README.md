@@ -87,7 +87,8 @@ Required GitHub repository secrets:
 Runtime parameters stay on their deployment targets:
 
 - VPS backend: `/opt/diamscore/backend/.env` should contain only secrets such as `BREVO_API_KEY`,
-  `BREVO_SENDER_EMAIL`, and `BREVO_SENDER_NAME`. Production flags such as `APP_ENV=production`,
+  `BREVO_SENDER_EMAIL`, `BREVO_SENDER_NAME`, optional `BREVO_LIST_ID`, and optional
+  `BREVO_NOTIFY_EMAIL`. Production flags such as `APP_ENV=production`,
   `USE_MOCK_DATA=false`, `ALLOWED_ORIGINS`, and `CACHE_DIR` are managed by the `diamscore-api`
   systemd service.
 - Cloudflare Pages Function: set `DIAMSCORE_API_ORIGIN` only if the VPS API origin changes. The current
