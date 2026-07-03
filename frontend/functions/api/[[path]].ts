@@ -1,4 +1,4 @@
-const API_ORIGIN = "http://104.168.30.212";
+const API_ORIGIN = "http://104-168-30-212.sslip.io";
 
 interface PagesFunctionContext {
   request: Request;
