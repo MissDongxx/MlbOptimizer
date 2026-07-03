@@ -1,15 +1,19 @@
-const API_ORIGIN = "http://104-168-30-212.sslip.io";
+const DEFAULT_API_ORIGIN = "http://104-168-30-212.sslip.io";
 
 interface PagesFunctionContext {
   request: Request;
+  env?: {
+    DIAMSCORE_API_ORIGIN?: string;
+  };
 }
 
 export async function onRequest(context: PagesFunctionContext) {
   const url = new URL(context.request.url);
-  const target = new URL(url.pathname.replace(/^\/api/, "/api") + url.search, API_ORIGIN);
+  const apiOrigin = context.env?.DIAMSCORE_API_ORIGIN ?? DEFAULT_API_ORIGIN;
+  const target = new URL(url.pathname.replace(/^\/api/, "/api") + url.search, apiOrigin);
 
   const headers = new Headers(context.request.headers);
-  headers.set("host", new URL(API_ORIGIN).host);
+  headers.set("host", new URL(apiOrigin).host);
 
   const response = await fetch(target, {
     body: context.request.method === "GET" || context.request.method === "HEAD" ? undefined : context.request.body,

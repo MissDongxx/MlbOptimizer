@@ -65,6 +65,34 @@ Open:
 http://localhost:3000
 ```
 
+## Deployment
+
+Pushing to `dev` or `main` runs `.github/workflows/deploy.yml`.
+
+The workflow:
+
+- builds and deploys `frontend/out` to Cloudflare Pages project `diamscore`
+- SSHes into the VPS, checks out the same Git commit, syncs backend dependencies, restarts `diamscore-api`,
+  rebuilds the static frontend, and reloads Nginx from `/var/www/diamscore`
+
+Required GitHub repository secrets:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+- `VPS_HOST`
+- `VPS_USER`
+- `VPS_SSH_KEY`
+- `VPS_PORT` optional, defaults to `22`
+
+Runtime parameters stay on their deployment targets:
+
+- VPS backend: `/opt/diamscore/backend/.env` should contain only secrets such as `BREVO_API_KEY`,
+  `BREVO_SENDER_EMAIL`, and `BREVO_SENDER_NAME`. Production flags such as `APP_ENV=production`,
+  `USE_MOCK_DATA=false`, `ALLOWED_ORIGINS`, and `CACHE_DIR` are managed by the `diamscore-api`
+  systemd service.
+- Cloudflare Pages Function: set `DIAMSCORE_API_ORIGIN` only if the VPS API origin changes. The current
+  code falls back to `http://104-168-30-212.sslip.io`.
+
 ## Current MVP Scope
 
 Implemented:

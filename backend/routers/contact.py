@@ -37,6 +37,7 @@ def submit_contact(payload: ContactRequest, request: Request) -> ContactResponse
                 detail=str(exc),
             ) from exc
     else:
+        logger.warning("Brevo is not configured; storing contact submission locally")
         _store_contact_submission(payload, request)
 
     return ContactResponse(ok=True, message="Thanks. Your message has been received.")
@@ -87,6 +88,7 @@ def _send_brevo_email(payload: ContactRequest, request: Request) -> None:
         with urlopen(brevo_request, timeout=10) as response:
             if response.status >= 400:
                 raise RuntimeError(f"Brevo returned HTTP {response.status}")
+            logger.info("Brevo accepted contact email for delivery with HTTP %s", response.status)
     except HTTPError as exc:
         details = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"Brevo returned HTTP {exc.code}: {details}") from exc

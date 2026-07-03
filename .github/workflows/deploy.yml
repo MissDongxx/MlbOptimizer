@@ -1,0 +1,85 @@
+name: Deploy DiamScore
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-cloudflare:
+    name: Cloudflare Pages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: /api
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy out --project-name=diamscore --branch=${{ github.ref_name }} --commit-dirty=false
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+  deploy-vps:
+    name: VPS backend and static frontend
+    runs-on: ubuntu-latest
+    needs: deploy-cloudflare
+    steps:
+      - name: Deploy on VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || '22' }}
+          script: |
+            set -euo pipefail
+            export PATH="$HOME/.local/bin:$PATH"
+
+            cd /opt/diamscore
+            git fetch origin "${{ github.ref_name }}"
+            git checkout -B "${{ github.ref_name }}" "origin/${{ github.ref_name }}"
+            git reset --hard "${{ github.sha }}"
+
+            cd /opt/diamscore/backend
+            uv sync --frozen
+            systemctl restart diamscore-api
+            curl -fsS http://127.0.0.1:8000/health >/dev/null
+
+            cd /opt/diamscore/frontend
+            npm ci
+            NEXT_PUBLIC_API_URL=/api npm run build
+
+            install -d /var/www/diamscore
+            find /var/www/diamscore -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+            cp -a out/. /var/www/diamscore/
+            nginx -t
+            systemctl reload nginx
+
+            curl -fsS http://127.0.0.1/api/players/today >/dev/null

@@ -9,11 +9,14 @@ from collections import defaultdict, deque
 from contextlib import asynccontextmanager
 from typing import Callable
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import Response
+
+load_dotenv()
 
 from routers.contact import router as contact_router
 from routers.health import router as health_router

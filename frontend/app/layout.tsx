@@ -47,7 +47,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: absoluteUrl("/diamscore-hero-analytics.png"),
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/diamscore-hero-analytics.png", type: "image/png" },
+    ],
+    apple: [{ url: "/diamscore-hero-analytics.png" }],
   },
 };
 
