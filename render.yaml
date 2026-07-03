@@ -6,6 +6,8 @@ services:
     buildCommand: pip install uv && uv sync
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2
     envVars:
+      - key: APP_ENV
+        value: production
       - key: ALLOWED_ORIGINS
         value: https://lineuplab.io
       - key: USE_MOCK_DATA

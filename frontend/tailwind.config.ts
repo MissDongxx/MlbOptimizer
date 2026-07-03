@@ -5,6 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: "var(--background)",
+        card: "var(--card)",
+        border: "var(--border)",
+        "border-strong": "var(--border-strong)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        primary: "var(--primary)",
+        "primary-foreground": "var(--primary-foreground)",
+        "accent-foreground": "var(--accent-foreground)",
+        ring: "var(--ring)",
+        success: "var(--success)",
+        warning: "var(--warning)",
+        danger: "var(--danger)",
         ink: "#111827",
         field: "#f7f8fb",
         line: "#d8dee9",

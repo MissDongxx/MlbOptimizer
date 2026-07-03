@@ -4,6 +4,12 @@ import { Upload } from "lucide-react";
 import Papa from "papaparse";
 import type { OptimizerSettings, Site } from "@/lib/types";
 
+interface CsvMatchResult {
+  matched: number;
+  total: number;
+  unmatched: string[];
+}
+
 interface SettingsPanelProps {
   site: Site;
   onSiteChange: (site: Site) => void;
@@ -12,7 +18,19 @@ interface SettingsPanelProps {
   settings: OptimizerSettings;
   onSettingsChange: (settings: OptimizerSettings) => void;
   teams: string[];
-  onCsvOverrides: (rows: Array<{ name: string; team: string; projection: number }>) => void;
+  csvMatchResult?: CsvMatchResult | null;
+  onCsvOverrides: (
+    rows: Array<{
+      name: string;
+      team: string;
+      playerId?: number;
+      projection?: number;
+      salary?: number;
+      positions?: string[];
+      externalId?: string;
+      nameId?: string;
+    }>,
+  ) => void;
 }
 
 export function SettingsPanel({
@@ -23,6 +41,7 @@ export function SettingsPanel({
   settings,
   onSettingsChange,
   teams,
+  csvMatchResult,
   onCsvOverrides,
 }: SettingsPanelProps) {
   function updateSettings(patch: Partial<OptimizerSettings>) {
@@ -36,110 +55,190 @@ export function SettingsPanel({
       skipEmptyLines: true,
       complete: (result) => {
         const rows = result.data
-          .map((row) => ({
-            name: row.Name || row.name || row.Player || "",
-            team: row.Team || row.team || row.TeamAbbrev || "",
-            projection: Number(row.Projection || row.projection || row.AvgPointsPerGame || 0),
-          }))
-          .filter((row) => row.name && Number.isFinite(row.projection) && row.projection > 0);
+          .map((row) => {
+            const nameId = row["Name + ID"] || row["Name+ID"] || "";
+            const parsed = parseNameAndId(nameId || row.Name || row.name || row.Player || "");
+            const rawId = row.ID || row.PlayerID || row["Player ID"] || parsed.playerId || "";
+            const playerId = Number(rawId);
+            const projection = Number(row.Projection || row.projection || row.AvgPointsPerGame || 0);
+            const salary = Number(row.Salary || row.salary || 0);
+            return {
+              name: parsed.name,
+              team: row.Team || row.team || row.TeamAbbrev || "",
+              playerId: Number.isFinite(playerId) && playerId > 0 ? playerId : undefined,
+              projection: Number.isFinite(projection) && projection > 0 ? projection : undefined,
+              salary: Number.isFinite(salary) && salary > 0 ? salary : undefined,
+              positions: parsePositions(row.Position || row.RosterPosition || row["Roster Position"] || ""),
+              externalId: rawId ? String(rawId) : undefined,
+              nameId: nameId || undefined,
+            };
+          })
+          .filter((row) => row.name && (row.projection || row.salary || row.positions?.length));
         onCsvOverrides(rows);
       },
     });
   }
 
   return (
-    <section className="rounded-md border border-line bg-white p-4 shadow-panel">
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <h2 className="text-base font-semibold">Optimizer Settings</h2>
-          <p className="text-xs text-slate-500">DraftKings and FanDuel classic MLB</p>
-        </div>
-        <div className="grid grid-cols-2 rounded-md border border-line bg-field p-1 text-sm">
+    <section className="bg-white/70 md:min-h-full">
+      <div className="hidden border-b border-border/80 px-4 py-4 md:block">
+        <div className="text-sm font-semibold tracking-tight">Build controls</div>
+        <div className="mt-0.5 text-xs text-muted-foreground">Slate, salary, stacks, and uploads</div>
+      </div>
+      <div className="hidden border-b border-border/80 px-4 py-3 md:block">
+        <div className="mb-2 text-xs text-muted-foreground">Contest site</div>
+        <div className="flex gap-1 rounded-xl border border-border bg-muted/70 p-1">
           {(["dk", "fd"] as const).map((option) => (
             <button
               key={option}
-              type="button"
-              className={`rounded px-3 py-1.5 font-medium ${
-                site === option ? "bg-ink text-white" : "text-slate-600"
-              }`}
               onClick={() => onSiteChange(option)}
+              className={`focus-ring flex-1 rounded-lg py-1.5 text-sm transition-colors ${
+                site === option
+                  ? "bg-white font-medium text-primary shadow-sm"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
+              type="button"
             >
-              {option === "dk" ? "DK" : "FD"}
+              {option === "dk" ? "DraftKings" : "FanDuel"}
             </button>
           ))}
         </div>
       </div>
-
-      <div className="grid gap-3 sm:grid-cols-2">
-        <label className="grid gap-1 text-sm">
-          <span className="font-medium">Lineups</span>
+      <div className="divide-y divide-border/80">
+        <div className="flex items-center justify-between px-4 py-3">
+          <div>
+            <div className="text-sm font-medium">Lineups</div>
+            <div className="text-xs text-muted-foreground">Max 20 free lineups</div>
+          </div>
           <input
-            className="rounded-md border border-line px-3 py-2"
-            type="number"
-            min={1}
+            className="focus-ring h-9 w-16 rounded-lg border border-border bg-white px-2 text-right text-sm shadow-sm"
             max={20}
+            min={1}
+            onChange={(event) => onNumLineupsChange(Math.max(1, Math.min(20, Number(event.target.value) || 1)))}
+            type="number"
             value={numLineups}
-            onChange={(event) => onNumLineupsChange(Number(event.target.value))}
           />
-        </label>
+        </div>
 
-        <label className="grid gap-1 text-sm">
-          <span className="font-medium">Stack Team</span>
+        <div className="flex items-center justify-between gap-3 px-4 py-3">
+          <div>
+            <div className="text-sm font-medium">Stack team</div>
+            <div className="text-xs text-muted-foreground">Force batters from one team</div>
+          </div>
           <select
-            className="rounded-md border border-line px-3 py-2"
-            value={settings.stack_team ?? ""}
+            className="focus-ring h-9 rounded-lg border border-border bg-white px-2 text-sm shadow-sm"
             onChange={(event) => updateSettings({ stack_team: event.target.value || null })}
+            value={settings.stack_team ?? ""}
           >
-            <option value="">No forced stack</option>
+            <option value="">No stack</option>
             {teams.map((team) => (
               <option key={team} value={team}>
                 {team}
               </option>
             ))}
           </select>
-        </label>
+        </div>
 
-        <label className="grid gap-1 text-sm">
-          <span className="font-medium">Stack Count: {settings.stack_count}</span>
+        <div className="px-4 py-3">
+          <div className="mb-2 flex items-center justify-between">
+            <div className="text-sm font-medium">Stack count</div>
+            <span className="text-sm font-medium">{settings.stack_count}</span>
+          </div>
           <input
-            type="range"
-            min={2}
+            className="w-full accent-primary"
             max={6}
-            value={settings.stack_count}
+            min={2}
             onChange={(event) => updateSettings({ stack_count: Number(event.target.value) })}
+            step={1}
+            type="range"
+            value={settings.stack_count}
           />
-        </label>
+          <div className="mt-1 flex justify-between text-[10px] text-muted-foreground">
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+          </div>
+        </div>
 
-        <label className="grid gap-1 text-sm">
-          <span className="font-medium">Min Salary Used</span>
+        <div className="flex items-center justify-between px-4 py-3">
+          <div>
+            <div className="text-sm font-medium">Min salary used</div>
+            <div className="text-xs text-muted-foreground">Cap: {site === "dk" ? "$50,000" : "$35,000"}</div>
+          </div>
           <input
-            className="rounded-md border border-line px-3 py-2"
-            type="number"
-            min={0}
-            value={settings.min_salary_used}
+            className="focus-ring h-9 w-24 rounded-lg border border-border bg-white px-2 text-right text-sm shadow-sm"
+            max={site === "dk" ? 50000 : 35000}
+            min={site === "dk" ? 45000 : 30000}
             onChange={(event) => updateSettings({ min_salary_used: Number(event.target.value) })}
+            step={100}
+            type="number"
+            value={settings.min_salary_used}
           />
-        </label>
+        </div>
+
+        <div className="flex items-center justify-between px-4 py-3">
+          <div>
+            <div className="text-sm font-medium">Avoid pitcher vs own batters</div>
+            <div className="text-xs text-muted-foreground">Recommended for GPP</div>
+          </div>
+          <button
+            aria-checked={settings.pitcher_vs_batter_same_team === "avoid"}
+            className={`focus-ring relative h-6 w-10 rounded-full transition-colors ${
+              settings.pitcher_vs_batter_same_team === "avoid" ? "bg-primary" : "bg-muted"
+            }`}
+            onClick={() =>
+              updateSettings({
+                pitcher_vs_batter_same_team:
+                  settings.pitcher_vs_batter_same_team === "avoid" ? "allow" : "avoid",
+              })
+            }
+            role="switch"
+            type="button"
+          >
+            <span
+              className={`absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform ${
+                settings.pitcher_vs_batter_same_team === "avoid" ? "translate-x-4" : "translate-x-0"
+              }`}
+            />
+          </button>
+        </div>
+
+        <div className="px-4 py-3">
+          <div className="mb-1 text-sm font-medium">Custom projections</div>
+          <div className="mb-3 text-xs text-muted-foreground">
+            Upload Name, Team, Projection columns or a DK export CSV.
+          </div>
+          <label className="focus-ring flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-white py-2.5 text-sm text-muted-foreground shadow-sm transition-colors hover:bg-muted/50">
+            <Upload className="h-4 w-4" />
+            Upload CSV
+            <input className="sr-only" type="file" accept=".csv" onChange={(event) => handleCsv(event.target.files?.[0])} />
+          </label>
+          {csvMatchResult ? (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Matched {csvMatchResult.matched}/{csvMatchResult.total} players
+              {csvMatchResult.unmatched.length ? ` · Not found: ${csvMatchResult.unmatched.slice(0, 5).join(", ")}` : ""}
+            </p>
+          ) : null}
+        </div>
       </div>
-
-      <label className="mt-4 flex items-center gap-2 text-sm">
-        <input
-          type="checkbox"
-          checked={settings.pitcher_vs_batter_same_team === "avoid"}
-          onChange={(event) =>
-            updateSettings({
-              pitcher_vs_batter_same_team: event.target.checked ? "avoid" : "allow",
-            })
-          }
-        />
-        Avoid pitcher facing same-team batters
-      </label>
-
-      <label className="mt-4 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed border-line bg-field px-3 py-3 text-sm font-medium text-slate-700">
-        <Upload size={16} />
-        Upload custom projections CSV
-        <input className="hidden" type="file" accept=".csv" onChange={(e) => handleCsv(e.target.files?.[0])} />
-      </label>
     </section>
   );
+}
+
+function parseNameAndId(value: string) {
+  const match = value.match(/^(.*?)\s*\((\d+)\)\s*$/);
+  if (!match) return { name: value.trim(), playerId: undefined };
+  return { name: match[1].trim(), playerId: Number(match[2]) };
+}
+
+function parsePositions(value: string) {
+  if (!value) return undefined;
+  const positions = value
+    .split(/[\/,]/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((position) => (["LF", "CF", "RF"].includes(position) ? "OF" : position));
+  return positions.length ? Array.from(new Set(positions)) : undefined;
 }

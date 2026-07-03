@@ -8,8 +8,10 @@ from pydantic import BaseModel, Field, field_validator
 
 Site = Literal["dk", "fd"]
 LineupStatus = Literal["confirmed", "expected", "unconfirmed", "dnp"]
+DataStatus = Literal["live", "cached", "partial", "mock", "error"]
 ProjectionSource = Literal[
     "15d_counts_cached_season_splits",
+    "season_with_15d_form_blend",
     "season_avg_fallback",
     "mock_projection",
     "user_override",
@@ -65,6 +67,8 @@ class Player(BaseModel):
 class PlayerPoolResponse(BaseModel):
     game_date: str
     last_updated: datetime
+    data_status: DataStatus = "live"
+    warnings: list[str] = []
     games: list[GameSummary]
     players: list[Player]
     message: str | None = None
@@ -74,12 +78,16 @@ class PlayerInput(BaseModel):
     mlbam_id: int
     name: str
     team: str
+    opponent: str | None = None
     position: list[str]
     salary: int
     projected_points: float = Field(ge=0)
     lock: bool = False
     exclude: bool = False
     max_exposure: float = Field(default=1.0, ge=0.0, le=1.0)
+    lineup_status: LineupStatus | None = None
+    external_id: str | None = None
+    name_id: str | None = None
 
     @field_validator("position")
     @classmethod
@@ -111,6 +119,8 @@ class LineupPlayer(BaseModel):
     salary: int
     projected_points: float
     team: str
+    external_id: str | None = None
+    name_id: str | None = None
 
 
 class Lineup(BaseModel):
@@ -128,6 +138,14 @@ class OptimizeResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     status: str
+    app_env: str
+    use_mock_data: bool
+    data_status: DataStatus
+    data_warnings: list[str] = []
     cache_age_seconds: int | None
+    season_cache_exists: bool
+    season_cache_age_hours: float | None
+    season_cache_players: int
     last_lineup_refresh: datetime | None
     players_loaded: int
+    statsapi_available: bool

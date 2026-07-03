@@ -1,5 +1,6 @@
 export type Site = "dk" | "fd";
 export type LineupStatus = "confirmed" | "expected" | "unconfirmed" | "dnp";
+export type DataStatus = "live" | "cached" | "partial" | "mock" | "error";
 
 export interface GameSummary {
   game_id: number;
@@ -47,6 +48,8 @@ export interface Player {
 export interface PlayerPoolResponse {
   game_date: string;
   last_updated: string;
+  data_status: DataStatus;
+  warnings: string[];
   games: GameSummary[];
   players: Player[];
   message?: string | null;
@@ -64,12 +67,16 @@ export interface PlayerInput {
   mlbam_id: number;
   name: string;
   team: string;
+  opponent?: string | null;
   position: string[];
   salary: number;
   projected_points: number;
   lock: boolean;
   exclude: boolean;
   max_exposure: number;
+  lineup_status?: LineupStatus | null;
+  external_id?: string | null;
+  name_id?: string | null;
 }
 
 export interface OptimizeRequest {
@@ -86,6 +93,8 @@ export interface LineupPlayer {
   salary: number;
   projected_points: number;
   team: string;
+  external_id?: string | null;
+  name_id?: string | null;
 }
 
 export interface Lineup {

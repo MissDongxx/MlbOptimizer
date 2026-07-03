@@ -39,6 +39,17 @@ The season cache job is implemented in `backend/services/season_cache.py`. It wr
 backend/cache/season_splits.json
 ```
 
+All JSON cache reads/writes go through `backend/services/cache_store.py`. The default backend is local
+disk, which is appropriate for a VPS deployment. Set `CACHE_DIR` to move cache files onto a persistent
+data volume:
+
+```bash
+CACHE_DIR=/var/lib/lineuplab/cache
+```
+
+The same adapter boundary can later be replaced with R2/S3/MinIO storage if long-term Statcast or
+machine-learning datasets outgrow local JSON caches.
+
 ## Frontend
 
 ```bash
@@ -63,17 +74,21 @@ Implemented:
 - Projection constants and cache helpers
 - Daily season-splits refresh function
 - Mock player pool for local development
-- Greedy fallback optimizer for DK/FD roster shapes
+- `pydfs-lineup-optimizer` adapter for DK/FD MLB roster solving, with greedy fallback only for
+  local dependency/adapter failures
+- Live `statsapi` schedule and batting-order extraction when `USE_MOCK_DATA=false`
+- FanGraphs/pybaseball id to MLBAM id mapping in the season cache via
+  `pybaseball.playerid_reverse_lookup()`
 - Next.js optimizer page
-- Settings panel, CSV projection upload, player table filters
+- Settings panel, CSV projection/salary/position upload, player table filters
 - Lock/exclude controls
 - Central projection overrides for multi-position players
 - Lineup display and CSV export
 
 Still to harden before production:
 
-- Enable and validate real `statsapi` lineup extraction
-- Map pybaseball IDs to MLBAM IDs robustly in season cache
-- Replace fallback optimizer with full `pydfs-lineup-optimizer` adapter
-- Add tests around infeasible locks, salary constraints, and multi-position overrides
-- Add production salary feed ingestion
+- Validate live `statsapi` lineup extraction against current-day pre-lock slates and late lineup
+  release edge cases
+- Add broader tests around multi-position overrides and same-game pitcher/batter restrictions
+- Add production salary feed ingestion beyond user-uploaded DK/FD CSV files
+- Confirm Render cold-start timing after deployment

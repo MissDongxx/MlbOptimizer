@@ -1,22 +1,59 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { absoluteUrl, brandName, defaultOgImage, homeSeo, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MLB Optimizer — Free DFS Lineup Builder | LineupLab",
-  description:
-    "Free MLB DFS lineup optimizer for DraftKings and FanDuel. Auto-generates split-adjusted projections with confirmed starting lineups.",
-  keywords:
-    "mlb optimizer, mlb dfs optimizer, draftkings mlb optimizer, fanduel mlb optimizer, free mlb lineup optimizer",
+  metadataBase: new URL(siteUrl),
+  title: homeSeo.title,
+  description: homeSeo.description,
+  keywords: homeSeo.keywords,
+  applicationName: brandName,
+  authors: [{ name: brandName, url: siteUrl }],
+  creator: brandName,
+  publisher: brandName,
   openGraph: {
-    title: "MLB DFS Lineup Optimizer — Free | LineupLab",
-    description:
-      "Optimize MLB DFS lineups with split-adjusted projections and live lineup data.",
-    url: "https://lineuplab.io",
+    title: homeSeo.title,
+    description: homeSeo.description,
+    url: siteUrl,
+    siteName,
     type: "website",
+    images: [
+      {
+        url: defaultOgImage,
+        width: 1600,
+        height: 1000,
+        alt: "DiamScore MLB optimizer dashboard with DFS lineup projections and slate analytics",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeSeo.title,
+    description: homeSeo.description,
+    images: [defaultOgImage],
   },
   alternates: {
-    canonical: "https://lineuplab.io",
+    canonical: siteUrl,
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: absoluteUrl("/diamscore-hero-analytics.png"),
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

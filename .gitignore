@@ -16,6 +16,7 @@ node_modules/
 out/
 frontend/.env.local
 frontend/.turbo/
+*.tsbuildinfo
 
 # Logs
 *.log

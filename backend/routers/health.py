@@ -1,17 +1,42 @@
+import os
+
 from fastapi import APIRouter
 
 from models.schemas import HealthResponse
-from services.lineup_data import get_last_refresh_timestamp, get_player_count
+from services.lineup_data import (
+    get_data_status,
+    get_data_warnings,
+    get_last_refresh_timestamp,
+    get_player_count,
+)
 from services.projections import get_cache_age
+from services.season_cache import season_cache_health
 
 router = APIRouter()
 
 
 @router.get("/health", response_model=HealthResponse)
 async def health() -> HealthResponse:
+    season_cache = season_cache_health()
     return HealthResponse(
         status="ok",
+        app_env=os.getenv("APP_ENV", "development"),
+        use_mock_data=os.getenv("USE_MOCK_DATA", "true").lower() == "true",
+        data_status=get_data_status(),
+        data_warnings=get_data_warnings(),
         cache_age_seconds=get_cache_age(),
+        season_cache_exists=bool(season_cache["exists"]),
+        season_cache_age_hours=season_cache["age_hours"],
+        season_cache_players=int(season_cache["players"]),
         last_lineup_refresh=get_last_refresh_timestamp(),
         players_loaded=get_player_count(),
+        statsapi_available=_statsapi_available(),
     )
+
+
+def _statsapi_available() -> bool:
+    try:
+        import statsapi  # type: ignore # noqa: F401
+    except ImportError:
+        return False
+    return True
