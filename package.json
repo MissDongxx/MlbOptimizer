@@ -1,0 +1,7 @@
+{
+  "name": "diamscore-deploy",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix frontend ci && NEXT_PUBLIC_API_URL=/api npm --prefix frontend run build && rm -rf out && cp -a frontend/out ./out"
+  }
+}

@@ -84,6 +84,16 @@ Required GitHub repository secrets:
 - `VPS_SSH_KEY`
 - `VPS_PORT` optional, defaults to `22`
 
+`VPS_SSH_KEY` must be a private key whose matching public key exists in the VPS user's
+`~/.ssh/authorized_keys`. For root deployments this is `/root/.ssh/authorized_keys`.
+If the Actions job fails immediately in `Deploy on VPS`, SSH authentication is the first thing to check.
+
+Cloudflare Pages can be configured in either of these ways:
+
+- Preferred: root directory `frontend`, build command `npm run build`, output directory `out`.
+- Fallback: root directory empty, build command `npm run build`, output directory `out`. The root
+  `package.json` delegates the build to `frontend` and copies `frontend/out` to root `out`.
+
 Runtime parameters stay on their deployment targets:
 
 - VPS backend: `/opt/diamscore/backend/.env` should contain only secrets such as `BREVO_API_KEY`,
