@@ -20,3 +20,6 @@ frontend/.turbo/
 
 # Logs
 *.log
+
+# Local deployment keys
+.deploy/
