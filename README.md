@@ -71,14 +71,14 @@ Pushing to `dev` or `main` runs `.github/workflows/deploy.yml`.
 
 The workflow:
 
-- builds and deploys `frontend/out` to Cloudflare Pages project `diamscore`
 - SSHes into the VPS, checks out the same Git commit, syncs backend dependencies, restarts `diamscore-api`,
   rebuilds the static frontend, and reloads Nginx from `/var/www/diamscore`
+- Cloudflare Pages deploys the frontend through its GitHub OAuth integration. Configure the Pages project
+  with root directory `frontend`, build command `npm run build`, output directory `out`, and
+  `NEXT_PUBLIC_API_URL=/api`.
 
 Required GitHub repository secrets:
 
-- `CLOUDFLARE_ACCOUNT_ID`
-- `CLOUDFLARE_API_TOKEN`
 - `VPS_HOST`
 - `VPS_USER`
 - `VPS_SSH_KEY`
