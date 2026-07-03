@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import json
 import logging
 import os
-import smtplib
-import ssl
-from email.message import EmailMessage
-from html import escape
 from datetime import UTC, datetime
+from html import escape
+from urllib.error import HTTPError, URLError
+from urllib.request import Request as UrlRequest
+from urllib.request import urlopen
 
 from fastapi import APIRouter, HTTPException, Request, status
 from models.schemas import ContactRequest, ContactResponse
@@ -17,6 +18,7 @@ router = APIRouter()
 
 SUPPORT_EMAIL = "support@DiamScore.com"
 CONTACT_SUBMISSIONS_KEY = "contact_submissions"
+BREVO_SEND_EMAIL_URL = "https://api.brevo.com/v3/smtp/email"
 
 
 @router.post("/", response_model=ContactResponse, status_code=status.HTTP_202_ACCEPTED)
@@ -25,11 +27,11 @@ def submit_contact(payload: ContactRequest, request: Request) -> ContactResponse
         logger.info("Dropped contact form honeypot submission from %s", _client_ip(request))
         return ContactResponse(ok=True, message="Thanks. Your message has been received.")
 
-    if _smtp_configured():
+    if _brevo_configured():
         try:
-            _send_support_email(payload, request)
+            _send_brevo_email(payload, request)
         except RuntimeError as exc:
-            logger.exception("Contact email delivery failed")
+            logger.exception("Brevo contact email delivery failed")
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail=str(exc),
@@ -40,17 +42,12 @@ def submit_contact(payload: ContactRequest, request: Request) -> ContactResponse
     return ContactResponse(ok=True, message="Thanks. Your message has been received.")
 
 
-def _send_support_email(payload: ContactRequest, request: Request) -> None:
-    smtp_host = os.getenv("SMTP_HOST")
-    smtp_port = int(os.getenv("SMTP_PORT", "587"))
-    smtp_user = os.getenv("SMTP_USER")
-    smtp_password = os.getenv("SMTP_PASSWORD")
-    smtp_from = os.getenv("SMTP_FROM", smtp_user or SUPPORT_EMAIL)
-    smtp_use_tls = os.getenv("SMTP_USE_TLS", "true").lower() != "false"
-
-    if not smtp_host or not smtp_user or not smtp_password:
-        raise RuntimeError("Email delivery is not configured.")
-
+def _send_brevo_email(payload: ContactRequest, request: Request) -> None:
+    api_key = os.getenv("BREVO_API_KEY")
+    sender_email = os.getenv("BREVO_SENDER_EMAIL", SUPPORT_EMAIL)
+    sender_name = os.getenv("BREVO_SENDER_NAME", "DiamScore")
+    if not api_key:
+        raise RuntimeError("Brevo API key is not configured.")
     subject = f"DiamScore contact: {payload.email}"
     plain_body = (
         "New DiamScore contact form submission\n\n"
@@ -67,25 +64,38 @@ def _send_support_email(payload: ContactRequest, request: Request) -> None:
     <p><strong>Message:</strong></p>
     <pre style="white-space:pre-wrap;font-family:system-ui,sans-serif">{escape(payload.message or '(No message provided)')}</pre>
     """
+    body = {
+        "sender": {"email": sender_email, "name": sender_name},
+        "to": [{"email": SUPPORT_EMAIL, "name": "DiamScore Support"}],
+        "replyTo": {"email": str(payload.email)},
+        "subject": subject,
+        "textContent": plain_body,
+        "htmlContent": html_body,
+    }
+    request_body = json.dumps(body).encode("utf-8")
+    brevo_request = UrlRequest(
+        BREVO_SEND_EMAIL_URL,
+        data=request_body,
+        headers={
+            "accept": "application/json",
+            "api-key": api_key,
+            "content-type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(brevo_request, timeout=10) as response:
+            if response.status >= 400:
+                raise RuntimeError(f"Brevo returned HTTP {response.status}")
+    except HTTPError as exc:
+        details = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Brevo returned HTTP {exc.code}: {details}") from exc
+    except URLError as exc:
+        raise RuntimeError(f"Brevo request failed: {exc.reason}") from exc
 
-    message = EmailMessage()
-    message["Subject"] = subject
-    message["From"] = smtp_from
-    message["To"] = SUPPORT_EMAIL
-    message["Reply-To"] = payload.email
-    message.set_content(plain_body)
-    message.add_alternative(html_body, subtype="html")
 
-    context = ssl.create_default_context()
-    with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as server:
-        if smtp_use_tls:
-            server.starttls(context=context)
-        server.login(smtp_user, smtp_password)
-        server.send_message(message)
-
-
-def _smtp_configured() -> bool:
-    return bool(os.getenv("SMTP_HOST") and os.getenv("SMTP_USER") and os.getenv("SMTP_PASSWORD"))
+def _brevo_configured() -> bool:
+    return bool(os.getenv("BREVO_API_KEY"))
 
 
 def _store_contact_submission(payload: ContactRequest, request: Request) -> None:
