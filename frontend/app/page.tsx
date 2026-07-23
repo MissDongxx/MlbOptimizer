@@ -2,25 +2,29 @@
 
 import {
   Activity,
-  ChartBar,
   ChevronDown,
   Download,
   List,
   Mail,
-  Radio,
   Settings,
   ShieldCheck,
   Sparkles,
-  Trophy,
   Users,
+  X,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { LineupGrid } from "@/components/LineupGrid";
 import { PlayerPool, projectionFor, salaryFor } from "@/components/PlayerPool";
 import { SettingsPanel } from "@/components/SettingsPanel";
 import { TopStacks } from "@/components/TopStacks";
-import { fetchTodaysPlayers, runOptimizer, sendContactMessage } from "@/lib/api";
-import type { OptimizeResponse, OptimizerSettings, PlayerPoolResponse, Site } from "@/lib/types";
+import { fetchSlates, fetchTodaysPlayers, runOptimizer, sendContactMessage } from "@/lib/api";
+import type {
+  OptimizeResponse,
+  OptimizerSettings,
+  PlayerPoolResponse,
+  Site,
+  SlateSummary,
+} from "@/lib/types";
 
 interface CsvOverrideRow {
   name: string;
@@ -172,24 +176,6 @@ const seoResourceLinks = [
   },
 ];
 
-const valueProps = [
-  {
-    icon: ChartBar,
-    title: "Split-aware edge",
-    desc: "Recent form weighted against pitcher handedness",
-  },
-  {
-    icon: Radio,
-    title: "Lineup signal",
-    desc: "Confirmed batting orders, DNP filters, and starter context",
-  },
-  {
-    icon: Trophy,
-    title: "Contest-ready builds",
-    desc: "Stack controls, lock/fade, and DK/FD CSV export",
-  },
-];
-
 const howItWorks = [
   {
     step: "01",
@@ -255,7 +241,6 @@ const faqItems = [
 
 const footerLinks = [
   { href: "#optimizer", label: "MLB optimizer" },
-  { href: "#stacks", label: "Today's top stacks" },
   { href: "/mlb-dfs-optimizer", label: "MLB DFS optimizer" },
   { href: "/mlb-lineup-optimizer", label: "MLB lineup optimizer" },
   { href: "/draftkings-mlb-optimizer", label: "DraftKings MLB" },
@@ -268,16 +253,9 @@ const footerLinks = [
 
 const navLinks = [
   { href: "#optimizer", label: "Optimizer" },
-  { href: "#stacks", label: "Stacks" },
   { href: "#process", label: "How it works" },
   { href: "#scoring", label: "Scoring" },
   { href: "#faq", label: "FAQ" },
-];
-
-const heroStats = [
-  { label: "Max entries", value: "20" },
-  { label: "Sites", value: "DK/FD" },
-  { label: "Workflow", value: "CSV" },
 ];
 
 const loadingMessages = [
@@ -307,6 +285,9 @@ export default function Home() {
     unique_lineups: true,
   });
   const [data, setData] = useState<PlayerPoolResponse | null>(null);
+  const [showDataNotice, setShowDataNotice] = useState(true);
+  const [slates, setSlates] = useState<SlateSummary[]>([]);
+  const [selectedSlateId, setSelectedSlateId] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loadingPlayers, setLoadingPlayers] = useState(true);
   const [optimizing, setOptimizing] = useState(false);
@@ -325,8 +306,57 @@ export default function Home() {
   const [sendingContact, setSendingContact] = useState(false);
 
   useEffect(() => {
-    loadPlayers();
-  }, []);
+    let cancelled = false;
+
+    async function loadSiteData() {
+      setLoadingPlayers(true);
+      setShowDataNotice(true);
+      setError(null);
+      setResult(null);
+      try {
+        const slateResponse = await fetchSlates(site);
+        if (cancelled) return;
+        const availableSlates = slateResponse.slates.filter(
+          (slate) => slate.slate_type === "classic",
+        );
+        const selected =
+          availableSlates.find((slate) => slate.is_default) ??
+          availableSlates.find((slate) => slate.slate_type === "classic") ??
+          availableSlates[0];
+        setSlates(availableSlates);
+        setSelectedSlateId(selected?.provider_slate_id ?? "");
+        const playerData = selected
+          ? await fetchTodaysPlayers(site, selected.provider_slate_id)
+          : await fetchTodaysPlayers();
+        if (!cancelled) setData(playerData);
+      } catch (slateError) {
+        try {
+          const fallback = await fetchTodaysPlayers();
+          if (!cancelled) {
+            setSlates([]);
+            setSelectedSlateId("");
+            setData(fallback);
+            setError(
+              slateError instanceof Error
+                ? `${slateError.message}. Loaded the default player pool instead.`
+                : "Slate list unavailable. Loaded the default player pool instead.",
+            );
+          }
+        } catch (playerError) {
+          if (!cancelled) {
+            setError(playerError instanceof Error ? playerError.message : "Failed to load players");
+          }
+        }
+      } finally {
+        if (!cancelled) setLoadingPlayers(false);
+      }
+    }
+
+    void loadSiteData();
+    return () => {
+      cancelled = true;
+    };
+  }, [site]);
 
   useEffect(() => {
     if (!optimizing) return;
@@ -336,7 +366,15 @@ export default function Home() {
     return () => window.clearInterval(timer);
   }, [optimizing]);
 
-  const players = data?.players ?? [];
+  const allPlayers = data?.players ?? [];
+  const players = useMemo(
+    () =>
+      allPlayers.filter(
+        (player) =>
+          (salaryOverrides[String(player.mlbam_id)]?.salary ?? salaryFor(player, site)) > 0,
+      ),
+    [allPlayers, salaryOverrides, site],
+  );
   const teams = useMemo(() => Array.from(new Set(players.map((player) => player.team))).sort(), [players]);
   const lockedCount = Object.values(lockedPlayers).filter(Boolean).length;
   const excludedCount = Object.values(excludedPlayers).filter(Boolean).length;
@@ -351,11 +389,19 @@ export default function Home() {
     .filter((warning) => process.env.NODE_ENV === "development" || !warning.toLowerCase().includes("mock data"))
     .map((warning) => (warning.toLowerCase().includes("mock data") ? "Mock data active in development." : warning));
 
-  async function loadPlayers() {
+  async function changeSlate(slateId: string) {
+    if (!slateId || slateId === selectedSlateId) return;
+    setSelectedSlateId(slateId);
     setLoadingPlayers(true);
+    setShowDataNotice(true);
     setError(null);
+    setResult(null);
+    setSalaryOverrides({});
+    setCsvMatchResult(null);
+    setLockedPlayers({});
+    setExcludedPlayers({});
     try {
-      setData(await fetchTodaysPlayers());
+      setData(await fetchTodaysPlayers(site, slateId));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load players");
     } finally {
@@ -387,7 +433,14 @@ export default function Home() {
   }
 
   function changeSite(nextSite: Site) {
+    if (nextSite === site) return;
     setSite(nextSite);
+    setSlates([]);
+    setSelectedSlateId("");
+    setSalaryOverrides({});
+    setCsvMatchResult(null);
+    setLockedPlayers({});
+    setExcludedPlayers({});
     setSettings((current) => ({
       ...current,
       min_salary_used: nextSite === "dk" ? 49500 : 34500,
@@ -407,7 +460,7 @@ export default function Home() {
     const unmatched: string[] = [];
     let matched = 0;
     for (const row of rows) {
-      const match = players.find(
+      const match = allPlayers.find(
         (player) =>
           (row.playerId ? player.mlbam_id === row.playerId : normalize(player.name) === normalize(row.name)) &&
           (!row.team || player.team.toLowerCase() === row.team.toLowerCase()),
@@ -447,8 +500,8 @@ export default function Home() {
     const salaryReadyPlayers = eligiblePlayers.filter(
       (player) => (salaryOverrides[String(player.mlbam_id)]?.salary ?? salaryFor(player, site)) > 0,
     );
-    if (!salaryReadyPlayers.length || (salaryReadyPlayers.length < eligiblePlayers.length && !csvMatchResult)) {
-      setError("Salary data is missing. Upload a DraftKings/FanDuel salary CSV before optimizing.");
+    if (!salaryReadyPlayers.length) {
+      setError(`No ${site.toUpperCase()} salary data is available for this slate.`);
       return;
     }
 
@@ -467,7 +520,10 @@ export default function Home() {
             name: player.name,
             team: player.team,
             opponent: player.opponent,
-            position: salaryOverride?.positions ?? player.position,
+            position:
+              salaryOverride?.positions ??
+              (site === "dk" ? player.position_dk : player.position_fd) ??
+              player.position,
             salary: salaryOverride?.salary ?? salaryFor(player, site),
             projected_points: projectionFor(player, site, overriddenPlayers),
             lock: Boolean(lockedPlayers[id]),
@@ -477,8 +533,9 @@ export default function Home() {
               (salaryOverride?.salary ?? salaryFor(player, site)) <= 0,
             max_exposure: exposureOverrides[id] ?? 1,
             lineup_status: player.lineup_status,
-            external_id: salaryOverride?.externalId,
-            name_id: salaryOverride?.nameId,
+            external_id:
+              salaryOverride?.externalId ?? (site === "dk" ? player.external_id_dk : player.external_id_fd),
+            name_id: salaryOverride?.nameId ?? (site === "dk" ? player.name_id_dk : player.name_id_fd),
           };
         }),
       });
@@ -520,7 +577,7 @@ export default function Home() {
       }}
       salaryWarning={
         salaryMissingCount
-          ? `${salaryMissingCount} players missing ${site.toUpperCase()} salary; upload CSV or they will be excluded.`
+          ? `${salaryMissingCount} players are not on the current ${site.toUpperCase()} slate and will be excluded.`
           : undefined
       }
       lastUpdated={data?.last_updated}
@@ -636,76 +693,26 @@ export default function Home() {
         ))}
       </nav>
 
-      <section id="home" className="relative z-10 overflow-hidden border-b border-border/70 px-6 py-12 md:px-8 md:py-16">
+      <section id="home" className="relative z-10 overflow-hidden border-b border-border/70 px-6 py-10 md:px-8 md:py-12">
         <img
           src="/diamscore-hero-analytics.png"
           alt="DiamScore MLB optimizer dashboard with DFS lineup projections, stack controls, and slate analytics"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-45"
         />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.88)_44%,rgba(255,255,255,0.58)_100%)]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-background to-transparent" />
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
-          <div className="relative">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3 py-1 text-xs font-medium text-primary shadow-sm backdrop-blur">
-              <Sparkles size={14} />
-              Built for MLB DFS slate decisions
-            </div>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-accent-foreground md:text-6xl">
-              Free MLB DFS Lineup Optimizer
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-              Build DraftKings and FanDuel lineups with split-adjusted projections, live starting lineup data, and stack-aware
-              controls tuned for serious DFS players.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#optimizer"
-                className="focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground shadow-lg shadow-teal-900/15 transition-transform hover:-translate-y-0.5"
-              >
-                <Activity size={16} />
-                Launch optimizer
-              </a>
-              <a
-                href="#scoring"
-                className="focus-ring inline-flex h-11 items-center justify-center px-2 text-sm font-medium text-primary underline-offset-4 transition-colors hover:text-accent-foreground hover:underline"
-              >
-                Compare scoring
-              </a>
-            </div>
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.88)_52%,rgba(255,255,255,0.62)_100%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3 py-1 text-xs font-medium text-primary shadow-sm backdrop-blur">
+            <Sparkles size={14} />
+            Built for MLB DFS slate decisions
           </div>
-
-          <div className="magic-card rounded-2xl p-4 md:p-5">
-            <div className="relative">
-              <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <div className="text-sm font-semibold">Slate readiness</div>
-                  <div className="text-xs text-muted-foreground">Projection workflow snapshot</div>
-                </div>
-                <div className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">Live</div>
-              </div>
-              <div className="grid grid-cols-3 gap-2">
-                {heroStats.map((stat) => (
-                  <div key={stat.label} className="rounded-xl border border-border bg-white/80 p-3">
-                    <div className="text-lg font-semibold tabular-nums">{stat.value}</div>
-                    <div className="mt-1 text-[11px] text-muted-foreground">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 space-y-2">
-                {valueProps.map(({ icon: Icon, title, desc }) => (
-                  <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-white/70 p-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Icon size={16} />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium">{title}</div>
-                      <div className="mt-0.5 text-xs leading-5 text-muted-foreground">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-accent-foreground md:text-6xl">
+            Free MLB DFS Lineup Optimizer
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+            Build DraftKings and FanDuel lineups with split-adjusted projections, live starting lineup data, and stack-aware
+            controls tuned for serious DFS players.
+          </p>
         </div>
       </section>
 
@@ -713,21 +720,52 @@ export default function Home() {
         id="optimizer"
         className="relative z-10 mx-auto flex h-[calc(100dvh-3.5rem)] min-h-[660px] w-full max-w-7xl scroll-mt-24 flex-col px-3 py-4 md:h-[calc(100vh-4rem)] md:px-6 md:py-6"
       >
-        {error ? (
-          <div className="mb-3 shrink-0 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-xs text-red-700 shadow-sm">{error}</div>
+        {slates.length ? (
+          <div className="mb-3 flex shrink-0 items-center gap-3 rounded-xl border border-border bg-white px-4 py-2 shadow-sm">
+            <label className="whitespace-nowrap text-xs font-medium text-muted-foreground" htmlFor="slate-select">
+              {site.toUpperCase()} Slate
+            </label>
+            <select
+              id="slate-select"
+              value={selectedSlateId}
+              onChange={(event) => void changeSlate(event.target.value)}
+              className="focus-ring min-w-0 flex-1 rounded-lg border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground"
+              disabled={loadingPlayers}
+            >
+              {slates.map((slate) => (
+                <option key={slate.slate_key} value={slate.provider_slate_id}>
+                  {slate.name} · {slate.game_count} games
+                </option>
+              ))}
+            </select>
+          </div>
         ) : null}
-        {data ? (
+        {data && showDataNotice ? (
           <div
-            className={`mb-3 shrink-0 rounded-xl border px-4 py-2 text-xs shadow-sm ${
+            className={`mb-3 flex shrink-0 items-center justify-between gap-3 rounded-xl border px-4 py-2 text-xs shadow-sm ${
               data.data_status === "live"
                 ? "border-green-200 bg-green-50 text-green-800"
                 : "border-yellow-200 bg-yellow-50 text-yellow-800"
             }`}
           >
-            {dataStatusLabel[data.data_status]} · DFS projections are estimates for research only and do not guarantee
-            contest results.
-            {dataWarnings.length ? ` ${dataWarnings.join(" ")}` : ""}
+            <span>
+              {dataStatusLabel[data.data_status]} · DFS projections are estimates for research only and do not guarantee
+              contest results.
+              {dataWarnings.length ? ` ${dataWarnings.join(" ")}` : ""}
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowDataNotice(false)}
+              className="focus-ring -mr-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-md transition-colors hover:bg-black/5"
+              aria-label="Dismiss data notice"
+              title="Dismiss"
+            >
+              <X size={14} />
+            </button>
           </div>
+        ) : null}
+        {error ? (
+          <div className="mb-3 shrink-0 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-xs text-red-700 shadow-sm">{error}</div>
         ) : null}
         {data?.message ? (
           <div className="mb-3 shrink-0 rounded-xl border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs text-yellow-800 shadow-sm">

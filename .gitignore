@@ -7,7 +7,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 backend/.env
-backend/cache/*.json
+backend/cache/**/*.json
+backend/cache/*.lock
 !backend/cache/.gitkeep
 
 # Node / Next
@@ -16,6 +17,7 @@ node_modules/
 out/
 frontend/.env.local
 frontend/.turbo/
+.wrangler/
 *.tsbuildinfo
 
 # Logs

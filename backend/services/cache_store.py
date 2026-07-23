@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import uuid
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -37,9 +38,12 @@ class LocalJsonCacheStore:
     def write_json(self, key: str, data: Any) -> None:
         path = self._path(key)
         path.parent.mkdir(parents=True, exist_ok=True)
-        tmp_path = path.with_suffix(f"{path.suffix}.tmp")
-        tmp_path.write_text(json.dumps(data, indent=2, sort_keys=True, default=str))
-        os.replace(tmp_path, path)
+        tmp_path = path.with_suffix(f"{path.suffix}.{uuid.uuid4().hex}.tmp")
+        try:
+            tmp_path.write_text(json.dumps(data, indent=2, sort_keys=True, default=str))
+            os.replace(tmp_path, path)
+        finally:
+            tmp_path.unlink(missing_ok=True)
 
     def _path(self, key: str) -> Path:
         normalized = key.strip().lstrip("/")

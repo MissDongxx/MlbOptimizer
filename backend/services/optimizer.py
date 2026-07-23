@@ -6,8 +6,8 @@ from collections import Counter
 from models.schemas import Lineup, LineupPlayer, OptimizeRequest, OptimizeResponse, PlayerInput
 
 
-DK_SLOTS = ["P", "P", "C/1B", "1B", "2B", "3B", "SS", "OF", "OF", "OF", "UTIL"]
-FD_SLOTS = ["P", "C", "1B", "2B", "3B", "SS", "OF", "OF", "OF", "UTIL"]
+DK_SLOTS = ["P", "P", "C", "1B", "2B", "3B", "SS", "OF", "OF", "OF"]
+FD_SLOTS = ["P", "C/1B", "2B", "3B", "SS", "OF", "OF", "OF", "UTIL"]
 
 
 class OptimizerError(Exception):
@@ -109,7 +109,7 @@ def _run_pydfs_optimizer(request: OptimizeRequest) -> OptimizeResponse:
                 player_id=pydfs_id,
                 first_name=_first_name(player.name),
                 last_name=_last_name(player.name),
-                positions=_pydfs_positions(player.position),
+                positions=_pydfs_positions(player.position, request.site),
                 team=player.team,
                 salary=player.salary,
                 fppg=player.projected_points,
@@ -257,11 +257,11 @@ def _serialize_lineup_player(slot: str, player: PlayerInput) -> LineupPlayer:
     )
 
 
-def _pydfs_positions(positions: list[str]) -> list[str]:
+def _pydfs_positions(positions: list[str], site: str) -> list[str]:
     mapped: list[str] = []
     for position in positions:
         if position == "P":
-            mapped.append("SP")
+            mapped.append("SP" if site == "dk" else "P")
         elif position == "C/1B":
             mapped.extend(["C", "1B"])
         elif position == "UTIL":

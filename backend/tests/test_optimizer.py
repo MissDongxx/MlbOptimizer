@@ -4,7 +4,7 @@ import unittest
 
 from models.schemas import OptimizeRequest, OptimizerSettings, PlayerInput
 from services.mock_data import mock_players
-from services.optimizer import OptimizerError, run_optimizer_sync
+from services.optimizer import DK_SLOTS, FD_SLOTS, OptimizerError, run_optimizer_sync
 
 
 def _mock_inputs(site: str = "dk") -> list[PlayerInput]:
@@ -26,6 +26,10 @@ def _mock_inputs(site: str = "dk") -> list[PlayerInput]:
 
 
 class OptimizerTests(unittest.TestCase):
+    def test_fallback_slots_match_current_classic_rosters(self) -> None:
+        self.assertEqual(DK_SLOTS, ["P", "P", "C", "1B", "2B", "3B", "SS", "OF", "OF", "OF"])
+        self.assertEqual(FD_SLOTS, ["P", "C/1B", "2B", "3B", "SS", "OF", "OF", "OF", "UTIL"])
+
     def test_dk_uses_pydfs_and_generates_five_lineups_under_constraints(self) -> None:
         players = _mock_inputs("dk")
         players[0].lock = True
@@ -73,6 +77,28 @@ class OptimizerTests(unittest.TestCase):
         self.assertTrue(
             any("Pitcher-vs-batter restriction was relaxed" in warning for warning in response.warnings)
         )
+
+    def test_fd_generates_nine_player_rosters_with_team_limit(self) -> None:
+        request = OptimizeRequest(
+            site="fd",
+            num_lineups=5,
+            settings=OptimizerSettings(
+                pitcher_vs_batter_same_team="allow",
+                min_salary_used=30000,
+            ),
+            players=_mock_inputs("fd"),
+        )
+
+        response = run_optimizer_sync(request)
+
+        self.assertEqual(len(response.lineups), 5)
+        for lineup in response.lineups:
+            self.assertEqual(len(lineup.players), 9)
+            hitters_by_team: dict[str, int] = {}
+            for player in lineup.players:
+                if player.position_slot != "P":
+                    hitters_by_team[player.team] = hitters_by_team.get(player.team, 0) + 1
+            self.assertLessEqual(max(hitters_by_team.values()), 4)
 
     def test_infeasible_locks_raise_optimizer_error(self) -> None:
         players = _mock_inputs("dk")

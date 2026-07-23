@@ -35,7 +35,14 @@ jobs:
 
             cd /opt/diamscore/backend
             uv sync --frozen
+            install -d /var/lib/diamscore/cache
+            install -d /etc/systemd/system/diamscore-api.service.d
+            install -m 0644 /opt/diamscore/deploy/diamscore-api-scheduler.conf /etc/systemd/system/diamscore-api.service.d/scheduler.conf
+            install -m 0644 /opt/diamscore/deploy/diamscore-data-worker.service /etc/systemd/system/diamscore-data-worker.service
+            systemctl daemon-reload
+            systemctl enable diamscore-data-worker
             systemctl restart diamscore-api
+            systemctl restart diamscore-data-worker
             for i in $(seq 1 10); do curl -fsS http://127.0.0.1:8000/health >/dev/null && break; sleep 2; done
 
             cd /opt/diamscore/frontend

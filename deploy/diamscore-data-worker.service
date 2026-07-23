@@ -1,0 +1,19 @@
+[Unit]
+Description=DiamScore MLB data refresh worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/diamscore/backend
+EnvironmentFile=-/opt/diamscore/backend/.env
+Environment=APP_ENV=production
+Environment=USE_MOCK_DATA=false
+Environment=CACHE_DIR=/var/lib/diamscore/cache
+ExecStart=/opt/diamscore/backend/.venv/bin/python /opt/diamscore/backend/data_worker.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

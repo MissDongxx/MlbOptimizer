@@ -46,6 +46,9 @@ FD_SCORING = {
 _projection_cache: dict[str, dict[str, Any]] = {}
 _cache_timestamp: datetime | None = None
 _player_log_cache: dict[str, dict[str, Any]] = {}
+_pitcher_usage_cache: dict[str, dict[str, Any]] = {}
+PLAYER_LOG_VERSION = 2
+PITCHER_USAGE_VERSION = 2
 
 
 def batting_order_multiplier(position: int | None) -> float:
@@ -144,11 +147,17 @@ def get_split_projection(
 def get_last_15_day_counts(player_mlbam_id: int) -> dict[str, Any]:
     today = date.today().isoformat()
     cache_key = f"{today}:{player_mlbam_id}"
-    if cache_key in _player_log_cache:
+    if (
+        cache_key in _player_log_cache
+        and _player_log_cache[cache_key].get("version") == PLAYER_LOG_VERSION
+    ):
         return _player_log_cache[cache_key]
 
     file_cache = _load_player_log_file(today)
-    if cache_key in file_cache:
+    if (
+        cache_key in file_cache
+        and file_cache[cache_key].get("version") == PLAYER_LOG_VERSION
+    ):
         _player_log_cache[cache_key] = file_cache[cache_key]
         return file_cache[cache_key]
 
@@ -158,15 +167,18 @@ def get_last_15_day_counts(player_mlbam_id: int) -> dict[str, Any]:
 
         end_date = date.today()
         start_date = end_date - timedelta(days=15)
-        data = statsapi.player_stat_data(
-            player_mlbam_id,
-            group="hitting",
-            type="gameLog",
-            sportId=1,
-            startDate=start_date.strftime("%m/%d/%Y"),
-            endDate=end_date.strftime("%m/%d/%Y"),
+        data = statsapi.get(
+            "person",
+            {
+                "personId": player_mlbam_id,
+                "hydrate": (
+                    "stats(group=[hitting],type=[gameLog],"
+                    f"startDate={start_date.isoformat()},endDate={end_date.isoformat()},sportId=1)"
+                ),
+            },
         )
-        for split in data.get("stats", [{}])[0].get("splits", []):
+        stats = (data.get("people") or [{}])[0].get("stats", [])
+        for split in (stats[0].get("splits", []) if stats else []):
             stat = split.get("stat", {})
             counts["games"] += 1
             counts["hits"] += _int_stat(stat, "hits")
@@ -187,26 +199,194 @@ def get_last_15_day_counts(player_mlbam_id: int) -> dict[str, Any]:
     return counts
 
 
-def get_pitcher_projection(player_mlbam_id: int, opposing_team_id: int, site: str = "dk") -> dict[str, Any]:
+def get_pitcher_projection(
+    player_mlbam_id: int,
+    opposing_team_id: int = 0,
+    site: str = "dk",
+    opposing_team: str | None = None,
+) -> dict[str, Any]:
     scoring = DK_SCORING if site == "dk" else FD_SCORING
+    season_cache = load_season_splits()
+    rates = season_cache.get("pitchers", {}).get(str(player_mlbam_id), {})
+    innings = _clamp(float(rates.get("innings_per_start", 5.3) or 5.3), 2.0, 8.0)
+    strikeouts = _clamp(float(rates.get("strikeouts_per_start", 5.8) or 5.8), 0.0, 14.0)
+    earned_runs = _clamp(float(rates.get("earned_runs_per_start", 2.4) or 2.4), 0.0, 8.0)
+    win_probability = _clamp(float(rates.get("win_probability", 0.34) or 0.34), 0.05, 0.8)
+    opponent_context = get_team_vegas_context(opposing_team)
+    opponent_runs = float(opponent_context.get("implied_runs", 4.4) or 4.4)
+    matchup_factor = _clamp(1 - ((opponent_runs - 4.4) / 4.4) * 0.22, 0.88, 1.12)
+    recent_usage = get_pitcher_recent_usage(player_mlbam_id)
+    workload_factor = float(recent_usage.get("workload_factor", 1.0) or 1.0)
     base_projection = (
-        5.3 * scoring["innings_pitched"]
-        + 5.8 * scoring["strikeout_pitched"]
-        + 0.34 * scoring["pitcher_win"]
-        + 2.4 * scoring["earned_run_allowed"]
+        innings * scoring["innings_pitched"]
+        + strikeouts * scoring["strikeout_pitched"]
+        + win_probability * scoring["pitcher_win"]
+        + earned_runs * scoring["earned_run_allowed"]
     )
+    projected_points = base_projection * matchup_factor * workload_factor
     return {
         "player_id": player_mlbam_id,
-        "projected_points": round(base_projection, 2),
-        "projection_source": "season_avg_fallback",
+        "projected_points": round(projected_points, 2),
+        "projection_source": "pitcher_season_rates" if rates else "season_avg_fallback",
         "vs_hand": None,
         "batting_order": None,
         "batting_order_multiplier": 1.0,
         "platoon_factor": 1.0,
         "base_projection": round(base_projection, 2),
         "opposing_team_id": opposing_team_id,
+        "opposing_team": opposing_team,
+        "matchup_factor": round(matchup_factor, 3),
+        "workload_factor": round(workload_factor, 3),
+        "recent_usage": recent_usage,
+        "pitcher_rates": rates,
+        "season_cache_last_updated": season_cache.get("last_updated"),
         "last_updated": datetime.now(UTC).isoformat(),
     }
+
+
+def get_pitcher_recent_usage(
+    player_mlbam_id: int,
+    as_of: date | None = None,
+) -> dict[str, Any]:
+    target_date = as_of or date.today()
+    cache_key = f"{target_date.isoformat()}:{player_mlbam_id}"
+    if (
+        cache_key in _pitcher_usage_cache
+        and _pitcher_usage_cache[cache_key].get("version") == PITCHER_USAGE_VERSION
+    ):
+        return dict(_pitcher_usage_cache[cache_key])
+    file_cache = _load_pitcher_usage_file(target_date.isoformat())
+    if (
+        cache_key in file_cache
+        and file_cache[cache_key].get("version") == PITCHER_USAGE_VERSION
+    ):
+        _pitcher_usage_cache[cache_key] = file_cache[cache_key]
+        return dict(file_cache[cache_key])
+
+    starts: list[dict[str, Any]] = []
+    try:
+        import statsapi  # type: ignore
+
+        payload = statsapi.get(
+            "person",
+            {
+                "personId": player_mlbam_id,
+                "hydrate": (
+                    "stats(group=[pitching],type=[gameLog],"
+                    f"season={target_date.year},sportId=1)"
+                ),
+            },
+        )
+        stats = (payload.get("people") or [{}])[0].get("stats", [])
+        splits = stats[0].get("splits", []) if stats else []
+        for split in splits:
+            stat = split.get("stat", {})
+            if _int_stat(stat, "gamesStarted") < 1 or not split.get("date"):
+                continue
+            outs = _int_stat(stat, "outs")
+            starts.append(
+                {
+                    "date": str(split["date"]),
+                    "game_id": (split.get("game") or {}).get("gamePk"),
+                    "pitches": _int_stat(stat, "numberOfPitches"),
+                    "innings": round(outs / 3, 2) if outs else _innings_value(stat.get("inningsPitched")),
+                    "strikeouts": _int_stat(stat, "strikeOuts"),
+                    "earned_runs": _int_stat(stat, "earnedRuns"),
+                }
+            )
+    except Exception:
+        starts = []
+
+    starts.sort(key=lambda item: item["date"], reverse=True)
+    recent = starts[:5]
+    result = _pitcher_usage_summary(player_mlbam_id, recent, target_date)
+    file_cache[cache_key] = result
+    _pitcher_usage_cache[cache_key] = result
+    _write_pitcher_usage_file(target_date.isoformat(), file_cache)
+    return dict(result)
+
+
+def _pitcher_usage_summary(
+    player_mlbam_id: int,
+    starts: list[dict[str, Any]],
+    as_of: date,
+) -> dict[str, Any]:
+    if not starts:
+        return {
+            "player_id": player_mlbam_id,
+            "version": PITCHER_USAGE_VERSION,
+            "starts": [],
+            "starts_sample": 0,
+            "last_start_date": None,
+            "days_rest": None,
+            "last_start_pitches": None,
+            "avg_pitches_last_3": None,
+            "avg_innings_last_3": None,
+            "workload_risk": "unknown",
+            "workload_factor": 1.0,
+            "source": "MLB StatsAPI gameLog",
+            "last_updated": datetime.now(UTC).isoformat(),
+        }
+    recent_three = starts[:3]
+    last_start = starts[0]
+    try:
+        last_date = date.fromisoformat(str(last_start["date"]))
+        days_rest = max(0, (as_of - last_date).days - 1)
+    except ValueError:
+        days_rest = None
+    avg_pitches = round(
+        sum(float(item.get("pitches", 0) or 0) for item in recent_three) / len(recent_three),
+        1,
+    )
+    avg_innings = round(
+        sum(float(item.get("innings", 0) or 0) for item in recent_three) / len(recent_three),
+        2,
+    )
+    last_pitches = int(last_start.get("pitches", 0) or 0)
+    risk, factor = _pitcher_workload_adjustment(
+        days_rest=days_rest,
+        last_start_pitches=last_pitches,
+        avg_pitches_last_3=avg_pitches,
+        starts_sample=len(starts),
+    )
+    return {
+        "player_id": player_mlbam_id,
+        "version": PITCHER_USAGE_VERSION,
+        "starts": starts,
+        "starts_sample": len(starts),
+        "last_start_date": last_start["date"],
+        "days_rest": days_rest,
+        "last_start_pitches": last_pitches,
+        "avg_pitches_last_3": avg_pitches,
+        "avg_innings_last_3": avg_innings,
+        "workload_risk": risk,
+        "workload_factor": factor,
+        "source": "MLB StatsAPI gameLog",
+        "last_updated": datetime.now(UTC).isoformat(),
+    }
+
+
+def _pitcher_workload_adjustment(
+    days_rest: int | None,
+    last_start_pitches: int,
+    avg_pitches_last_3: float,
+    starts_sample: int,
+) -> tuple[str, float]:
+    if days_rest is not None and days_rest < 4:
+        return "high", 0.82
+    if starts_sample >= 2 and last_start_pitches < 70 and avg_pitches_last_3 < 75:
+        return "medium", 0.92
+    if days_rest is not None and days_rest > 21 and last_start_pitches < 80:
+        return "medium", 0.94
+    return "low", 1.0
+
+
+def _innings_value(value: Any) -> float:
+    try:
+        whole, _, fraction = str(value or "0").partition(".")
+        return round(int(whole) + (int(fraction[:1] or 0) / 3), 2)
+    except (TypeError, ValueError):
+        return 0.0
 
 
 def _counts_projection(counts: dict[str, Any], scoring: dict[str, float]) -> float:
@@ -319,6 +499,7 @@ def cache_ttl_seconds(first_pitch: datetime | None = None) -> int:
 def _empty_count_stats(player_mlbam_id: int) -> dict[str, Any]:
     return {
         "player_id": player_mlbam_id,
+        "version": PLAYER_LOG_VERSION,
         "games": 0,
         "hits": 0,
         "doubles": 0,
@@ -347,3 +528,12 @@ def _load_player_log_file(game_date: str) -> dict[str, dict[str, Any]]:
 
 def _write_player_log_file(game_date: str, data: dict[str, dict[str, Any]]) -> None:
     cache_store.write_json(f"player_logs_{game_date}", data)
+
+
+def _load_pitcher_usage_file(game_date: str) -> dict[str, dict[str, Any]]:
+    data = cache_store.read_json(f"pitcher_usage_{game_date}", default={})
+    return data if isinstance(data, dict) else {}
+
+
+def _write_pitcher_usage_file(game_date: str, data: dict[str, dict[str, Any]]) -> None:
+    cache_store.write_json(f"pitcher_usage_{game_date}", data)

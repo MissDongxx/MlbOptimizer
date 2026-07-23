@@ -23,7 +23,7 @@ from routers.health import router as health_router
 from routers.optimize import router as optimize_router
 from routers.optimize import shutdown_optimizer_executor
 from routers.players import router as players_router
-from services.scheduler import start_scheduler
+from services.scheduler import refresh_worker_enabled, start_scheduler
 
 logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
 logger = logging.getLogger("lineuplab.api")
@@ -31,10 +31,11 @@ logger = logging.getLogger("lineuplab.api")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    scheduler = start_scheduler()
+    scheduler = start_scheduler() if refresh_worker_enabled() else None
     yield
     shutdown_optimizer_executor()
-    scheduler.shutdown(wait=False)
+    if scheduler:
+        scheduler.shutdown(wait=False)
 
 
 app = FastAPI(title="LineupLab API", version="0.1.0", lifespan=lifespan)

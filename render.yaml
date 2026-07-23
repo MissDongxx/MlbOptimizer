@@ -4,7 +4,9 @@ services:
     runtime: python
     rootDir: backend
     buildCommand: pip install uv && uv sync
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2
+    # Render disks are local to one service. Keep a single API process as the
+    # scheduler owner unless the cache is moved to a shared external store.
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 1
     envVars:
       - key: APP_ENV
         value: production
@@ -12,6 +14,8 @@ services:
         value: https://lineuplab.io
       - key: USE_MOCK_DATA
         value: false
+      - key: RUN_DATA_SCHEDULER
+        value: true
     disk:
       name: cache
       mountPath: /opt/render/project/src/backend/cache

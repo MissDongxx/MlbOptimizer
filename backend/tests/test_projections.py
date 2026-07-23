@@ -4,10 +4,71 @@ import unittest
 from unittest.mock import patch
 
 from services.park_factors import hitter_park_multiplier
-from services.projections import get_split_projection
+from datetime import date
+
+from services.projections import (
+    _pitcher_usage_summary,
+    get_pitcher_projection,
+    get_split_projection,
+)
 
 
 class ProjectionTests(unittest.TestCase):
+    def test_pitcher_projection_uses_cached_season_rates_and_opponent_context(self) -> None:
+        season_cache = {
+            "last_updated": "2026-07-22T06:00:00+00:00",
+            "pitchers": {
+                "543037": {
+                    "starts": 20,
+                    "innings_per_start": 6.1,
+                    "strikeouts_per_start": 7.4,
+                    "earned_runs_per_start": 1.9,
+                    "win_probability": 0.5,
+                }
+            },
+        }
+        with (
+            patch("services.projections.load_season_splits", return_value=season_cache),
+            patch(
+                "services.projections.get_team_vegas_context",
+                return_value={"implied_runs": 3.8},
+            ),
+            patch(
+                "services.projections.get_pitcher_recent_usage",
+                return_value={"workload_factor": 1.0, "workload_risk": "low"},
+            ),
+        ):
+            result = get_pitcher_projection(543037, site="dk", opposing_team="BOS")
+
+        self.assertEqual(result["projection_source"], "pitcher_season_rates")
+        self.assertGreater(result["matchup_factor"], 1)
+        self.assertEqual(result["pitcher_rates"]["starts"], 20)
+
+    def test_pitcher_recent_short_rest_reduces_projection(self) -> None:
+        starts = [
+            {"date": "2026-07-21", "pitches": 91, "innings": 5.0},
+            {"date": "2026-07-16", "pitches": 95, "innings": 6.0},
+            {"date": "2026-07-10", "pitches": 98, "innings": 6.1},
+        ]
+
+        usage = _pitcher_usage_summary(543037, starts, date(2026, 7, 23))
+
+        self.assertEqual(usage["days_rest"], 1)
+        self.assertEqual(usage["workload_risk"], "high")
+        self.assertEqual(usage["workload_factor"], 0.82)
+        self.assertEqual(usage["avg_pitches_last_3"], 94.7)
+
+    def test_low_recent_pitch_counts_flag_possible_limit_without_claiming_one(self) -> None:
+        starts = [
+            {"date": "2026-07-17", "pitches": 52, "innings": 3.0},
+            {"date": "2026-07-11", "pitches": 61, "innings": 3.2},
+        ]
+
+        usage = _pitcher_usage_summary(543037, starts, date(2026, 7, 23))
+
+        self.assertEqual(usage["workload_risk"], "medium")
+        self.assertEqual(usage["workload_factor"], 0.92)
+
     def test_projection_blends_recent_form_and_reports_factors(self) -> None:
         season_cache = {
             "last_updated": "2026-07-02T00:00:00+00:00",

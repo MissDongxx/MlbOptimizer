@@ -25,6 +25,8 @@ Useful endpoints:
 
 - `GET http://localhost:8000/health`
 - `GET http://localhost:8000/players/today`
+- `GET http://localhost:8000/players/slates?site=dk`
+- `GET http://localhost:8000/players/today?site=dk&slate_id=<DFF_SLATE_ID>`
 - `POST http://localhost:8000/optimize/`
 
 To switch from mock data to live schedule attempts:
@@ -49,6 +51,26 @@ CACHE_DIR=/var/lib/lineuplab/cache
 
 The same adapter boundary can later be replaced with R2/S3/MinIO storage if long-term Statcast or
 machine-learning datasets outgrow local JSON caches.
+
+### Refresh worker
+
+Production refreshes run outside request handling:
+
+```bash
+cd backend
+RUN_DATA_SCHEDULER=false uvicorn main:app --host 0.0.0.0 --port 8000
+python data_worker.py
+```
+
+The API and worker must share the same `CACHE_DIR`. A non-blocking file lock prevents overlapping
+refresh runs, and `/health` exposes the last result and per-source status. Once the day's schedule is
+known, DFF salary/slate data is refreshed every 10 minutes and every 2 minutes inside 90 minutes of
+first pitch; MLB lineups, weather, odds, and projections are refreshed in the same background cycle.
+User requests read the latest persisted snapshot instead of repeating the external API fan-out.
+
+The VPS deployment installs `deploy/diamscore-data-worker.service`, disables the scheduler inside
+`diamscore-api`, and points both processes at `/var/lib/diamscore/cache`. Render keeps one API worker
+with the embedded scheduler because its persistent disk is service-local.
 
 ## Frontend
 
@@ -76,6 +98,8 @@ The workflow:
 - Cloudflare Pages deploys the frontend through its GitHub OAuth integration. Configure the Pages project
   with root directory `frontend`, build command `npm run build`, output directory `out`, and
   `NEXT_PUBLIC_API_URL=/api`.
+- The API proxy exists in both `frontend/functions/` and root `functions/` so it is included whether
+  Cloudflare Pages uses `frontend` or the repository root as its build root.
 
 Required GitHub repository secrets:
 
@@ -109,13 +133,20 @@ Runtime parameters stay on their deployment targets:
 Implemented:
 
 - FastAPI app with CORS and lifespan scheduler
-- `/health`, `/players/today`, `/optimize/`
+- `/health`, `/players/slates`, `/players/today`, `/optimize/`
 - Projection constants and cache helpers
 - Daily season-splits refresh function
 - Mock player pool for local development
 - `pydfs-lineup-optimizer` adapter for DK/FD MLB roster solving, with greedy fallback only for
   local dependency/adapter failures
 - Live `statsapi` schedule and batting-order extraction when `USE_MOCK_DATA=false`
+- Automatic public-page fallback for the complete Daily Fantasy Fuel “Show all players” DK/FD data, including salaries, projections,
+  positions, batting order, and lineup status. Official/operator CSV remains higher priority.
+- DFF multi-Slate discovery and selection for DK/FD, with a compatible default Classic/Main path.
+- Independent VPS refresh worker, overlap lock, atomic cache writes, and per-source health status.
+- Internal RotoWire public-lineup snapshots stored once per game date under
+  `sources/rotowire/<date>`, plus aggregate DK salary, batting-order, and lineup-status conflicts.
+  RotoWire remains a validation source and never replaces MLB/DFF primary data.
 - FanGraphs/pybaseball id to MLBAM id mapping in the season cache via
   `pybaseball.playerid_reverse_lookup()`
 - Next.js optimizer page
@@ -129,5 +160,7 @@ Still to harden before production:
 - Validate live `statsapi` lineup extraction against current-day pre-lock slates and late lineup
   release edge cases
 - Add broader tests around multi-position overrides and same-game pitcher/batter restrictions
-- Add production salary feed ingestion beyond user-uploaded DK/FD CSV files
+- Add a licensed/official salary feed for guaranteed contest coverage and upload identifiers. Daily
+  Fantasy Fuel exposes the full public slate after “Show all players”, but its internal ids are not
+  valid DK/FD contest-upload ids.
 - Confirm Render cold-start timing after deployment

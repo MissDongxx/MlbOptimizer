@@ -26,8 +26,25 @@ export interface Player {
   team: string;
   opponent: string;
   position: string[];
+  position_dk?: string[] | null;
+  position_fd?: string[] | null;
   salary_dk: number;
   salary_fd: number;
+  external_id_dk?: string | null;
+  external_id_fd?: string | null;
+  name_id_dk?: string | null;
+  name_id_fd?: string | null;
+  salary_source_dk?: string | null;
+  salary_source_fd?: string | null;
+  source_projection_dk?: number | null;
+  source_projection_fd?: number | null;
+  pitcher_last_start_date?: string | null;
+  pitcher_days_rest?: number | null;
+  pitcher_last_start_pitches?: number | null;
+  pitcher_avg_pitches_last_3?: number | null;
+  pitcher_avg_innings_last_3?: number | null;
+  pitcher_workload_risk?: "low" | "medium" | "high" | "unknown" | null;
+  pitcher_workload_factor?: number | null;
   batting_order: number | null;
   opposing_pitcher: string | null;
   opposing_pitcher_hand: "L" | "R" | null;
@@ -36,7 +53,10 @@ export interface Player {
   projected_fd: number;
   projection_source:
     | "15d_counts_cached_season_splits"
+    | "season_with_15d_form_blend"
     | "season_avg_fallback"
+    | "pitcher_season_rates"
+    | "daily_fantasy_fuel"
     | "mock_projection"
     | "user_override";
   last_15_avg_dk: number;
@@ -47,12 +67,48 @@ export interface Player {
 
 export interface PlayerPoolResponse {
   game_date: string;
+  site?: Site | null;
+  slate_key?: string | null;
   last_updated: string;
   data_status: DataStatus;
   warnings: string[];
+  changes: {
+    added: number;
+    removed: number;
+    batting_order_changed: number;
+    status_changed: number;
+  };
   games: GameSummary[];
   players: Player[];
   message?: string | null;
+}
+
+export type SlateType = "classic" | "showdown" | "tiers" | "unknown";
+
+export interface SlateSummary {
+  site: Site;
+  slate_key: string;
+  provider: string;
+  provider_slate_id: string;
+  name: string;
+  slate_type: SlateType;
+  game_date: string;
+  start_time: string;
+  lock_time?: string | null;
+  game_count: number;
+  team_count: number;
+  game_ids: number[];
+  teams: string[];
+  is_default: boolean;
+  fetched_at: string;
+}
+
+export interface SlateListResponse {
+  game_date: string;
+  site: Site;
+  last_updated: string;
+  slates: SlateSummary[];
+  warnings: string[];
 }
 
 export interface OptimizerSettings {

@@ -9,10 +9,13 @@ from pydantic import BaseModel, EmailStr, Field, field_validator
 Site = Literal["dk", "fd"]
 LineupStatus = Literal["confirmed", "expected", "unconfirmed", "dnp"]
 DataStatus = Literal["live", "cached", "partial", "mock", "error"]
+SlateType = Literal["classic", "showdown", "tiers", "unknown"]
 ProjectionSource = Literal[
     "15d_counts_cached_season_splits",
     "season_with_15d_form_blend",
     "season_avg_fallback",
+    "pitcher_season_rates",
+    "daily_fantasy_fuel",
     "mock_projection",
     "user_override",
 ]
@@ -43,14 +46,66 @@ class GameSummary(BaseModel):
     venue: str | None = None
 
 
+class SlateSummary(BaseModel):
+    site: Site
+    slate_key: str
+    provider: str
+    provider_slate_id: str
+    name: str
+    slate_type: SlateType = "unknown"
+    game_date: str
+    start_time: str
+    lock_time: datetime | None = None
+    game_count: int = 0
+    team_count: int = 0
+    game_ids: list[int] = Field(default_factory=list)
+    teams: list[str] = Field(default_factory=list)
+    is_default: bool = False
+    fetched_at: datetime
+
+
+class SlateListResponse(BaseModel):
+    game_date: str
+    site: Site
+    last_updated: datetime
+    slates: list[SlateSummary]
+    warnings: list[str] = Field(default_factory=list)
+
+
 class Player(BaseModel):
     mlbam_id: int
     name: str
     team: str
     opponent: str
     position: list[str]
+    position_dk: list[str] | None = None
+    position_fd: list[str] | None = None
     salary_dk: int
     salary_fd: int
+    external_id_dk: str | None = None
+    external_id_fd: str | None = None
+    name_id_dk: str | None = None
+    name_id_fd: str | None = None
+    salary_source_dk: str | None = None
+    salary_source_fd: str | None = None
+    source_projection_dk: float | None = None
+    source_projection_fd: float | None = None
+    source_l5_avg_dk: float | None = None
+    source_l5_avg_fd: float | None = None
+    source_l10_avg_dk: float | None = None
+    source_l10_avg_fd: float | None = None
+    source_season_avg_dk: float | None = None
+    source_season_avg_fd: float | None = None
+    source_game_total: float | None = None
+    source_implied_team_total: float | None = None
+    injury_status: str | None = None
+    pitcher_last_start_date: str | None = None
+    pitcher_days_rest: int | None = None
+    pitcher_last_start_pitches: int | None = None
+    pitcher_avg_pitches_last_3: float | None = None
+    pitcher_avg_innings_last_3: float | None = None
+    pitcher_workload_risk: Literal["low", "medium", "high", "unknown"] | None = None
+    pitcher_workload_factor: float | None = None
     batting_order: int | None = None
     opposing_pitcher: str | None = None
     opposing_pitcher_hand: Literal["L", "R"] | None = None
@@ -66,9 +121,12 @@ class Player(BaseModel):
 
 class PlayerPoolResponse(BaseModel):
     game_date: str
+    site: Site | None = None
+    slate_key: str | None = None
     last_updated: datetime
     data_status: DataStatus = "live"
     warnings: list[str] = []
+    changes: dict[str, int] = Field(default_factory=dict)
     games: list[GameSummary]
     players: list[Player]
     message: str | None = None
@@ -149,6 +207,9 @@ class HealthResponse(BaseModel):
     last_lineup_refresh: datetime | None
     players_loaded: int
     statsapi_available: bool
+    refresh_worker_enabled: bool = False
+    refresh_in_progress: bool = False
+    refresh_status: dict[str, object] = Field(default_factory=dict)
 
 
 class ContactRequest(BaseModel):

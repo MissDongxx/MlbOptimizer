@@ -139,9 +139,54 @@ def refresh_season_splits(current_year: int | None = None) -> dict[str, Any]:
             },
         }
 
-    data = {"last_updated": datetime.now(UTC).isoformat(), "season": season, "players": players}
+    pitchers = _refresh_pitcher_rates(season, pybaseball)
+    data = {
+        "last_updated": datetime.now(UTC).isoformat(),
+        "season": season,
+        "players": players,
+        "pitchers": pitchers,
+    }
     write_season_splits(data)
     return data
+
+
+def _refresh_pitcher_rates(season: int, pybaseball: Any) -> dict[str, Any]:
+    try:
+        df = pybaseball.pitching_stats(season)
+    except Exception:
+        logger.exception("pybaseball.pitching_stats failed; pitcher cache unavailable")
+        return {}
+    id_lookup = _build_player_id_lookup(df, pybaseball)
+    pitchers: dict[str, Any] = {}
+    for _, row in df.iterrows():
+        fangraphs_id = _first_present(row, ["IDfg", "key_fangraphs", "ID"])
+        mlbam_id = _first_present(row, ["mlbam_id", "MLBAMID", "key_mlbam"])
+        if mlbam_id is None and fangraphs_id is not None:
+            mlbam_id = id_lookup.get(str(int(float(fangraphs_id))), {}).get("mlbam_id")
+        if mlbam_id is None:
+            continue
+        starts = max(float(row.get("GS", 0) or 0), 0.0)
+        if starts < 1:
+            continue
+        innings = float(row.get("IP", 0) or 0)
+        strikeouts = float(row.get("SO", 0) or 0)
+        earned_runs = float(row.get("ER", 0) or 0)
+        wins = float(row.get("W", 0) or 0)
+        pitchers[str(int(mlbam_id))] = {
+            "name": str(row.get("Name", "")),
+            "mlbam_id": int(mlbam_id),
+            "team": str(row.get("Team", "")),
+            "starts": int(starts),
+            "innings_per_start": round(innings / starts, 3),
+            "strikeouts_per_start": round(strikeouts / starts, 3),
+            "earned_runs_per_start": round(earned_runs / starts, 3),
+            "win_probability": round(min(1.0, wins / starts), 3),
+            "era": round(_float_stat(row, "ERA"), 3),
+            "fip": round(_float_stat(row, "FIP"), 3),
+            "k_rate": round(_float_stat(row, "K%"), 3),
+            "bb_rate": round(_float_stat(row, "BB%"), 3),
+        }
+    return pitchers
 
 
 def refresh_batter_hand_splits(
