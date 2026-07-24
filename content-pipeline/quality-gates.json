@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "publishing": {
+    "allowAutomaticPublish": true,
+    "requiredStatus": "approved",
+    "requireNamedReviewer": false
+  },
+  "seo": {
+    "titleMinCharacters": 35,
+    "titleMaxCharacters": 65,
+    "descriptionMinCharacters": 120,
+    "descriptionMaxCharacters": 165,
+    "minimumBodyWords": 800,
+    "maximumPrimaryKeywordDensity": 0.03,
+    "minimumSections": 4,
+    "minimumFaqItems": 3,
+    "minimumInternalLinks": 2
+  },
+  "evidence": {
+    "requireClaimSourceMapping": true,
+    "requireAccessDate": true,
+    "requireLimitationsSection": true,
+    "requireUpdatedAt": true
+  },
+  "hardFailures": [
+    "missing or fabricated source",
+    "unsupported numeric claim",
+    "multiple unrelated search intents",
+    "prediction presented as fact",
+    "duplicate primary keyword",
+    "blocked topic",
+    "automatic publication after a failed quality gate"
+  ]
+}

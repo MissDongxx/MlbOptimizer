@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "slug": "example-article",
+  "category": "example-category",
+  "primaryKeyword": "example primary keyword",
+  "intent": "informational",
+  "title": "Example Primary Keyword: A Practical Guide",
+  "description": "A concise description that states what the reader will learn, who the guide is for, and the practical outcome without listing keyword variants.",
+  "excerpt": "A short reader-facing summary.",
+  "author": "Editorial Team",
+  "reviewer": "Pending editorial review",
+  "publishedAt": null,
+  "updatedAt": "2026-07-24",
+  "keyTakeaways": ["Takeaway one", "Takeaway two", "Takeaway three"],
+  "sections": [
+    {
+      "heading": "Direct answer",
+      "paragraphs": ["Answer the query directly and distinguish facts, analysis, and uncertainty."],
+      "sourceIds": ["source-1"]
+    },
+    {
+      "heading": "How it works",
+      "paragraphs": ["Explain the method with enough detail to be useful."],
+      "sourceIds": ["source-1"]
+    },
+    {
+      "heading": "Practical example",
+      "paragraphs": ["Add an original example or workflow."],
+      "sourceIds": ["source-2"]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": ["State limitations and facts that can change."],
+      "sourceIds": ["source-1", "source-2"]
+    }
+  ],
+  "faq": [
+    {"question": "Question one?", "answer": "Answer one."},
+    {"question": "Question two?", "answer": "Answer two."},
+    {"question": "Question three?", "answer": "Answer three."}
+  ],
+  "sources": [
+    {
+      "id": "source-1",
+      "title": "Primary source title",
+      "publisher": "Primary publisher",
+      "url": "https://example.com/primary",
+      "accessedAt": "2026-07-24",
+      "type": "primary"
+    },
+    {
+      "id": "source-2",
+      "title": "Secondary source title",
+      "publisher": "Secondary publisher",
+      "url": "https://example.com/secondary",
+      "accessedAt": "2026-07-24",
+      "type": "secondary"
+    }
+  ],
+  "internalLinks": [
+    {"label": "Main product", "href": "/"},
+    {"label": "Related guide", "href": "/related-guide"}
+  ],
+  "cta": {"label": "Open the product", "href": "/"}
+}

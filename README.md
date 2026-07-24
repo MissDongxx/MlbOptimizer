@@ -87,6 +87,41 @@ Open:
 http://localhost:3000
 ```
 
+## Content production
+
+The repository includes a reusable, configuration-driven content pipeline under
+`content-pipeline/`. It separates automated research and drafting from human
+publication approval.
+
+```bash
+npm run content:status
+npm run content:next
+npm run content:validate -- <article-slug>
+npm run content:validate:all
+```
+
+Site-specific brand, topic, source, and CTA rules live in
+`content-pipeline/site.config.json`. The queue lives in
+`content-pipeline/tasks.json`. Approved article JSON files in
+`frontend/content/blog/` are statically rendered under `/blog`.
+
+To reuse the workflow for another website, copy `content-pipeline/`, replace the
+site configuration and task list, then map the target site's article renderer
+to the same JSON contract. Automated jobs may create review-ready drafts but
+cannot approve or publish them.
+
+### Automated publication
+
+The active publication mode does not require a content publishing token. The
+scheduled Codex job processes one queued article per day, validates it, marks it
+approved with the automated quality-gate reviewer, runs frontend checks, commits
+only the article plus task queue, and pushes `dev`. The existing deployment
+workflow then rebuilds and publishes the static Blog.
+
+Manual browser approval and the dynamic publishing API are retained in the
+codebase but are not routed or exposed while automated static publication is
+active.
+
 ## Deployment
 
 Pushing to `dev` or `main` runs `.github/workflows/deploy.yml`.

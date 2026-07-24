@@ -2,6 +2,11 @@
   "name": "diamscore-deploy",
   "private": true,
   "scripts": {
-    "build": "npm --prefix frontend ci && NEXT_PUBLIC_API_URL=/api npm --prefix frontend run build && rm -rf out && cp -a frontend/out ./out"
+    "build": "npm --prefix frontend ci && NEXT_PUBLIC_API_URL=/api npm --prefix frontend run build && rm -rf out && cp -a frontend/out ./out",
+    "content:status": "node content-pipeline/scripts/content-pipeline.mjs status",
+    "content:next": "node content-pipeline/scripts/content-pipeline.mjs next",
+    "content:validate": "node content-pipeline/scripts/content-pipeline.mjs validate",
+    "content:validate:all": "node content-pipeline/scripts/content-pipeline.mjs validate-all",
+    "content:review-server": "node content-pipeline/scripts/review-server.mjs"
   }
 }

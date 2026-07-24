@@ -241,6 +241,7 @@ const faqItems = [
 
 const footerLinks = [
   { href: "#optimizer", label: "MLB optimizer" },
+  { href: "/blog", label: "MLB DFS blog" },
   { href: "/mlb-dfs-optimizer", label: "MLB DFS optimizer" },
   { href: "/mlb-lineup-optimizer", label: "MLB lineup optimizer" },
   { href: "/draftkings-mlb-optimizer", label: "DraftKings MLB" },
@@ -253,6 +254,7 @@ const footerLinks = [
 
 const navLinks = [
   { href: "#optimizer", label: "Optimizer" },
+  { href: "/blog", label: "Blog" },
   { href: "#process", label: "How it works" },
   { href: "#scoring", label: "Scoring" },
   { href: "#faq", label: "FAQ" },

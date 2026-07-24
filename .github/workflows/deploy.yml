@@ -44,6 +44,7 @@ jobs:
             systemctl restart diamscore-api
             systemctl restart diamscore-data-worker
             for i in $(seq 1 10); do curl -fsS http://127.0.0.1:8000/health >/dev/null && break; sleep 2; done
+            curl -fsS http://127.0.0.1:8000/content/articles >/dev/null
 
             cd /opt/diamscore/frontend
             npm ci

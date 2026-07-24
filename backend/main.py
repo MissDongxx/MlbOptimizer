@@ -19,6 +19,7 @@ from starlette.responses import Response
 load_dotenv()
 
 from routers.contact import router as contact_router
+from routers.content import router as content_router
 from routers.health import router as health_router
 from routers.optimize import router as optimize_router
 from routers.optimize import shutdown_optimizer_executor
@@ -57,6 +58,7 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         self.window_seconds = 60
         self.limits = {
             "/contact": 5,
+            "/content/articles": 60,
             "/optimize": 10,
             "/players/today": 60,
             "/health": 120,
@@ -134,4 +136,5 @@ app.add_middleware(
 app.include_router(players_router, prefix="/players", tags=["players"])
 app.include_router(optimize_router, prefix="/optimize", tags=["optimize"])
 app.include_router(contact_router, prefix="/contact", tags=["contact"])
+app.include_router(content_router, prefix="/content", tags=["content"])
 app.include_router(health_router, tags=["health"])

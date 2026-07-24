@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-24",
+  "tasks": [
+    {
+      "id": "mlb-001",
+      "priority": 1,
+      "status": "approved",
+      "primaryKeyword": "how to use an mlb lineup optimizer",
+      "slug": "how-to-use-mlb-lineup-optimizer",
+      "category": "lineup-building",
+      "intent": "tutorial",
+      "parentPillar": "/mlb-lineup-optimizer",
+      "requiredAngles": [
+        "player pool",
+        "locks and fades",
+        "stack settings",
+        "salary rules",
+        "review before export"
+      ]
+    },
+    {
+      "id": "mlb-002",
+      "priority": 2,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs strategy",
+      "slug": "mlb-dfs-strategy",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "parentPillar": "/mlb-dfs-optimizer",
+      "requiredAngles": [
+        "contest selection",
+        "pitcher selection",
+        "stacks",
+        "ownership",
+        "late news"
+      ]
+    },
+    {
+      "id": "mlb-003",
+      "priority": 3,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs stacking strategy",
+      "slug": "mlb-dfs-stacking-strategy",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "parentPillar": "/mlb-dfs-optimizer",
+      "requiredAngles": [
+        "correlation",
+        "stack sizes",
+        "mini stacks",
+        "ownership",
+        "common mistakes"
+      ]
+    },
+    {
+      "id": "mlb-004",
+      "priority": 4,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs exposure limits",
+      "slug": "mlb-dfs-exposure-limits",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "parentPillar": "/mlb-dfs-optimizer",
+      "requiredAngles": [
+        "maximum exposure",
+        "minimum exposure",
+        "portfolio risk",
+        "field size",
+        "late scratches"
+      ]
+    },
+    {
+      "id": "mlb-005",
+      "priority": 5,
+      "status": "queued",
+      "primaryKeyword": "how mlb player projections work",
+      "slug": "how-mlb-player-projections-work",
+      "category": "projections-stats",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "baseline performance",
+        "platoon splits",
+        "park factors",
+        "batting order",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "mlb-006",
+      "priority": 6,
+      "status": "queued",
+      "primaryKeyword": "batter vs pitcher stats",
+      "slug": "batter-vs-pitcher-stats",
+      "category": "projections-stats",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "BvP definition",
+        "sample size",
+        "pitch mix",
+        "platoon context",
+        "responsible use"
+      ]
+    },
+    {
+      "id": "mlb-007",
+      "priority": 7,
+      "status": "queued",
+      "primaryKeyword": "how weather affects baseball",
+      "slug": "how-weather-affects-baseball",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "wind",
+        "temperature",
+        "humidity",
+        "rain delays",
+        "ballpark orientation"
+      ]
+    },
+    {
+      "id": "mlb-008",
+      "priority": 8,
+      "status": "queued",
+      "primaryKeyword": "baseball rain delay rules",
+      "slug": "baseball-rain-delay-rules",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "delay vs postponement",
+        "official game",
+        "suspended games",
+        "DFS implications",
+        "verify current rules"
+      ]
+    },
+    {
+      "id": "mlb-009",
+      "priority": 9,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball scoring",
+      "slug": "fantasy-baseball-scoring",
+      "category": "fantasy-baseball",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "points leagues",
+        "categories",
+        "platform differences",
+        "hitters",
+        "pitchers"
+      ]
+    },
+    {
+      "id": "mlb-010",
+      "priority": 10,
+      "status": "queued",
+      "primaryKeyword": "mlb injured list explained",
+      "slug": "mlb-injured-list-explained",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "parentPillar": "/",
+      "requiredAngles": [
+        "10-day IL",
+        "15-day IL",
+        "60-day IL",
+        "roster effects",
+        "projection updates"
+      ]
+    }
+  ]
+}

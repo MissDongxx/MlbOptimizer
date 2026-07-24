@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "slug": "how-to-use-mlb-lineup-optimizer",
+  "category": "lineup-building",
+  "primaryKeyword": "how to use an mlb lineup optimizer",
+  "intent": "tutorial",
+  "title": "How to Use an MLB Lineup Optimizer: Step-by-Step",
+  "description": "Learn how to use an MLB lineup optimizer to review the player pool, set stacks, manage locks and fades, check salary, and evaluate lineups before export.",
+  "excerpt": "A practical workflow for turning projections and contest rules into MLB DFS lineups without treating the optimizer as a black box.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "Bob",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "keyTakeaways": [
+    "Start by selecting the correct contest site and slate before changing individual players or strategy settings.",
+    "Treat projections as estimates and use locks, fades, stacks, salary rules, and exposure settings to express a clear contest strategy.",
+    "Review every generated lineup against current batting orders, probable pitchers, weather, injuries, and contest rules before export."
+  ],
+  "sections": [
+    {
+      "heading": "Start with the correct site, slate, and player pool",
+      "paragraphs": [
+        "An MLB lineup optimizer searches for combinations of players that satisfy roster and salary constraints while scoring well against the projection set it receives. The first step is therefore not clicking the optimize button. It is confirming that the tool is working with the contest you actually plan to enter. Select DraftKings or FanDuel, choose the correct slate, and check that the player pool reflects the games included in that slate. A mathematically valid lineup can still be unusable when it was built from the wrong schedule, salary file, or contest format.",
+        "Review the player table before applying strategy. Confirm each player's team, opponent, eligible positions, salary, projected points, probable starting status, and batting-order information. MLB explains that a standard lineup contains nine batters in a predetermined order, and players near the top generally receive more opportunities over a season. That makes confirmed batting order an important piece of DFS context, but it does not turn a projection into a guarantee. Lineups can change after an early report, and a player listed in a data feed may still sit, move in the order, or be removed from the slate.",
+        "If you upload a contest salary file, inspect the match report instead of assuming every row was recognized. Unmatched players, stale identifiers, or incorrect position eligibility can silently narrow the solution space. Resolve material mismatches before continuing. When a confirmed lineup is not yet available, keep the uncertainty visible and plan to rerun the optimizer after official news."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer",
+        "mlb-positions",
+        "mlb-at-bat"
+      ]
+    },
+    {
+      "heading": "Understand projections before you override them",
+      "paragraphs": [
+        "A projection is a compact estimate of expected fantasy production, not a statement of what will happen in one game. It can incorporate a player's baseline performance, opposing pitcher, handedness, park, batting order, recent information, and contest-site scoring. Two reasonable projection systems may disagree because they weight these inputs differently or update at different times. Use that disagreement as a signal to investigate rather than proof that one number is automatically wrong.",
+        "When you edit a projection, write down the reason. A confirmed move from ninth to first in the batting order is a concrete change in opportunity. A late weather downgrade, a different opposing pitcher, or a role change may also justify an adjustment. A vague feeling that a player is due for a big game is not the same kind of evidence. Small, explainable overrides are easier to audit than a player pool full of aggressive manual changes.",
+        "Compare players using both projected points and projected points per salary. Raw projection helps identify ceiling and expected output, while value highlights what a player returns for the salary required. Neither measure should make the decision alone. A cheap value can enable a stronger stack, and an expensive star can still be appropriate when the rest of the lineup offers enough salary relief."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer",
+        "mlb-at-bat"
+      ]
+    },
+    {
+      "heading": "Use locks and fades to express deliberate decisions",
+      "paragraphs": [
+        "Locking a player forces that player into every affected build. Excluding, or fading, a player removes the player from the available pool. These controls are useful when they represent information or strategy the base projection does not fully capture, but they also reduce the optimizer's flexibility. Too many locks can leave only one legal construction, create weak salary usage, or make the solver fail to find a lineup.",
+        "Begin with as few hard decisions as possible. Lock a player only when you are comfortable carrying that exposure across the requested lineups. Exclude players who are confirmed out, absent from the contest slate, or unacceptable for a clearly documented reason. For softer opinions, projection adjustments or exposure limits are usually more flexible than an absolute lock or fade.",
+        "After adding constraints, rerun the build and inspect what changed. If a lock causes several otherwise strong combinations to disappear, decide whether the conviction is worth that opportunity cost. If excluding one popular player produces lineups filled with low-confidence alternatives, reconsider whether a partial underweight position would express the view more responsibly."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer"
+      ]
+    },
+    {
+      "heading": "Set stacks, salary rules, and lineup diversity",
+      "paragraphs": [
+        "MLB DFS lineups often use hitters from the same team because their scoring outcomes can be connected. A hit, walk, extra-base hit, run, and RBI can benefit several hitters in the same sequence. Stack settings tell the optimizer how much team concentration you want, but the setting should match the contest and the number of lineups you plan to build. One stack structure is not automatically optimal for every slate.",
+        "Choose the main stack size, then review whether the remaining roster slots create a sensible secondary combination. A concentrated tournament build can pursue a narrow high-scoring game outcome, while a smaller or more balanced construction may spread risk. The optimizer can enforce the structure, but it cannot decide how much correlation is appropriate for your goals without your input.",
+        "Salary rules deserve the same care. Spending every available dollar is not a quality guarantee, and leaving salary unused is not automatically a mistake. Set a salary floor only when it reflects a purposeful construction rule. For multiple lineups, require enough uniqueness that the results are meaningfully different rather than the same core with one low-impact swap. Exposure limits can keep one projection error, late scratch, or game environment from dominating the entire group."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer"
+      ]
+    },
+    {
+      "heading": "Review every lineup before export",
+      "paragraphs": [
+        "Optimization produces candidates, not finished decisions. Review salary used, roster eligibility, team stack, pitcher selection, opponent relationships, locked players, and any warnings. Make sure each lineup fits the contest site's current rules and the slate you selected. Platform scoring and roster formats can change, so the contest lobby and official rules remain the final authority.",
+        "Then repeat the news check. Verify official or trusted reports for starting lineups, probable pitchers, injuries, postponement risk, and weather. MLB notes that the batting order must be followed throughout the game unless a substitution occurs, which is why the confirmed pregame order matters to expected opportunity. It also explains that substitutes take the replaced player's place in the batting order, so late changes can alter both playing time and lineup context.",
+        "Export only after this review. Open the file and confirm that the expected number of lineups appears, player identifiers match the contest file, and no unresolved warning was lost during export. If news changes, update the pool and generate a new file rather than manually repairing many entries without a record of the change."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer",
+        "mlb-positions",
+        "mlb-substitutions"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify before lock",
+      "paragraphs": [
+        "An optimizer is constrained by its inputs. Stale salaries, incorrect eligibility, missing players, uncertain lineups, delayed weather, or poor projections can all produce a polished answer that is wrong for the live contest. The solver optimizes the objective and rules it is given; it does not independently guarantee that those inputs are complete or that the highest-projected lineup will win.",
+        "Predictions are estimates, not guaranteed outcomes. Baseball outcomes have substantial game-to-game variance, and even a well-supported projection can miss because of random events, substitutions, shortened outings, weather, or unexpected tactical decisions. Never describe an optimized lineup as safe, certain, or guaranteed.",
+        "Before lock, verify the selected slate, current contest rules, salary file, confirmed batting orders, starting pitchers, player availability, weather, and exported identifiers. Readers should also set personal entry and risk limits. DiamScore is a decision-support tool; the user remains responsible for the final lineup and for complying with the rules that apply to the contest and location."
+      ],
+      "sourceIds": [
+        "diamscore-lineup-optimizer",
+        "mlb-substitutions"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I always use the highest-projected MLB lineup?",
+      "answer": "No. Projection is one input. Contest type, stack structure, ownership, lineup diversity, late news, weather, and your tolerance for risk can justify choosing a different valid lineup."
+    },
+    {
+      "question": "When should I lock a player in an MLB optimizer?",
+      "answer": "Use a lock when you intentionally want the player in every affected build and understand the lost flexibility. For a softer preference, consider a projection adjustment or exposure limit."
+    },
+    {
+      "question": "Why should I rerun the optimizer after lineups are confirmed?",
+      "answer": "Confirmed batting orders can change player opportunity and reveal scratches or role changes. Rerunning lets the player pool, projections, and constraints reflect the newest information."
+    },
+    {
+      "question": "Can an MLB lineup optimizer guarantee a winning lineup?",
+      "answer": "No. It solves a defined mathematical problem using uncertain inputs. It cannot eliminate baseball variance or guarantee contest results."
+    }
+  ],
+  "sources": [
+    {
+      "id": "diamscore-lineup-optimizer",
+      "title": "MLB Lineup Optimizer for DFS Builds",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/mlb-lineup-optimizer",
+      "accessedAt": "2026-07-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-positions",
+      "title": "Positions",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/positions",
+      "accessedAt": "2026-07-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-at-bat",
+      "title": "At-bat (AB)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/at-bat",
+      "accessedAt": "2026-07-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-substitutions",
+      "title": "Substitutions",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/rules/substitutions",
+      "accessedAt": "2026-07-24",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB DFS optimizer",
+      "href": "/mlb-dfs-optimizer"
+    },
+    {
+      "label": "Open the optimizer",
+      "href": "/#optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

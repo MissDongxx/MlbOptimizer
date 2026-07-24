@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllBlogArticles } from "@/lib/blog";
 
 export const siteUrl = "https://diamscore.com";
 export const siteName = "diamscore.com";
@@ -131,6 +132,7 @@ export function absoluteUrl(path = "/") {
 
 export function sitemapEntries(): MetadataRoute.Sitemap {
   const now = new Date();
+  const articles = getAllBlogArticles();
   return [
     {
       url: siteUrl,
@@ -143,6 +145,18 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    {
+      url: absoluteUrl("/blog"),
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    ...articles.map((article) => ({
+      url: absoluteUrl(`/blog/${article.slug}`),
+      lastModified: new Date(article.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
     })),
   ];
 }

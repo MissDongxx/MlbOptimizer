@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "id": "diamscore",
+    "name": "DiamScore",
+    "url": "https://diamscore.com",
+    "language": "en-US",
+    "contentDirectory": "frontend/content/blog",
+    "blogBasePath": "/blog",
+    "defaultAuthor": "DiamScore Editorial Team",
+    "defaultReviewer": "DiamScore Automated Quality Gate",
+    "productCta": {
+      "label": "Open the free MLB optimizer",
+      "href": "/#optimizer"
+    }
+  },
+  "editorial": {
+    "audience": [
+      "MLB DFS beginners",
+      "DraftKings and FanDuel players",
+      "Fantasy baseball players using projections"
+    ],
+    "allowedTopics": [
+      "MLB DFS strategy",
+      "MLB lineup optimization",
+      "MLB projections and statistics",
+      "Baseball weather and ballparks",
+      "MLB injuries and roster rules",
+      "Fantasy baseball scoring and rankings"
+    ],
+    "blockedTopics": [
+      "NBA",
+      "NFL",
+      "NHL",
+      "unverified betting picks",
+      "guaranteed winnings",
+      "legal advice"
+    ],
+    "requiredDisclosures": [
+      "Predictions are estimates, not guaranteed outcomes.",
+      "Readers should verify late lineup, injury, weather, and contest-rule changes."
+    ]
+  },
+  "sources": {
+    "minimum": 2,
+    "minimumPrimary": 1,
+    "primaryDomains": [
+      "diamscore.com",
+      "mlb.com",
+      "baseballsavant.mlb.com",
+      "draftkings.com",
+      "fanduel.com",
+      "weather.gov"
+    ],
+    "secondaryDomains": [
+      "fangraphs.com",
+      "baseball-reference.com"
+    ],
+    "disallowedAsEvidence": [
+      "search result snippets",
+      "AI-generated citations",
+      "unsourced forums",
+      "competitor copy"
+    ]
+  }
+}
