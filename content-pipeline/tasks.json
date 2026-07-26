@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-24",
+  "updatedAt": "2026-07-26",
   "tasks": [
     {
       "id": "mlb-001",
@@ -22,7 +22,7 @@
     {
       "id": "mlb-002",
       "priority": 2,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb dfs strategy",
       "slug": "mlb-dfs-strategy",
       "category": "dfs-strategy",

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "slug": "mlb-dfs-strategy",
+  "category": "dfs-strategy",
+  "primaryKeyword": "mlb dfs strategy",
+  "intent": "informational",
+  "title": "MLB DFS Strategy: A Practical Guide | DiamScore",
+  "description": "Learn an MLB DFS strategy for matching contests, evaluating pitchers, building correlated stacks, reading ownership, and reacting to late lineup news.",
+  "excerpt": "A repeatable decision framework for choosing an MLB DFS contest, evaluating pitchers and stacks, using ownership responsibly, and responding to late news.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-07-26",
+  "updatedAt": "2026-07-26",
+  "keyTakeaways": [
+    "Choose the contest and slate before selecting players because field size, entry limits, payout shape, scoring, and swap rules change what a useful lineup looks like.",
+    "Evaluate pitchers by expected workload, strikeout ability, opponent context, salary, and weather rather than relying on one surface statistic.",
+    "Use team stacks and ownership as portfolio decisions, then verify starting lineups, probable pitchers, weather, injuries, and platform rules before lock."
+  ],
+  "sections": [
+    {
+      "heading": "Start with a decision framework, not a list of picks",
+      "paragraphs": [
+        "A durable MLB DFS strategy is a process for making consistent decisions under uncertainty. Begin with the contest, translate its rules and payout structure into a lineup objective, evaluate pitcher opportunity, identify coherent hitter combinations, decide how much popularity risk to accept, and reserve time for late news. This order matters because a player can be a reasonable projection value but a poor fit for the contest, stack, or portfolio you are actually building.",
+        "Treat projections as estimates rather than answers. A projection compresses many assumptions about playing time, matchup, scoring, and game environment into one number. Your job is to test the assumptions that can change: the selected game set, the starting pitcher, batting order, weather, roster eligibility, and contest rules. DiamScore can organize the player pool, apply DraftKings or FanDuel rules, enforce stack and salary settings, and generate candidate lineups, but those controls express the inputs and decisions supplied to them. They do not guarantee an outcome.",
+        "Write down the reason for every major adjustment. A confirmed batting-order change, a newly announced opener, a weather downgrade, or a different contest choice is auditable. A vague feeling that a player is due is not equivalent evidence. A short decision log also makes post-slate review more useful because you can separate a sound process from a favorable or unfavorable result."
+      ],
+      "sourceIds": [
+        "diamscore-product",
+        "draftkings-contest-entry",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Match the lineup plan to the contest",
+      "paragraphs": [
+        "Select the contest before optimizing. DraftKings states that lobby filters can include game style, game set, multi-entry limit, entry fee, prize pool, and field size, and it directs customers to review the applicable rules and scoring. Those are not administrative details. A small single-entry contest and a large multi-entry tournament may reward different balances between median projection, correlation, uniqueness, and volatility.",
+        "For a flatter payout or smaller field, a lineup that gives away less projection for the sake of being different can be sensible. In a top-heavy tournament with many entries, a duplicated popular construction may have less upside even when its individual players are strong. This is a strategic tradeoff, not a universal formula. Read the payout table, maximum entries, field size, game set, and swap policy, then decide whether you are building one carefully reviewed lineup or a diversified group.",
+        "Confirm the platform and scoring rules as part of this step. FanDuel's current MLB rules assign fantasy value differently across hitter and pitcher events and describe platform-specific lineup restrictions. DraftKings likewise notes that contest formats, athlete pools, salaries, lock behavior, and scoring are governed by the relevant contest. Never copy a lineup plan between platforms without checking roster slots, salary, scoring, team limits, eligibility, and export format in the live contest."
+      ],
+      "sourceIds": [
+        "draftkings-contest-entry",
+        "draftkings-contest-rules",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Evaluate pitchers through workload, skills, and context",
+      "paragraphs": [
+        "Pitcher selection starts with role certainty. Confirm who is expected to start, whether the team may use an opener, and whether any recent workload or return-from-injury context could shorten the outing. MLB defines an opener as a pitcher who starts for matchup purposes before giving way to another pitcher who may handle the bulk of the game. A player listed as the starter can therefore have a very different opportunity profile from a conventional starter.",
+        "Next, examine skills that connect to the platform's scoring. MLB defines strikeout rate as strikeouts divided by batters faced and notes that high rates tend to produce more strikeouts, while also acknowledging that pitchers can succeed by inducing weak contact. That makes K% useful but incomplete. Pair it with expected innings, control, handedness matchup, opponent tendencies, pitch count context, park, weather, salary, and the fantasy scoring rules that apply to your contest.",
+        "Think in ranges rather than a single projected total. A pitcher with strong strikeout ability but uncertain workload may have an attractive ceiling and a fragile median outcome. A steadier starter may offer more predictable innings but less tournament-winning upside. The correct tradeoff depends on contest type, salary alternatives, and the hitter combinations the pitcher enables. Recheck the opposing batting order because a late rest day or added contact hitter can change the matchup after an early projection was produced."
+      ],
+      "sourceIds": [
+        "mlb-opener",
+        "mlb-strikeout-rate",
+        "mlb-starting-lineups",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Build stacks around a coherent game outcome",
+      "paragraphs": [
+        "Stacking means rostering multiple hitters whose fantasy scoring can benefit from the same team rally. When one hitter reaches base and a later hitter drives him in, several roster spots can score within one sequence. The purpose is not simply to collect players with the same uniform. It is to construct a lineup around a plausible game story while respecting the platform's team and roster restrictions.",
+        "Start with batting order and opportunity. Adjacent hitters can connect more directly within an inning, while hitters near the top generally have more chances to cycle through the order. Then consider matchup quality, handedness, park, weather, salaries, and the value of the remaining roster positions. Avoid forcing an exact stack size before checking whether the resulting players are confirmed, eligible, and priced appropriately.",
+        "For multiple lineups, define a small set of stack theses instead of mixing every attractive offense into every build. One lineup might express a concentrated outcome for Team A, while another uses a different primary team with a smaller secondary combination. Cap exposure when one offense, game, or weather situation would otherwise dominate the entire portfolio. Stack settings organize risk; they do not prove that the selected offense will score."
+      ],
+      "sourceIds": [
+        "diamscore-product",
+        "mlb-starting-lineups",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Use ownership to understand duplication and leverage",
+      "paragraphs": [
+        "Ownership is the share of entries in a specific contest that rostered a player. DraftKings explains that ownership percentages are contest-specific and that its contest standings CSV includes drafted percentages after lock. Before lock, any ownership number from a projection source is only an estimate. After lock, the actual rate describes what the field did; it does not retroactively prove that a player was a good or bad choice.",
+        "A popular player can still be the correct play when salary, role, and projection make the value difficult to replace. Fading every popular option sacrifices too much expected scoring. Conversely, copying every popular play can create a lineup that many opponents also hold. Seek leverage where you have a defensible reason: a comparable lower-owned player, a different stack around the same game, or a portfolio weight that is lower or higher than the expected field.",
+        "Apply ownership at the lineup and portfolio level. A lineup with one popular core can still be differentiated through its stack, pitcher combination, or secondary correlation. Across many entries, compare your planned exposure with estimated ownership and identify where a single miss could damage every lineup. After contests settle, review the official CSV when available and record which assumptions about popularity were accurate. This feedback loop is more reliable than remembering only the lineups that won."
+      ],
+      "sourceIds": [
+        "draftkings-ownership",
+        "diamscore-product"
+      ]
+    },
+    {
+      "heading": "Create a late-news routine before lock",
+      "paragraphs": [
+        "Set review times before the first game rather than waiting for an alert. Check the official MLB starting-lineups page for probable pitchers and batting orders; MLB labels the information subject to change. Then verify injuries, scratches, transactions, contest availability, and the live platform player pool. A hitter moving into the lineup can gain opportunity, while an unexpected absence can invalidate a stack or leave a roster spot with no path to fantasy points.",
+        "Weather needs both a forecast check and a contest-rule check. The National Weather Service advises outdoor event organizers to review the latest forecast and monitor conditions, radar, and lightning information when thunderstorms are possible. For DFS decisions, the relevant question is not merely whether rain appears in an app. Consider delay and postponement risk, how uncertainty affects pitchers and hitters differently, and what the contest platform says happens to players in delayed or postponed games.",
+        "Know the lock and swap mechanics. DraftKings distinguishes late-swap contests, where individual athletes lock around their games, from non-late-swap contests, where the lineup locks with the contest. Rules and lock times can change by contest, so use the live contest screen as the final authority. If news changes the slate, update projections and constraints, rebuild, and recheck every affected lineup instead of making an undocumented last-second patch."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "nws-lightning-sports",
+        "draftkings-contest-rules",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Practical example: turn one slate into an auditable plan",
+      "paragraphs": [
+        "Consider a fictional six-game slate with one single-entry contest and one multi-entry tournament. Before evaluating players, you note the platform, payout shape, field size, entry limit, roster rules, and swap policy. You decide that the single-entry lineup will prioritize a strong median projection with one coherent team stack, while the tournament group can accept more variance across several distinct stack theses. This is an illustration of process, not a recommendation for a real contest.",
+        "You compare the projected starters by role, strikeout ability, expected workload, opponent, salary, park, and weather. One high-upside pitcher is attached to a game with unsettled weather, so you keep an alternative ready rather than treating the early projection as final. For hitters, you create a primary stack from confirmed adjacent batters and a secondary combination that fits the remaining salary. You mark each manual projection change with a reason.",
+        "Estimated ownership suggests that one value hitter will be popular. You keep him in the single-entry lineup because the replacement would weaken the full construction, but use a different player in part of the tournament portfolio where the alternative supports another stack. Near lock, the MLB lineup page still shows one team as unconfirmed. You do not assume those hitters will start: you wait, rebuild when the order appears, check weather and platform status, then export only the reviewed lineups."
+      ],
+      "sourceIds": [
+        "draftkings-contest-entry",
+        "mlb-strikeout-rate",
+        "mlb-starting-lineups",
+        "draftkings-ownership",
+        "diamscore-product"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": [
+        "No strategy framework removes baseball variance. Projections can be wrong, ownership estimates can miss, and a well-constructed stack can fail because the expected rally never occurs. Predictions are estimates, not guaranteed outcomes. Judge the quality of the inputs and reasoning separately from one slate's result.",
+        "Platform rules, scoring, athlete eligibility, salary files, contest formats, entry limits, lock times, and swap behavior can change. Team plans can also change after probable pitchers or lineups first appear. Readers should verify late lineup, injury, weather, and contest-rule changes on the official MLB, weather, and contest-platform pages before submitting or editing entries.",
+        "DiamScore is a decision-support tool, not a promise of profit. Its optimizer can apply projections and selected constraints to generate valid candidate combinations, but it cannot know every late change or determine your personal risk tolerance. Use entry limits you can afford, follow all applicable platform and location rules, and review each lineup before export and again before its roster spots lock."
+      ],
+      "sourceIds": [
+        "diamscore-product",
+        "draftkings-contest-rules",
+        "fanduel-rules",
+        "mlb-starting-lineups",
+        "nws-lightning-sports"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the most important first step in MLB DFS?",
+      "answer": "Choose the actual contest and game set first. Field size, payout shape, entry limit, platform scoring, roster restrictions, and swap rules determine what kind of lineup construction is appropriate."
+    },
+    {
+      "question": "Should I always roster the highest-projected pitcher?",
+      "answer": "No. Compare projection with expected workload, strikeout ability, opponent context, salary, weather, and role certainty. The best choice also depends on the contest and the hitters the salary difference allows."
+    },
+    {
+      "question": "Does low ownership automatically make a player a good tournament play?",
+      "answer": "No. Lower ownership is useful only when the player or lineup has a defensible path to a strong score. Being different without enough expected value is not useful leverage."
+    },
+    {
+      "question": "When should I update my MLB DFS lineups?",
+      "answer": "Review them whenever starting lineups, probable pitchers, injuries, weather, or platform status changes, and perform a final check before the relevant contest or player lock."
+    }
+  ],
+  "sources": [
+    {
+      "id": "diamscore-product",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-contest-entry",
+      "title": "How Do I Enter a Fantasy Sports Contest?",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/how-do-i-enter-a-fantasy-sports-contest?id=kb_article_view&sysparm_article=KB0010661",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-contest-rules",
+      "title": "Fantasy Sports Contest Rules & Scoring - Overview",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/fantasy-sports-contest-rules-scoring-overview?id=kb_article_view&sysparm_article=KB0010560",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-ownership",
+      "title": "How Does DraftKings Keep Fantasy Sports Contests Transparent?",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/how-does-draftkings-keep-fantasy-sports-contests-transparent?id=kb_article_view&sysparm_article=KB0010720",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "fanduel-rules",
+      "title": "Rules & Scoring",
+      "publisher": "FanDuel",
+      "url": "https://www.fanduel.com/rules",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-opener",
+      "title": "Opener",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/idioms/opener",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-strikeout-rate",
+      "title": "Strikeout Rate (K%)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/advanced-stats/strikeout-rate",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    },
+    {
+      "id": "nws-lightning-sports",
+      "title": "Lightning Safety and Outdoor Sports Activities",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/safety/lightning-sports",
+      "accessedAt": "2026-07-25",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB DFS optimizer",
+      "href": "/mlb-dfs-optimizer"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "Open the optimizer",
+      "href": "/#optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}
