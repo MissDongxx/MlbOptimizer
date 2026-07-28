@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "slug": "mlb-dfs-stacking-strategy",
+  "category": "dfs-strategy",
+  "primaryKeyword": "mlb dfs stacking strategy",
+  "intent": "informational",
+  "title": "MLB DFS Stacking Strategy: A Practical Guide | DiamScore",
+  "description": "Learn an MLB DFS stacking strategy built around hitter correlation, stack sizes, mini-stacks, ownership, portfolio control, and final lineup checks.",
+  "excerpt": "A focused guide to building MLB DFS hitter stacks around connected scoring, deliberate sizes, ownership context, and an auditable pre-lock process.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-07-28",
+  "updatedAt": "2026-07-28",
+  "keyTakeaways": [
+    "Stack hitters because one offensive sequence can create fantasy points for multiple teammates through reaching base, runs, RBI, and extra-base hits.",
+    "Choose stack size after checking the platform, contest, confirmed batting order, salaries, and legal team limits; no single structure is best for every slate.",
+    "Use ownership and exposure at the portfolio level, then verify live lineups, weather, injuries, player eligibility, and contest rules before lock."
+  ],
+  "sections": [
+    {
+      "heading": "Use stacks to express one connected scoring outcome",
+      "paragraphs": [
+        "An MLB DFS stack is a group of hitters from the same team rostered together because their fantasy scoring can be connected. If one hitter reaches base and a later teammate drives him home, the sequence can produce points for both players, with other hitters in the rally potentially adding hits, walks, runs, or RBI. The purpose is not simply to select several players wearing the same uniform. It is to build around a specific, plausible offensive outcome.",
+        "That distinction keeps this guide separate from a general MLB DFS strategy page. Contest selection, pitcher evaluation, weather, and late news still matter, but the decision here is narrower: which offense to concentrate on, how many hitters to include, which batting-order positions connect, and how much of a multi-lineup portfolio should depend on the same team outcome.",
+        "Stacking increases both connection and concentration. When the offense has a productive inning, several roster spots can score together. When the offense fails, several roster spots can fail together. Treat the stack as a risk-and-upside decision rather than a guarantee, and write down the game story that would make the construction work before accepting it."
+      ],
+      "sourceIds": [
+        "draftkings-stacking",
+        "mlb-rbi",
+        "mlb-run"
+      ]
+    },
+    {
+      "heading": "Understand where hitter correlation comes from",
+      "paragraphs": [
+        "The baseball scoring chain explains the basic correlation. MLB defines a run as being credited when a player crosses home plate, while an RBI is credited in most cases when the result of a batter's plate appearance causes a run to score. A baserunner and the teammate who drives him in can therefore benefit from the same event. DFS scoring systems assign their own point values, so the exact fantasy reward must be checked on the contest platform, but the shared baseball event is real.",
+        "Batting order shapes how often and how directly hitters can connect. MLB defines a plate appearance as a completed turn at the plate and notes that total team plate appearances reconcile with runs, runners left on base, and outs. Hitters near the top often receive more opportunities over a full game, while adjacent hitters are positioned to follow one another within the same pass through the order. Neither fact makes every top-order hitter a strong play; it simply clarifies opportunity and sequencing.",
+        "Start with confirmed order, expected role, opponent, handedness, park, weather, salary, and projection. Then ask whether the selected hitters tell a coherent story. A leadoff hitter who reaches base, middle-order bats who can advance or drive him in, and a lower-order value hitter who turns the lineup over may connect logically. Five expensive names scattered across an unconfirmed order may be a weaker stack even if each name is attractive in isolation."
+      ],
+      "sourceIds": [
+        "mlb-rbi",
+        "mlb-run",
+        "mlb-plate-appearance",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Choose stack size from the contest backward",
+      "paragraphs": [
+        "There is no universal best stack size. A larger primary stack concentrates more roster spots on one offense and preserves more of the rally's connected upside. A smaller stack leaves more positions for one-off hitters or another team and can reduce dependence on one result. The useful question is not whether four is always better than three or five. It is which legal construction best represents the contest objective and the slate's salaries, positions, and available alternatives.",
+        "Platform rules set hard boundaries. FanDuel's current fantasy baseball page lists a nine-player roster and says no more than four players may come from one MLB team. DraftKings' current Classic overview requires athletes from at least two teams and directs users to the sport-specific rules and live slate. An older DraftKings Network stacking guide discusses three- and four-player starting points, larger primary stacks, and mini-stacks, but its 2020 platform details should not replace the current contest lobby or rules.",
+        "DiamScore lets a user select one stack team and a hitter count, then generates candidates subject to the selected site's roster, salary, position, and other constraints. Begin with a legal count, run the optimizer, and inspect the actual result. If a stack makes the problem infeasible or forces poor salary and position tradeoffs, reduce the count, change the team, or reconsider the thesis rather than assuming the solver should make an impossible combination work."
+      ],
+      "sourceIds": [
+        "fanduel-fantasy-baseball",
+        "draftkings-classic",
+        "draftkings-stacking",
+        "diamscore-optimizer"
+      ]
+    },
+    {
+      "heading": "Use mini-stacks to combine two narrower game stories",
+      "paragraphs": [
+        "A mini-stack is a smaller same-team group that can stand alone or complement a primary stack. A construction such as four hitters from one offense and two or three from another uses most hitter positions to express two separate scoring paths. Those numbers are examples, not prescriptions. Position eligibility, the platform's same-team limit, salary, and the number of hitter slots determine what is actually possible.",
+        "Choose a mini-stack for its own logic. Two adjacent hitters may connect through on-base and run-production events. A three-hitter group can cover a compact part of the order without paying for every hitter on the team. Do not call two unrelated teammates a mini-stack merely because they fit the salary cap. State why their roles, order positions, and matchup make the pair or trio useful together.",
+        "DiamScore's current stack control forces a selected count from one team; it does not automatically prove or document a second distinct team thesis for you. After generating lineups, review the remaining hitters and identify whether they form a deliberate secondary combination or are simply projection-driven one-offs. If you want a two-team construction, the manual review is part of the decision and should be repeated after any lineup or eligibility change."
+      ],
+      "sourceIds": [
+        "draftkings-stacking",
+        "diamscore-optimizer",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Apply ownership to the whole stack and portfolio",
+      "paragraphs": [
+        "Ownership is contest-specific. DraftKings defines it as the percentage of contest entries that rostered a particular athlete and provides the official percentage in contest CSV data after lock. Any pre-lock ownership projection is therefore an estimate, not a platform-certified fact. Use that estimate as one input for anticipating duplication and portfolio concentration, not as a command to fade every popular hitter.",
+        "A popular stack can remain a strong construction when its projection, batting order, salary, and scoring path justify the field's interest. Differentiation can come from the secondary stack, pitcher combination, one-off hitter, or the share of your entries assigned to the team. Conversely, a low-owned offense is not automatically valuable. It still needs a plausible route to enough fantasy points to compete.",
+        "Do not estimate a stack's popularity by blindly multiplying individual ownership percentages. Players in the same offense are not chosen independently, and common constructions can cluster around the same salary values and batting-order combinations. After lock, download the official contest CSV when available, compare actual lineups and drafted percentages with your expectations, and record where your ownership assumptions were accurate or wrong."
+      ],
+      "sourceIds": [
+        "draftkings-ownership",
+        "draftkings-stacking"
+      ]
+    },
+    {
+      "heading": "Build a repeatable multi-lineup stacking workflow",
+      "paragraphs": [
+        "First, define a small set of team theses before generating many lineups. For each offense, record the expected batting-order segment, opposing pitcher, bullpen and game context you considered, salary pressure, and the news that could invalidate the idea. A thesis might be as simple as expecting the top and middle of an order to create repeated run-producing opportunities. It should never be a claim that the team is certain to score.",
+        "Second, assign portfolio limits. Decide how many lineups may use each primary stack and which individual hitters need lower maximum exposure because they appear in multiple constructions. DiamScore supports per-player maximum exposure and unique lineup generation, but those controls do not automatically cap every team-level game story. Review team counts across the generated set so one offense does not dominate by accident.",
+        "Third, inspect each lineup rather than accepting a batch summary. Confirm that the chosen team has the intended hitter count, the hitters occupy roles you meant to target, the pitcher does not conflict with the offense under your strategy, the secondary pieces make sense, and the salary and site rules are satisfied. Finally, save enough time to rebuild after confirmed orders, scratches, or contest-pool changes."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "mlb-starting-lineups",
+        "draftkings-classic"
+      ]
+    },
+    {
+      "heading": "Avoid the most common stacking mistakes",
+      "paragraphs": [
+        "The first mistake is choosing a team and count before checking the live batting order. MLB labels its starting-lineup information subject to change. An absent hitter, unexpected rest day, or move down the order can break the sequence you intended. Treat probable lineups as research inputs and confirmed lineups as the stronger pre-lock checkpoint, while still monitoring scratches.",
+        "The second mistake is forcing size without considering the full lineup. Adding another correlated hitter can require a weaker pitcher, an unsuitable position, or a salary compromise elsewhere. Compare the complete construction before deciding that a larger stack is better. The third mistake is confusing correlation with projection: teammates can score together, but correlation does not make a poor individual role or matchup disappear.",
+        "Other failures include using the same team in nearly every lineup without an explicit exposure decision, chasing low ownership without enough expected scoring, placing a hitter against your own pitcher unintentionally, and assuming an optimizer can interpret an unstated game story. Constraints enforce instructions. They do not verify your forecast, guarantee uniqueness in the contest field, or protect you from late changes."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "diamscore-optimizer",
+        "draftkings-ownership",
+        "draftkings-stacking"
+      ]
+    },
+    {
+      "heading": "Practical example: audit a fictional two-team build",
+      "paragraphs": [
+        "Consider a fictional main slate on which Team Harbor and Team Summit are both in the player pool. This example uses invented teams and no recommendation for a real contest. Your first thesis is that Team Harbor's confirmed first through fourth hitters offer the clearest connected scoring path. Your second thesis is that two adjacent Team Summit hitters provide a lower-salary mini-stack that preserves room for the preferred pitcher.",
+        "You select Team Harbor as the primary stack and request four hitters. The first result includes hitters first, second, fourth, and seventh in the order. Instead of accepting the team count alone, you compare the seventh hitter with the third hitter who was omitted. The third hitter improves the intended sequence but costs more, so you review whether a different one-off can release the necessary salary without weakening the rest of the lineup.",
+        "Estimated ownership makes the top Team Harbor hitter popular, but you keep him because he anchors the thesis. You differentiate some lineups through the Team Summit pair and others through a different pitcher, while limiting one fragile value hitter who appears too often. Before lock, Team Summit changes its order and one member of the pair moves to eighth. You rebuild, inspect the revised mini-stack, verify the live contest rules and player pool, and export only the lineups that still match a documented story."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "mlb-starting-lineups",
+        "draftkings-ownership",
+        "draftkings-classic"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify before lock",
+      "paragraphs": [
+        "Stacking cannot remove baseball variance. A well-sequenced group can fail, a one-off hitter can outscore an entire offense, and an ownership estimate can be wrong. Predictions are estimates, not guaranteed outcomes. Evaluate whether the construction faithfully represented your assumptions and risk limits separately from whether one slate produced a favorable result.",
+        "Platform scoring, salary caps, roster positions, team limits, eligibility, contest formats, lock times, swap features, player pools, and CSV behavior can change. The older DraftKings stacking article is useful for the concept, but the live contest and current official rules are the final authority. Readers should verify late lineup, injury, weather, and contest-rule changes before submitting or editing entries.",
+        "DiamScore applies the projections and constraints supplied to it; it does not know your personal risk tolerance or guarantee profit. Its current control directly enforces one selected team stack, while any secondary stack requires review of the generated hitters. Confirm that uploaded salary data matched correctly, review every candidate lineup, follow applicable platform and location rules, and use entry limits you can afford."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "draftkings-classic",
+        "draftkings-stacking",
+        "fanduel-fantasy-baseball",
+        "mlb-starting-lineups"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is stacking in MLB DFS?",
+      "answer": "Stacking means rostering multiple hitters from the same team because one rally can produce connected fantasy scoring through reaching base, runs, RBI, and extra-base hits. It concentrates both upside and risk."
+    },
+    {
+      "question": "How many hitters should be in an MLB DFS stack?",
+      "answer": "There is no universal number. Choose a legal size after checking the platform, contest, hitter slots, same-team limit, salaries, confirmed batting order, and the amount of team concentration you intend."
+    },
+    {
+      "question": "What is an MLB DFS mini-stack?",
+      "answer": "A mini-stack is a smaller same-team group, often two or three connected hitters, used alone or beside a larger primary stack. The exact size is a construction choice, not a guaranteed formula."
+    },
+    {
+      "question": "Should I avoid a stack because it is popular?",
+      "answer": "Not automatically. A popular stack can still be strong. Compare its projection and scoring path with likely duplication, alternative constructions, and your portfolio exposure rather than fading it only to be different."
+    },
+    {
+      "question": "When should I rebuild a stack?",
+      "answer": "Rebuild whenever a confirmed lineup, scratch, pitcher change, weather update, salary file, player eligibility, or contest rule changes an assumption behind the construction, then review every affected lineup again."
+    }
+  ],
+  "sources": [
+    {
+      "id": "diamscore-optimizer",
+      "title": "MLB DFS Optimizer",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/mlb-dfs-optimizer",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-stacking",
+      "title": "Advanced MLB DFS: Stacking",
+      "publisher": "DraftKings Network",
+      "url": "https://dknetwork.draftkings.com/2020/06/04/advanced-mlb-dfs-stacking/",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-classic",
+      "title": "Game Style: Classic - Overview",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/game-style-classic-overview?id=kb_article_view&sysparm_article=KB0010665",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-ownership",
+      "title": "How Does DraftKings Keep Fantasy Sports Contests Transparent?",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/how-does-draftkings-keep-fantasy-sports-contests-transparent?id=kb_article_view&sysparm_article=KB0010720",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "fanduel-fantasy-baseball",
+      "title": "Daily Fantasy Baseball",
+      "publisher": "FanDuel",
+      "url": "https://www.fanduel.com/fantasy-baseball",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-rbi",
+      "title": "Runs Batted In (RBI)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/runs-batted-in",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-run",
+      "title": "Run (R)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/run",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-plate-appearance",
+      "title": "Plate Appearance (PA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/plate-appearance",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-07-28",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB DFS optimizer",
+      "href": "/mlb-dfs-optimizer"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "Open the optimizer",
+      "href": "/#optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

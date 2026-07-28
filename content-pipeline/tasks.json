@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-26",
+  "updatedAt": "2026-07-28",
   "tasks": [
     {
       "id": "mlb-001",
@@ -39,7 +39,7 @@
     {
       "id": "mlb-003",
       "priority": 3,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb dfs stacking strategy",
       "slug": "mlb-dfs-stacking-strategy",
       "category": "dfs-strategy",
