@@ -1,0 +1,29 @@
+{
+  "actuals_acquired_at": "2026-07-02T12:00:00+00:00",
+  "actuals_sha256": "5c3dfec20ab9ae7313f53abc81f747984867e1e0357656f2055863f2e3789d18",
+  "actuals_source_timestamp": "2026-07-02T11:59:00+00:00",
+  "data_kind": "fixture",
+  "feature_sha256": "06fb9bc0ec1d77f9f284e65d38595118db830e5e0ff6d7c51b7fe273e4679af6",
+  "feature_sources": [
+    {
+      "fetched_at": "2026-07-01T22:40:00Z",
+      "published_at": "2026-07-01T22:35:00Z",
+      "source": "auditable_fixture_generator",
+      "source_record_id": "fixture-v1"
+    }
+  ],
+  "legacy_mean_actual": 104.39500000000001,
+  "lineups_per_method": 2,
+  "lock_time": "2026-07-01T23:05:00+00:00",
+  "optimized_beats_random": true,
+  "optimized_mean_actual": 106.61500000000001,
+  "optimized_vs_legacy_relative": 0.021265386273288937,
+  "optimized_vs_random_relative": 0.08266057374968282,
+  "random_mean_actual": 98.475,
+  "sample_size_per_method": 2,
+  "scoring_rules_version": "fixture-not-official",
+  "scoring_source": "auditable_fixture_generator",
+  "site": "dk",
+  "slate_id": "fixture-dk-2026-07-01-main",
+  "snapshot_as_of": "2026-07-01T22:45:00+00:00"
+}

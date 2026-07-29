@@ -1,0 +1,26 @@
+{
+  "attempts": [
+    {
+      "headers_size_bytes": 0,
+      "response_body_sha256": null,
+      "response_body_size_bytes": null,
+      "row_count": null,
+      "status": "NOT_ACQUIRED",
+      "stderr_sha256": "4415be7dec017c83a39400ee87bcbe1bae125125aee75e5b7ff6dc611588bc5a",
+      "stderr_size_bytes": 285,
+      "url": "http://rotoguru1.com/cgi-bin/byday.pl"
+    },
+    {
+      "headers_size_bytes": 0,
+      "response_body_sha256": null,
+      "response_body_size_bytes": null,
+      "row_count": null,
+      "status": "NOT_ACQUIRED",
+      "stderr_sha256": "5634068901358e1e1086ef5d56d06c8a8d2572173bc03fd66f1e49c3153f5497",
+      "stderr_size_bytes": 680,
+      "url": "https://rotoguru1.com/cgi-bin/byday.pl"
+    }
+  ],
+  "statement": "No RotoGuru historical daily response was acquired. Earlier wording suggesting a verified public historical day page is retracted; search snippets are not source artifacts.",
+  "status": "NOT_ACQUIRED"
+}

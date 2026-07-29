@@ -1,0 +1,336 @@
+{
+  "columns": [
+    "Position",
+    "Name + ID",
+    "Name",
+    "ID",
+    "Roster Position",
+    "Salary",
+    "Game Info",
+    "TeamAbbrev",
+    "AvgPointsPerGame"
+  ],
+  "counts": {
+    "duplicate_dk_id_values": 0,
+    "duplicate_full_rows": 0,
+    "duplicate_name_values": 0,
+    "games": 4,
+    "players": 345,
+    "teams": 8,
+    "unique_dk_ids": 345,
+    "unique_names": 345
+  },
+  "distribution": {
+    "avg_points_per_game": {
+      "count": 345,
+      "max": 22.34,
+      "mean": 4.836376811594203,
+      "median": 4.14,
+      "min": -7.15,
+      "negative_count": 3,
+      "nonzero_count": 263,
+      "population_stddev": 4.748564259297718,
+      "zero_count": 82
+    },
+    "game_counts": {
+      "CLE@MIL 03/10/2023 03:10PM ET": 85,
+      "CWS@CHC 03/10/2023 03:03PM ET": 83,
+      "SD@KC 03/10/2023 03:03PM ET": 90,
+      "SF@COL 03/10/2023 03:10PM ET": 87
+    },
+    "roster_position_counts": {
+      "1B": 15,
+      "1B/2B": 1,
+      "1B/3B": 3,
+      "1B/OF": 6,
+      "2B": 5,
+      "2B/3B": 5,
+      "2B/OF": 4,
+      "2B/SS": 14,
+      "3B": 11,
+      "3B/OF": 3,
+      "3B/SS": 4,
+      "C": 25,
+      "C/OF": 1,
+      "OF": 47,
+      "P": 188,
+      "SS": 13
+    },
+    "salary": {
+      "count": 345,
+      "max": 4500,
+      "mean": 4500,
+      "median": 4500,
+      "min": 4500,
+      "population_stddev": 0.0,
+      "unique_values": [
+        4500
+      ],
+      "value_counts": {
+        "4500": 345
+      }
+    },
+    "source_position_counts": {
+      "1B": 15,
+      "1B/2B": 1,
+      "1B/3B": 3,
+      "1B/OF": 6,
+      "2B": 5,
+      "2B/3B": 5,
+      "2B/OF": 4,
+      "2B/SS": 14,
+      "3B": 11,
+      "3B/OF": 3,
+      "3B/SS": 4,
+      "C": 25,
+      "C/OF": 1,
+      "OF": 47,
+      "RP": 98,
+      "SP": 90,
+      "SS": 13
+    },
+    "team_counts": {
+      "CHC": 44,
+      "CLE": 42,
+      "COL": 44,
+      "CWS": 39,
+      "KC": 44,
+      "MIL": 43,
+      "SD": 46,
+      "SF": 43
+    }
+  },
+  "format_checks": {
+    "all_dates": [
+      "2023-03-10"
+    ],
+    "game_info_parse_rate": 1.0,
+    "game_info_parsed": 345,
+    "game_info_total": 345,
+    "name_plus_id_mismatch_count": 0,
+    "name_plus_id_mismatches": [],
+    "team_not_in_game": [],
+    "team_not_in_game_count": 0
+  },
+  "lineup_feasibility": {
+    "all_possible_lineup_total_salary": 45000,
+    "example_game_count": 4,
+    "example_hitter_team_counts": {
+      "CLE": 3,
+      "COL": 1,
+      "MIL": 2,
+      "SD": 2
+    },
+    "example_lineup": [
+      {
+        "elig": [
+          "P"
+        ],
+        "game": "CWS@CHC 03/10/2023 03:03PM ET",
+        "id": "26944677",
+        "name": "Dylan Cease",
+        "opp": "CHC",
+        "projection": 22.34,
+        "roster_position": "P",
+        "salary": 4500,
+        "slot": "P",
+        "source_position": "SP",
+        "team": "CWS"
+      },
+      {
+        "elig": [
+          "P"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944705",
+        "name": "Corbin Burnes",
+        "opp": "CLE",
+        "projection": 22.17,
+        "roster_position": "P",
+        "salary": 4500,
+        "slot": "P",
+        "source_position": "SP",
+        "team": "MIL"
+      },
+      {
+        "elig": [
+          "C"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944701",
+        "name": "William Contreras",
+        "opp": "CLE",
+        "projection": 7.43,
+        "roster_position": "C",
+        "salary": 4500,
+        "slot": "C",
+        "source_position": "C",
+        "team": "MIL"
+      },
+      {
+        "elig": [
+          "1B"
+        ],
+        "game": "SD@KC 03/10/2023 03:03PM ET",
+        "id": "26944552",
+        "name": "Matt Carpenter",
+        "opp": "KC",
+        "projection": 7.94,
+        "roster_position": "1B",
+        "salary": 4500,
+        "slot": "1B",
+        "source_position": "1B",
+        "team": "SD"
+      },
+      {
+        "elig": [
+          "2B",
+          "SS"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944750",
+        "name": "Andres Gimenez",
+        "opp": "MIL",
+        "projection": 7.53,
+        "roster_position": "2B/SS",
+        "salary": 4500,
+        "slot": "2B",
+        "source_position": "2B/SS",
+        "team": "CLE"
+      },
+      {
+        "elig": [
+          "3B"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944595",
+        "name": "Jose Ramirez",
+        "opp": "MIL",
+        "projection": 9.53,
+        "roster_position": "3B",
+        "salary": 4500,
+        "slot": "3B",
+        "source_position": "3B",
+        "team": "CLE"
+      },
+      {
+        "elig": [
+          "SS"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944636",
+        "name": "Willy Adames",
+        "opp": "CLE",
+        "projection": 8.51,
+        "roster_position": "SS",
+        "salary": 4500,
+        "slot": "SS",
+        "source_position": "SS",
+        "team": "MIL"
+      },
+      {
+        "elig": [
+          "OF"
+        ],
+        "game": "SD@KC 03/10/2023 03:03PM ET",
+        "id": "26944733",
+        "name": "Juan Soto",
+        "opp": "KC",
+        "projection": 8.13,
+        "roster_position": "OF",
+        "salary": 4500,
+        "slot": "OF",
+        "source_position": "OF",
+        "team": "SD"
+      },
+      {
+        "elig": [
+          "OF"
+        ],
+        "game": "CLE@MIL 03/10/2023 03:10PM ET",
+        "id": "26944818",
+        "name": "Steven Kwan",
+        "opp": "MIL",
+        "projection": 7.83,
+        "roster_position": "OF",
+        "salary": 4500,
+        "slot": "OF",
+        "source_position": "OF",
+        "team": "CLE"
+      },
+      {
+        "elig": [
+          "OF"
+        ],
+        "game": "SF@COL 03/10/2023 03:10PM ET",
+        "id": "26944574",
+        "name": "Kris Bryant",
+        "opp": "SF",
+        "projection": 7.81,
+        "roster_position": "OF",
+        "salary": 4500,
+        "slot": "OF",
+        "source_position": "OF",
+        "team": "COL"
+      }
+    ],
+    "example_total_salary": 45000,
+    "feasible": true,
+    "maximum_hitters_per_team": 5,
+    "minimum_games": 2,
+    "required_slots": [
+      "P",
+      "P",
+      "C",
+      "1B",
+      "2B",
+      "3B",
+      "SS",
+      "OF",
+      "OF",
+      "OF"
+    ],
+    "salary_cap": 50000
+  },
+  "null_counts": {
+    "AvgPointsPerGame": 0,
+    "Game Info": 0,
+    "ID": 0,
+    "Name": 0,
+    "Name + ID": 0,
+    "Position": 0,
+    "Roster Position": 0,
+    "Salary": 0,
+    "TeamAbbrev": 0
+  },
+  "provider_game_set_unverified": true,
+  "provider_game_set_verified": false,
+  "schema_version": "1.0.0",
+  "scope": "historical_daily_pool",
+  "source": {
+    "blob_url": "https://github.com/KengoA/fantasy-ga/blob/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+    "bytes": 33342,
+    "commit_sha": "a5645d7c2f955db62e776dc6c2a1889e7769aa72",
+    "commit_timestamp": "2023-03-11T04:38:51+09:00",
+    "commit_timestamp_et": "2023-03-10T14:38:51-05:00",
+    "commit_url": "https://github.com/KengoA/fantasy-ga/commit/a5645d7c2f955db62e776dc6c2a1889e7769aa72",
+    "data_row_count": 345,
+    "line_count_including_header": 346,
+    "local_path": "/mnt/data/mlb_single_slate_work/raw/KengoA_fantasy-ga_a5645d7_DKSalaries.csv",
+    "raw_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+    "repository_path": "examples/DraftKings/MLB/DKSalaries.csv",
+    "repository_url": "https://github.com/KengoA/fantasy-ga",
+    "sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e"
+  },
+  "status": "PASS_WITH_WARNINGS",
+  "uniform_salary_assessment": {
+    "algorithm_conclusion": "informational_only_uninterpretable_for_long_run_edge",
+    "is_uniform": true,
+    "salary_value": 4500,
+    "why_warning_not_rejection": "Uniform salary eliminates salary-price information and makes optimizer performance interpretation weak, but it does not by itself prove fabrication when the file is a commit-pinned pre-lock DraftKings-format export."
+  },
+  "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION",
+  "warnings": [
+    "uniform_salary_warning"
+  ]
+}

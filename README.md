@@ -199,3 +199,9 @@ Still to harden before production:
   Fantasy Fuel exposes the full public slate after “Show all players”, but its internal ids are not
   valid DK/FD contest-upload ids.
 - Confirm Render cold-start timing after deployment
+
+## Deterministic optimizer validation and historical backtesting
+
+The audited optimizer now uses a single canonical validator for every generated lineup and fails the entire request when it cannot produce the exact requested count. Structured error details are returned alongside the existing string `detail` field.
+
+A leakage-safe, deterministic backtest CLI is documented in [`backend/backtest/README.md`](backend/backtest/README.md). It compares `random`, preserved `legacy`, and `optimized` methods on separate frozen pre-lock feature files and post-game scoring files. The included fixture is a smoke test only and does not satisfy the 30-real-slate acceptance gate.

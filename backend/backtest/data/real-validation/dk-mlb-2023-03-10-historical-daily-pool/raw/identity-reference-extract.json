@@ -1,0 +1,107 @@
+{
+  "identity_report_sha256": "2fe2dc32f5c68a7e969e8aef589649ca4e9ee96d33596092d1b621452b1bcdd6",
+  "mapped_player_count": 345,
+  "mapping_note": "The complete per-player mapping, candidates, and explicit overrides are in identity-report.json; no player was silently dropped.",
+  "schema_version": "1.0",
+  "source": "Chadwick Register commit/master shards acquired 2026-07-29",
+  "source_shards": [
+    {
+      "name": "people-0.csv",
+      "sha256": "023b54577b7906e5c631633619b8c56b892f5f7704434229321eceeb156b3dcd",
+      "size_bytes": 4182333
+    },
+    {
+      "name": "people-1.csv",
+      "sha256": "5bd3a1f694bb1e04abe8f86e64df491e08e049adc0f33bc4c062cd49a203782b",
+      "size_bytes": 4192594
+    },
+    {
+      "name": "people-2.csv",
+      "sha256": "faae89dc7f6da9ef0bb86259f303560ed99e24a4d1374de9d9e07f6eb2123864",
+      "size_bytes": 4152180
+    },
+    {
+      "name": "people-3.csv",
+      "sha256": "95ba2cec3b53c6767c2c6bb28ab4f607def78896afd9f8face8cdadd90890e3e",
+      "size_bytes": 4188651
+    },
+    {
+      "name": "people-4.csv",
+      "sha256": "b745618c23a0e29fcae453c32853aeef76d063359e25648765b5a7c89e37620a",
+      "size_bytes": 4170900
+    },
+    {
+      "name": "people-5.csv",
+      "sha256": "f191c732aa6b60b0672038a50cb62bf8f27a8a29673c3d97324f26c364325a39",
+      "size_bytes": 4182795
+    },
+    {
+      "name": "people-6.csv",
+      "sha256": "b9afda11070423674a574823e4b1e5704b77eb45471be2a8e1c35b2a6ba8a93c",
+      "size_bytes": 4151361
+    },
+    {
+      "name": "people-7.csv",
+      "sha256": "ca0dcf6f0305d33cc718ab1c542f2b36619977abb50a9075e2eb21c75c49c118",
+      "size_bytes": 4188687
+    },
+    {
+      "name": "people-8.csv",
+      "sha256": "ddf6b369d6d8734385f967c80527f53d8a908772106773413287563b7f9dc675",
+      "size_bytes": 4145683
+    },
+    {
+      "name": "people-9.csv",
+      "sha256": "35d2f23e1ac1cecf69f0553732594391e48057614e21676b70380d099106aeff",
+      "size_bytes": 4169059
+    },
+    {
+      "name": "people-a.csv",
+      "sha256": "d4915e1ed53cfed5d5e23b182e67b62264f874e4314514c73b667d686b5cb4a8",
+      "size_bytes": 4233714
+    },
+    {
+      "name": "people-b.csv",
+      "sha256": "84de1a659a9fd43af9fc3cfb4c9c8f61e79610392712311554906bea3644b34f",
+      "size_bytes": 4190924
+    },
+    {
+      "name": "people-c.csv",
+      "sha256": "58e191eb4ed994f70f19cd972926c0bf49415d20c585fd9eeb0a906d0931699e",
+      "size_bytes": 4179336
+    },
+    {
+      "name": "people-d.csv",
+      "sha256": "c0289f7d1ca59969b0c4aec7482f22f2a5980934ed6149a8c2d021ccb7923ac3",
+      "size_bytes": 4201484
+    },
+    {
+      "name": "people-e.csv",
+      "sha256": "0603f1bfc2286637dd5f6da3efae79b77504f0dac6c7b5bbdc7128046ec84325",
+      "size_bytes": 4174399
+    },
+    {
+      "name": "people-f.csv",
+      "sha256": "9b224aa9b1e0cc68254b0b9be1a4ba9f3932d18aeb528b1714044c5748c986c3",
+      "size_bytes": 4242333
+    }
+  ],
+  "source_urls": [
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-0.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-1.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-2.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-3.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-4.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-5.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-6.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-7.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-8.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-9.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-a.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-b.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-c.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-d.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-e.csv",
+    "https://github.com/chadwickbureau/register/raw/refs/heads/master/data/people-f.csv"
+  ]
+}

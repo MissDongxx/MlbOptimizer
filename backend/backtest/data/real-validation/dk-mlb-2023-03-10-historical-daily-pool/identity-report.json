@@ -1,0 +1,3861 @@
+{
+  "ambiguous_resolved_count": 26,
+  "mapped_count": 345,
+  "mappings": [
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        443558
+      ],
+      "dk_id": "26944521",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 443558,
+      "name": "Nelson Cruz",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        425844
+      ],
+      "dk_id": "26944522",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 425844,
+      "name": "Zack Greinke",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        506433
+      ],
+      "dk_id": "26944528",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 506433,
+      "name": "Yu Darvish",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        519141
+      ],
+      "dk_id": "26944529",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 519141,
+      "name": "Drew Pomeranz",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 8,
+      "candidate_mlbam_ids": [
+        699090,
+        671277,
+        677593,
+        677651,
+        472610,
+        800430,
+        807825,
+        693760
+      ],
+      "dk_id": "26944532",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 472610,
+      "name": "Luis Garcia",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        521692
+      ],
+      "dk_id": "26944533",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 521692,
+      "name": "Salvador Perez",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543475
+      ],
+      "dk_id": "26944537",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543475,
+      "name": "Jordan Lyles",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        572761,
+        690675
+      ],
+      "dk_id": "26944552",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 572761,
+      "name": "Matt Carpenter",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        547973
+      ],
+      "dk_id": "26944562",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 547973,
+      "name": "Aroldis Chapman",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        593993
+      ],
+      "dk_id": "26944564",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 593993,
+      "name": "Jose Briceno",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592518
+      ],
+      "dk_id": "26944566",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592518,
+      "name": "Manny Machado",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592660
+      ],
+      "dk_id": "26944570",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592660,
+      "name": "Rangel Ravelo",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        593428
+      ],
+      "dk_id": "26944576",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 593428,
+      "name": "Xander Bogaerts",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543592
+      ],
+      "dk_id": "26944578",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543592,
+      "name": "Austin Nola",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605512
+      ],
+      "dk_id": "26944581",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605512,
+      "name": "Preston Tucker",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605397
+      ],
+      "dk_id": "26944585",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605397,
+      "name": "Joe Musgrove",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605483
+      ],
+      "dk_id": "26944588",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605483,
+      "name": "Blake Snell",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605130
+      ],
+      "dk_id": "26944592",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605130,
+      "name": "Scott Barlow",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        607237
+      ],
+      "dk_id": "26944597",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 607237,
+      "name": "Amir Garrett",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        607259,
+        824751
+      ],
+      "dk_id": "26944600",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 607259,
+      "name": "Nick Martinez",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        607625
+      ],
+      "dk_id": "26944601",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 607625,
+      "name": "Seth Lugo",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608379
+      ],
+      "dk_id": "26944607",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608379,
+      "name": "Michael Wacha",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        622503
+      ],
+      "dk_id": "26944610",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 622503,
+      "name": "Nabil Crismatt",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621005
+      ],
+      "dk_id": "26944618",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621005,
+      "name": "Tim Lopes",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        623352
+      ],
+      "dk_id": "26944620",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 623352,
+      "name": "Josh Hader",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621016
+      ],
+      "dk_id": "26944622",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621016,
+      "name": "Jose Cuas",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621098
+      ],
+      "dk_id": "26944623",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621098,
+      "name": "Eric Hanhold",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621051
+      ],
+      "dk_id": "26944624",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621051,
+      "name": "Steven Wilson",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641553
+      ],
+      "dk_id": "26944629",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641553,
+      "name": "Adam Engel",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        640492
+      ],
+      "dk_id": "26944634",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 640492,
+      "name": "Jose Azocar",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641531
+      ],
+      "dk_id": "26944639",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641531,
+      "name": "Hunter Dozier",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641525
+      ],
+      "dk_id": "26944645",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641525,
+      "name": "Brandon Dixon",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641745
+      ],
+      "dk_id": "26944650",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641745,
+      "name": "Brad Keller",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642232
+      ],
+      "dk_id": "26944654",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642232,
+      "name": "Ryan Yarbrough",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        620454,
+        811370
+      ],
+      "dk_id": "26944661",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 620454,
+      "name": "Jose Castillo",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641703
+      ],
+      "dk_id": "26944672",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641703,
+      "name": "Brent Honeywell",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656883
+      ],
+      "dk_id": "26944673",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656883,
+      "name": "Jakson Reetz",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657612
+      ],
+      "dk_id": "26944681",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657612,
+      "name": "Tim Hill",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        658668
+      ],
+      "dk_id": "26944686",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 658668,
+      "name": "Edward Olivares",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657031
+      ],
+      "dk_id": "26944687",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657031,
+      "name": "Josh Taylor",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664954
+      ],
+      "dk_id": "26944691",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664954,
+      "name": "Brett Sullivan",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        622251
+      ],
+      "dk_id": "26944692",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 622251,
+      "name": "Josh Staumont",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        630105
+      ],
+      "dk_id": "26944693",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 630105,
+      "name": "Jake Cronenworth",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663158
+      ],
+      "dk_id": "26944696",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663158,
+      "name": "Robert Suarez",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        658648
+      ],
+      "dk_id": "26944699",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 658648,
+      "name": "Pedro Avila",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663757
+      ],
+      "dk_id": "26944711",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663757,
+      "name": "Trent Grisham",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663903
+      ],
+      "dk_id": "26944714",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663903,
+      "name": "Brady Singer",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664199
+      ],
+      "dk_id": "26944716",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664199,
+      "name": "Taylor Clarke",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663804
+      ],
+      "dk_id": "26944729",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663804,
+      "name": "Jackson Kowar",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665734
+      ],
+      "dk_id": "26944732",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665734,
+      "name": "Angel Felipe",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        699041,
+        665742
+      ],
+      "dk_id": "26944733",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 665742,
+      "name": "Juan Soto",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        673490
+      ],
+      "dk_id": "26944734",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 673490,
+      "name": "Ha-Seong Kim",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676680
+      ],
+      "dk_id": "26944741",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676680,
+      "name": "Tom Cosgrove",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665989
+      ],
+      "dk_id": "26944752",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665989,
+      "name": "Shervyen Newton",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666721
+      ],
+      "dk_id": "26944754",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666721,
+      "name": "Max Castillo",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666130
+      ],
+      "dk_id": "26944757",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666130,
+      "name": "Jay Groome",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        597113,
+        669288
+      ],
+      "dk_id": "26944762",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 669288,
+      "name": "Daniel Johnson",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        670032
+      ],
+      "dk_id": "26944766",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 670032,
+      "name": "Nicky Lopez",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621139
+      ],
+      "dk_id": "26944769",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621139,
+      "name": "Brooks Kriske",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666023
+      ],
+      "dk_id": "26944771",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666023,
+      "name": "Freddy Fermin",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669392
+      ],
+      "dk_id": "26944772",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669392,
+      "name": "Samad Taylor",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663992
+      ],
+      "dk_id": "26944774",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663992,
+      "name": "Richard Lovelady",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        673258
+      ],
+      "dk_id": "26944793",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 673258,
+      "name": "Michel Baez",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        670970
+      ],
+      "dk_id": "26944794",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 670970,
+      "name": "Adrian Morejon",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680742
+      ],
+      "dk_id": "26944796",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680742,
+      "name": "Jonathan Bowlan",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669395
+      ],
+      "dk_id": "26944797",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669395,
+      "name": "Dylan Coleman",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663753
+      ],
+      "dk_id": "26944801",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663753,
+      "name": "Reiss Knehr",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        672580
+      ],
+      "dk_id": "26944803",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 672580,
+      "name": "Maikel Garcia",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 5,
+      "candidate_mlbam_ids": [
+        496485,
+        616402,
+        477479,
+        656662,
+        673111
+      ],
+      "dk_id": "26944808",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 673111,
+      "name": "Jose Lopez",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        672582
+      ],
+      "dk_id": "26944809",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 672582,
+      "name": "Angel Zerpa",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664728
+      ],
+      "dk_id": "26944813",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664728,
+      "name": "Kyle Isbel",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663460
+      ],
+      "dk_id": "26944817",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663460,
+      "name": "Kris Bubic",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663738
+      ],
+      "dk_id": "26944821",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663738,
+      "name": "Daniel Lynch",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668472
+      ],
+      "dk_id": "26944824",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668472,
+      "name": "Nick Pratto",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669134
+      ],
+      "dk_id": "26944826",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669134,
+      "name": "Luis Campusano",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        671221
+      ],
+      "dk_id": "26944827",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 671221,
+      "name": "Drew Waters",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669004
+      ],
+      "dk_id": "26944828",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669004,
+      "name": "MJ Melendez",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656734
+      ],
+      "dk_id": "26944835",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656734,
+      "name": "Evan Mendoza",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676092
+      ],
+      "dk_id": "26944837",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676092,
+      "name": "Collin Snider",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676946
+      ],
+      "dk_id": "26944843",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676946,
+      "name": "Matthew Batten",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_mlbam_ids": [
+        483898,
+        672578,
+        488957
+      ],
+      "dk_id": "26944848",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 672578,
+      "name": "Carlos Hernandez",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        678061
+      ],
+      "dk_id": "26944851",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 678061,
+      "name": "Ray Kerr",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        686469
+      ],
+      "dk_id": "26944853",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 686469,
+      "name": "Vinnie Pasquantino",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        686681,
+        695602
+      ],
+      "dk_id": "26944854",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 686681,
+      "name": "Michael Massey",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669169
+      ],
+      "dk_id": "26944855",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669169,
+      "name": "Jonathan Heasley",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        681987
+      ],
+      "dk_id": "26944856",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 681987,
+      "name": "Nate Eaton",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        800545,
+        678746
+      ],
+      "dk_id": "26944863",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 678746,
+      "name": "Diego Hernandez",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        677960
+      ],
+      "dk_id": "26944865",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 677960,
+      "name": "Ryan Weathers",
+      "team": "SD"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        679525
+      ],
+      "dk_id": "26944890",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 679525,
+      "name": "Alec Marsh",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        677951
+      ],
+      "dk_id": "26944891",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 677951,
+      "name": "Bobby Witt Jr.",
+      "team": "KC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        456713
+      ],
+      "dk_id": "26944523",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 456713,
+      "name": "Matt Bush",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        489119
+      ],
+      "dk_id": "26944539",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 489119,
+      "name": "Wade Miley",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        679655,
+        458677
+      ],
+      "dk_id": "26944543",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 458677,
+      "name": "Justin Wilson",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        572287
+      ],
+      "dk_id": "26944555",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 572287,
+      "name": "Mike Zunino",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        571948
+      ],
+      "dk_id": "26944559",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 571948,
+      "name": "Hoby Milner",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592885
+      ],
+      "dk_id": "26944568",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592885,
+      "name": "Christian Yelich",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        606303
+      ],
+      "dk_id": "26944583",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 606303,
+      "name": "Joel Payamps",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        806546,
+        605137
+      ],
+      "dk_id": "26944586",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 605137,
+      "name": "Josh Bell",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605288
+      ],
+      "dk_id": "26944587",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605288,
+      "name": "Adrian Houser",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605540
+      ],
+      "dk_id": "26944589",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605540,
+      "name": "Brandon Woodruff",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_mlbam_ids": [
+        802064,
+        679943,
+        608070,
+        681459
+      ],
+      "dk_id": "26944595",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 608070,
+      "name": "Jose Ramirez",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605119
+      ],
+      "dk_id": "26944596",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605119,
+      "name": "Brian Anderson",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608385
+      ],
+      "dk_id": "26944613",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608385,
+      "name": "Jesse Winker",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621438
+      ],
+      "dk_id": "26944617",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621438,
+      "name": "Tyrone Taylor",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        623381
+      ],
+      "dk_id": "26944621",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 623381,
+      "name": "Thomas Pannone",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642708
+      ],
+      "dk_id": "26944633",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642708,
+      "name": "Amed Rosario",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642715
+      ],
+      "dk_id": "26944636",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642715,
+      "name": "Willy Adames",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        642770,
+        457915
+      ],
+      "dk_id": "26944637",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 642770,
+      "name": "Javy Guerra",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642547
+      ],
+      "dk_id": "26944638",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642547,
+      "name": "Freddy Peralta",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642207
+      ],
+      "dk_id": "26944643",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642207,
+      "name": "Devin Williams",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605170
+      ],
+      "dk_id": "26944644",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605170,
+      "name": "Victor Caratini",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        640459
+      ],
+      "dk_id": "26944648",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 640459,
+      "name": "Brian Navarreto",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641778
+      ],
+      "dk_id": "26944651",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641778,
+      "name": "Eric Lauer",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642133
+      ],
+      "dk_id": "26944652",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642133,
+      "name": "Rowdy Tellez",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        615698
+      ],
+      "dk_id": "26944653",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 615698,
+      "name": "Cal Quantrill",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        643539
+      ],
+      "dk_id": "26944657",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 643539,
+      "name": "Caleb Simpson",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        821341,
+        649966
+      ],
+      "dk_id": "26944666",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 649966,
+      "name": "Luis Urias",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        656529,
+        823314
+      ],
+      "dk_id": "26944675",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 656529,
+      "name": "Sam Hentges",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        660757
+      ],
+      "dk_id": "26944700",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 660757,
+      "name": "Oscar Gonzalez",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        661388
+      ],
+      "dk_id": "26944701",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 661388,
+      "name": "William Contreras",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668338
+      ],
+      "dk_id": "26944702",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668338,
+      "name": "Tyson Miller",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        661403
+      ],
+      "dk_id": "26944703",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 661403,
+      "name": "Emmanuel Clase",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664776
+      ],
+      "dk_id": "26944704",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664776,
+      "name": "Jake Cousins",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669203
+      ],
+      "dk_id": "26944705",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669203,
+      "name": "Corbin Burnes",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669456
+      ],
+      "dk_id": "26944706",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669456,
+      "name": "Shane Bieber",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668676
+      ],
+      "dk_id": "26944707",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668676,
+      "name": "Zach Plesac",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        650644
+      ],
+      "dk_id": "26944708",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 650644,
+      "name": "Aaron Civale",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        647304
+      ],
+      "dk_id": "26944710",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 647304,
+      "name": "Josh Naylor",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663474
+      ],
+      "dk_id": "26944712",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663474,
+      "name": "Triston McKenzie",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663368
+      ],
+      "dk_id": "26944715",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663368,
+      "name": "Blake Perkins",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664702
+      ],
+      "dk_id": "26944719",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664702,
+      "name": "Myles Straw",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663467
+      ],
+      "dk_id": "26944726",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663467,
+      "name": "Jason Bilous",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663752
+      ],
+      "dk_id": "26944727",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663752,
+      "name": "Cody Morris",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        660853
+      ],
+      "dk_id": "26944731",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 660853,
+      "name": "Enyel De Los Santos",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663455
+      ],
+      "dk_id": "26944738",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663455,
+      "name": "Konnor Pilkington",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        675916
+      ],
+      "dk_id": "26944740",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 675916,
+      "name": "James Karinchak",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669212
+      ],
+      "dk_id": "26944746",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669212,
+      "name": "Eli Morgan",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663629
+      ],
+      "dk_id": "26944747",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663629,
+      "name": "Ethan Small",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665625
+      ],
+      "dk_id": "26944749",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665625,
+      "name": "Elvis Peguero",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665926
+      ],
+      "dk_id": "26944750",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665926,
+      "name": "Andres Gimenez",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669060
+      ],
+      "dk_id": "26944760",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669060,
+      "name": "Bryse Wilson",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668721
+      ],
+      "dk_id": "26944763",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668721,
+      "name": "Payton Henry",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        647351
+      ],
+      "dk_id": "26944764",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 647351,
+      "name": "Abraham Toro",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668964
+      ],
+      "dk_id": "26944768",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668964,
+      "name": "Tobias Myers",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        670056
+      ],
+      "dk_id": "26944770",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 670056,
+      "name": "Caleb Baragar",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663986
+      ],
+      "dk_id": "26944777",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663986,
+      "name": "Trevor Stephan",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        670712
+      ],
+      "dk_id": "26944787",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 670712,
+      "name": "Mike Brosseau",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680700
+      ],
+      "dk_id": "26944799",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680700,
+      "name": "Richie Palacios",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676083
+      ],
+      "dk_id": "26944800",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676083,
+      "name": "Janson Junk",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682120
+      ],
+      "dk_id": "26944810",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682120,
+      "name": "Tim Herrin",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        680911,
+        832334
+      ],
+      "dk_id": "26944811",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 680911,
+      "name": "Owen Miller",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680704
+      ],
+      "dk_id": "26944816",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680704,
+      "name": "Nick Sandlin",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680757
+      ],
+      "dk_id": "26944818",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680757,
+      "name": "Steven Kwan",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669374
+      ],
+      "dk_id": "26944822",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669374,
+      "name": "Keston Hiura",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        671289
+      ],
+      "dk_id": "26944830",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 671289,
+      "name": "Tyler Freeman",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669003
+      ],
+      "dk_id": "26944838",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669003,
+      "name": "Garrett Mitchell",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676282
+      ],
+      "dk_id": "26944839",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676282,
+      "name": "Joey Cantillo",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        804247,
+        676515
+      ],
+      "dk_id": "26944841",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 676515,
+      "name": "Cam Robinson",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676879
+      ],
+      "dk_id": "26944842",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676879,
+      "name": "Aaron Ashby",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        672356
+      ],
+      "dk_id": "26944849",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 672356,
+      "name": "Gabriel Arias",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        677588
+      ],
+      "dk_id": "26944859",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 677588,
+      "name": "Jose Tena",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        678877
+      ],
+      "dk_id": "26944861",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 678877,
+      "name": "Jhonkensy Noel",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        677587
+      ],
+      "dk_id": "26944866",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 677587,
+      "name": "Brayan Rocchio",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668930
+      ],
+      "dk_id": "26944868",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668930,
+      "name": "Brice Turang",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666310
+      ],
+      "dk_id": "26944870",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666310,
+      "name": "Bo Naylor",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        681402
+      ],
+      "dk_id": "26944874",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 681402,
+      "name": "Gus Varland",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        681526
+      ],
+      "dk_id": "26944875",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 681526,
+      "name": "Bryan Lavastida",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        671655
+      ],
+      "dk_id": "26944879",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 671655,
+      "name": "George Valera",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657265
+      ],
+      "dk_id": "26944880",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657265,
+      "name": "Peter Strzelecki",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682842
+      ],
+      "dk_id": "26944881",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682842,
+      "name": "Abner Uribe",
+      "team": "MIL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        683769
+      ],
+      "dk_id": "26944885",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 683769,
+      "name": "Hunter Gaddis",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        686823
+      ],
+      "dk_id": "26944886",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 686823,
+      "name": "Will Brennan",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        675540
+      ],
+      "dk_id": "26944887",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 675540,
+      "name": "Xzavion Curry",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682657
+      ],
+      "dk_id": "26944903",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682657,
+      "name": "Angel Martinez",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682877
+      ],
+      "dk_id": "26944905",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682877,
+      "name": "Juan Brito",
+      "team": "CLE"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        462101
+      ],
+      "dk_id": "26944524",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 462101,
+      "name": "Elvis Andrus",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        502202
+      ],
+      "dk_id": "26944527",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 502202,
+      "name": "Brad Boxberger",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        518735
+      ],
+      "dk_id": "26944530",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 518735,
+      "name": "Yasmani Grandal",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        518617
+      ],
+      "dk_id": "26944531",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 518617,
+      "name": "Jake Diekman",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        521230
+      ],
+      "dk_id": "26944535",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 521230,
+      "name": "Liam Hendriks",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543333
+      ],
+      "dk_id": "26944536",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543333,
+      "name": "Eric Hosmer",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        458681
+      ],
+      "dk_id": "26944538",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 458681,
+      "name": "Lance Lynn",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        544725
+      ],
+      "dk_id": "26944546",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 544725,
+      "name": "Leury Garcia",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        560908,
+        523260
+      ],
+      "dk_id": "26944549",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 523260,
+      "name": "Joe Kelly",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        571466
+      ],
+      "dk_id": "26944550",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 571466,
+      "name": "Tucker Barnhart",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543228
+      ],
+      "dk_id": "26944551",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543228,
+      "name": "Yan Gomes",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        573186
+      ],
+      "dk_id": "26944554",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 573186,
+      "name": "Marcus Stroman",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592791
+      ],
+      "dk_id": "26944565",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592791,
+      "name": "Jameson Taillon",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592767
+      ],
+      "dk_id": "26944569",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592767,
+      "name": "Drew Smyly",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592858
+      ],
+      "dk_id": "26944575",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592858,
+      "name": "Rowan Wick",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543294
+      ],
+      "dk_id": "26944579",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543294,
+      "name": "Kyle Hendricks",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605242
+      ],
+      "dk_id": "26944584",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605242,
+      "name": "Michael Fulmer",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605182
+      ],
+      "dk_id": "26944591",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605182,
+      "name": "Mike Clevinger",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592716
+      ],
+      "dk_id": "26944594",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592716,
+      "name": "Adrian Sampson",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        595897
+      ],
+      "dk_id": "26944598",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 595897,
+      "name": "Nick Burdi",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        607481
+      ],
+      "dk_id": "26944599",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 607481,
+      "name": "Aaron Bummer",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608665
+      ],
+      "dk_id": "26944606",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608665,
+      "name": "Kendall Graveman",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        614179
+      ],
+      "dk_id": "26944611",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 614179,
+      "name": "Jose Ruiz",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621550
+      ],
+      "dk_id": "26944614",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621550,
+      "name": "Patrick Wisdom",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608337
+      ],
+      "dk_id": "26944616",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608337,
+      "name": "Lucas Giolito",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621020
+      ],
+      "dk_id": "26944625",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621020,
+      "name": "Dansby Swanson",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        625643
+      ],
+      "dk_id": "26944626",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 625643,
+      "name": "Reynaldo Lopez",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641820
+      ],
+      "dk_id": "26944627",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641820,
+      "name": "Trey Mancini",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        673548
+      ],
+      "dk_id": "26944632",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 673548,
+      "name": "Seiya Suzuki",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        640470
+      ],
+      "dk_id": "26944635",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 640470,
+      "name": "Adbert Alzolay",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641313
+      ],
+      "dk_id": "26944640",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641313,
+      "name": "Tim Anderson",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641355
+      ],
+      "dk_id": "26944647",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641355,
+      "name": "Cody Bellinger",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        643565
+      ],
+      "dk_id": "26944649",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 643565,
+      "name": "Mike Tauchman",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641582
+      ],
+      "dk_id": "26944655",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641582,
+      "name": "Matt Foster",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        643217
+      ],
+      "dk_id": "26944656",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 643217,
+      "name": "Andrew Benintendi",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621458
+      ],
+      "dk_id": "26944662",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621458,
+      "name": "Edwin Rios",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664023
+      ],
+      "dk_id": "26944664",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664023,
+      "name": "Ian Happ",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_mlbam_ids": [
+        542208,
+        692475,
+        656024
+      ],
+      "dk_id": "26944668",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 656024,
+      "name": "Carlos Perez",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656629
+      ],
+      "dk_id": "26944669",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656629,
+      "name": "Michael Kopech",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657006
+      ],
+      "dk_id": "26944676",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657006,
+      "name": "Justin Steele",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656302
+      ],
+      "dk_id": "26944677",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656302,
+      "name": "Dylan Cease",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621383
+      ],
+      "dk_id": "26944678",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621383,
+      "name": "Tanner Banks",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657240
+      ],
+      "dk_id": "26944679",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657240,
+      "name": "Julian Merryweather",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657757
+      ],
+      "dk_id": "26944683",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657757,
+      "name": "Gavin Sheets",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        650391
+      ],
+      "dk_id": "26944685",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 650391,
+      "name": "Eloy Jimenez",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        660162
+      ],
+      "dk_id": "26944695",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 660162,
+      "name": "Yoan Moncada",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664874
+      ],
+      "dk_id": "26944720",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664874,
+      "name": "Seby Zavala",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        656820,
+        673695
+      ],
+      "dk_id": "26944721",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 656820,
+      "name": "Nicholas Padilla",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663611
+      ],
+      "dk_id": "26944722",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663611,
+      "name": "Nick Madrigal",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676714
+      ],
+      "dk_id": "26944736",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676714,
+      "name": "Brandon Hughes",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669394
+      ],
+      "dk_id": "26944743",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669394,
+      "name": "Jake Burger",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663436
+      ],
+      "dk_id": "26944745",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663436,
+      "name": "Davis Martin",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666619
+      ],
+      "dk_id": "26944753",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666619,
+      "name": "Gregory Santos",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665804
+      ],
+      "dk_id": "26944755",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665804,
+      "name": "Miguel Amaya",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669424
+      ],
+      "dk_id": "26944761",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669424,
+      "name": "Jimmy Lambert",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        670156
+      ],
+      "dk_id": "26944775",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 670156,
+      "name": "Miles Mastrobuoni",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        624522
+      ],
+      "dk_id": "26944782",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 624522,
+      "name": "Keegan Thompson",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669713
+      ],
+      "dk_id": "26944783",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669713,
+      "name": "Hayden Wesneski",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656716
+      ],
+      "dk_id": "26944785",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656716,
+      "name": "Zach McKinstry",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669935
+      ],
+      "dk_id": "26944790",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669935,
+      "name": "A.J. Alexy",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        621074
+      ],
+      "dk_id": "26944791",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 621074,
+      "name": "Michael Rucker",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        665871
+      ],
+      "dk_id": "26944792",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 665871,
+      "name": "Javier Assad",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        673357
+      ],
+      "dk_id": "26944795",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 673357,
+      "name": "Luis Robert Jr.",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        672744
+      ],
+      "dk_id": "26944805",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 672744,
+      "name": "Alexander Canario",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666624
+      ],
+      "dk_id": "26944806",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666624,
+      "name": "Christopher Morel",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663538
+      ],
+      "dk_id": "26944814",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663538,
+      "name": "Nico Hoerner",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676369
+      ],
+      "dk_id": "26944833",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676369,
+      "name": "Nelson Velazquez",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669093
+      ],
+      "dk_id": "26944834",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669093,
+      "name": "Jeremiah Estrada",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676962
+      ],
+      "dk_id": "26944844",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676962,
+      "name": "Ben Brown",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676979
+      ],
+      "dk_id": "26944845",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676979,
+      "name": "Garrett Crochet",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        672820
+      ],
+      "dk_id": "26944847",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 672820,
+      "name": "Lenyn Sosa",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668873
+      ],
+      "dk_id": "26944858",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668873,
+      "name": "Caleb Kilian",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 11,
+      "candidate_mlbam_ids": [
+        679563,
+        673648,
+        642597,
+        689487,
+        801217,
+        800412,
+        642578,
+        519215,
+        692064,
+        815763,
+        815278
+      ],
+      "dk_id": "26944864",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 679563,
+      "name": "Jose Rodriguez",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680695
+      ],
+      "dk_id": "26944871",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680695,
+      "name": "Brennen Davis",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        681464
+      ],
+      "dk_id": "26944872",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 681464,
+      "name": "Franklin German",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663853
+      ],
+      "dk_id": "26944876",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663853,
+      "name": "Romy Gonzalez",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        683734
+      ],
+      "dk_id": "26944889",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 683734,
+      "name": "Andrew Vaughn",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        686754
+      ],
+      "dk_id": "26944892",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 686754,
+      "name": "Ryan Jensen",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        687014
+      ],
+      "dk_id": "26944897",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 687014,
+      "name": "Nick Avila",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668787
+      ],
+      "dk_id": "26944898",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668787,
+      "name": "Bryce Ball",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682868
+      ],
+      "dk_id": "26944899",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682868,
+      "name": "Bryan Ramos",
+      "team": "CWS"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682634
+      ],
+      "dk_id": "26944900",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682634,
+      "name": "Kevin Alcantara",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        691718
+      ],
+      "dk_id": "26944902",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 691718,
+      "name": "Pete Crow-Armstrong",
+      "team": "CHC"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        453268
+      ],
+      "dk_id": "26944525",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 453268,
+      "name": "Daniel Bard",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        502171
+      ],
+      "dk_id": "26944526",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 502171,
+      "name": "Alex Cobb",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        472551
+      ],
+      "dk_id": "26944534",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 472551,
+      "name": "Fernando Abad",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543272
+      ],
+      "dk_id": "26944540",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543272,
+      "name": "Brad Hand",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        453568
+      ],
+      "dk_id": "26944541",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 453568,
+      "name": "Charlie Blackmon",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543063
+      ],
+      "dk_id": "26944542",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543063,
+      "name": "Brandon Crawford",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543101
+      ],
+      "dk_id": "26944544",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543101,
+      "name": "Anthony DeSclafani",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        527038,
+        695865
+      ],
+      "dk_id": "26944545",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 527038,
+      "name": "Wilmer Flores",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        545341
+      ],
+      "dk_id": "26944548",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 545341,
+      "name": "Randal Grichuk",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        572955
+      ],
+      "dk_id": "26944553",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 572955,
+      "name": "Pierce Johnson",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        571745
+      ],
+      "dk_id": "26944556",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 571745,
+      "name": "Mitch Haniger",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        573262
+      ],
+      "dk_id": "26944557",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 573262,
+      "name": "Mike Yastrzemski",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        573124
+      ],
+      "dk_id": "26944558",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 573124,
+      "name": "Taylor Rogers",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        553869
+      ],
+      "dk_id": "26944560",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 553869,
+      "name": "Elias Diaz",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        570632,
+        614182
+      ],
+      "dk_id": "26944561",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 570632,
+      "name": "Jose Urena",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        518397
+      ],
+      "dk_id": "26944563",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 518397,
+      "name": "Scott Alexander",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592426
+      ],
+      "dk_id": "26944567",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592426,
+      "name": "Luke Jackson",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592626
+      ],
+      "dk_id": "26944572",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592626,
+      "name": "Joc Pederson",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        592178
+      ],
+      "dk_id": "26944574",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 592178,
+      "name": "Kris Bryant",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        543068
+      ],
+      "dk_id": "26944577",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 543068,
+      "name": "C.J. Cron",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605154
+      ],
+      "dk_id": "26944580",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605154,
+      "name": "John Brebbia",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        602074
+      ],
+      "dk_id": "26944582",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 602074,
+      "name": "Yonathan Daza",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        605204
+      ],
+      "dk_id": "26944590",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 605204,
+      "name": "J.D. Davis",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        548389
+      ],
+      "dk_id": "26944593",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 548389,
+      "name": "Ross Stripling",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        607536
+      ],
+      "dk_id": "26944602",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 607536,
+      "name": "Kyle Freeland",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        596001
+      ],
+      "dk_id": "26944603",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 596001,
+      "name": "Jakob Junis",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        596103
+      ],
+      "dk_id": "26944604",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 596103,
+      "name": "Austin Slater",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        622072
+      ],
+      "dk_id": "26944605",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 622072,
+      "name": "Alex Wood",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608718
+      ],
+      "dk_id": "26944608",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608718,
+      "name": "Brent Suter",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        608566
+      ],
+      "dk_id": "26944609",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 608566,
+      "name": "German Marquez",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        622608
+      ],
+      "dk_id": "26944612",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 622608,
+      "name": "Antonio Senzatela",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        624424
+      ],
+      "dk_id": "26944630",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 624424,
+      "name": "Michael Conforto",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        640455
+      ],
+      "dk_id": "26944631",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 640455,
+      "name": "Sean Manaea",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        641857
+      ],
+      "dk_id": "26944641",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 641857,
+      "name": "Ryan McMahon",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        643511
+      ],
+      "dk_id": "26944658",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 643511,
+      "name": "Tyler Rogers",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        642731
+      ],
+      "dk_id": "26944659",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 642731,
+      "name": "Thairo Estrada",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        596295
+      ],
+      "dk_id": "26944665",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 596295,
+      "name": "Austin Gomber",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656371
+      ],
+      "dk_id": "26944670",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656371,
+      "name": "Isan Diaz",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657277
+      ],
+      "dk_id": "26944674",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657277,
+      "name": "Logan Webb",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        657756
+      ],
+      "dk_id": "26944680",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 657756,
+      "name": "Connor Seabold",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656458
+      ],
+      "dk_id": "26944682",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656458,
+      "name": "Lucas Gilbreath",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        659275
+      ],
+      "dk_id": "26944688",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 659275,
+      "name": "Dinelson Lamet",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664774
+      ],
+      "dk_id": "26944689",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664774,
+      "name": "LaMonte Wade Jr.",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        661531
+      ],
+      "dk_id": "26944690",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 661531,
+      "name": "Brian Serven",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        660707
+      ],
+      "dk_id": "26944697",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 660707,
+      "name": "Elehuris Montero",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        660422
+      ],
+      "dk_id": "26944698",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 660422,
+      "name": "Jorge Guzman",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663898
+      ],
+      "dk_id": "26944709",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663898,
+      "name": "Brendan Rodgers",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663567
+      ],
+      "dk_id": "26944713",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663567,
+      "name": "Peter Lambert",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663378
+      ],
+      "dk_id": "26944717",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663378,
+      "name": "Thomas Szapucki",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664875
+      ],
+      "dk_id": "26944718",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664875,
+      "name": "Justin Lawrence",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664966
+      ],
+      "dk_id": "26944723",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664966,
+      "name": "Jonathan Morales",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663372
+      ],
+      "dk_id": "26944724",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663372,
+      "name": "Ryan Feltner",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663698
+      ],
+      "dk_id": "26944725",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663698,
+      "name": "Joey Bart",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663941
+      ],
+      "dk_id": "26944728",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663941,
+      "name": "Tristan Beck",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        664700
+      ],
+      "dk_id": "26944730",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 664700,
+      "name": "Daniel Tillo",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656701
+      ],
+      "dk_id": "26944737",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656701,
+      "name": "Kade McClure",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656248
+      ],
+      "dk_id": "26944739",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656248,
+      "name": "Sean Bouchard",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        656234
+      ],
+      "dk_id": "26944742",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 656234,
+      "name": "Jake Bird",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666808
+      ],
+      "dk_id": "26944748",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666808,
+      "name": "Camilo Doval",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666207
+      ],
+      "dk_id": "26944756",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666207,
+      "name": "Riley Pint",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666134
+      ],
+      "dk_id": "26944758",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666134,
+      "name": "Nolan Jones",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669674
+      ],
+      "dk_id": "26944778",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669674,
+      "name": "Sam Long",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663971
+      ],
+      "dk_id": "26944779",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663971,
+      "name": "Blair Calvo",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669911
+      ],
+      "dk_id": "26944780",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669911,
+      "name": "Michael Toglia",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        666165
+      ],
+      "dk_id": "26944784",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 666165,
+      "name": "Blake Sabol",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669020
+      ],
+      "dk_id": "26944789",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669020,
+      "name": "Ryan Rolison",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        680683
+      ],
+      "dk_id": "26944798",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 680683,
+      "name": "Jameson Hannah",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663562
+      ],
+      "dk_id": "26944802",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663562,
+      "name": "Noah Davis",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        663546
+      ],
+      "dk_id": "26944815",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 663546,
+      "name": "Sean Hjelle",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676701
+      ],
+      "dk_id": "26944819",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676701,
+      "name": "Alan Trejo",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        671218
+      ],
+      "dk_id": "26944825",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 671218,
+      "name": "Heliot Ramos",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 10,
+      "candidate_mlbam_ids": [
+        489558,
+        681505,
+        691332,
+        800461,
+        591703,
+        805896,
+        694054,
+        593574,
+        670768,
+        642694
+      ],
+      "dk_id": "26944832",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 670768,
+      "name": "Luis Gonzalez",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676775
+      ],
+      "dk_id": "26944840",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676775,
+      "name": "Keaton Winn",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        676105
+      ],
+      "dk_id": "26944846",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 676105,
+      "name": "Jeff Criswell",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        668970
+      ],
+      "dk_id": "26944852",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 668970,
+      "name": "Gavin Hollowell",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        679734
+      ],
+      "dk_id": "26944862",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 679734,
+      "name": "Julio Carreras",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        681584
+      ],
+      "dk_id": "26944873",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 681584,
+      "name": "David Villar",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_mlbam_ids": [
+        692808,
+        678804
+      ],
+      "dk_id": "26944878",
+      "method": "explicit_team_date_override",
+      "mlbam_id": 692808,
+      "name": "Jose Cruz",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        678662
+      ],
+      "dk_id": "26944882",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 678662,
+      "name": "Ezequiel Tovar",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        683232
+      ],
+      "dk_id": "26944883",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 683232,
+      "name": "Nick Mears",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682617
+      ],
+      "dk_id": "26944884",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682617,
+      "name": "Marco Luciano",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        669062
+      ],
+      "dk_id": "26944888",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 669062,
+      "name": "Erik Miller",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        686668
+      ],
+      "dk_id": "26944893",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 686668,
+      "name": "Brenton Doyle",
+      "team": "COL"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        689172
+      ],
+      "dk_id": "26944894",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 689172,
+      "name": "Brett Wisely",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        686972
+      ],
+      "dk_id": "26944896",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 686972,
+      "name": "Cole Waites",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682641
+      ],
+      "dk_id": "26944901",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682641,
+      "name": "Luis Matos",
+      "team": "SF"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_mlbam_ids": [
+        682653
+      ],
+      "dk_id": "26944904",
+      "method": "normalized_name_active_year_unique",
+      "mlbam_id": 682653,
+      "name": "Warming Bernabel",
+      "team": "COL"
+    }
+  ],
+  "schema_version": "1.0",
+  "silent_drops": 0,
+  "source_player_count": 345,
+  "unmatched_count": 0
+}

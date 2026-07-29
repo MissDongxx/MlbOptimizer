@@ -1,0 +1,25 @@
+test_actuals_before_slate_start_fail_the_slate (tests.test_backtest.BacktestTests.test_actuals_before_slate_start_fail_the_slate) ... ok
+test_actuals_contract_rejects_naive_or_nonfinite_values (tests.test_backtest.BacktestTests.test_actuals_contract_rejects_naive_or_nonfinite_values) ... ok
+test_feature_contract_rejects_availability_status_conflict (tests.test_backtest.BacktestTests.test_feature_contract_rejects_availability_status_conflict) ... ok
+test_feature_contract_rejects_future_snapshot (tests.test_backtest.BacktestTests.test_feature_contract_rejects_future_snapshot) ... ok
+test_feature_contract_rejects_postgame_field_anywhere (tests.test_backtest.BacktestTests.test_feature_contract_rejects_postgame_field_anywhere) ... ok
+test_feature_contract_rejects_semantic_postgame_key_variants (tests.test_backtest.BacktestTests.test_feature_contract_rejects_semantic_postgame_key_variants) ... ok
+test_method_sample_count_mismatch_fails_the_slate (tests.test_backtest.BacktestTests.test_method_sample_count_mismatch_fails_the_slate) ... ok
+test_real_slate_gate_allows_explicit_single_slate_validation (tests.test_backtest.BacktestTests.test_real_slate_gate_allows_explicit_single_slate_validation) ... ok
+test_smoke_backtest_is_byte_reproducible_and_not_evaluated (tests.test_backtest.BacktestTests.test_smoke_backtest_is_byte_reproducible_and_not_evaluated) ... ok
+test_summary_math_uses_real_slates_only (tests.test_backtest.BacktestTests.test_summary_math_uses_real_slates_only) ... ok
+test_dk_hitter_scoring (tests.test_historical_backtest.HistoricalDataTests.test_dk_hitter_scoring) ... ok
+test_dk_pitcher_bonuses_are_cumulative_per_game (tests.test_historical_backtest.HistoricalDataTests.test_dk_pitcher_bonuses_are_cumulative_per_game) ... ok
+test_dk_pitcher_scoring_uses_outs_not_baseball_decimal (tests.test_historical_backtest.HistoricalDataTests.test_dk_pitcher_scoring_uses_outs_not_baseball_decimal) ... ok
+test_fixture_bundle_builds_and_runs_all_methods (tests.test_historical_backtest.HistoricalDataTests.test_fixture_bundle_builds_and_runs_all_methods) ... ok
+test_identity_mapping_requires_explicit_resolution_for_ambiguity (tests.test_historical_backtest.HistoricalDataTests.test_identity_mapping_requires_explicit_resolution_for_ambiguity) ... ok
+test_merely_relabeling_fixture_as_real_fails_contract (tests.test_historical_backtest.HistoricalDataTests.test_merely_relabeling_fixture_as_real_fails_contract) ... ok
+test_postgame_provenance_requires_finalized_content (tests.test_historical_backtest.HistoricalDataTests.test_postgame_provenance_requires_finalized_content) ... ok
+test_projection_strictly_excludes_cutoff_date_and_future (tests.test_historical_backtest.HistoricalDataTests.test_projection_strictly_excludes_cutoff_date_and_future) ... ok
+test_real_contract_without_manifest_is_rejected_by_runner (tests.test_historical_backtest.HistoricalDataTests.test_real_contract_without_manifest_is_rejected_by_runner) ... ok
+test_checked_in_daily_pool_contract_and_provenance (tests.test_single_slate_validation.SingleSlateLimitedValidationTests.test_checked_in_daily_pool_contract_and_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.329s
+
+OK

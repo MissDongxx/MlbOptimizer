@@ -1,0 +1,125 @@
+{
+  "evaluation_status": "INSUFFICIENT DATA / NOT EVALUATED",
+  "failed_or_skipped_slates": 0,
+  "failures": [],
+  "gates": {
+    "minimum_real_slates": {
+      "actual": 0,
+      "status": "FAIL",
+      "threshold": 30
+    },
+    "optimized_vs_legacy_noninferiority": {
+      "actual": null,
+      "definition": "optimized mean actual points must be at least 98.00% of legacy mean actual points",
+      "status": "NOT EVALUATED",
+      "threshold": -0.02
+    },
+    "optimized_vs_random_mean": {
+      "actual": null,
+      "status": "NOT EVALUATED",
+      "threshold": 0.1
+    },
+    "optimized_vs_random_slate_win_rate": {
+      "actual": null,
+      "status": "NOT EVALUATED",
+      "threshold": 0.6
+    }
+  },
+  "lineups_per_method": 2,
+  "means_real_slates_only": {
+    "legacy_actual": null,
+    "optimized_actual": null,
+    "random_actual": null
+  },
+  "minimum_real_slates": 30,
+  "noninferiority_margin": 0.02,
+  "note": "Threshold status is separate from statistical uncertainty. Bootstrap intervals are reported but are not substituted for the predeclared point-estimate gates.",
+  "paired_metrics_real_slates_only": {
+    "optimized_vs_legacy_difference_standard_error": null,
+    "optimized_vs_legacy_relative": null,
+    "optimized_vs_legacy_relative_bootstrap_95_ci": [
+      null,
+      null
+    ],
+    "optimized_vs_random_difference_standard_error": null,
+    "optimized_vs_random_relative": null,
+    "optimized_vs_random_relative_bootstrap_95_ci": [
+      null,
+      null
+    ],
+    "optimized_vs_random_slate_win_rate": null
+  },
+  "schema_version": "1.0",
+  "seed": 20260729,
+  "site": "dk",
+  "slates": [
+    {
+      "actuals_acquired_at": "2026-07-03T00:00:00+00:00",
+      "actuals_sha256": "e46edd1267aac8c61ff481ddc1bcc5b7130cc7c9fbcd0665ffe1eac1f209dd0d",
+      "actuals_source_timestamp": "2026-07-02T06:00:00+00:00",
+      "data_kind": "fixture",
+      "feature_sha256": "b8ad55cc0794fc5fbb35f1e9dbdc623e5a0e7f685fef417e832ab1be333feafb",
+      "feature_sources": [
+        {
+          "artifact_id": "fixture-slate",
+          "available_at": "2026-07-01T21:00:00Z",
+          "fetched_at": "2026-07-01T21:00:00Z",
+          "published_at": "2026-07-01T21:00:00Z",
+          "raw_sha256": "6f041cd076327aa536e14460d244a26372c2bc7bb1d2ba00f1ca21c946f2ae68",
+          "retrieved_at": "2026-07-03T00:00:00Z",
+          "role": "platform_slate_snapshot",
+          "source": "fixture-only local test artifact",
+          "source_record_id": "fixture-slate",
+          "source_url": "https://example.invalid/fixture-only/fixture-provider-slate.json",
+          "timestamp_basis": "repository_commit"
+        },
+        {
+          "artifact_id": "fixture-salary",
+          "available_at": "2026-07-01T21:00:00Z",
+          "fetched_at": "2026-07-01T21:00:00Z",
+          "published_at": "2026-07-01T21:00:00Z",
+          "raw_sha256": "fd9beb961b0b6c949d8c17e261d8498eba98256ed80987de22120c944a5a0595",
+          "retrieved_at": "2026-07-03T00:00:00Z",
+          "role": "platform_salary_snapshot",
+          "source": "fixture-only local test artifact",
+          "source_record_id": "fixture-salary",
+          "source_url": "https://example.invalid/fixture-only/fixture-dk-salaries.csv",
+          "timestamp_basis": "repository_commit"
+        },
+        {
+          "artifact_id": "fixture-pregame",
+          "available_at": "2026-07-01T21:00:00Z",
+          "fetched_at": "2026-07-01T21:00:00Z",
+          "published_at": "2026-07-01T21:00:00Z",
+          "raw_sha256": "2eecf749803c8fe0b256f11ed33b976e5c4a7ee65bdf1421e3b418b3d3d66a11",
+          "retrieved_at": "2026-07-03T00:00:00Z",
+          "role": "pregame_mlb_stats",
+          "source": "fixture-only local test artifact",
+          "source_record_id": "fixture-pregame",
+          "source_url": "https://example.invalid/fixture-only/fixture-pregame-stats.json",
+          "timestamp_basis": "repository_commit"
+        }
+      ],
+      "legacy_mean_actual": 143.95,
+      "lineups_per_method": 2,
+      "lock_time": "2026-07-01T23:05:00+00:00",
+      "optimized_beats_random": true,
+      "optimized_mean_actual": 143.95,
+      "optimized_vs_legacy_relative": 0.0,
+      "optimized_vs_random_relative": 0.12747209712159763,
+      "provenance_manifest_sha256": null,
+      "provenance_qualification_status": null,
+      "provenance_transform_version": null,
+      "random_mean_actual": 127.67500000000001,
+      "sample_size_per_method": 2,
+      "scoring_rules_version": "draftkings-mlb-classic-rules-json-2026-07-29",
+      "scoring_source": "independent_official_stat_reconstruction",
+      "site": "dk",
+      "slate_id": "fixture-builder-dk-2026-07-01-main",
+      "snapshot_as_of": "2026-07-01T22:00:00+00:00"
+    }
+  ],
+  "valid_fixture_or_synthetic_slates": 1,
+  "valid_real_slates": 0,
+  "valid_slates_total": 1
+}

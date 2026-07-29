@@ -1,0 +1,378 @@
+{
+  "$defs": {
+    "RawArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "acquired_at": {
+          "format": "date-time",
+          "title": "Acquired At",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "effective_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective At"
+        },
+        "finalized": {
+          "default": false,
+          "title": "Finalized",
+          "type": "boolean"
+        },
+        "immutable_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Immutable Url"
+        },
+        "license_status": {
+          "enum": [
+            "verified_redistributable",
+            "public_access_use_only",
+            "unknown_no_redistribution"
+          ],
+          "title": "License Status",
+          "type": "string"
+        },
+        "local_path": {
+          "minLength": 1,
+          "title": "Local Path",
+          "type": "string"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "pregame_semantics": {
+          "default": false,
+          "title": "Pregame Semantics",
+          "type": "boolean"
+        },
+        "redistribution_included": {
+          "default": false,
+          "title": "Redistribution Included",
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "platform_slate_snapshot",
+            "platform_salary_snapshot",
+            "pregame_mlb_stats",
+            "pregame_platform_projection",
+            "postgame_mlb_stats",
+            "scoring_rules",
+            "identity_reference",
+            "identity_overrides"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_name": {
+          "minLength": 1,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_url": {
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "temporal_class": {
+          "enum": [
+            "pregame",
+            "postgame",
+            "static"
+          ],
+          "title": "Temporal Class",
+          "type": "string"
+        },
+        "timestamp_basis": {
+          "enum": [
+            "source_payload",
+            "http_last_modified",
+            "archive_capture",
+            "platform_export_metadata",
+            "repository_commit"
+          ],
+          "title": "Timestamp Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "role",
+        "source_name",
+        "source_url",
+        "local_path",
+        "sha256",
+        "acquired_at",
+        "timestamp_basis",
+        "temporal_class",
+        "license_status"
+      ],
+      "title": "RawArtifact",
+      "type": "object"
+    },
+    "SlateManifestEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "actuals_file": {
+          "minLength": 1,
+          "title": "Actuals File",
+          "type": "string"
+        },
+        "actuals_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Actuals Sha256",
+          "type": "string"
+        },
+        "artifact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 4,
+          "title": "Artifact Ids",
+          "type": "array"
+        },
+        "contest_style": {
+          "const": "classic",
+          "title": "Contest Style",
+          "type": "string"
+        },
+        "feature_file": {
+          "minLength": 1,
+          "title": "Feature File",
+          "type": "string"
+        },
+        "feature_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Feature Sha256",
+          "type": "string"
+        },
+        "game_ids": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "title": "Game Ids",
+          "type": "array"
+        },
+        "identity_report_file": {
+          "minLength": 1,
+          "title": "Identity Report File",
+          "type": "string"
+        },
+        "identity_report_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Identity Report Sha256",
+          "type": "string"
+        },
+        "lock_time": {
+          "format": "date-time",
+          "title": "Lock Time",
+          "type": "string"
+        },
+        "provider_game_set_verified": {
+          "default": true,
+          "title": "Provider Game Set Verified",
+          "type": "boolean"
+        },
+        "provider_slate_id": {
+          "minLength": 1,
+          "title": "Provider Slate Id",
+          "type": "string"
+        },
+        "qa_report_file": {
+          "minLength": 1,
+          "title": "Qa Report File",
+          "type": "string"
+        },
+        "qa_report_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Qa Report Sha256",
+          "type": "string"
+        },
+        "qualification_status": {
+          "enum": [
+            "qualified",
+            "qualified_limited"
+          ],
+          "title": "Qualification Status",
+          "type": "string"
+        },
+        "scope": {
+          "default": "provider_game_set",
+          "enum": [
+            "provider_game_set",
+            "historical_daily_pool"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "scoring_rules_version": {
+          "minLength": 1,
+          "title": "Scoring Rules Version",
+          "type": "string"
+        },
+        "site": {
+          "enum": [
+            "dk",
+            "fd"
+          ],
+          "title": "Site",
+          "type": "string"
+        },
+        "slate_id": {
+          "minLength": 1,
+          "title": "Slate Id",
+          "type": "string"
+        },
+        "snapshot_as_of": {
+          "format": "date-time",
+          "title": "Snapshot As Of",
+          "type": "string"
+        },
+        "transform_version": {
+          "minLength": 1,
+          "title": "Transform Version",
+          "type": "string"
+        },
+        "validation_scope": {
+          "default": "FULL_RESEARCH",
+          "enum": [
+            "FULL_RESEARCH",
+            "LIMITED_SINGLE_SLATE_VALIDATION"
+          ],
+          "title": "Validation Scope",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "slate_id",
+        "site",
+        "contest_style",
+        "provider_slate_id",
+        "game_ids",
+        "lock_time",
+        "snapshot_as_of",
+        "feature_file",
+        "feature_sha256",
+        "actuals_file",
+        "actuals_sha256",
+        "qa_report_file",
+        "qa_report_sha256",
+        "identity_report_file",
+        "identity_report_sha256",
+        "artifact_ids",
+        "transform_version",
+        "scoring_rules_version",
+        "qualification_status"
+      ],
+      "title": "SlateManifestEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/RawArtifact"
+      },
+      "minItems": 1,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "contest_style": {
+      "const": "classic",
+      "title": "Contest Style",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.1",
+      "enum": [
+        "1.0",
+        "1.1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "site": {
+      "enum": [
+        "dk",
+        "fd"
+      ],
+      "title": "Site",
+      "type": "string"
+    },
+    "slates": {
+      "items": {
+        "$ref": "#/$defs/SlateManifestEntry"
+      },
+      "title": "Slates",
+      "type": "array"
+    },
+    "source_audit_version": {
+      "minLength": 1,
+      "title": "Source Audit Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "site",
+    "contest_style",
+    "created_at",
+    "source_audit_version",
+    "artifacts"
+  ],
+  "title": "DatasetManifest",
+  "type": "object"
+}

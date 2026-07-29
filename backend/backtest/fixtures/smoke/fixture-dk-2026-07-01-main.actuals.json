@@ -1,0 +1,97 @@
+{
+  "acquired_at": "2026-07-02T12:00:00Z",
+  "data_kind": "fixture",
+  "points": [
+    {
+      "actual_points": 11.92,
+      "mlbam_id": 660271
+    },
+    {
+      "actual_points": 11.65,
+      "mlbam_id": 605141
+    },
+    {
+      "actual_points": 10.77,
+      "mlbam_id": 518692
+    },
+    {
+      "actual_points": 8.74,
+      "mlbam_id": 669257
+    },
+    {
+      "actual_points": 8.36,
+      "mlbam_id": 666158
+    },
+    {
+      "actual_points": 9.02,
+      "mlbam_id": 592450
+    },
+    {
+      "actual_points": 8.18,
+      "mlbam_id": 665742
+    },
+    {
+      "actual_points": 7.82,
+      "mlbam_id": 650402
+    },
+    {
+      "actual_points": 9.06,
+      "mlbam_id": 683011
+    },
+    {
+      "actual_points": 8.0,
+      "mlbam_id": 518934
+    },
+    {
+      "actual_points": 14.67,
+      "mlbam_id": 543037
+    },
+    {
+      "actual_points": 15.25,
+      "mlbam_id": 607192
+    },
+    {
+      "actual_points": 6.86,
+      "mlbam_id": 621566
+    },
+    {
+      "actual_points": 8.06,
+      "mlbam_id": 621020
+    },
+    {
+      "actual_points": 8.96,
+      "mlbam_id": 645277
+    },
+    {
+      "actual_points": 7.81,
+      "mlbam_id": 663586
+    },
+    {
+      "actual_points": 6.21,
+      "mlbam_id": 514888
+    },
+    {
+      "actual_points": 8.46,
+      "mlbam_id": 670541
+    },
+    {
+      "actual_points": 7.83,
+      "mlbam_id": 665161
+    },
+    {
+      "actual_points": 15.45,
+      "mlbam_id": 664285
+    },
+    {
+      "actual_points": 18.4,
+      "mlbam_id": 675911
+    }
+  ],
+  "schema_version": "1.0",
+  "scoring_rules_version": "fixture-not-official",
+  "scoring_source": "auditable_fixture_generator",
+  "site": "dk",
+  "slate_id": "fixture-dk-2026-07-01-main",
+  "source_record_id": "fixture-v1",
+  "source_timestamp": "2026-07-02T11:59:00Z"
+}

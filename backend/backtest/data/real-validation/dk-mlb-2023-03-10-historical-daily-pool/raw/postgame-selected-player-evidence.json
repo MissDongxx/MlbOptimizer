@@ -1,0 +1,214 @@
+{
+  "acquired_at": "2026-07-29T21:45:00+08:00",
+  "coverage_scope": "selected_lineup_players",
+  "finalized": true,
+  "games": [
+    {
+      "espn_or_fox_url": "https://www.foxsports.com/mlb/san-diego-padres-vs-kansas-city-royals-mar-10-2023-game-boxscore-87895?tab=boxscore",
+      "final_score": "SD 0, KC 1",
+      "game_pk": 719180,
+      "matchup": "SD@KC",
+      "selected_evidence": "Cronenworth 1-for-3; Grisham 0-for-3; remaining selected Padres absent from complete box score."
+    },
+    {
+      "final_score": "CLE 3, MIL 12",
+      "game_pk": 719174,
+      "matchup": "CLE@MIL",
+      "selected_evidence": "Kwan 0-for-2 with one BB. Contreras 2-for-2, two BB, one RBI; no 2B/3B/HR listed, therefore both hits are singles. Other selected players absent.",
+      "source_url": "https://www.espn.com/mlb/boxscore/_/gameId/401480772"
+    },
+    {
+      "final_score": "SF 1, COL 8",
+      "game_pk": 719181,
+      "matchup": "SF@COL",
+      "selected_evidence": "Estrada 0-for-3. Bryant 1-for-2, one BB, one run; no extra-base hit listed, therefore single. Gonzalez absent.",
+      "source_url": "https://www.espn.com/mlb/boxscore/_/gameId/401480774"
+    },
+    {
+      "final_score": "CWS 4, CHC 3",
+      "game_pk": 719184,
+      "matchup": "CWS@CHC",
+      "mlb_highlight_url": "https://www.mlb.com/video/yasmani-grandal-s-rbi-double-x4369",
+      "selected_evidence": "Grandal 2-for-4 with two doubles and one RBI. Rios 0-for-2. Cease absent.",
+      "source_url": "https://www.espn.com/mlb/boxscore/_/gameId/401480770"
+    }
+  ],
+  "limitations": [
+    "Runtime DNS prevented direct MLB StatsAPI raw JSON acquisition. Final box-score facts were independently transcribed into this machine-readable extract from public ESPN/FOX/MLB pages.",
+    "Actual coverage is intentionally limited to the 18 players selected by the deterministic three-method run; it is not a 345-player full actuals reconstruction.",
+    "DNP is assigned only when a selected player is absent from the corresponding complete final box score."
+  ],
+  "schema_version": "1.0",
+  "selected_players": [
+    {
+      "components": {
+        "doubles": 2,
+        "rbi": 1
+      },
+      "dk_points": 12,
+      "game_pk": 719184,
+      "mlbam_id": 518735,
+      "name": "Yasmani Grandal",
+      "status": "played"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719180,
+      "mlbam_id": 572761,
+      "name": "Matt Carpenter",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {
+        "runs": 1,
+        "singles": 1,
+        "walks": 1
+      },
+      "dk_points": 7,
+      "game_pk": 719181,
+      "mlbam_id": 592178,
+      "name": "Kris Bryant",
+      "status": "played"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719180,
+      "mlbam_id": 592518,
+      "name": "Manny Machado",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719174,
+      "mlbam_id": 592885,
+      "name": "Christian Yelich",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719180,
+      "mlbam_id": 605397,
+      "name": "Joe Musgrove",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {
+        "at_bats": 2,
+        "hits": 0
+      },
+      "dk_points": 0,
+      "game_pk": 719184,
+      "mlbam_id": 621458,
+      "name": "Edwin Rios",
+      "status": "played"
+    },
+    {
+      "components": {
+        "singles": 1
+      },
+      "dk_points": 3,
+      "game_pk": 719180,
+      "mlbam_id": 630105,
+      "name": "Jake Cronenworth",
+      "status": "played"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719174,
+      "mlbam_id": 642715,
+      "name": "Willy Adames",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {
+        "at_bats": 3,
+        "hits": 0
+      },
+      "dk_points": 0,
+      "game_pk": 719181,
+      "mlbam_id": 642731,
+      "name": "Thairo Estrada",
+      "status": "played"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719184,
+      "mlbam_id": 656302,
+      "name": "Dylan Cease",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {
+        "rbi": 1,
+        "singles": 2,
+        "walks": 2
+      },
+      "dk_points": 12,
+      "game_pk": 719174,
+      "mlbam_id": 661388,
+      "name": "William Contreras",
+      "status": "played"
+    },
+    {
+      "components": {
+        "at_bats": 3,
+        "hits": 0
+      },
+      "dk_points": 0,
+      "game_pk": 719180,
+      "mlbam_id": 663757,
+      "name": "Trent Grisham",
+      "status": "played"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719180,
+      "mlbam_id": 665742,
+      "name": "Juan Soto",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719174,
+      "mlbam_id": 668676,
+      "name": "Zach Plesac",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719174,
+      "mlbam_id": 669203,
+      "name": "Corbin Burnes",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {},
+      "dk_points": 0,
+      "game_pk": 719181,
+      "mlbam_id": 670768,
+      "name": "Luis Gonzalez",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "components": {
+        "at_bats": 2,
+        "hits": 0,
+        "walks": 1
+      },
+      "dk_points": 2,
+      "game_pk": 719174,
+      "mlbam_id": 680757,
+      "name": "Steven Kwan",
+      "status": "played"
+    }
+  ]
+}

@@ -168,6 +168,7 @@ class OptimizeRequest(BaseModel):
     num_lineups: int = Field(ge=1, le=20)
     players: list[PlayerInput]
     settings: OptimizerSettings
+    seed: int = 0
 
 
 class LineupPlayer(BaseModel):
@@ -192,6 +193,8 @@ class OptimizeResponse(BaseModel):
     lineups: list[Lineup]
     solve_time_ms: int
     warnings: list[str] = []
+    method: Literal["optimized", "random", "legacy"] | None = None
+    seed: int | None = None
 
 
 class HealthResponse(BaseModel):

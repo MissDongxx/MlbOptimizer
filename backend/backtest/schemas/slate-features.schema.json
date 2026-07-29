@@ -1,0 +1,565 @@
+{
+  "$defs": {
+    "FrozenPlayer": {
+      "properties": {
+        "availability": {
+          "enum": [
+            "active",
+            "expected",
+            "confirmed",
+            "unconfirmed",
+            "dnp"
+          ],
+          "title": "Availability",
+          "type": "string"
+        },
+        "batting_order": {
+          "anyOf": [
+            {
+              "maximum": 9,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Batting Order"
+        },
+        "exclude": {
+          "default": false,
+          "title": "Exclude",
+          "type": "boolean"
+        },
+        "external_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "External Id"
+        },
+        "feature_values": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Feature Values",
+          "type": "object"
+        },
+        "game_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Game Id"
+        },
+        "lineup_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "confirmed",
+                "expected",
+                "unconfirmed",
+                "dnp"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lineup Status"
+        },
+        "lock": {
+          "default": false,
+          "title": "Lock",
+          "type": "boolean"
+        },
+        "max_exposure": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Max Exposure",
+          "type": "number"
+        },
+        "mlbam_id": {
+          "title": "Mlbam Id",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "name_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name Id"
+        },
+        "opponent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Opponent"
+        },
+        "position": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Position",
+          "type": "array"
+        },
+        "projected_points": {
+          "minimum": 0,
+          "title": "Projected Points",
+          "type": "number"
+        },
+        "projection_source": {
+          "minLength": 1,
+          "title": "Projection Source",
+          "type": "string"
+        },
+        "salary": {
+          "title": "Salary",
+          "type": "integer"
+        },
+        "team": {
+          "title": "Team",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mlbam_id",
+        "name",
+        "team",
+        "position",
+        "salary",
+        "projected_points",
+        "availability",
+        "projection_source"
+      ],
+      "title": "FrozenPlayer",
+      "type": "object"
+    },
+    "OptimizerSettings": {
+      "properties": {
+        "min_salary_used": {
+          "default": 49500,
+          "minimum": 0,
+          "title": "Min Salary Used",
+          "type": "integer"
+        },
+        "pitcher_vs_batter_same_team": {
+          "default": "avoid",
+          "enum": [
+            "allow",
+            "avoid"
+          ],
+          "title": "Pitcher Vs Batter Same Team",
+          "type": "string"
+        },
+        "stack_count": {
+          "default": 4,
+          "maximum": 6,
+          "minimum": 0,
+          "title": "Stack Count",
+          "type": "integer"
+        },
+        "stack_team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stack Team"
+        },
+        "unique_lineups": {
+          "default": true,
+          "title": "Unique Lineups",
+          "type": "boolean"
+        }
+      },
+      "title": "OptimizerSettings",
+      "type": "object"
+    },
+    "SlateGame": {
+      "additionalProperties": false,
+      "properties": {
+        "away_team": {
+          "minLength": 2,
+          "title": "Away Team",
+          "type": "string"
+        },
+        "game_id": {
+          "title": "Game Id",
+          "type": "integer"
+        },
+        "home_team": {
+          "minLength": 2,
+          "title": "Home Team",
+          "type": "string"
+        },
+        "scheduled_start": {
+          "format": "date-time",
+          "title": "Scheduled Start",
+          "type": "string"
+        },
+        "source_record_id": {
+          "minLength": 1,
+          "title": "Source Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "game_id",
+        "away_team",
+        "home_team",
+        "scheduled_start",
+        "source_record_id"
+      ],
+      "title": "SlateGame",
+      "type": "object"
+    },
+    "SourceTimestamp": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Id"
+        },
+        "available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Available At"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "raw_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Sha256"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved At"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "enum": [
+                "platform_slate_snapshot",
+                "platform_salary_snapshot",
+                "pregame_mlb_stats",
+                "pregame_platform_projection",
+                "other_pregame"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "source_record_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Record Id"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "timestamp_basis": {
+          "anyOf": [
+            {
+              "enum": [
+                "source_payload",
+                "http_last_modified",
+                "archive_capture",
+                "platform_export_metadata",
+                "repository_commit"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timestamp Basis"
+        }
+      },
+      "required": [
+        "source",
+        "fetched_at"
+      ],
+      "title": "SourceTimestamp",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contest_style": {
+      "anyOf": [
+        {
+          "const": "classic",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Contest Style"
+    },
+    "data_kind": {
+      "enum": [
+        "real",
+        "fixture",
+        "synthetic"
+      ],
+      "title": "Data Kind",
+      "type": "string"
+    },
+    "game_ids": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Game Ids",
+      "type": "array"
+    },
+    "games": {
+      "items": {
+        "$ref": "#/$defs/SlateGame"
+      },
+      "title": "Games",
+      "type": "array"
+    },
+    "lock_time": {
+      "format": "date-time",
+      "title": "Lock Time",
+      "type": "string"
+    },
+    "players": {
+      "items": {
+        "$ref": "#/$defs/FrozenPlayer"
+      },
+      "minItems": 1,
+      "title": "Players",
+      "type": "array"
+    },
+    "provider_game_set_verified": {
+      "default": true,
+      "title": "Provider Game Set Verified",
+      "type": "boolean"
+    },
+    "provider_slate_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Slate Id"
+    },
+    "schema_version": {
+      "default": "1.2",
+      "enum": [
+        "1.0",
+        "1.1",
+        "1.2"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "default": "provider_game_set",
+      "enum": [
+        "provider_game_set",
+        "historical_daily_pool"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "settings": {
+      "$ref": "#/$defs/OptimizerSettings"
+    },
+    "site": {
+      "enum": [
+        "dk",
+        "fd"
+      ],
+      "title": "Site",
+      "type": "string"
+    },
+    "slate_id": {
+      "minLength": 1,
+      "title": "Slate Id",
+      "type": "string"
+    },
+    "slate_start": {
+      "format": "date-time",
+      "title": "Slate Start",
+      "type": "string"
+    },
+    "snapshot_as_of": {
+      "format": "date-time",
+      "title": "Snapshot As Of",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceTimestamp"
+      },
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "validation_scope": {
+      "default": "FULL_RESEARCH",
+      "enum": [
+        "FULL_RESEARCH",
+        "LIMITED_SINGLE_SLATE_VALIDATION"
+      ],
+      "title": "Validation Scope",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "data_kind",
+    "slate_id",
+    "site",
+    "slate_start",
+    "lock_time",
+    "snapshot_as_of",
+    "sources",
+    "settings",
+    "players"
+  ],
+  "title": "SlateFeatureSnapshot",
+  "type": "object"
+}

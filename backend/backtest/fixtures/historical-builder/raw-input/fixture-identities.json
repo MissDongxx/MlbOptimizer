@@ -1,0 +1,109 @@
+{
+  "players": [
+    {
+      "mlbam_id": 660271,
+      "name": "Shohei Ohtani",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 605141,
+      "name": "Mookie Betts",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 518692,
+      "name": "Freddie Freeman",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 669257,
+      "name": "Will Smith",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 666158,
+      "name": "Gavin Lux",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 592450,
+      "name": "Aaron Judge",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 665742,
+      "name": "Juan Soto",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 650402,
+      "name": "Giancarlo Stanton",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 683011,
+      "name": "Anthony Volpe",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 518934,
+      "name": "DJ LeMahieu",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 543037,
+      "name": "Gerrit Cole",
+      "team": "NYY"
+    },
+    {
+      "mlbam_id": 607192,
+      "name": "Tyler Glasnow",
+      "team": "LAD"
+    },
+    {
+      "mlbam_id": 621566,
+      "name": "Matt Olson",
+      "team": "ATL"
+    },
+    {
+      "mlbam_id": 621020,
+      "name": "Austin Riley",
+      "team": "ATL"
+    },
+    {
+      "mlbam_id": 645277,
+      "name": "Ozzie Albies",
+      "team": "ATL"
+    },
+    {
+      "mlbam_id": 663586,
+      "name": "Ronald Acuna Jr.",
+      "team": "ATL"
+    },
+    {
+      "mlbam_id": 514888,
+      "name": "Jose Altuve",
+      "team": "HOU"
+    },
+    {
+      "mlbam_id": 670541,
+      "name": "Yordan Alvarez",
+      "team": "HOU"
+    },
+    {
+      "mlbam_id": 665161,
+      "name": "Kyle Tucker",
+      "team": "HOU"
+    },
+    {
+      "mlbam_id": 664285,
+      "name": "Framber Valdez",
+      "team": "HOU"
+    },
+    {
+      "mlbam_id": 675911,
+      "name": "Spencer Strider",
+      "team": "ATL"
+    }
+  ]
+}

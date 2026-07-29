@@ -1,0 +1,139 @@
+{
+  "evaluation_status": "LIMITED VALIDATION",
+  "failed_or_skipped_slates": 0,
+  "failures": [],
+  "gates": {
+    "minimum_real_slates": {
+      "actual": 1,
+      "status": "PASS",
+      "threshold": 1
+    },
+    "optimized_vs_legacy_noninferiority": {
+      "actual": 0.0,
+      "definition": "optimized mean actual points must be at least 98.00% of legacy mean actual points",
+      "status": "NOT EVALUATED",
+      "threshold": -0.02
+    },
+    "optimized_vs_random_mean": {
+      "actual": 0.29411764705882354,
+      "status": "NOT EVALUATED",
+      "threshold": 0.1
+    },
+    "optimized_vs_random_slate_win_rate": {
+      "actual": 1.0,
+      "status": "NOT EVALUATED",
+      "threshold": 0.6
+    }
+  },
+  "lineups_per_method": 1,
+  "means_real_slates_only": {
+    "legacy_actual": 22.0,
+    "optimized_actual": 22.0,
+    "random_actual": 17.0
+  },
+  "minimum_real_slates": 1,
+  "noninferiority_margin": 0.02,
+  "note": "Single-slate LIMITED VALIDATION proves the real-data pipeline only; performance metrics are informational and formal +10%, win-rate, and noninferiority gates remain NOT EVALUATED. In full research mode, bootstrap intervals are reported separately from the predeclared point-estimate gates.",
+  "paired_metrics_real_slates_only": {
+    "optimized_vs_legacy_difference_standard_error": null,
+    "optimized_vs_legacy_relative": 0.0,
+    "optimized_vs_legacy_relative_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "optimized_vs_random_difference_standard_error": null,
+    "optimized_vs_random_relative": 0.29411764705882354,
+    "optimized_vs_random_relative_bootstrap_95_ci": [
+      0.29411764705882354,
+      0.29411764705882354
+    ],
+    "optimized_vs_random_slate_win_rate": 1.0
+  },
+  "performance_metrics_interpretation": "INFORMATIONAL_ONLY",
+  "schema_version": "1.1",
+  "seed": 20260729,
+  "site": "dk",
+  "slates": [
+    {
+      "actuals_acquired_at": "2026-07-29T21:45:00+08:00",
+      "actuals_coverage_scope": "selected_lineup_players",
+      "actuals_sha256": "d82cd0bb7e35852f90e85c894088c74d943ea6b8f0350766346b81c298fa5b50",
+      "actuals_source_timestamp": "2026-07-29T21:45:00+08:00",
+      "data_kind": "real",
+      "feature_sha256": "7486309beccb30f7a30b1b7b7610a87a8fa302b35861d9b3d634db581e30d37b",
+      "feature_sources": [
+        {
+          "artifact_id": "kengoa-dk-mlb-20230310-csv-platform_slate_snapshot",
+          "available_at": "2023-03-10T14:38:51-05:00",
+          "fetched_at": "2026-07-29T21:00:00+08:00",
+          "published_at": "2023-03-10T14:38:51-05:00",
+          "raw_sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
+          "retrieved_at": "2026-07-29T21:00:00+08:00",
+          "role": "platform_slate_snapshot",
+          "source": "KengoA/fantasy-ga commit-pinned DraftKings export",
+          "source_record_id": "a5645d7c2f955db62e776dc6c2a1889e7769aa72:examples/DraftKings/MLB/DKSalaries.csv",
+          "source_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+          "timestamp_basis": "repository_commit"
+        },
+        {
+          "artifact_id": "kengoa-dk-mlb-20230310-csv-platform_salary_snapshot",
+          "available_at": "2023-03-10T14:38:51-05:00",
+          "fetched_at": "2026-07-29T21:00:00+08:00",
+          "published_at": "2023-03-10T14:38:51-05:00",
+          "raw_sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
+          "retrieved_at": "2026-07-29T21:00:00+08:00",
+          "role": "platform_salary_snapshot",
+          "source": "KengoA/fantasy-ga commit-pinned DraftKings export",
+          "source_record_id": "a5645d7c2f955db62e776dc6c2a1889e7769aa72:examples/DraftKings/MLB/DKSalaries.csv",
+          "source_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+          "timestamp_basis": "repository_commit"
+        },
+        {
+          "artifact_id": "kengoa-dk-mlb-20230310-csv-pregame_platform_projection",
+          "available_at": "2023-03-10T14:38:51-05:00",
+          "fetched_at": "2026-07-29T21:00:00+08:00",
+          "published_at": "2023-03-10T14:38:51-05:00",
+          "raw_sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
+          "retrieved_at": "2026-07-29T21:00:00+08:00",
+          "role": "pregame_platform_projection",
+          "source": "KengoA/fantasy-ga commit-pinned DraftKings export",
+          "source_record_id": "a5645d7c2f955db62e776dc6c2a1889e7769aa72:examples/DraftKings/MLB/DKSalaries.csv",
+          "source_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+          "timestamp_basis": "repository_commit"
+        }
+      ],
+      "legacy_mean_actual": 22.0,
+      "lineups_per_method": 1,
+      "lock_time": "2023-03-10T15:03:00-05:00",
+      "optimized_beats_random": true,
+      "optimized_mean_actual": 22.0,
+      "optimized_vs_legacy_relative": 0.0,
+      "optimized_vs_random_relative": 0.29411764705882354,
+      "provenance_manifest_sha256": "27716ee28331fcb69b58bf17902277e11de730aaafd1aef5d83d8cb06cb616c9",
+      "provenance_qualification_status": "qualified_limited",
+      "provenance_transform_version": "historical-daily-pool-builder-v1.0",
+      "provider_game_set_verified": false,
+      "random_mean_actual": 17.0,
+      "sample_size_per_method": 1,
+      "scope": "historical_daily_pool",
+      "scoring_rules_version": "dk-mlb-classic-2023-stable-hitter-v1",
+      "scoring_source": "Independent final ESPN/FOX/MLB box-score evidence transformed under DraftKings MLB Classic rules",
+      "site": "dk",
+      "slate_id": "dk-mlb-2023-03-10-historical-daily-pool",
+      "snapshot_as_of": "2023-03-10T14:38:51-05:00",
+      "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION",
+      "warnings": [
+        "negative_projection_values_clamped_to_zero",
+        "projection_avg_points_semantics_not_independently_documented",
+        "provider_game_set_unverified",
+        "selected_lineup_actuals_only",
+        "spring_training_boxscore_source_mix",
+        "statsapi_raw_acquisition_unavailable_runtime_dns",
+        "uniform_salary_warning"
+      ]
+    }
+  ],
+  "valid_fixture_or_synthetic_slates": 0,
+  "valid_real_slates": 1,
+  "valid_slates_total": 1
+}

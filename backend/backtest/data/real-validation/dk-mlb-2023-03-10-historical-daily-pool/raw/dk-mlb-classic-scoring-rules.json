@@ -1,0 +1,32 @@
+{
+  "contest_style": "Classic",
+  "hitter_points": {
+    "double": 5,
+    "hit_by_pitch": 2,
+    "home_run": 10,
+    "rbi": 2,
+    "run": 2,
+    "single": 3,
+    "stolen_base": 5,
+    "triple": 8,
+    "walk": 2
+  },
+  "pitcher_points": {
+    "complete_game": 2.5,
+    "complete_game_shutout": 2.5,
+    "earned_run": -2,
+    "hit_allowed": -0.6,
+    "hit_batsman": -0.6,
+    "no_hitter": 5,
+    "out_recorded": 0.75,
+    "strikeout": 2,
+    "walk_allowed": -0.6,
+    "win": 4
+  },
+  "rules_version": "dk-mlb-classic-2023-stable-hitter-v1",
+  "schema_version": "1.0",
+  "scope_note": "Only selected lineup players are scored in this limited validation. All selected pitchers were absent from the final box scores and score 0 as DNP.",
+  "site": "DraftKings",
+  "source_url": "https://www.draftkings.com/help/rules/2",
+  "sport": "MLB"
+}

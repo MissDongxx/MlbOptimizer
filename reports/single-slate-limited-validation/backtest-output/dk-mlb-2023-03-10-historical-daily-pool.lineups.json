@@ -1,0 +1,332 @@
+[
+  {
+    "actual_points": 22.0,
+    "data_kind": "real",
+    "legal": true,
+    "legality": {
+      "issues": [],
+      "set_validated": true,
+      "valid": true
+    },
+    "lineup_number": 1,
+    "method": "legacy",
+    "player_ids": [
+      669203,
+      656302,
+      661388,
+      572761,
+      630105,
+      592518,
+      642715,
+      592178,
+      665742,
+      592885
+    ],
+    "players": [
+      {
+        "mlbam_id": 669203,
+        "name": "Corbin Burnes",
+        "projected_points": 22.17,
+        "salary": 4500,
+        "slot": "P",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 656302,
+        "name": "Dylan Cease",
+        "projected_points": 22.34,
+        "salary": 4500,
+        "slot": "P",
+        "team": "CWS"
+      },
+      {
+        "mlbam_id": 661388,
+        "name": "William Contreras",
+        "projected_points": 7.43,
+        "salary": 4500,
+        "slot": "C",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 572761,
+        "name": "Matt Carpenter",
+        "projected_points": 7.94,
+        "salary": 4500,
+        "slot": "1B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 630105,
+        "name": "Jake Cronenworth",
+        "projected_points": 7.2,
+        "salary": 4500,
+        "slot": "2B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 592518,
+        "name": "Manny Machado",
+        "projected_points": 9.26,
+        "salary": 4500,
+        "slot": "3B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 642715,
+        "name": "Willy Adames",
+        "projected_points": 8.51,
+        "salary": 4500,
+        "slot": "SS",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 592178,
+        "name": "Kris Bryant",
+        "projected_points": 7.81,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "COL"
+      },
+      {
+        "mlbam_id": 665742,
+        "name": "Juan Soto",
+        "projected_points": 8.13,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 592885,
+        "name": "Christian Yelich",
+        "projected_points": 7.77,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "MIL"
+      }
+    ],
+    "projected_points": 108.56,
+    "site": "dk",
+    "slate_id": "dk-mlb-2023-03-10-historical-daily-pool",
+    "total_salary": 45000
+  },
+  {
+    "actual_points": 22.0,
+    "data_kind": "real",
+    "legal": true,
+    "legality": {
+      "issues": [],
+      "set_validated": true,
+      "valid": true
+    },
+    "lineup_number": 1,
+    "method": "optimized",
+    "player_ids": [
+      656302,
+      669203,
+      661388,
+      572761,
+      630105,
+      592518,
+      642715,
+      665742,
+      592178,
+      592885
+    ],
+    "players": [
+      {
+        "mlbam_id": 656302,
+        "name": "Dylan Cease",
+        "projected_points": 22.34,
+        "salary": 4500,
+        "slot": "P",
+        "team": "CWS"
+      },
+      {
+        "mlbam_id": 669203,
+        "name": "Corbin Burnes",
+        "projected_points": 22.17,
+        "salary": 4500,
+        "slot": "P",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 661388,
+        "name": "William Contreras",
+        "projected_points": 7.43,
+        "salary": 4500,
+        "slot": "C",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 572761,
+        "name": "Matt Carpenter",
+        "projected_points": 7.94,
+        "salary": 4500,
+        "slot": "1B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 630105,
+        "name": "Jake Cronenworth",
+        "projected_points": 7.2,
+        "salary": 4500,
+        "slot": "2B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 592518,
+        "name": "Manny Machado",
+        "projected_points": 9.26,
+        "salary": 4500,
+        "slot": "3B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 642715,
+        "name": "Willy Adames",
+        "projected_points": 8.51,
+        "salary": 4500,
+        "slot": "SS",
+        "team": "MIL"
+      },
+      {
+        "mlbam_id": 665742,
+        "name": "Juan Soto",
+        "projected_points": 8.13,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 592178,
+        "name": "Kris Bryant",
+        "projected_points": 7.81,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "COL"
+      },
+      {
+        "mlbam_id": 592885,
+        "name": "Christian Yelich",
+        "projected_points": 7.77,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "MIL"
+      }
+    ],
+    "projected_points": 108.56,
+    "site": "dk",
+    "slate_id": "dk-mlb-2023-03-10-historical-daily-pool",
+    "total_salary": 45000
+  },
+  {
+    "actual_points": 17.0,
+    "data_kind": "real",
+    "legal": true,
+    "legality": {
+      "issues": [],
+      "set_validated": true,
+      "valid": true
+    },
+    "lineup_number": 1,
+    "method": "random",
+    "player_ids": [
+      668676,
+      605397,
+      518735,
+      572761,
+      630105,
+      621458,
+      642731,
+      670768,
+      680757,
+      663757
+    ],
+    "players": [
+      {
+        "mlbam_id": 668676,
+        "name": "Zach Plesac",
+        "projected_points": 10.81,
+        "salary": 4500,
+        "slot": "P",
+        "team": "CLE"
+      },
+      {
+        "mlbam_id": 605397,
+        "name": "Joe Musgrove",
+        "projected_points": 19.05,
+        "salary": 4500,
+        "slot": "P",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 518735,
+        "name": "Yasmani Grandal",
+        "projected_points": 4.34,
+        "salary": 4500,
+        "slot": "C",
+        "team": "CWS"
+      },
+      {
+        "mlbam_id": 572761,
+        "name": "Matt Carpenter",
+        "projected_points": 7.94,
+        "salary": 4500,
+        "slot": "1B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 630105,
+        "name": "Jake Cronenworth",
+        "projected_points": 7.2,
+        "salary": 4500,
+        "slot": "2B",
+        "team": "SD"
+      },
+      {
+        "mlbam_id": 621458,
+        "name": "Edwin Rios",
+        "projected_points": 6.82,
+        "salary": 4500,
+        "slot": "3B",
+        "team": "CHC"
+      },
+      {
+        "mlbam_id": 642731,
+        "name": "Thairo Estrada",
+        "projected_points": 7.18,
+        "salary": 4500,
+        "slot": "SS",
+        "team": "SF"
+      },
+      {
+        "mlbam_id": 670768,
+        "name": "Luis Gonzalez",
+        "projected_points": 5.72,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "SF"
+      },
+      {
+        "mlbam_id": 680757,
+        "name": "Steven Kwan",
+        "projected_points": 7.83,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "CLE"
+      },
+      {
+        "mlbam_id": 663757,
+        "name": "Trent Grisham",
+        "projected_points": 5.34,
+        "salary": 4500,
+        "slot": "OF",
+        "team": "SD"
+      }
+    ],
+    "projected_points": 82.23,
+    "site": "dk",
+    "slate_id": "dk-mlb-2023-03-10-historical-daily-pool",
+    "total_salary": 45000
+  }
+]

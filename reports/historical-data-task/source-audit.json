@@ -1,0 +1,64 @@
+{
+  "audit_date": "2026-07-29",
+  "contest_style": "classic",
+  "decision": "FAIL_NO_QUALIFYING_30_SLATE_SOURCE",
+  "selected_site": "dk",
+  "sources": [
+    {
+      "candidate": "DraftKings official rules",
+      "decision": "USE_SCORING_RULES_ONLY",
+      "public_access": true,
+      "reason": "Authoritative scoring and roster rules, but no historical salary or Game Set archive.",
+      "url": "https://api.draftkings.com/rules-and-scoring/RulesAndScoring.json"
+    },
+    {
+      "candidate": "DraftKings current lobby/DraftGroup/draftables API",
+      "decision": "REJECT_RETROSPECTIVE",
+      "public_access": true,
+      "reason": "Can bind current players, salaries and DraftGroup, but unofficial documentation says slates are transient; no 30-date historical archive or historical pre-lock evidence.",
+      "url": "https://github.com/SeanDrum/Draft-Kings-API-Documentation"
+    },
+    {
+      "candidate": "DraftKings original salary CSV export",
+      "decision": "REJECT_ACCESS_CONSTRAINT",
+      "public_access": false,
+      "reason": "Semantically suitable when tied to a contest/DraftGroup, but requires account/contest workflow and is disallowed by the task.",
+      "url": "https://www.draftkings.com/fantasy-baseball"
+    },
+    {
+      "candidate": "RotoGuru historical daily DFS data",
+      "decision": "REJECT_PROVENANCE",
+      "public_access": true,
+      "reason": "Historical DK salary/position may be present, but exact DraftGroup/Main/all-day identity and trustworthy pre-lock publication timestamps were not established; redistribution rights are also unclear.",
+      "url": "http://rotoguru1.com/cgi-bin/byday.pl"
+    },
+    {
+      "candidate": "SportsDataIO MLB DFS feeds",
+      "decision": "REJECT_PAID",
+      "public_access": false,
+      "reason": "Documentation exposes the required operator slate, game, salary and timing semantics, but the feed is paid/commercial.",
+      "url": "https://sportsdata.io/developers/workflow-guide/mlb"
+    },
+    {
+      "candidate": "RotoGrinders/FantasyLabs ResultsDB",
+      "decision": "REJECT_ACCESS_AND_EXPORT",
+      "public_access": false,
+      "reason": "MLB contest history exists, but no free raw salary/Game Set archive with pre-lock semantics and redistribution permission was established.",
+      "url": "https://rotogrinders.com/pages/fantasylabs-contests-dashboard-now-live-on-rotogrinders-3751657"
+    },
+    {
+      "candidate": "MLB Stats API / Baseball Savant",
+      "decision": "USE_STATS_ONLY",
+      "public_access": true,
+      "reason": "Suitable for game IDs, historical statistics, projections with date cutoff, and postgame actual reconstruction; does not provide DFS platform salaries or Game Sets.",
+      "url": "https://baseballsavant.mlb.com/csv-docs"
+    },
+    {
+      "candidate": "Public repositories and datasets",
+      "decision": "REJECT_INSUFFICIENT_PROVENANCE",
+      "public_access": true,
+      "reason": "Search found scattered files and projects but not 30 independent exact DK MLB Classic slates with original capture metadata and licence clarity.",
+      "url": "https://github.com/search?q=DraftKings+MLB+salary+CSV&type=repositories"
+    }
+  ]
+}

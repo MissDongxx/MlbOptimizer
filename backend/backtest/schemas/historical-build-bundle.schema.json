@@ -1,0 +1,329 @@
+{
+  "$defs": {
+    "OptimizerSettings": {
+      "properties": {
+        "min_salary_used": {
+          "default": 49500,
+          "minimum": 0,
+          "title": "Min Salary Used",
+          "type": "integer"
+        },
+        "pitcher_vs_batter_same_team": {
+          "default": "avoid",
+          "enum": [
+            "allow",
+            "avoid"
+          ],
+          "title": "Pitcher Vs Batter Same Team",
+          "type": "string"
+        },
+        "stack_count": {
+          "default": 4,
+          "maximum": 6,
+          "minimum": 0,
+          "title": "Stack Count",
+          "type": "integer"
+        },
+        "stack_team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stack Team"
+        },
+        "unique_lineups": {
+          "default": true,
+          "title": "Unique Lineups",
+          "type": "boolean"
+        }
+      },
+      "title": "OptimizerSettings",
+      "type": "object"
+    },
+    "RawArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "acquired_at": {
+          "format": "date-time",
+          "title": "Acquired At",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "effective_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective At"
+        },
+        "finalized": {
+          "default": false,
+          "title": "Finalized",
+          "type": "boolean"
+        },
+        "immutable_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Immutable Url"
+        },
+        "license_status": {
+          "enum": [
+            "verified_redistributable",
+            "public_access_use_only",
+            "unknown_no_redistribution"
+          ],
+          "title": "License Status",
+          "type": "string"
+        },
+        "local_path": {
+          "minLength": 1,
+          "title": "Local Path",
+          "type": "string"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "pregame_semantics": {
+          "default": false,
+          "title": "Pregame Semantics",
+          "type": "boolean"
+        },
+        "redistribution_included": {
+          "default": false,
+          "title": "Redistribution Included",
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "platform_slate_snapshot",
+            "platform_salary_snapshot",
+            "pregame_mlb_stats",
+            "postgame_mlb_stats",
+            "scoring_rules",
+            "identity_reference",
+            "identity_overrides"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_name": {
+          "minLength": 1,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_url": {
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "temporal_class": {
+          "enum": [
+            "pregame",
+            "postgame",
+            "static"
+          ],
+          "title": "Temporal Class",
+          "type": "string"
+        },
+        "timestamp_basis": {
+          "enum": [
+            "source_payload",
+            "http_last_modified",
+            "archive_capture",
+            "platform_export_metadata",
+            "repository_commit"
+          ],
+          "title": "Timestamp Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "role",
+        "source_name",
+        "source_url",
+        "local_path",
+        "sha256",
+        "acquired_at",
+        "timestamp_basis",
+        "temporal_class",
+        "license_status"
+      ],
+      "title": "RawArtifact",
+      "type": "object"
+    },
+    "SlateGame": {
+      "additionalProperties": false,
+      "properties": {
+        "away_team": {
+          "minLength": 2,
+          "title": "Away Team",
+          "type": "string"
+        },
+        "game_id": {
+          "title": "Game Id",
+          "type": "integer"
+        },
+        "home_team": {
+          "minLength": 2,
+          "title": "Home Team",
+          "type": "string"
+        },
+        "scheduled_start": {
+          "format": "date-time",
+          "title": "Scheduled Start",
+          "type": "string"
+        },
+        "source_record_id": {
+          "minLength": 1,
+          "title": "Source Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "game_id",
+        "away_team",
+        "home_team",
+        "scheduled_start",
+        "source_record_id"
+      ],
+      "title": "SlateGame",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/RawArtifact"
+      },
+      "minItems": 6,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "contest_style": {
+      "const": "classic",
+      "title": "Contest Style",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "data_kind": {
+      "enum": [
+        "real",
+        "fixture"
+      ],
+      "title": "Data Kind",
+      "type": "string"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "games": {
+      "items": {
+        "$ref": "#/$defs/SlateGame"
+      },
+      "minItems": 2,
+      "title": "Games",
+      "type": "array"
+    },
+    "identity_overrides": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Identity Overrides",
+      "type": "object"
+    },
+    "lock_time": {
+      "format": "date-time",
+      "title": "Lock Time",
+      "type": "string"
+    },
+    "provider_slate_id": {
+      "minLength": 1,
+      "title": "Provider Slate Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "settings": {
+      "$ref": "#/$defs/OptimizerSettings"
+    },
+    "site": {
+      "const": "dk",
+      "title": "Site",
+      "type": "string"
+    },
+    "slate_id": {
+      "minLength": 1,
+      "title": "Slate Id",
+      "type": "string"
+    },
+    "snapshot_as_of": {
+      "format": "date-time",
+      "title": "Snapshot As Of",
+      "type": "string"
+    }
+  },
+  "required": [
+    "data_kind",
+    "dataset_id",
+    "slate_id",
+    "site",
+    "contest_style",
+    "provider_slate_id",
+    "snapshot_as_of",
+    "lock_time",
+    "created_at",
+    "games",
+    "settings",
+    "artifacts"
+  ],
+  "title": "BuildBundle",
+  "type": "object"
+}

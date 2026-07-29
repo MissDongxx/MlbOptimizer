@@ -13,6 +13,7 @@ dependencies = [
     "pybaseball>=2.2.7",
     "pydfs-lineup-optimizer>=3.6.1",
     "python-dotenv>=1.0.1",
+    "scipy>=1.13.0",
     "MLB-StatsAPI>=1.8.1",
     "uvicorn[standard]>=0.30.0",
 ]

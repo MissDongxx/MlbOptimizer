@@ -1,0 +1,11 @@
+{
+  "baseline_verification": "NOT EVALUATED: archive contains no .git metadata; diff is against the exact uploaded tree.",
+  "declared_git_baseline": "dev/e0683a36af54c1c5c6259f300c51ee5f7abfdb19",
+  "expected_sha256": "bcb6d613670aa2a31bb32e5a410aa815d84d0bab982d1e0f56a0779f076e3844",
+  "expected_size_bytes": 2302187,
+  "git_metadata_in_archive": false,
+  "sha256": "bcb6d613670aa2a31bb32e5a410aa815d84d0bab982d1e0f56a0779f076e3844",
+  "size_bytes": 2302187,
+  "status": "PASS",
+  "uploaded_name": "MlbOptimizer-current-data-task.zip"
+}

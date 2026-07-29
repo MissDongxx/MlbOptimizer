@@ -1,0 +1,198 @@
+{
+  "backtest_byte_identical": true,
+  "backtest_run_1": {
+    "file_count": 7,
+    "files": [
+      {
+        "path": "failures.csv",
+        "sha256": "58dfbe6df654bffbcc2dd3f1f1d49b1d704fa13e6b4885ffac9c816f71753ee8",
+        "size": 51
+      },
+      {
+        "path": "failures.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "size": 3
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.lineups.csv",
+        "sha256": "7f0436aac4974d6644de3b6039ed853a85bbe75c7ebecb742e504800b1bb2f67",
+        "size": 8751
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.lineups.json",
+        "sha256": "b61bad9fad58253923dbc8424f2f4d26b10d14f322960472dfd8259ceeac0651",
+        "size": 13983
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.summary.json",
+        "sha256": "dd2d72355d8fb98c1e672d833d64ae61d94a9598975d183dc154cc17a1c9d22c",
+        "size": 2829
+      },
+      {
+        "path": "summary.csv",
+        "sha256": "6ed06aa7d96773df1ac5b912e3e85c8c486948a4462d101fbadfab545aa38efa",
+        "size": 467
+      },
+      {
+        "path": "summary.json",
+        "sha256": "51ced62e6ddc44b9469106df25e7a791370707f68099ae473858d9782d61cb19",
+        "size": 4821
+      }
+    ],
+    "tree_sha256": "14b5829c3afac5a9cab0a313e09b871ca20e1144bddef70d921d39b6383f3424"
+  },
+  "backtest_run_2": {
+    "file_count": 7,
+    "files": [
+      {
+        "path": "failures.csv",
+        "sha256": "58dfbe6df654bffbcc2dd3f1f1d49b1d704fa13e6b4885ffac9c816f71753ee8",
+        "size": 51
+      },
+      {
+        "path": "failures.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "size": 3
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.lineups.csv",
+        "sha256": "7f0436aac4974d6644de3b6039ed853a85bbe75c7ebecb742e504800b1bb2f67",
+        "size": 8751
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.lineups.json",
+        "sha256": "b61bad9fad58253923dbc8424f2f4d26b10d14f322960472dfd8259ceeac0651",
+        "size": 13983
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.summary.json",
+        "sha256": "dd2d72355d8fb98c1e672d833d64ae61d94a9598975d183dc154cc17a1c9d22c",
+        "size": 2829
+      },
+      {
+        "path": "summary.csv",
+        "sha256": "6ed06aa7d96773df1ac5b912e3e85c8c486948a4462d101fbadfab545aa38efa",
+        "size": 467
+      },
+      {
+        "path": "summary.json",
+        "sha256": "51ced62e6ddc44b9469106df25e7a791370707f68099ae473858d9782d61cb19",
+        "size": 4821
+      }
+    ],
+    "tree_sha256": "14b5829c3afac5a9cab0a313e09b871ca20e1144bddef70d921d39b6383f3424"
+  },
+  "build_byte_identical": true,
+  "build_run_1": {
+    "file_count": 10,
+    "files": [
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.actuals.json",
+        "sha256": "e46edd1267aac8c61ff481ddc1bcc5b7130cc7c9fbcd0665ffe1eac1f209dd0d",
+        "size": 1904
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.features.json",
+        "sha256": "b8ad55cc0794fc5fbb35f1e9dbdc623e5a0e7f685fef417e832ab1be333feafb",
+        "size": 18661
+      },
+      {
+        "path": "identity/fixture-builder-dk-2026-07-01-main.identity.json",
+        "sha256": "955652ddadd4463abda9173a17bd87997a8dd01467a9d8d0d4b3b14c0280c90a",
+        "size": 6569
+      },
+      {
+        "path": "qa/fixture-builder-dk-2026-07-01-main.qa.json",
+        "sha256": "b8260d7551587b1323182044f0096268021ac550425ad2aee158b25bb3383e98",
+        "size": 8091
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-identities.json",
+        "sha256": "a3d71a6b480a58c6a361c19adfc08b29a1164aecb9d1c0536321fb4319d87cd8",
+        "size": 1898
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-postgame.json",
+        "sha256": "10a485566a6c2b2c985f11aad6bb5583808a072e81dd905aee0542840a90bdd9",
+        "size": 5918
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-pregame.json",
+        "sha256": "2eecf749803c8fe0b256f11ed33b976e5c4a7ee65bdf1421e3b418b3d3d66a11",
+        "size": 6611
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-rules.json",
+        "sha256": "285b8ca55431d80228f6d165f4533c978ae58af6e067952d0af6cd2e93faf56a",
+        "size": 88
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-salary.csv",
+        "sha256": "fd9beb961b0b6c949d8c17e261d8498eba98256ed80987de22120c944a5a0595",
+        "size": 2567
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-slate.json",
+        "sha256": "6f041cd076327aa536e14460d244a26372c2bc7bb1d2ba00f1ca21c946f2ae68",
+        "size": 116
+      }
+    ],
+    "tree_sha256": "543520784d36691f20039386e9161296229f7f6ce2ea92ccd62864cdf6b3c1bc"
+  },
+  "build_run_2": {
+    "file_count": 10,
+    "files": [
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.actuals.json",
+        "sha256": "e46edd1267aac8c61ff481ddc1bcc5b7130cc7c9fbcd0665ffe1eac1f209dd0d",
+        "size": 1904
+      },
+      {
+        "path": "fixture-builder-dk-2026-07-01-main.features.json",
+        "sha256": "b8ad55cc0794fc5fbb35f1e9dbdc623e5a0e7f685fef417e832ab1be333feafb",
+        "size": 18661
+      },
+      {
+        "path": "identity/fixture-builder-dk-2026-07-01-main.identity.json",
+        "sha256": "955652ddadd4463abda9173a17bd87997a8dd01467a9d8d0d4b3b14c0280c90a",
+        "size": 6569
+      },
+      {
+        "path": "qa/fixture-builder-dk-2026-07-01-main.qa.json",
+        "sha256": "b8260d7551587b1323182044f0096268021ac550425ad2aee158b25bb3383e98",
+        "size": 8091
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-identities.json",
+        "sha256": "a3d71a6b480a58c6a361c19adfc08b29a1164aecb9d1c0536321fb4319d87cd8",
+        "size": 1898
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-postgame.json",
+        "sha256": "10a485566a6c2b2c985f11aad6bb5583808a072e81dd905aee0542840a90bdd9",
+        "size": 5918
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-pregame.json",
+        "sha256": "2eecf749803c8fe0b256f11ed33b976e5c4a7ee65bdf1421e3b418b3d3d66a11",
+        "size": 6611
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-rules.json",
+        "sha256": "285b8ca55431d80228f6d165f4533c978ae58af6e067952d0af6cd2e93faf56a",
+        "size": 88
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-salary.csv",
+        "sha256": "fd9beb961b0b6c949d8c17e261d8498eba98256ed80987de22120c944a5a0595",
+        "size": 2567
+      },
+      {
+        "path": "raw/fixture-builder-dk-2026-07-01-main/fixture-slate.json",
+        "sha256": "6f041cd076327aa536e14460d244a26372c2bc7bb1d2ba00f1ca21c946f2ae68",
+        "size": 116
+      }
+    ],
+    "tree_sha256": "543520784d36691f20039386e9161296229f7f6ce2ea92ccd62864cdf6b3c1bc"
+  }
+}

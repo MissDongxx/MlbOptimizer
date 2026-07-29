@@ -1,0 +1,33 @@
+{
+  "blob_url": "https://github.com/KengoA/fantasy-ga/blob/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+  "classification": {
+    "data_kind": "real",
+    "provider_game_set_verified": false,
+    "scope": "historical_daily_pool",
+    "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION"
+  },
+  "commit_sha": "a5645d7c2f955db62e776dc6c2a1889e7769aa72",
+  "commit_timestamp": "2023-03-11T04:38:51+09:00",
+  "commit_timestamp_eastern": "2023-03-10T14:38:51-05:00",
+  "commit_url": "https://github.com/KengoA/fantasy-ga/commit/a5645d7c2f955db62e776dc6c2a1889e7769aa72",
+  "file_path": "examples/DraftKings/MLB/DKSalaries.csv",
+  "first_pitch": "2023-03-10T15:03:00-05:00",
+  "header_lines": 1,
+  "local_path": "backend/backtest/data/real-validation/dk-mlb-2023-03-10-historical-daily-pool/raw/KengoA_fantasy-ga_a5645d7_DKSalaries.csv",
+  "player_rows": 345,
+  "pregame_margin_seconds": 1449,
+  "qa_report": "backend/backtest/data/real-validation/dk-mlb-2023-03-10-historical-daily-pool/qa/dk_mlb_2023-03-10_daily_pool.qa.json",
+  "qa_sha256": "379bbbd3e646a47ff913d9eed807c9c6b6e8360e79b2c19f6706ab1a31ea7e7f",
+  "raw_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
+  "repository_url": "https://github.com/KengoA/fantasy-ga",
+  "sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
+  "size_bytes": 33342,
+  "status": "PASS_WITH_WARNINGS",
+  "total_lines": 346,
+  "warnings": [
+    "provider_game_set_unverified",
+    "uniform_salary_warning",
+    "repository_MIT_license_does_not_separately_resolve_upstream_DraftKings_data_rights",
+    "AvgPointsPerGame_semantics_not_independently_documented"
+  ]
+}

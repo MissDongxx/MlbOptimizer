@@ -1,0 +1,265 @@
+{
+  "ambiguous_count": 0,
+  "decisions": [
+    {
+      "candidates": [
+        660271
+      ],
+      "external_id": "fixture-660271",
+      "matched_name": "Shohei Ohtani",
+      "method": "normalized_name_team",
+      "mlbam_id": 660271,
+      "platform_name": "Shohei Ohtani",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        605141
+      ],
+      "external_id": "fixture-605141",
+      "matched_name": "Mookie Betts",
+      "method": "normalized_name_team",
+      "mlbam_id": 605141,
+      "platform_name": "Mookie Betts",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        518692
+      ],
+      "external_id": "fixture-518692",
+      "matched_name": "Freddie Freeman",
+      "method": "normalized_name_team",
+      "mlbam_id": 518692,
+      "platform_name": "Freddie Freeman",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        669257
+      ],
+      "external_id": "fixture-669257",
+      "matched_name": "Will Smith",
+      "method": "normalized_name_team",
+      "mlbam_id": 669257,
+      "platform_name": "Will Smith",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        666158
+      ],
+      "external_id": "fixture-666158",
+      "matched_name": "Gavin Lux",
+      "method": "normalized_name_team",
+      "mlbam_id": 666158,
+      "platform_name": "Gavin Lux",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        592450
+      ],
+      "external_id": "fixture-592450",
+      "matched_name": "Aaron Judge",
+      "method": "normalized_name_team",
+      "mlbam_id": 592450,
+      "platform_name": "Aaron Judge",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        665742
+      ],
+      "external_id": "fixture-665742",
+      "matched_name": "Juan Soto",
+      "method": "normalized_name_team",
+      "mlbam_id": 665742,
+      "platform_name": "Juan Soto",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        650402
+      ],
+      "external_id": "fixture-650402",
+      "matched_name": "Giancarlo Stanton",
+      "method": "normalized_name_team",
+      "mlbam_id": 650402,
+      "platform_name": "Giancarlo Stanton",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        683011
+      ],
+      "external_id": "fixture-683011",
+      "matched_name": "Anthony Volpe",
+      "method": "normalized_name_team",
+      "mlbam_id": 683011,
+      "platform_name": "Anthony Volpe",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        518934
+      ],
+      "external_id": "fixture-518934",
+      "matched_name": "DJ LeMahieu",
+      "method": "normalized_name_team",
+      "mlbam_id": 518934,
+      "platform_name": "DJ LeMahieu",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        543037
+      ],
+      "external_id": "fixture-543037",
+      "matched_name": "Gerrit Cole",
+      "method": "normalized_name_team",
+      "mlbam_id": 543037,
+      "platform_name": "Gerrit Cole",
+      "platform_team": "NYY",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        607192
+      ],
+      "external_id": "fixture-607192",
+      "matched_name": "Tyler Glasnow",
+      "method": "normalized_name_team",
+      "mlbam_id": 607192,
+      "platform_name": "Tyler Glasnow",
+      "platform_team": "LAD",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        621566
+      ],
+      "external_id": "fixture-621566",
+      "matched_name": "Matt Olson",
+      "method": "normalized_name_team",
+      "mlbam_id": 621566,
+      "platform_name": "Matt Olson",
+      "platform_team": "ATL",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        621020
+      ],
+      "external_id": "fixture-621020",
+      "matched_name": "Austin Riley",
+      "method": "normalized_name_team",
+      "mlbam_id": 621020,
+      "platform_name": "Austin Riley",
+      "platform_team": "ATL",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        645277
+      ],
+      "external_id": "fixture-645277",
+      "matched_name": "Ozzie Albies",
+      "method": "normalized_name_team",
+      "mlbam_id": 645277,
+      "platform_name": "Ozzie Albies",
+      "platform_team": "ATL",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        663586
+      ],
+      "external_id": "fixture-663586",
+      "matched_name": "Ronald Acuna Jr.",
+      "method": "normalized_name_team",
+      "mlbam_id": 663586,
+      "platform_name": "Ronald Acuna Jr.",
+      "platform_team": "ATL",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        514888
+      ],
+      "external_id": "fixture-514888",
+      "matched_name": "Jose Altuve",
+      "method": "normalized_name_team",
+      "mlbam_id": 514888,
+      "platform_name": "Jose Altuve",
+      "platform_team": "HOU",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        670541
+      ],
+      "external_id": "fixture-670541",
+      "matched_name": "Yordan Alvarez",
+      "method": "normalized_name_team",
+      "mlbam_id": 670541,
+      "platform_name": "Yordan Alvarez",
+      "platform_team": "HOU",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        665161
+      ],
+      "external_id": "fixture-665161",
+      "matched_name": "Kyle Tucker",
+      "method": "normalized_name_team",
+      "mlbam_id": 665161,
+      "platform_name": "Kyle Tucker",
+      "platform_team": "HOU",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        664285
+      ],
+      "external_id": "fixture-664285",
+      "matched_name": "Framber Valdez",
+      "method": "normalized_name_team",
+      "mlbam_id": 664285,
+      "platform_name": "Framber Valdez",
+      "platform_team": "HOU",
+      "status": "matched"
+    },
+    {
+      "candidates": [
+        675911
+      ],
+      "external_id": "fixture-675911",
+      "matched_name": "Spencer Strider",
+      "method": "normalized_name_team",
+      "mlbam_id": 675911,
+      "platform_name": "Spencer Strider",
+      "platform_team": "ATL",
+      "status": "matched"
+    }
+  ],
+  "identity_version": "mlbam-name-team-explicit-override-v1",
+  "invalid_override_count": 0,
+  "matched_count": 21,
+  "platform_player_count": 21,
+  "schema_version": "1.0",
+  "slate_id": "fixture-builder-dk-2026-07-01-main",
+  "status": "PASS",
+  "unmatched_count": 0
+}

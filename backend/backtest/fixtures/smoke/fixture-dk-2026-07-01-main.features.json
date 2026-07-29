@@ -1,0 +1,533 @@
+{
+  "data_kind": "fixture",
+  "lock_time": "2026-07-01T23:05:00Z",
+  "players": [
+    {
+      "availability": "confirmed",
+      "batting_order": 1,
+      "exclude": false,
+      "external_id": "fixture-660271",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 12.4
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 660271,
+      "name": "Shohei Ohtani",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 12.4,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 5600,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 2,
+      "exclude": false,
+      "external_id": "fixture-605141",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 10.9
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 605141,
+      "name": "Mookie Betts",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "2B",
+        "OF"
+      ],
+      "projected_points": 10.9,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 5200,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 3,
+      "exclude": false,
+      "external_id": "fixture-518692",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 9.7
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 518692,
+      "name": "Freddie Freeman",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "1B"
+      ],
+      "projected_points": 9.7,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 4700,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 4,
+      "exclude": false,
+      "external_id": "fixture-669257",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 8.6
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 669257,
+      "name": "Will Smith",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "C"
+      ],
+      "projected_points": 8.6,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 3400,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 5,
+      "exclude": false,
+      "external_id": "fixture-666158",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 6.4
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 666158,
+      "name": "Gavin Lux",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "2B",
+        "SS"
+      ],
+      "projected_points": 6.4,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 2800,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 6,
+      "exclude": false,
+      "external_id": "fixture-592450",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 11.8
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 592450,
+      "name": "Aaron Judge",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 11.8,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 5600,
+      "team": "NYY"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 7,
+      "exclude": false,
+      "external_id": "fixture-665742",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 11.2
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 665742,
+      "name": "Juan Soto",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 11.2,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 5400,
+      "team": "NYY"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 8,
+      "exclude": false,
+      "external_id": "fixture-650402",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 7.9
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 650402,
+      "name": "Giancarlo Stanton",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.9,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 3200,
+      "team": "NYY"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 9,
+      "exclude": false,
+      "external_id": "fixture-683011",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 6.8
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 683011,
+      "name": "Anthony Volpe",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "SS"
+      ],
+      "projected_points": 6.8,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 2900,
+      "team": "NYY"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 1,
+      "exclude": false,
+      "external_id": "fixture-518934",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 5.9
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 518934,
+      "name": "DJ LeMahieu",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "1B",
+        "3B"
+      ],
+      "projected_points": 5.9,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 2300,
+      "team": "NYY"
+    },
+    {
+      "availability": "active",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-543037",
+      "feature_values": {
+        "batting_order_known": false,
+        "source_projection": 20.1
+      },
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 543037,
+      "name": "Gerrit Cole",
+      "name_id": null,
+      "opponent": "LAD",
+      "position": [
+        "P"
+      ],
+      "projected_points": 20.1,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 8300,
+      "team": "NYY"
+    },
+    {
+      "availability": "active",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-607192",
+      "feature_values": {
+        "batting_order_known": false,
+        "source_projection": 19.2
+      },
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 607192,
+      "name": "Tyler Glasnow",
+      "name_id": null,
+      "opponent": "NYY",
+      "position": [
+        "P"
+      ],
+      "projected_points": 19.2,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 7900,
+      "team": "LAD"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 4,
+      "exclude": false,
+      "external_id": "fixture-621566",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 9.4
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 621566,
+      "name": "Matt Olson",
+      "name_id": null,
+      "opponent": "HOU",
+      "position": [
+        "1B"
+      ],
+      "projected_points": 9.4,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 4800,
+      "team": "ATL"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 5,
+      "exclude": false,
+      "external_id": "fixture-621020",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 8.8
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 621020,
+      "name": "Austin Riley",
+      "name_id": null,
+      "opponent": "HOU",
+      "position": [
+        "3B"
+      ],
+      "projected_points": 8.8,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 3900,
+      "team": "ATL"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 6,
+      "exclude": false,
+      "external_id": "fixture-645277",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 8.9
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 645277,
+      "name": "Ozzie Albies",
+      "name_id": null,
+      "opponent": "HOU",
+      "position": [
+        "2B"
+      ],
+      "projected_points": 8.9,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 4300,
+      "team": "ATL"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 7,
+      "exclude": false,
+      "external_id": "fixture-663586",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 10.7
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 663586,
+      "name": "Ronald Acuna Jr.",
+      "name_id": null,
+      "opponent": "HOU",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 10.7,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 5500,
+      "team": "ATL"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 8,
+      "exclude": false,
+      "external_id": "fixture-514888",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 8.5
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 514888,
+      "name": "Jose Altuve",
+      "name_id": null,
+      "opponent": "ATL",
+      "position": [
+        "2B"
+      ],
+      "projected_points": 8.5,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 3600,
+      "team": "HOU"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 9,
+      "exclude": false,
+      "external_id": "fixture-670541",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 9.9
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 670541,
+      "name": "Yordan Alvarez",
+      "name_id": null,
+      "opponent": "ATL",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 9.9,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 4400,
+      "team": "HOU"
+    },
+    {
+      "availability": "confirmed",
+      "batting_order": 1,
+      "exclude": false,
+      "external_id": "fixture-665161",
+      "feature_values": {
+        "batting_order_known": true,
+        "source_projection": 9.6
+      },
+      "lineup_status": "confirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 665161,
+      "name": "Kyle Tucker",
+      "name_id": null,
+      "opponent": "ATL",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 9.6,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 4300,
+      "team": "HOU"
+    },
+    {
+      "availability": "active",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-664285",
+      "feature_values": {
+        "batting_order_known": false,
+        "source_projection": 17.8
+      },
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 664285,
+      "name": "Framber Valdez",
+      "name_id": null,
+      "opponent": "ATL",
+      "position": [
+        "P"
+      ],
+      "projected_points": 17.8,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 7600,
+      "team": "HOU"
+    },
+    {
+      "availability": "active",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-675911",
+      "feature_values": {
+        "batting_order_known": false,
+        "source_projection": 22.4
+      },
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 675911,
+      "name": "Spencer Strider",
+      "name_id": null,
+      "opponent": "HOU",
+      "position": [
+        "P"
+      ],
+      "projected_points": 22.4,
+      "projection_source": "fixture_prelock_projection_v1",
+      "salary": 8800,
+      "team": "ATL"
+    }
+  ],
+  "schema_version": "1.0",
+  "settings": {
+    "min_salary_used": 43000,
+    "pitcher_vs_batter_same_team": "allow",
+    "stack_count": 0,
+    "stack_team": null,
+    "unique_lineups": true
+  },
+  "site": "dk",
+  "slate_id": "fixture-dk-2026-07-01-main",
+  "slate_start": "2026-07-01T23:05:00Z",
+  "snapshot_as_of": "2026-07-01T22:45:00Z",
+  "sources": [
+    {
+      "fetched_at": "2026-07-01T22:40:00Z",
+      "published_at": "2026-07-01T22:35:00Z",
+      "source": "auditable_fixture_generator",
+      "source_record_id": "fixture-v1"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "dk-mlb-2023-03-10-historical-daily-pool.lineups.csv",
+      "sha256": "c6ffc95d4a68fd3b8a648e8476eeae84ddf4a1d4702517946051a74d01ac5096",
+      "size_bytes": 4470
+    },
+    {
+      "path": "dk-mlb-2023-03-10-historical-daily-pool.lineups.json",
+      "sha256": "7c0500eec7f479b89b63e1dec245340c1950c5e1fe7041fefb3e95641c264e8b",
+      "size_bytes": 7026
+    },
+    {
+      "path": "dk-mlb-2023-03-10-historical-daily-pool.summary.json",
+      "sha256": "98efbb7bb1469ba4c4e9aa1cd86643c520684925eb8373ca2c5f27b92edb1363",
+      "size_bytes": 4131
+    },
+    {
+      "path": "failures.csv",
+      "sha256": "58dfbe6df654bffbcc2dd3f1f1d49b1d704fa13e6b4885ffac9c816f71753ee8",
+      "size_bytes": 51
+    },
+    {
+      "path": "failures.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "path": "summary.csv",
+      "sha256": "63e8bf564ee6d3c623dbe72b63cb50d9bd3508eb27ebdbc31d49d3bd95873f88",
+      "size_bytes": 489
+    },
+    {
+      "path": "summary.json",
+      "sha256": "2aa3885b81c95214bd41b7fb70108aea422b53b475e5a2174bd5f9890e5c3b1f",
+      "size_bytes": 6406
+    }
+  ],
+  "identical": true,
+  "run1_tree_sha256": "298bb0b09c7902d0a99f3d3e0787a20001c5ac0d958e0dcbf5a21b0801d85a29",
+  "run2_tree_sha256": "298bb0b09c7902d0a99f3d3e0787a20001c5ac0d958e0dcbf5a21b0801d85a29"
+}

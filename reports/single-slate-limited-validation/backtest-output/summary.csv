@@ -1,0 +1,2 @@
+evaluation_status,seed,site,lineups_per_method,valid_slates_total,valid_real_slates,failed_or_skipped_slates,random_mean_actual,legacy_mean_actual,optimized_mean_actual,optimized_vs_random_relative,optimized_vs_random_win_rate,optimized_vs_legacy_relative,minimum_real_slates_status,random_improvement_status,slate_win_rate_status,legacy_noninferiority_status
+LIMITED VALIDATION,20260729,dk,1,1,1,0,17.0,22.0,22.0,0.29411764705882354,1.0,0.0,PASS,NOT EVALUATED,NOT EVALUATED,NOT EVALUATED

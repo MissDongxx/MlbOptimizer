@@ -1,0 +1,8 @@
+{
+  "fixture_only": true,
+  "game_ids": [
+    1001,
+    1002
+  ],
+  "provider_slate_id": "fixture-draftgroup-100"
+}
