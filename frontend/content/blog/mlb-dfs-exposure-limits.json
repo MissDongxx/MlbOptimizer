@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "slug": "mlb-dfs-exposure-limits",
+  "category": "dfs-strategy",
+  "primaryKeyword": "mlb dfs exposure limits",
+  "intent": "informational",
+  "title": "MLB DFS Exposure Limits: A Portfolio Guide | DiamScore",
+  "description": "Learn how MLB DFS exposure limits translate percentages into lineup counts, control portfolio concentration, reflect field size, and handle late scratches.",
+  "excerpt": "A practical guide to turning maximum and minimum exposure targets into auditable MLB DFS lineup counts without treating percentages as predictions.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-07-29",
+  "updatedAt": "2026-07-29",
+  "keyTakeaways": [
+    "Exposure is the share of your own lineup set containing a player, team, or game thesis; it is not the same as projected field ownership.",
+    "Convert every percentage into an integer lineup count before building, then audit the generated set because rounding and interacting constraints can change the result.",
+    "Use maximum exposure as a concentration ceiling, treat minimum exposure as a deliberate target rather than a forecast, and rebuild after lineup or lock-status changes."
+  ],
+  "sections": [
+    {
+      "heading": "Define exposure as a portfolio count",
+      "paragraphs": [
+        "In MLB DFS, exposure describes how often an element appears across your own set of lineups. If a hitter appears in 6 of 20 lineups, that hitter has 30% realized exposure in that portfolio. The same calculation can be applied manually to a pitcher, a team stack, a game, or any other documented thesis: appearances divided by total submitted lineups. It does not say that the player has a 30% chance to succeed.",
+        "Keep exposure separate from ownership. Ownership is the share of entries in a contest that roster a player, while exposure is your chosen or realized share. A player could have low estimated ownership but high exposure in your portfolio, or the reverse. Pre-lock ownership is also an estimate; the submitted field is the reference after lock. This guide stays focused on controlling your lineup set rather than repeating the broader contest, pitcher, and stacking framework covered in DiamScore's MLB DFS strategy guides.",
+        "The denominator matters. A 20% target means one lineup in a five-lineup set, two lineups in a ten-lineup set, and four in a twenty-lineup set. Write both the percentage and count in the plan. Counts are what you can inspect, and they prevent a precise-looking percentage from hiding a very small sample of lineups."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "draftkings-entry-limits"
+      ]
+    },
+    {
+      "heading": "Turn a maximum exposure percentage into a ceiling",
+      "paragraphs": [
+        "Maximum exposure is an upper boundary. For a planned portfolio of N lineups and a cap of p, a strict count ceiling is the whole number no greater than N multiplied by p. In a 20-lineup portfolio, a 30% cap allows at most 6 appearances. In a five-lineup portfolio, the same cap cannot be represented exactly: one appearance is 20%, while two are 40%. If the cap must not be exceeded, the count ceiling is one.",
+        "Rounding behavior is part of the tool, not a universal DFS rule. Some builders may round a percentage to the nearest available lineup count, apply the constraint sequentially, or return fewer lineups when the requested set is infeasible. Before relying on a cap, test the current tool with a small batch and count the actual appearances. If an interface does not expose a maximum control, use the count as a manual audit rule rather than assuming the product applied it.",
+        "A maximum is useful when one failure could damage too much of the portfolio. Examples include a volatile value hitter appearing because of salary, a pitcher used across several stack combinations, or multiple hitters tied to the same uncertain weather or lineup situation. The cap does not make the remaining lineups independent: two different hitters from the same offense can still express the same team-level risk. Audit players, teams, games, and pitcher-stack combinations when those layers matter to the thesis."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Treat minimum exposure as a target, not a promise",
+      "paragraphs": [
+        "Minimum exposure asks for at least a chosen share of the portfolio. For a strict minimum, convert the percentage to the smallest whole lineup count that is not below the target. A 25% minimum across 20 lineups requires at least 5 appearances. Across six lineups, a 25% target requires two appearances because one of six is only about 16.7%. Label these as planning examples, not recommendations.",
+        "A minimum creates obligation. It can force a player into weaker combinations, collide with salary or position rules, conflict with a maximum on another player, or become impossible after a lineup change. It is therefore better reserved for a researched position you intentionally want represented than used as a way to make every attractive player appear somewhere. A target should be reduced or removed when the supporting assumptions change.",
+        "Do not assume a minimum was enforced simply because a player appeared in an optimizer pool. DiamScore's public product page describes multi-lineup generation, stacks, locks, fades, salary settings, and review, but it does not document a user-facing minimum-exposure guarantee. Record minimum targets as counts, generate the lineup set, and verify the result manually. Locks are not a substitute: locking a player can place that player in every generated lineup rather than at a limited minimum."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Use exposure limits to describe portfolio risk",
+      "paragraphs": [
+        "Start by identifying the outcomes that could fail together. Player exposure is the most visible layer, but MLB lineups contain connected risks: teammates share a run environment, opposing hitters share the same pitcher, and several players can share a delayed or postponed game. A set with no player above 40% may still be highly concentrated if most lineups depend on the same two offenses.",
+        "Create a short risk ledger before building. For each important thesis, record the intended lineup count, maximum acceptable count, evidence that supports it, and the update that would invalidate it. Then compare the generated portfolio with the ledger. This turns exposure from a decorative percentage into a reviewable decision. It also reveals accidental concentration caused by projection, salary, position eligibility, or stack settings.",
+        "Exposure limits redistribute risk; they do not remove it or improve a prediction by themselves. A lower cap can move lineups toward less-preferred alternatives, and a high minimum can magnify an incorrect assumption. Evaluate the complete lineups created under the limits, not just whether the percentages were met. Predictions are estimates, not guaranteed outcomes, and financial entry limits should be decided independently of optimizer output."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Match the plan to your lineup count and contest field",
+      "paragraphs": [
+        "Your number of lineups determines how finely exposure can be expressed. One lineup allows only 0% or 100% for each player. Five lineups move in 20-point increments. Twenty lineups move in 5-point increments. Adding lineups creates more possible portfolio weights, but it also creates more combinations to review and does not create an edge by itself.",
+        "Contest field size and your personal entry count are different quantities. A large contest can still be single-entry, and a smaller contest can permit multiple entries. DraftKings currently says each contest displays its own maximum entry limit and that limits range from one to 150, with specific policies and exceptions described on its official page. Those values are current platform rules, not timeless defaults, so the live Contest Details screen remains the authority.",
+        "Use field context to decide what job the portfolio must do, not to copy a canned exposure table. A single-entry lineup requires one fully reviewed construction rather than percentage diversification. A small multi-entry set makes every appearance a large weight. A larger permitted set can express more theses, but only if you can document, review, and update them. Never build more lineups merely because the platform allows them, and never confuse the contest's total field with the denominator used for your own exposure."
+      ],
+      "sourceIds": [
+        "draftkings-entry-limits",
+        "draftkings-rules",
+        "diamscore-optimizer"
+      ]
+    },
+    {
+      "heading": "Prepare exposure rules for late scratches and locks",
+      "paragraphs": [
+        "Exposure planning is incomplete without an update routine. MLB's official starting-lineup page labels lineups subject to change. A hitter can be absent from the confirmed order, move to a different batting position, or be scratched after an earlier plan. When that happens, count every affected lineup, remove or replace the player where the contest permits, and recalculate the exposure of the replacements.",
+        "Platform lock rules determine what can still change. DraftKings currently distinguishes late-swap contests, where an athlete locks around that athlete's game, from non-late-swap contests, where the lineup locks at the contest's scheduled lock. Its official rules also state that a locked athlete cannot be added or removed. FanDuel likewise says only contests offering late swap permit changes after the contest locks. Verify the live contest label and game times instead of assuming one platform-wide behavior.",
+        "Replacement exposure can become the new hidden risk. If a scratched hitter appears in eight lineups and every swap moves to the same value replacement, that replacement immediately becomes concentrated. Re-optimize the unlocked subset when practical, preserve any already locked roster spots, and audit player, team, salary, and game exposure again. Keep a final export only after the revised counts and platform legality have been checked."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "draftkings-rules",
+        "draftkings-late-swap",
+        "fanduel-rules"
+      ]
+    },
+    {
+      "heading": "Follow a repeatable exposure workflow",
+      "paragraphs": [
+        "First, fix the portfolio size and confirm the contest's entry limit. Second, write a small set of player and team theses. Third, convert every intended minimum and maximum percentage into an integer count, including the rounding rule. Fourth, generate unique lineups under the legal salary, roster, position, and stack constraints. Fifth, export or otherwise list the results and count actual appearances.",
+        "Next, audit conflicts. A player maximum may be satisfied while the same team appears too often through other hitters. A player minimum may be missed because another lock, salary rule, or position requirement made the full request infeasible. Do not silently relax the thesis to justify the output. Either adjust the constraint and document why, or reduce the requested lineup count to a set you can actually validate.",
+        "Finally, schedule checkpoints for confirmed starting lineups, pitcher changes, weather, injuries, and contest locks. DiamScore provides a slate-oriented optimizer workflow with lineup status, projections, stacks, salary controls, locks, fades, and CSV review. Use those inputs as decision support, then perform the exposure count yourself on the final submitted set. The submitted portfolio, not the settings screen, is the record that matters."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "mlb-starting-lineups",
+        "draftkings-entry-limits",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Practical example: audit a fictional 20-lineup plan",
+      "paragraphs": [
+        "Consider a fictional 20-lineup portfolio using invented players and teams. This is an arithmetic example, not a recommendation for a real slate. You set a 30% maximum for Pitcher Harbor, a 25% minimum target for Hitter Cedar, and a 40% maximum for any one primary team thesis. Those translate to at most 6 Pitcher Harbor lineups, at least 5 Hitter Cedar lineups, and at most 8 lineups led by the same team.",
+        "The first generated set uses Pitcher Harbor six times and Hitter Cedar five times, so the player counts meet the plan. However, Team Summit is the primary stack in eight lineups and appears as a secondary group in four more. The player caps did not reveal that 12 of 20 lineups still depend on Team Summit scoring well. You revise four secondary groups, regenerate, and compare the complete constructions rather than celebrating that each individual percentage passed.",
+        "Before lock, Hitter Cedar is not in the confirmed lineup. You remove him from all five affected lineups. Three different replacements are available, but one value hitter would appear in all five if you optimized only for projection. You distribute the revisions according to the remaining documented theses, verify that no replacement exceeds its count ceiling, confirm the current contest's swap status, and review the final CSV. The example shows why exposure control is a cycle of counting, checking connected risk, and responding to news."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "mlb-starting-lineups",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "Exposure percentages do not estimate a player's probability of success, guarantee a profitable portfolio, or eliminate baseball variance. They summarize allocation decisions across a finite lineup set. Small sets support only coarse percentages, and the result may change when unique-lineup, salary, position, stack, lock, or exclusion rules interact.",
+        "Tool behavior can vary. Verify whether the current optimizer supports player maximums, player minimums, team or stack exposure, uniqueness, rounding, and partial results before trusting a settings label. DiamScore's public pages should be checked for the current workflow; this article does not claim a documented minimum-exposure feature. Manually audit the final set whenever a control is unavailable or its behavior is unclear.",
+        "Contest entry limits, field capacity, scoring, roster rules, salary caps, player eligibility, lock times, and late-swap behavior can change and can differ by contest. Readers should verify late lineup, injury, weather, and contest-rule changes. Check the live MLB lineup page and the selected contest's official details immediately before submission, and use only entry volume and financial risk you can afford."
+      ],
+      "sourceIds": [
+        "diamscore-optimizer",
+        "draftkings-entry-limits",
+        "draftkings-rules",
+        "draftkings-late-swap",
+        "fanduel-rules",
+        "mlb-starting-lineups"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What does exposure mean in MLB DFS?",
+      "answer": "Exposure is the percentage of your own lineups containing a player, team, game, or other thesis. Divide appearances by total lineups. It is an allocation measure, not a prediction of success."
+    },
+    {
+      "question": "How do I calculate maximum exposure?",
+      "answer": "Multiply the planned lineup count by the percentage and use a whole-number ceiling that does not exceed the cap. For example, 30% of 20 lineups is at most 6 appearances. Verify how the current tool rounds."
+    },
+    {
+      "question": "What is minimum exposure?",
+      "answer": "Minimum exposure is a target for at least a chosen number of appearances. Convert the percentage to the smallest whole count that meets it, then audit the output because salary, positions, locks, and other constraints can conflict."
+    },
+    {
+      "question": "Should exposure match projected ownership?",
+      "answer": "No. Ownership estimates the contest field's use of a player, while exposure records your portfolio allocation. Compare them only as separate inputs to a deliberate risk decision."
+    },
+    {
+      "question": "What should I do when a highly exposed player is scratched?",
+      "answer": "Identify every affected lineup, check which roster spots remain editable under the contest's lock rules, replace or rebuild them, and recalculate exposure for all replacements and connected team theses."
+    }
+  ],
+  "sources": [
+    {
+      "id": "diamscore-optimizer",
+      "title": "MLB DFS Optimizer for Daily Fantasy Baseball",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/mlb-dfs-optimizer",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-entry-limits",
+      "title": "Is there a limit to the number of entries I can submit?",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/is-there-a-limit-to-the-number-of-entries-i-can-submit?id=kb_article_view&sysparm_article=KB0010794",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-rules",
+      "title": "Fantasy Sports Contest Rules & Scoring - Overview",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/fantasy-sports-contest-rules-scoring-overview?id=kb_article_view&sysparm_article=KB0010560",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-late-swap",
+      "title": "Late Swap - Overview",
+      "publisher": "DraftKings",
+      "url": "https://support.draftkings.com/dk/en-us/late-swap-overview?id=kb_article_view&sysparm_article=KB0010786",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    },
+    {
+      "id": "fanduel-rules",
+      "title": "Rules",
+      "publisher": "FanDuel",
+      "url": "https://www.fanduel.com/rules",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-07-29",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB DFS optimizer",
+      "href": "/mlb-dfs-optimizer"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB DFS stacking strategy",
+      "href": "/blog/mlb-dfs-stacking-strategy"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

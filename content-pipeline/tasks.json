@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-28",
+  "updatedAt": "2026-07-29",
   "tasks": [
     {
       "id": "mlb-001",
@@ -56,7 +56,7 @@
     {
       "id": "mlb-004",
       "priority": 4,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb dfs exposure limits",
       "slug": "mlb-dfs-exposure-limits",
       "category": "dfs-strategy",
