@@ -436,6 +436,26 @@ def _find_best_lineup(
     enforce_exposure: bool = True,
     enforce_unique: bool = True,
 ) -> _CandidateLineup | None:
+    if all(
+        (
+            enforce_salary,
+            enforce_team_limits,
+            enforce_stack,
+            enforce_pitcher_batter,
+            enforce_exposure,
+            enforce_unique,
+        )
+    ):
+        candidate = _find_best_lineup_milp(
+            request,
+            available,
+            objective_by_id=objective_by_id,
+            exposure_counts=exposure_counts,
+            seen=seen,
+        )
+        if candidate is not NotImplemented:
+            return candidate
+
     slots = list(roster_slots(request.site))
     cap = salary_cap(request.site)
     locked_ids = {player.mlbam_id for player in available if player.lock}
@@ -579,6 +599,192 @@ def _find_best_lineup(
 
     recurse(0, [], [], set(), 0, 0.0, Counter(), Counter(), set(), set())
     return best
+
+
+def _find_best_lineup_milp(
+    request: OptimizeRequest,
+    available: Sequence[PlayerInput],
+    *,
+    objective_by_id: dict[int, float],
+    exposure_counts: Counter[int],
+    seen: set[tuple[int, ...]],
+) -> _CandidateLineup | None | Literal[NotImplemented]:
+    """Solve the complete audited constraint set with SciPy/HiGHS.
+
+    Variables represent eligible player/slot assignments, so position legality is structural.
+    The canonical validator still checks every returned lineup before it can leave the service.
+    """
+    try:
+        import numpy as np
+        from scipy.optimize import Bounds, LinearConstraint, milp
+        from scipy.sparse import lil_matrix
+    except ImportError:
+        return NotImplemented
+
+    slots = list(roster_slots(request.site))
+    usable = [
+        player
+        for player in available
+        if exposure_counts[player.mlbam_id]
+        < max_exposure_count(player.max_exposure, request.num_lineups)
+    ]
+    variables = [
+        (player_index, slot_index)
+        for player_index, player in enumerate(usable)
+        for slot_index, slot in enumerate(slots)
+        if eligible_for_slot(player.position, slot)
+        and not (
+            request.settings.pitcher_vs_batter_same_team == "avoid"
+            and slot == "P"
+            and not player.opponent
+        )
+    ]
+    if not variables:
+        return None
+    variable_index = {pair: index for index, pair in enumerate(variables)}
+    rows: list[dict[int, float]] = []
+    lower: list[float] = []
+    upper: list[float] = []
+
+    def add(coefficients: dict[int, float], minimum: float, maximum: float) -> None:
+        rows.append(coefficients)
+        lower.append(minimum)
+        upper.append(maximum)
+
+    for slot_index in range(len(slots)):
+        add(
+            {
+                variable_index[(player_index, slot_index)]: 1.0
+                for player_index in range(len(usable))
+                if (player_index, slot_index) in variable_index
+            },
+            1.0,
+            1.0,
+        )
+    for player_index, player in enumerate(usable):
+        indexes = {
+            variable_index[(player_index, slot_index)]: 1.0
+            for slot_index in range(len(slots))
+            if (player_index, slot_index) in variable_index
+        }
+        add(indexes, 1.0 if player.lock else 0.0, 1.0)
+
+    salary_coefficients = {
+        variable_index[(player_index, slot_index)]: float(usable[player_index].salary)
+        for player_index, slot_index in variables
+    }
+    add(
+        salary_coefficients,
+        float(request.settings.min_salary_used),
+        float(salary_cap(request.site)),
+    )
+
+    teams = sorted({player.team for player in usable if player.team})
+    for team in teams:
+        hitter_coefficients = {
+            variable_index[(player_index, slot_index)]: 1.0
+            for player_index, slot_index in variables
+            if usable[player_index].team == team and slots[slot_index] != "P"
+        }
+        if hitter_coefficients:
+            add(hitter_coefficients, 0.0, 5.0 if request.site == "dk" else 4.0)
+        if request.site == "fd":
+            total_coefficients = {
+                variable_index[(player_index, slot_index)]: 1.0
+                for player_index, slot_index in variables
+                if usable[player_index].team == team
+            }
+            if total_coefficients:
+                add(total_coefficients, 0.0, 5.0)
+
+    if request.settings.stack_team and request.settings.stack_count > 0:
+        stack_coefficients = {
+            variable_index[(player_index, slot_index)]: 1.0
+            for player_index, slot_index in variables
+            if usable[player_index].team == request.settings.stack_team
+            and slots[slot_index] != "P"
+        }
+        add(stack_coefficients, float(request.settings.stack_count), np.inf)
+
+    if request.settings.pitcher_vs_batter_same_team == "avoid":
+        pitcher_indexes = {
+            player_index: [
+                variable_index[(player_index, slot_index)]
+                for slot_index, slot in enumerate(slots)
+                if slot == "P" and (player_index, slot_index) in variable_index
+            ]
+            for player_index, player in enumerate(usable)
+            if player.opponent
+        }
+        for pitcher_index, pitcher_variables in pitcher_indexes.items():
+            opponent = usable[pitcher_index].opponent
+            for batter_index, batter in enumerate(usable):
+                if batter.team != opponent:
+                    continue
+                batter_variables = [
+                    variable_index[(batter_index, slot_index)]
+                    for slot_index, slot in enumerate(slots)
+                    if slot != "P" and (batter_index, slot_index) in variable_index
+                ]
+                if pitcher_variables and batter_variables:
+                    add(
+                        {
+                            **{index: 1.0 for index in pitcher_variables},
+                            **{index: 1.0 for index in batter_variables},
+                        },
+                        0.0,
+                        1.0,
+                    )
+
+    player_indexes_by_id = {player.mlbam_id: index for index, player in enumerate(usable)}
+    for identity in seen:
+        coefficients: dict[int, float] = {}
+        for player_id in identity:
+            player_index = player_indexes_by_id.get(player_id)
+            if player_index is None:
+                continue
+            for slot_index in range(len(slots)):
+                index = variable_index.get((player_index, slot_index))
+                if index is not None:
+                    coefficients[index] = 1.0
+        if coefficients:
+            add(coefficients, 0.0, float(len(slots) - 1))
+
+    matrix = lil_matrix((len(rows), len(variables)), dtype=float)
+    for row_index, coefficients in enumerate(rows):
+        for column_index, value in coefficients.items():
+            matrix[row_index, column_index] = value
+    objective = np.asarray(
+        [
+            -objective_by_id.get(usable[player_index].mlbam_id, 0.0)
+            for player_index, _ in variables
+        ],
+        dtype=float,
+    )
+    result = milp(
+        c=objective,
+        integrality=np.ones(len(variables), dtype=int),
+        bounds=Bounds(np.zeros(len(variables)), np.ones(len(variables))),
+        constraints=LinearConstraint(matrix.tocsr(), np.asarray(lower), np.asarray(upper)),
+        options={"time_limit": 10.0, "mip_rel_gap": 0.0, "presolve": True},
+    )
+    if result.status == 2:
+        return None
+    if not result.success or result.x is None:
+        raise _SearchLimitReached(str(result.message))
+
+    selected_by_slot: list[PlayerInput | None] = [None] * len(slots)
+    for value, (player_index, slot_index) in zip(result.x, variables, strict=True):
+        if value > 0.5:
+            selected_by_slot[slot_index] = usable[player_index]
+    if any(player is None for player in selected_by_slot):
+        raise _SearchLimitReached("HiGHS returned an incomplete integral assignment")
+    selected = tuple(player for player in selected_by_slot if player is not None)
+    return _CandidateLineup(
+        players=selected,
+        assigned_slots=tuple(slots),
+        objective=sum(objective_by_id.get(player.mlbam_id, 0.0) for player in selected),
+    )
 
 
 def _candidate_is_better(candidate: _CandidateLineup, incumbent: _CandidateLineup) -> bool:

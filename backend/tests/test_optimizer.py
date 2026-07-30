@@ -61,6 +61,38 @@ class OptimizerTests(unittest.TestCase):
                 4,
             )
 
+    def test_large_dk_pool_with_high_minimum_salary_does_not_hit_search_limit(self) -> None:
+        base = _mock_inputs("dk")
+        players: list[PlayerInput] = []
+        for copy_number in range(8):
+            for player in base:
+                clone = player.model_copy(deep=True)
+                clone.mlbam_id = player.mlbam_id + (copy_number + 1) * 1_000_000
+                clone.name = f"{player.name} {copy_number}"
+                clone.projected_points += copy_number * 0.01
+                players.append(clone)
+        request = OptimizeRequest(
+            site="dk",
+            num_lineups=5,
+            seed=42,
+            settings=OptimizerSettings(
+                min_salary_used=49500,
+                pitcher_vs_batter_same_team="allow",
+                unique_lineups=True,
+            ),
+            players=players,
+        )
+
+        response = run_optimizer_sync(request)
+
+        self.assertEqual(len(response.lineups), 5)
+        self.assertTrue(all(49500 <= lineup.total_salary <= 50000 for lineup in response.lineups))
+        identities = {
+            tuple(sorted(player.mlbam_id for player in lineup.players))
+            for lineup in response.lineups
+        }
+        self.assertEqual(len(identities), 5)
+
     def test_dual_position_player_role_is_determined_by_assigned_slot(self) -> None:
         players = _mock_inputs("dk")
         players[0].position = ["P", "OF"]
