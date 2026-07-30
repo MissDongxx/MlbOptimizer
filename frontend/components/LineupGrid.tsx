@@ -48,7 +48,7 @@ export function LineupGrid({ lineups, warnings, solveTimeMs, site }: LineupGridP
   }
 
   return (
-    <section className="flex min-h-full flex-col bg-white/70 md:h-full">
+    <section className="flex min-h-full flex-col bg-white/70">
       <div className="flex items-center justify-between border-b border-border/80 px-4 py-3 md:px-5">
         <div>
           <span className="text-sm font-semibold">{lineups.length} lineups generated</span>
@@ -65,7 +65,7 @@ export function LineupGrid({ lineups, warnings, solveTimeMs, site }: LineupGridP
         </button>
       </div>
 
-      <div className="scrollbar-none flex overflow-x-auto border-b border-border/80 bg-muted/30 px-1">
+      <div className="scrollbar-none flex shrink-0 overflow-x-auto border-b border-border/80 bg-muted/30 px-1">
         {lineups.map((item, index) => (
           <button
             key={item.lineup_number}
