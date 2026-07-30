@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "artifacts": [
+    {
+      "artifact_id": "mlb-statsapi-game-123456-feed-live",
+      "role": "postgame_mlb_stats",
+      "path": "raw/postgame/game-123456-feed-live.json",
+      "source_url": "https://statsapi.mlb.com/api/v1.1/game/123456/feed/live",
+      "captured_at": "2026-07-31T05:00:00Z",
+      "effective_at": "2026-07-31T04:30:00Z"
+    }
+  ]
+}

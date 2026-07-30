@@ -8,7 +8,7 @@
       "immutable_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
       "license_status": "verified_redistributable",
       "local_path": "raw/KengoA_fantasy-ga_a5645d7_DKSalaries.csv",
-      "notes": "Repository is MIT-licensed; residual DraftKings data-rights uncertainty is disclosed in the report. Same immutable CSV is intentionally bound to three logical pregame roles.",
+      "notes": "Repository is MIT-licensed; residual DraftKings data-rights uncertainty is disclosed. The raw export is bound only to slate and salary roles; AvgPointsPerGame is excluded from projections.",
       "pregame_semantics": true,
       "redistribution_included": true,
       "role": "platform_slate_snapshot",
@@ -26,28 +26,10 @@
       "immutable_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
       "license_status": "verified_redistributable",
       "local_path": "raw/KengoA_fantasy-ga_a5645d7_DKSalaries.csv",
-      "notes": "Repository is MIT-licensed; residual DraftKings data-rights uncertainty is disclosed in the report. Same immutable CSV is intentionally bound to three logical pregame roles.",
+      "notes": "Repository is MIT-licensed; residual DraftKings data-rights uncertainty is disclosed. The raw export is bound only to slate and salary roles; AvgPointsPerGame is excluded from projections.",
       "pregame_semantics": true,
       "redistribution_included": true,
       "role": "platform_salary_snapshot",
-      "sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
-      "source_name": "KengoA/fantasy-ga commit-pinned DraftKings MLB export",
-      "source_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
-      "temporal_class": "pregame",
-      "timestamp_basis": "repository_commit"
-    },
-    {
-      "acquired_at": "2026-07-29T21:00:00+08:00",
-      "artifact_id": "kengoa-dk-mlb-20230310-csv-pregame_platform_projection",
-      "effective_at": "2023-03-10T14:38:51-05:00",
-      "finalized": false,
-      "immutable_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
-      "license_status": "verified_redistributable",
-      "local_path": "raw/KengoA_fantasy-ga_a5645d7_DKSalaries.csv",
-      "notes": "Repository is MIT-licensed; residual DraftKings data-rights uncertainty is disclosed in the report. Same immutable CSV is intentionally bound to three logical pregame roles.",
-      "pregame_semantics": true,
-      "redistribution_included": true,
-      "role": "pregame_platform_projection",
       "sha256": "2dd420d7d39097a61e9c6f02a585fcc40bf4fa31192ede8f84037109310da40e",
       "source_name": "KengoA/fantasy-ga commit-pinned DraftKings MLB export",
       "source_url": "https://raw.githubusercontent.com/KengoA/fantasy-ga/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
@@ -117,18 +99,17 @@
   "slates": [
     {
       "actuals_file": "dk-mlb-2023-03-10-historical-daily-pool.actuals.json",
-      "actuals_sha256": "d82cd0bb7e35852f90e85c894088c74d943ea6b8f0350766346b81c298fa5b50",
+      "actuals_sha256": "485be26aea63b47ce385f74cc45ed89bb629355f3463aa274a02137a331c8c86",
       "artifact_ids": [
         "kengoa-dk-mlb-20230310-csv-platform_slate_snapshot",
         "kengoa-dk-mlb-20230310-csv-platform_salary_snapshot",
-        "kengoa-dk-mlb-20230310-csv-pregame_platform_projection",
         "identity-reference-extract",
         "postgame-selected-player-evidence",
         "dk-mlb-classic-scoring-rules"
       ],
       "contest_style": "classic",
       "feature_file": "dk-mlb-2023-03-10-historical-daily-pool.features.json",
-      "feature_sha256": "7486309beccb30f7a30b1b7b7610a87a8fa302b35861d9b3d634db581e30d37b",
+      "feature_sha256": "8d19063dcd2790378f7d77d236d364691ad2894f780aaa4307737953d70a35dd",
       "game_ids": [
         719180,
         719174,
@@ -141,22 +122,21 @@
       "provider_game_set_verified": false,
       "provider_slate_id": "historical-daily-pool-2023-03-10-unverified",
       "qa_report_file": "qa/dk_mlb_2023-03-10_daily_pool.qa.json",
-      "qa_report_sha256": "379bbbd3e646a47ff913d9eed807c9c6b6e8360e79b2c19f6706ab1a31ea7e7f",
+      "qa_report_sha256": "18aacaa2097355d31296a10098b5c694059be45d5f1b7c3569b4418d66a7636d",
       "qualification_status": "qualified_limited",
       "scope": "historical_daily_pool",
       "scoring_rules_version": "dk-mlb-classic-2023-stable-hitter-v1",
       "site": "dk",
       "slate_id": "dk-mlb-2023-03-10-historical-daily-pool",
       "snapshot_as_of": "2023-03-10T14:38:51-05:00",
-      "transform_version": "historical-daily-pool-builder-v1.0",
+      "transform_version": "historical-daily-pool-risk-isolation-v1.1",
       "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION",
       "warnings": [
         "provider_game_set_unverified",
         "uniform_salary_warning",
-        "projection_avg_points_semantics_not_independently_documented",
-        "negative_projection_values_clamped_to_zero"
+        "projection_untrusted_field_excluded"
       ]
     }
   ],
-  "source_audit_version": "single-slate-audit-v1.0"
+  "source_audit_version": "single-slate-audit-v1.1-risk-isolation"
 }

@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "git_commit": "5f356365725b1def066b981fed3aa5558bb06522",
+    "zip_bytes": 2415328,
+    "zip_sha256": "2f963d8cb02d34d0d52eb1644d494b04c93a0812e11f90affffb9406102af44b"
+  },
+  "classification": {
+    "evaluation_status": "INSUFFICIENT DATA / NOT EVALUATED",
+    "long_run_thresholds_evaluated": false,
+    "qualified_nonuniform_regular_season_real_slates": 0,
+    "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION"
+  },
+  "limited_2023_pool": {
+    "actuals_coverage": "selected_only_legacy_evidence",
+    "current_feature_sha256": "8d19063dcd2790378f7d77d236d364691ad2894f780aaa4307737953d70a35dd",
+    "games": 4,
+    "players": 345,
+    "projection_avg_points_per_game_used": false,
+    "provider_game_set_verified": false,
+    "result": "hard_failure",
+    "salary_max": 4500,
+    "salary_min": 4500,
+    "salary_unique_count": 1,
+    "selected_actuals_bound_feature_sha256": "7486309beccb30f7a30b1b7b7610a87a8fa302b35861d9b3d634db581e30d37b",
+    "teams": 8
+  },
+  "offline_fixture": {
+    "actuals_sha256": "189c321d2a17f27b233fcd99a9dd0174ddeb0dd8649709640f6b4f1c8ed14084",
+    "data_kind": "fixture",
+    "dnp_count": 1,
+    "extra_ids": [],
+    "feature_player_count": 21,
+    "missing_ids": [],
+    "played_count": 20,
+    "records_count": 21,
+    "tree_sha256": "fa7566847c8fa5878d96a74b4dfb49ad5590127b441a455e8e9698ee4f2c8763"
+  },
+  "risk_controls": {
+    "avg_points_per_game": "excluded_and_rejected_for_real_features",
+    "current_slate_capture": "implemented",
+    "cutoff": "completed_at_strictly_before_first_pitch",
+    "deterministic_offline_generation": true,
+    "explicit_dnp_zero": "implemented",
+    "full_pool_actuals": "required",
+    "historical_backfill": "prohibited",
+    "identity_ambiguity": "hard_failure",
+    "offline_replay": "implemented",
+    "provider_game_set_default": "unverified",
+    "selected_only_binding": [
+      "explicit_cli_opt_in",
+      "exact_acknowledgement",
+      "seed",
+      "feature_sha256"
+    ],
+    "selected_only_default": "disabled",
+    "statsapi_raw_cache": "implemented"
+  },
+  "schema_version": "1.0",
+  "test_gates": {
+    "backend_runnable_suite": "106_passed",
+    "compileall": "pass",
+    "frontend_build": "not_run_dependency_install_failed",
+    "frontend_npm_ci": "environment_blocked_registry_404",
+    "frontend_typecheck": "not_run_dependency_install_failed",
+    "full_pytest_with_scheduler": "environment_blocked_missing_apscheduler",
+    "ruff": "environment_blocked_dependency_unavailable"
+  }
+}

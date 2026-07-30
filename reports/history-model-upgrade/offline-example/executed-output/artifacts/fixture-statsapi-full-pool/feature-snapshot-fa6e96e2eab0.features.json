@@ -1,0 +1,583 @@
+{
+  "contest_style": "classic",
+  "data_kind": "fixture",
+  "game_ids": [
+    1001,
+    1002
+  ],
+  "games": [
+    {
+      "away_team": "LAD",
+      "game_id": 1001,
+      "home_team": "NYY",
+      "scheduled_start": "2026-07-01T23:05:00Z",
+      "source_record_id": "fixture-game-1001"
+    },
+    {
+      "away_team": "ATL",
+      "game_id": 1002,
+      "home_team": "HOU",
+      "scheduled_start": "2026-07-02T00:05:00Z",
+      "source_record_id": "fixture-game-1002"
+    }
+  ],
+  "lock_time": "2026-07-01T23:05:00Z",
+  "players": [
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-660271",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 660271,
+      "name": "Shohei Ohtani",
+      "name_id": "Shohei Ohtani (fixture-660271)",
+      "opponent": "NYY",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 5600,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-605141",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 605141,
+      "name": "Mookie Betts",
+      "name_id": "Mookie Betts (fixture-605141)",
+      "opponent": "NYY",
+      "position": [
+        "2B",
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 5200,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-518692",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 518692,
+      "name": "Freddie Freeman",
+      "name_id": "Freddie Freeman (fixture-518692)",
+      "opponent": "NYY",
+      "position": [
+        "1B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 4700,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-669257",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 669257,
+      "name": "Will Smith",
+      "name_id": "Will Smith (fixture-669257)",
+      "opponent": "NYY",
+      "position": [
+        "C"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 3400,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-666158",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 666158,
+      "name": "Gavin Lux",
+      "name_id": "Gavin Lux (fixture-666158)",
+      "opponent": "NYY",
+      "position": [
+        "2B",
+        "SS"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 2800,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-592450",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 592450,
+      "name": "Aaron Judge",
+      "name_id": "Aaron Judge (fixture-592450)",
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 5600,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-665742",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 665742,
+      "name": "Juan Soto",
+      "name_id": "Juan Soto (fixture-665742)",
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 5400,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-650402",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 650402,
+      "name": "Giancarlo Stanton",
+      "name_id": "Giancarlo Stanton (fixture-650402)",
+      "opponent": "LAD",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 3200,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-683011",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 683011,
+      "name": "Anthony Volpe",
+      "name_id": "Anthony Volpe (fixture-683011)",
+      "opponent": "LAD",
+      "position": [
+        "SS"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 2900,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-518934",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 518934,
+      "name": "DJ LeMahieu",
+      "name_id": "DJ LeMahieu (fixture-518934)",
+      "opponent": "LAD",
+      "position": [
+        "1B",
+        "3B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 2300,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-543037",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 14.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 543037,
+      "name": "Gerrit Cole",
+      "name_id": "Gerrit Cole (fixture-543037)",
+      "opponent": "LAD",
+      "position": [
+        "P"
+      ],
+      "projected_points": 14.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 8300,
+      "team": "NYY"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-607192",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 14.0
+      },
+      "game_id": 1001,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 607192,
+      "name": "Tyler Glasnow",
+      "name_id": "Tyler Glasnow (fixture-607192)",
+      "opponent": "NYY",
+      "position": [
+        "P"
+      ],
+      "projected_points": 14.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 7900,
+      "team": "LAD"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-621566",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 621566,
+      "name": "Matt Olson",
+      "name_id": "Matt Olson (fixture-621566)",
+      "opponent": "HOU",
+      "position": [
+        "1B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 4800,
+      "team": "ATL"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-621020",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 621020,
+      "name": "Austin Riley",
+      "name_id": "Austin Riley (fixture-621020)",
+      "opponent": "HOU",
+      "position": [
+        "3B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 3900,
+      "team": "ATL"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-645277",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 645277,
+      "name": "Ozzie Albies",
+      "name_id": "Ozzie Albies (fixture-645277)",
+      "opponent": "HOU",
+      "position": [
+        "2B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 4300,
+      "team": "ATL"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-663586",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 663586,
+      "name": "Ronald Acuna Jr.",
+      "name_id": "Ronald Acuna Jr. (fixture-663586)",
+      "opponent": "HOU",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 5500,
+      "team": "ATL"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-514888",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 514888,
+      "name": "Jose Altuve",
+      "name_id": "Jose Altuve (fixture-514888)",
+      "opponent": "ATL",
+      "position": [
+        "2B"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 3600,
+      "team": "HOU"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-670541",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 670541,
+      "name": "Yordan Alvarez",
+      "name_id": "Yordan Alvarez (fixture-670541)",
+      "opponent": "ATL",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 4400,
+      "team": "HOU"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-665161",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 7.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 665161,
+      "name": "Kyle Tucker",
+      "name_id": "Kyle Tucker (fixture-665161)",
+      "opponent": "ATL",
+      "position": [
+        "OF"
+      ],
+      "projected_points": 7.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 4300,
+      "team": "HOU"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-664285",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 14.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 664285,
+      "name": "Framber Valdez",
+      "name_id": "Framber Valdez (fixture-664285)",
+      "opponent": "ATL",
+      "position": [
+        "P"
+      ],
+      "projected_points": 14.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 7600,
+      "team": "HOU"
+    },
+    {
+      "availability": "unconfirmed",
+      "batting_order": null,
+      "exclude": false,
+      "external_id": "fixture-675911",
+      "feature_values": {
+        "projection_version": "fixture-role-prior-v1",
+        "role_prior": 14.0
+      },
+      "game_id": 1002,
+      "lineup_status": "unconfirmed",
+      "lock": false,
+      "max_exposure": 1.0,
+      "mlbam_id": 675911,
+      "name": "Spencer Strider",
+      "name_id": "Spencer Strider (fixture-675911)",
+      "opponent": "HOU",
+      "position": [
+        "P"
+      ],
+      "projected_points": 14.0,
+      "projection_source": "fixture_role_prior_no_leakage",
+      "salary": 8800,
+      "team": "ATL"
+    }
+  ],
+  "provider_game_set_verified": false,
+  "provider_slate_id": "fixture-draftgroup-100",
+  "schema_version": "1.3",
+  "scope": "provider_game_set",
+  "settings": {
+    "min_salary_used": 43000,
+    "pitcher_vs_batter_same_team": "allow",
+    "stack_count": 0,
+    "stack_team": null,
+    "unique_lineups": true
+  },
+  "site": "dk",
+  "slate_id": "fixture-statsapi-full-pool",
+  "slate_start": "2026-07-01T23:05:00Z",
+  "snapshot_as_of": "2026-07-01T22:00:00Z",
+  "sources": [
+    {
+      "fetched_at": "2026-07-01T21:00:00Z",
+      "published_at": "2026-07-01T21:00:00Z",
+      "role": "other_pregame",
+      "source": "fixture checked-in pregame data",
+      "source_record_id": "fixture"
+    }
+  ],
+  "validation_scope": "FULL_RESEARCH",
+  "warnings": [
+    "fixture_only_not_production_validation"
+  ]
+}

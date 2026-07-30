@@ -1,0 +1,193 @@
+Environment-blocked repository gates
+Date: 2026-07-30
+
+These failures are preserved as evidence and are not reported as passing gates.
+
+===== uv sync --frozen =====
+Using CPython 3.13.5 interpreter at: /usr/bin/python3
+Creating virtual environment at: .venv
+WARN Retry attempt #0. Sleeping 682.991181ms before the next attempt
+WARN Retry attempt #0. Sleeping 80.944776ms before the next attempt
+WARN Retry attempt #0. Sleeping 897.268113ms before the next attempt
+WARN Retry attempt #0. Sleeping 375.566381ms before the next attempt
+WARN Retry attempt #0. Sleeping 648.01991ms before the next attempt
+WARN Retry attempt #0. Sleeping 225.035734ms before the next attempt
+WARN Retry attempt #0. Sleeping 970.870297ms before the next attempt
+WARN Retry attempt #0. Sleeping 316.313217ms before the next attempt
+WARN Retry attempt #0. Sleeping 354.253315ms before the next attempt
+WARN Retry attempt #0. Sleeping 933.284015ms before the next attempt
+WARN Retry attempt #0. Sleeping 905.643572ms before the next attempt
+WARN Retry attempt #0. Sleeping 140.137585ms before the next attempt
+WARN Retry attempt #0. Sleeping 564.108699ms before the next attempt
+WARN Retry attempt #0. Sleeping 370.827321ms before the next attempt
+WARN Retry attempt #0. Sleeping 862.05808ms before the next attempt
+WARN Retry attempt #0. Sleeping 387.291216ms before the next attempt
+WARN Retry attempt #0. Sleeping 65.821395ms before the next attempt
+WARN Retry attempt #0. Sleeping 305.443165ms before the next attempt
+WARN Retry attempt #0. Sleeping 788.419587ms before the next attempt
+WARN Retry attempt #0. Sleeping 381.094973ms before the next attempt
+WARN Retry attempt #0. Sleeping 452.345986ms before the next attempt
+WARN Retry attempt #0. Sleeping 170.538618ms before the next attempt
+WARN Retry attempt #0. Sleeping 603.90096ms before the next attempt
+WARN Retry attempt #0. Sleeping 85.734489ms before the next attempt
+WARN Retry attempt #0. Sleeping 315.844132ms before the next attempt
+WARN Retry attempt #0. Sleeping 303.917351ms before the next attempt
+WARN Retry attempt #0. Sleeping 985.664547ms before the next attempt
+WARN Retry attempt #0. Sleeping 869.694739ms before the next attempt
+WARN Retry attempt #0. Sleeping 556.199527ms before the next attempt
+WARN Retry attempt #0. Sleeping 457.897008ms before the next attempt
+WARN Retry attempt #0. Sleeping 11.698596ms before the next attempt
+WARN Retry attempt #0. Sleeping 555.841873ms before the next attempt
+WARN Retry attempt #0. Sleeping 35.958111ms before the next attempt
+WARN Retry attempt #0. Sleeping 793.330179ms before the next attempt
+WARN Retry attempt #0. Sleeping 474.780409ms before the next attempt
+WARN Retry attempt #0. Sleeping 517.489594ms before the next attempt
+WARN Retry attempt #0. Sleeping 169.891664ms before the next attempt
+WARN Retry attempt #0. Sleeping 374.797645ms before the next attempt
+WARN Retry attempt #0. Sleeping 859.518312ms before the next attempt
+WARN Retry attempt #0. Sleeping 584.077692ms before the next attempt
+WARN Retry attempt #0. Sleeping 616.142548ms before the next attempt
+WARN Retry attempt #0. Sleeping 208.601922ms before the next attempt
+WARN Retry attempt #0. Sleeping 779.468259ms before the next attempt
+WARN Retry attempt #0. Sleeping 469.618701ms before the next attempt
+WARN Retry attempt #0. Sleeping 729.453809ms before the next attempt
+WARN Retry attempt #0. Sleeping 902.275687ms before the next attempt
+WARN Retry attempt #0. Sleeping 432.591496ms before the next attempt
+WARN Retry attempt #0. Sleeping 491.096284ms before the next attempt
+WARN Retry attempt #0. Sleeping 477.542295ms before the next attempt
+WARN Retry attempt #0. Sleeping 824.331088ms before the next attempt
+WARN Retry attempt #1. Sleeping 810.906719ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.302231929s before the next attempt
+WARN Retry attempt #1. Sleeping 891.194118ms before the next attempt
+WARN Retry attempt #1. Sleeping 215.439516ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.750205142s before the next attempt
+WARN Retry attempt #1. Sleeping 1.885038505s before the next attempt
+WARN Retry attempt #1. Sleeping 883.122575ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.933011934s before the next attempt
+WARN Retry attempt #1. Sleeping 450.255905ms before the next attempt
+WARN Retry attempt #1. Sleeping 703.13511ms before the next attempt
+WARN Retry attempt #1. Sleeping 351.56719ms before the next attempt
+WARN Retry attempt #1. Sleeping 324.537572ms before the next attempt
+WARN Retry attempt #1. Sleeping 684.809389ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.460415948s before the next attempt
+WARN Retry attempt #1. Sleeping 560.817725ms before the next attempt
+WARN Retry attempt #2. Sleeping 3.903518671s before the next attempt
+WARN Retry attempt #1. Sleeping 872.230833ms before the next attempt
+WARN Retry attempt #1. Sleeping 494.022585ms before the next attempt
+WARN Retry attempt #1. Sleeping 613.936991ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.382476432s before the next attempt
+WARN Retry attempt #1. Sleeping 1.560768239s before the next attempt
+WARN Retry attempt #1. Sleeping 965.917238ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.630881921s before the next attempt
+WARN Retry attempt #1. Sleeping 1.956918011s before the next attempt
+WARN Retry attempt #1. Sleeping 790.116416ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.864212662s before the next attempt
+WARN Retry attempt #1. Sleeping 366.175867ms before the next attempt
+WARN Retry attempt #1. Sleeping 594.564145ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.832735127s before the next attempt
+WARN Retry attempt #1. Sleeping 64.700004ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.368285332s before the next attempt
+WARN Retry attempt #1. Sleeping 489.237863ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.691130717s before the next attempt
+WARN Retry attempt #1. Sleeping 191.850748ms before the next attempt
+WARN Retry attempt #1. Sleeping 197.061009ms before the next attempt
+WARN Retry attempt #1. Sleeping 539.376723ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.689212096s before the next attempt
+WARN Retry attempt #1. Sleeping 1.813759375s before the next attempt
+WARN Retry attempt #1. Sleeping 134.594783ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.564508483s before the next attempt
+WARN Retry attempt #1. Sleeping 760.79008ms before the next attempt
+WARN Retry attempt #1. Sleeping 708.739476ms before the next attempt
+WARN Retry attempt #1. Sleeping 630.2096ms before the next attempt
+WARN Retry attempt #1. Sleeping 249.201481ms before the next attempt
+WARN Retry attempt #2. Sleeping 3.375898715s before the next attempt
+WARN Retry attempt #1. Sleeping 1.696824926s before the next attempt
+WARN Retry attempt #1. Sleeping 919.987342ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.741423073s before the next attempt
+WARN Retry attempt #1. Sleeping 1.036061111s before the next attempt
+WARN Retry attempt #1. Sleeping 1.079501258s before the next attempt
+WARN Retry attempt #1. Sleeping 364.363013ms before the next attempt
+WARN Retry attempt #1. Sleeping 953.589887ms before the next attempt
+WARN Retry attempt #2. Sleeping 2.046980033s before the next attempt
+WARN Retry attempt #2. Sleeping 1.789362043s before the next attempt
+WARN Retry attempt #2. Sleeping 2.706305792s before the next attempt
+WARN Retry attempt #2. Sleeping 1.643768923s before the next attempt
+WARN Retry attempt #2. Sleeping 3.385632492s before the next attempt
+WARN Retry attempt #2. Sleeping 2.718474265s before the next attempt
+WARN Retry attempt #2. Sleeping 1.592532119s before the next attempt
+WARN Retry attempt #2. Sleeping 1.833306794s before the next attempt
+WARN Retry attempt #2. Sleeping 729.233464ms before the next attempt
+WARN Retry attempt #2. Sleeping 3.19912567s before the next attempt
+WARN Retry attempt #2. Sleeping 3.859627365s before the next attempt
+WARN Retry attempt #2. Sleeping 2.760610876s before the next attempt
+WARN Retry attempt #2. Sleeping 3.147319816s before the next attempt
+  × Failed to download `anyio==4.14.1`
+  ├─▶ Request failed after 3 retries
+  ├─▶ Failed to fetch:
+  │   `https://files.pythonhosted.org/packages/b0/7b/90df4a0a816d98d6ea26f559d87836d494a2cf1fcf063be67df50a7bcc30/anyio-4.14.1-py3-none-any.whl`
+  ├─▶ error sending request for url
+  │   (https://files.pythonhosted.org/packages/b0/7b/90df4a0a816d98d6ea26f559d87836d494a2cf1fcf063be67df50a7bcc30/anyio-4.14.1-py3-none-any.whl)
+  ├─▶ client error (Connect)
+  ├─▶ dns error
+  ╰─▶ failed to lookup address information: Temporary failure in name
+      resolution
+  help: `anyio` (v4.14.1) was included because `lineuplab-backend` (v0.1.0)
+        depends on `uvicorn[standard]` (v0.49.0) which depends on `watchfiles`
+        (v1.2.0) which depends on `anyio`
+
+===== pip editable install with no build isolation =====
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Looking in indexes: https://reader:****@packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/pypi/pypi-public/simple
+Obtaining file:///mnt/data/mlb_worktree/backend
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Preparing editable metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [14 lines of output]
+      error: Multiple top-level packages discovered in a flat-layout: ['cache', 'models', 'routers', 'backtest', 'services'].
+      
+      To avoid accidental inclusion of unwanted files or directories,
+      setuptools will not proceed with this build.
+      
+      If you are trying to create a single distribution with multiple packages
+      on purpose, you should not rely on automatic discovery.
+      Instead, consider the following options:
+      
+      1. set up custom discovery (`find` directive with `include` or `exclude`)
+      2. use a `src-layout`
+      3. explicitly set `py_modules` or `packages` with a list of names
+      
+      To find more information, look for "package discovery" on setuptools docs.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+===== pip direct missing dependencies =====
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Looking in indexes: https://reader:****@packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/pypi/pypi-public/simple
+ERROR: Could not find a version that satisfies the requirement apscheduler>=3.10.4 (from versions: none)
+ERROR: No matching distribution found for apscheduler>=3.10.4
+
+===== npm ci =====
+npm error code E404
+npm error 404 Not Found - GET https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/zod-validation-error/-/zod-validation-error-4.0.2.tgz
+npm error 404
+npm error 404  'zod-validation-error@https://packages.applied-caas-gateway1.internal.api.openai.org/artifactory/api/npm/npm-public/zod-validation-error/-/zod-validation-error-4.0.2.tgz' is not in this registry.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+npm error A complete log of this run can be found in: /home/oai/.npm/_logs/2026-07-29T16_51_37_566Z-debug-0.log
+
+===== live StatsAPI acquisition attempt in this environment =====
+failed to fetch https://statsapi.mlb.com/api/v1.1/game/1001/feed/live after 1 attempts: attempt 1: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>

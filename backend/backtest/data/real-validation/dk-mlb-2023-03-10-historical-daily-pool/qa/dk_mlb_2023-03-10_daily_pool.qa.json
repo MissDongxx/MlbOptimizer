@@ -1,4 +1,13 @@
 {
+  "actuals_contract": {
+    "coverage_scope": "selected_lineup_players",
+    "double_explicit_confirmation_required": true,
+    "full_pool_coverage": false,
+    "selection_seed": 20260729,
+    "selection_feature_sha256": "7486309beccb30f7a30b1b7b7610a87a8fa302b35861d9b3d634db581e30d37b",
+    "current_feature_sha256": "8d19063dcd2790378f7d77d236d364691ad2894f780aaa4307737953d70a35dd",
+    "feature_hash_matches": false
+  },
   "columns": [
     "Position",
     "Name + ID",
@@ -303,9 +312,15 @@
     "Salary": 0,
     "TeamAbbrev": 0
   },
+  "projection_contract": {
+    "replacement": "fixed role prior; 14.0 P, 7.0 hitter",
+    "source_column": "AvgPointsPerGame",
+    "status": "AMBIGUOUS_SOURCE_FIELD_EXCLUDED",
+    "used_by_optimizer": false
+  },
   "provider_game_set_unverified": true,
   "provider_game_set_verified": false,
-  "schema_version": "1.0.0",
+  "schema_version": "1.1",
   "scope": "historical_daily_pool",
   "source": {
     "blob_url": "https://github.com/KengoA/fantasy-ga/blob/a5645d7c2f955db62e776dc6c2a1889e7769aa72/examples/DraftKings/MLB/DKSalaries.csv",
@@ -331,6 +346,9 @@
   },
   "validation_scope": "LIMITED_SINGLE_SLATE_VALIDATION",
   "warnings": [
-    "uniform_salary_warning"
+    "projection_untrusted_field_excluded",
+    "selected_only_seed_bound",
+    "uniform_salary_warning",
+    "selected_only_feature_bound"
   ]
 }

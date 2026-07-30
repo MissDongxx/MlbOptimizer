@@ -145,7 +145,11 @@ class SlateManifestEntry(StrictModel):
                 raise ValueError("historical_daily_pool is limited-validation only")
             if self.qualification_status != "qualified_limited":
                 raise ValueError("historical_daily_pool must use qualified_limited")
-            required = {"provider_game_set_unverified", "uniform_salary_warning"}
+            required = {
+                "provider_game_set_unverified",
+                "uniform_salary_warning",
+                "projection_untrusted_field_excluded",
+            }
             if not required.issubset(self.warnings):
                 raise ValueError("historical_daily_pool lacks required warnings")
         return self
@@ -264,19 +268,16 @@ class ProvenanceIndex:
             artifacts.append(artifact)
 
         roles = {item.role for item in artifacts}
-        projection_role = (
-            "pregame_platform_projection"
-            if entry.scope == "historical_daily_pool"
-            else "pregame_mlb_stats"
-        )
+        projection_role = None if entry.scope == "historical_daily_pool" else "pregame_mlb_stats"
         required_roles = {
             "platform_slate_snapshot",
             "platform_salary_snapshot",
-            projection_role,
             "postgame_mlb_stats",
             "scoring_rules",
             "identity_reference",
         }
+        if projection_role is not None:
+            required_roles.add(projection_role)
         missing_roles = sorted(required_roles - roles)
         if missing_roles:
             raise ProvenanceError(
@@ -284,7 +285,12 @@ class ProvenanceIndex:
             )
         for role in required_roles:
             count = sum(item.role == role for item in artifacts)
-            if count != 1:
+            if role == "postgame_mlb_stats":
+                if count < 1:
+                    raise ProvenanceError(
+                        f"Slate {slate_id} must reference at least one postgame artifact"
+                    )
+            elif count != 1:
                 raise ProvenanceError(
                     f"Slate {slate_id} must reference exactly one {role} artifact; got {count}"
                 )
@@ -328,14 +334,15 @@ class ProvenanceIndex:
         slate_id: str,
         feature_sources: list[object],
         artifacts: list[RawArtifact],
-        required_projection_role: str,
+        required_projection_role: str | None,
     ) -> None:
         artifacts_by_id = {item.artifact_id: item for item in artifacts}
         required_roles = {
             "platform_slate_snapshot",
             "platform_salary_snapshot",
-            required_projection_role,
         }
+        if required_projection_role is not None:
+            required_roles.add(required_projection_role)
         seen_roles: set[str] = set()
         for source in feature_sources:
             artifact_id = getattr(source, "artifact_id", None)
@@ -388,29 +395,38 @@ class ProvenanceIndex:
         artifacts: list[RawArtifact],
     ) -> None:
         artifacts_by_id = {item.artifact_id: item for item in artifacts}
-        if len(raw_stats_artifact_ids) != 1:
+        if not raw_stats_artifact_ids:
             raise ProvenanceError(
-                f"Slate {slate_id} must bind exactly one postgame statistics artifact"
+                f"Slate {slate_id} must bind at least one postgame statistics artifact"
             )
-        postgame_id = raw_stats_artifact_ids[0]
-        postgame = artifacts_by_id.get(postgame_id)
-        if postgame is None or postgame.role != "postgame_mlb_stats":
-            raise ProvenanceError(
-                f"Actuals postgame artifact {postgame_id!r} is missing or has the wrong role"
-            )
-        if not actuals_source_final or not postgame.finalized:
+        if len(raw_stats_artifact_ids) != len(set(raw_stats_artifact_ids)):
+            raise ProvenanceError("actuals postgame artifact IDs must be unique")
+        postgames: list[RawArtifact] = []
+        for postgame_id in raw_stats_artifact_ids:
+            postgame = artifacts_by_id.get(postgame_id)
+            if postgame is None or postgame.role != "postgame_mlb_stats":
+                raise ProvenanceError(
+                    f"Actuals postgame artifact {postgame_id!r} is missing or has the wrong role"
+                )
+            postgames.append(postgame)
+        if not actuals_source_final or any(not item.finalized for item in postgames):
             raise ProvenanceError("real actuals must be bound to finalized postgame content")
-        if actuals_source_record_id != postgame_id:
+        expected_record_id = ";".join(raw_stats_artifact_ids)
+        if actuals_source_record_id not in {expected_record_id, raw_stats_artifact_ids[0]}:
             raise ProvenanceError(
-                "actuals source_record_id must equal the bound postgame artifact ID"
+                "actuals source_record_id must bind the ordered postgame artifact IDs"
             )
-        if postgame.effective_at != actuals_source_timestamp:
+        expected_source_timestamp = max(item.effective_at for item in postgames if item.effective_at)
+        if expected_source_timestamp != actuals_source_timestamp:
             raise ProvenanceError(
-                "actuals source_timestamp disagrees with the bound postgame artifact"
+                "actuals source_timestamp disagrees with the bound postgame artifacts"
             )
-        if postgame.acquired_at != actuals_acquired_at:
+        expected_acquired_at = max(
+            [actuals_source_timestamp] + [item.acquired_at for item in postgames]
+        )
+        if expected_acquired_at != actuals_acquired_at:
             raise ProvenanceError(
-                "actuals acquired_at disagrees with the bound postgame artifact"
+                "actuals acquired_at disagrees with the bound postgame artifacts"
             )
         rules = artifacts_by_id.get(scoring_rules_artifact_id or "")
         if rules is None or rules.role != "scoring_rules":

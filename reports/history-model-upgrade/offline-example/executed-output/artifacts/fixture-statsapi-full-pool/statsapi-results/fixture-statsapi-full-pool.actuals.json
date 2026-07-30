@@ -1,0 +1,447 @@
+{
+  "acquired_at": "2026-07-02T06:00:00Z",
+  "coverage_scope": "all_feature_players",
+  "coverage_summary": {
+    "dnp_count": 1,
+    "extra_ids": [],
+    "feature_player_count": 21,
+    "missing_ids": [],
+    "played_count": 20,
+    "records_count": 21
+  },
+  "data_kind": "fixture",
+  "limited_mode_acknowledgement": null,
+  "points": [
+    {
+      "actual_points": 14.0,
+      "mlbam_id": 514888,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 2,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 1,
+        "role": "hitter",
+        "runs": 2,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 8.0,
+      "mlbam_id": 518692,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 0,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 3,
+        "role": "hitter",
+        "runs": 0,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 0.0,
+      "mlbam_id": 518934,
+      "scoring_components": {
+        "dnp": true,
+        "role": "hitter"
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "actual_points": 25.45,
+      "mlbam_id": 543037,
+      "scoring_components": {
+        "complete_game": false,
+        "complete_game_shutout": false,
+        "earned_runs": 3,
+        "hit_batters": 0,
+        "hits_allowed": 6,
+        "no_hitter": false,
+        "outs_recorded": 19,
+        "role": "pitcher",
+        "strikeouts": 9,
+        "walks_allowed": 2,
+        "win": true
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 14.0,
+      "mlbam_id": 592450,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 1,
+        "plate_appearances": 4,
+        "rbi": 2,
+        "role": "hitter",
+        "runs": 0,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 14.0,
+      "mlbam_id": 605141,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 2,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 2,
+        "role": "hitter",
+        "runs": 2,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 24.6,
+      "mlbam_id": 607192,
+      "scoring_components": {
+        "complete_game": false,
+        "complete_game_shutout": false,
+        "earned_runs": 0,
+        "hit_batters": 0,
+        "hits_allowed": 4,
+        "no_hitter": false,
+        "outs_recorded": 20,
+        "role": "pitcher",
+        "strikeouts": 6,
+        "walks_allowed": 0,
+        "win": false
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 19.0,
+      "mlbam_id": 621020,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 2,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 2,
+        "role": "hitter",
+        "runs": 2,
+        "stolen_bases": 1,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 9.0,
+      "mlbam_id": 621566,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 1,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 8.0,
+      "mlbam_id": 645277,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 0,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 3,
+        "role": "hitter",
+        "runs": 0,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 12.0,
+      "mlbam_id": 650402,
+      "scoring_components": {
+        "doubles": 1,
+        "hit_by_pitch": 0,
+        "hits": 2,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 0,
+        "role": "hitter",
+        "runs": 2,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 9.0,
+      "mlbam_id": 660271,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 1,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 7.0,
+      "mlbam_id": 663586,
+      "scoring_components": {
+        "doubles": 1,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 0,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 20.7,
+      "mlbam_id": 664285,
+      "scoring_components": {
+        "complete_game": false,
+        "complete_game_shutout": false,
+        "earned_runs": 0,
+        "hit_batters": 0,
+        "hits_allowed": 6,
+        "no_hitter": false,
+        "outs_recorded": 18,
+        "role": "pitcher",
+        "strikeouts": 6,
+        "walks_allowed": 2,
+        "win": false
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 13.0,
+      "mlbam_id": 665161,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 3,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 18.0,
+      "mlbam_id": 665742,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 3,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 1,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 14.0,
+      "mlbam_id": 666158,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 2,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 1,
+        "role": "hitter",
+        "runs": 2,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 7.0,
+      "mlbam_id": 669257,
+      "scoring_components": {
+        "doubles": 1,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 0,
+        "role": "hitter",
+        "runs": 1,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    },
+    {
+      "actual_points": 14.0,
+      "mlbam_id": 670541,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 1,
+        "home_runs": 1,
+        "plate_appearances": 4,
+        "rbi": 2,
+        "role": "hitter",
+        "runs": 0,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 0
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 27.85,
+      "mlbam_id": 675911,
+      "scoring_components": {
+        "complete_game": false,
+        "complete_game_shutout": false,
+        "earned_runs": 1,
+        "hit_batters": 0,
+        "hits_allowed": 4,
+        "no_hitter": false,
+        "outs_recorded": 19,
+        "role": "pitcher",
+        "strikeouts": 7,
+        "walks_allowed": 0,
+        "win": true
+      },
+      "source_evidence_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "source_game_id": 1002,
+      "status": "played"
+    },
+    {
+      "actual_points": 4.0,
+      "mlbam_id": 683011,
+      "scoring_components": {
+        "doubles": 0,
+        "hit_by_pitch": 0,
+        "hits": 0,
+        "home_runs": 0,
+        "plate_appearances": 4,
+        "rbi": 1,
+        "role": "hitter",
+        "runs": 0,
+        "stolen_bases": 0,
+        "triples": 0,
+        "walks": 1
+      },
+      "source_evidence_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "source_game_id": 1001,
+      "status": "played"
+    }
+  ],
+  "raw_stats_artifact_ids": [
+    "mlb-statsapi-game-1001-59eb229e86a7",
+    "mlb-statsapi-game-1002-7ebbaa211d37"
+  ],
+  "schema_version": "1.3",
+  "scoring_rules_artifact_id": "dk-mlb-classic-rules-code-v1",
+  "scoring_rules_version": "draftkings-mlb-classic-rules-json-2026-07-29",
+  "scoring_source": "official_mlb_statsapi_feed_live_reconstruction",
+  "selection_feature_sha256": null,
+  "selection_seed": null,
+  "site": "dk",
+  "slate_id": "fixture-statsapi-full-pool",
+  "source_final": true,
+  "source_record_id": "1001;1002",
+  "source_timestamp": "2026-07-02T05:00:00Z",
+  "validation_scope": "FULL_RESEARCH",
+  "warnings": [
+    "fixture_only_not_production_validation",
+    "provider_game_set_unverified"
+  ]
+}

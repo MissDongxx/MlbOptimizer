@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import UTC, date, datetime, time
 from statistics import fmean
 from typing import Iterable, Literal
 
 
 Role = Literal["hitter", "pitcher"]
-PROJECTION_VERSION = "strict-prior-date-shrunk-rolling-v1"
+PROJECTION_VERSION = "strict-pre-first-pitch-shrunk-rolling-v2"
 ROLE_PRIORS = {"hitter": 7.0, "pitcher": 14.0}
 
 
@@ -18,6 +18,19 @@ class HistoricalFantasyGame:
     game_date: date
     role: Role
     dk_points: float
+    completed_at: datetime | None = None
+
+    def availability_timestamp(self) -> datetime:
+        """Return the earliest timestamp at which this final game row was usable.
+
+        Legacy date-only fixtures are treated conservatively as available at the next
+        UTC midnight. Real historical inputs must provide completed_at in the builder.
+        """
+        if self.completed_at is not None:
+            if self.completed_at.tzinfo is None or self.completed_at.utcoffset() is None:
+                raise ValueError("historical completed_at must include a timezone offset")
+            return self.completed_at
+        return datetime.combine(self.game_date, time.max, tzinfo=UTC)
 
 
 def project_player(
@@ -28,11 +41,12 @@ def project_player(
     cutoff: datetime,
     window: int = 20,
     prior_weight: float = 5.0,
-) -> tuple[float, dict[str, int | float | str]]:
-    """Projection using only games whose calendar date is strictly before cutoff date.
+) -> tuple[float, dict[str, int | float | str | list[int]]]:
+    """Project from final games available strictly before first pitch.
 
-    A fixed role prior is blended with the most recent `window` games. The formula and
-    priors are declared in code and are not tuned per slate.
+    Rows at the cutoff instant and future rows are excluded. A fixed role prior is
+    blended with the most recent ``window`` games. The formula and priors are declared
+    in code and are never tuned per slate.
     """
     if cutoff.tzinfo is None or cutoff.utcoffset() is None:
         raise ValueError("cutoff must include a timezone offset")
@@ -41,41 +55,27 @@ def project_player(
     if prior_weight < 0:
         raise ValueError("prior_weight cannot be negative")
 
-    eligible = sorted(
-        (
-            item
-            for item in history
-            if item.mlbam_id == mlbam_id
-            and item.role == role
-            and item.game_date < cutoff.date()
-        ),
-        key=lambda item: (item.game_date, item.game_id),
-    )[-window:]
-    leaked = [
-        item
-        for item in history
-        if item.mlbam_id == mlbam_id
-        and item.role == role
-        and item.game_date >= cutoff.date()
+    player_rows = [
+        item for item in history if item.mlbam_id == mlbam_id and item.role == role
     ]
-    # Presence of future rows in the source is allowed, but they are never selected.
-    # The audit metadata records the exact cutoff and selected game IDs.
+    eligible = sorted(
+        (item for item in player_rows if item.availability_timestamp() < cutoff),
+        key=lambda item: (item.availability_timestamp(), item.game_id),
+    )[-window:]
+    blocked = [item for item in player_rows if item.availability_timestamp() >= cutoff]
     prior = ROLE_PRIORS[role]
     if eligible:
         total = sum(item.dk_points for item in eligible) + prior * prior_weight
         denominator = len(eligible) + prior_weight
-        projection = (
-            total / denominator
-            if denominator
-            else fmean(item.dk_points for item in eligible)
-        )
+        projection = total / denominator if denominator else fmean(item.dk_points for item in eligible)
     else:
         projection = prior
-    metadata: dict[str, int | float | str] = {
+    metadata: dict[str, int | float | str | list[int]] = {
         "projection_version": PROJECTION_VERSION,
-        "cutoff_date_exclusive": cutoff.date().isoformat(),
+        "cutoff_timestamp_exclusive": cutoff.isoformat(),
         "history_games_used": len(eligible),
-        "future_rows_ignored": len(leaked),
+        "history_game_ids_used": [item.game_id for item in eligible],
+        "cutoff_or_future_rows_ignored": len(blocked),
         "window": window,
         "prior_weight": prior_weight,
         "role_prior": prior,

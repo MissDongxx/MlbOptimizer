@@ -1,0 +1,80 @@
+MLB DFS historical risk-resolution test execution
+Date: 2026-07-30
+Working directory: backend/
+
+[PASS] Runnable backend suite
+Command:
+  PYTHONPATH=. pytest -q --ignore=tests/test_content.py --ignore=tests/test_scheduler.py
+Output:
+........................................................................ [ 67%]
+..................................                                       [100%]
+106 passed in 19.66s
+
+[PASS] Python compile gate
+Command:
+  PYTHONPATH=. python -m compileall -q backtest tests models services routers main.py
+Output: no errors
+
+[PASS] Limited dataset provenance verification
+Command:
+  PYTHONPATH=. python -m backtest.historical.cli verify-manifest --slate-dir backtest/data/real-validation/dk-mlb-2023-03-10-historical-daily-pool
+Output:
+{"artifact_count": 5, "dataset_id": "dk-mlb-2023-03-10-single-slate-limited-validation", "manifest_sha256": "b97c0f7036de2259a7499a879d337ec81f8cb68a9bfa49656530a3d35ac09abd", "qualified_real_slates": 1, "status": "PASS"}
+
+[PASS] Offline StatsAPI fixture replay
+Command:
+  PYTHONPATH=. python -m backtest.historical.cli build-statsapi-actuals --features backtest/fixtures/statsapi-full-pool.features.json --cache-dir backtest/fixtures/statsapi-cache --output-dir ../reports/historical-risk-resolution/offline-fixture-replay --offline
+Output:
+{"actuals_file": "fixture-statsapi-full-pool.actuals.json", "actuals_sha256": "189c321d2a17f27b233fcd99a9dd0174ddeb0dd8649709640f6b4f1c8ed14084", "audit_file": "actuals-build-audit.json", "coverage": {"dnp_count": 1, "extra_ids": [], "feature_player_count": 21, "missing_ids": [], "played_count": 20, "records_count": 21}, "identity_audit_file": "identity-mapping-audit.json", "raw_game_feeds": [{"artifact_id": "mlb-statsapi-game-1001-59eb229e86a7", "byte_count": 7410, "cache_key": "e1761e9dc47118b1b7c48de46a024278c9f884d697b404bb176fd3978db4a853", "fetched_at": "2026-07-02T06:00:00+00:00", "from_cache": true, "game_id": 1001, "raw_file": "raw/mlb-statsapi/game-1001-feed-live.json", "sha256": "59eb229e86a77e996362d15147757db6d4aeb01d13022419de05650abc3091b7", "source_final": true, "url": "https://statsapi.mlb.com/api/v1.1/game/1001/feed/live"}, {"artifact_id": "mlb-statsapi-game-1002-7ebbaa211d37", "byte_count": 6204, "cache_key": "e808595b683097e1e8f8945e2217fc875d29fd0b7005650168e69e229108f3e9", "fetched_at": "2026-07-02T06:00:00+00:00", "from_cache": true, "game_id": 1002, "raw_file": "raw/mlb-statsapi/game-1002-feed-live.json", "sha256": "7ebbaa211d3724cf603379b44b014e7d500260fa04888915c34ce5a98c33570c", "source_final": true, "url": "https://statsapi.mlb.com/api/v1.1/game/1002/feed/live"}], "slate_id": "fixture-statsapi-full-pool", "status": "PASS_FULL_POOL"}
+
+[PASS] Byte determinism
+first_tree_sha256=fa7566847c8fa5878d96a74b4dfb49ad5590127b441a455e8e9698ee4f2c8763
+second_tree_sha256=fa7566847c8fa5878d96a74b4dfb49ad5590127b441a455e8e9698ee4f2c8763
+byte_identical=true
+
+[EXPECTED HARD FAILURE] Limited selected-only data, default mode
+{"evaluation_status": "INSUFFICIENT DATA / NOT EVALUATED", "failed_or_skipped_slates": 1, "failures": [{"actuals_file": "dk-mlb-2023-03-10-historical-daily-pool.actuals.json", "error": null, "feature_file": "dk-mlb-2023-03-10-historical-daily-pool.features.json", "reason": "selected-only actuals are disabled by default; explicit limited-mode flag and risk acknowledgement are required", "reason_type": "BacktestDataError"}], "gates": {"minimum_real_slates": {"actual": 0, "status": "FAIL", "threshold": 1}, "optimized_vs_legacy_noninferiority": {"actual": null, "definition": "optimized mean actual points must be at least 98.00% of legacy mean actual points", "status": "NOT EVALUATED", "threshold": -0.02}, "optimized_vs_random_mean": {"actual": null, "status": "NOT EVALUATED", "threshold": 0.1}, "optimized_vs_random_slate_win_rate": {"actual": null, "status": "NOT EVALUATED", "threshold": 0.6}}, "lineups_per_method": 1, "means_real_slates_only": {"legacy_actual": null, "optimized_actual": null, "random_actual": null}, "minimum_real_slates": 1, "noninferiority_margin": 0.02, "note": "Single-slate LIMITED VALIDATION proves the real-data pipeline only; performance metrics are informational and formal +10%, win-rate, and noninferiority gates remain NOT EVALUATED. In full research mode, bootstrap intervals are reported separately from the predeclared point-estimate gates.", "paired_metrics_real_slates_only": {"optimized_vs_legacy_difference_standard_error": null, "optimized_vs_legacy_relative": null, "optimized_vs_legacy_relative_bootstrap_95_ci": [null, null], "optimized_vs_random_difference_standard_error": null, "optimized_vs_random_relative": null, "optimized_vs_random_relative_bootstrap_95_ci": [null, null], "optimized_vs_random_slate_win_rate": null}, "performance_metrics_interpretation": "FORMAL_GATE_EVALUATION", "schema_version": "1.1", "seed": 20260729, "site": "dk", "slates": [], "valid_fixture_or_synthetic_slates": 0, "valid_real_slates": 0, "valid_slates_total": 0}
+
+[EXPECTED HARD FAILURE] Limited selected-only data, explicit mode but feature hash changed
+{"evaluation_status": "INSUFFICIENT DATA / NOT EVALUATED", "failed_or_skipped_slates": 1, "failures": [{"actuals_file": "dk-mlb-2023-03-10-historical-daily-pool.actuals.json", "error": null, "feature_file": "dk-mlb-2023-03-10-historical-daily-pool.features.json", "reason": "selected-only actuals are feature-bound; actuals feature hash=7486309beccb30f7a30b1b7b7610a87a8fa302b35861d9b3d634db581e30d37b, current feature hash=8d19063dcd2790378f7d77d236d364691ad2894f780aaa4307737953d70a35dd", "reason_type": "BacktestDataError"}], "gates": {"minimum_real_slates": {"actual": 0, "status": "FAIL", "threshold": 1}, "optimized_vs_legacy_noninferiority": {"actual": null, "definition": "optimized mean actual points must be at least 98.00% of legacy mean actual points", "status": "NOT EVALUATED", "threshold": -0.02}, "optimized_vs_random_mean": {"actual": null, "status": "NOT EVALUATED", "threshold": 0.1}, "optimized_vs_random_slate_win_rate": {"actual": null, "status": "NOT EVALUATED", "threshold": 0.6}}, "lineups_per_method": 1, "means_real_slates_only": {"legacy_actual": null, "optimized_actual": null, "random_actual": null}, "minimum_real_slates": 1, "noninferiority_margin": 0.02, "note": "Single-slate LIMITED VALIDATION proves the real-data pipeline only; performance metrics are informational and formal +10%, win-rate, and noninferiority gates remain NOT EVALUATED. In full research mode, bootstrap intervals are reported separately from the predeclared point-estimate gates.", "paired_metrics_real_slates_only": {"optimized_vs_legacy_difference_standard_error": null, "optimized_vs_legacy_relative": null, "optimized_vs_legacy_relative_bootstrap_95_ci": [null, null], "optimized_vs_random_difference_standard_error": null, "optimized_vs_random_relative": null, "optimized_vs_random_relative_bootstrap_95_ci": [null, null], "optimized_vs_random_slate_win_rate": null}, "performance_metrics_interpretation": "FORMAL_GATE_EVALUATION", "schema_version": "1.1", "seed": 20260729, "site": "dk", "slates": [], "valid_fixture_or_synthetic_slates": 0, "valid_real_slates": 0, "valid_slates_total": 0}
+
+[ENVIRONMENT BLOCKED] Complete unignored pytest
+Command:
+  PYTHONPATH=. pytest -q
+Exit status: 2
+Output:
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_content.py ____________________
+ImportError while importing test module '/mnt/data/mlb_worktree/backend/tests/test_content.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_content.py:5: in <module>
+    from main import app
+main.py:23: in <module>
+    from routers.health import router as health_router
+routers/health.py:13: in <module>
+    from services.scheduler import get_refresh_status, refresh_worker_enabled
+services/scheduler.py:11: in <module>
+    from apscheduler.schedulers.background import BackgroundScheduler
+E   ModuleNotFoundError: No module named 'apscheduler'
+___________________ ERROR collecting tests/test_scheduler.py ___________________
+ImportError while importing test module '/mnt/data/mlb_worktree/backend/tests/test_scheduler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_scheduler.py:11: in <module>
+    from services import scheduler
+services/scheduler.py:11: in <module>
+    from apscheduler.schedulers.background import BackgroundScheduler
+E   ModuleNotFoundError: No module named 'apscheduler'
+=========================== short test summary info ============================
+ERROR tests/test_content.py
+ERROR tests/test_scheduler.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 0.45s

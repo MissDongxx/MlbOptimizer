@@ -1,0 +1,240 @@
+{
+  "ambiguous_count": 0,
+  "mapping_method": "feature_snapshot_mlbam_id_exact",
+  "records": [
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-514888",
+      "feature_name": "Jose Altuve",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 514888,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-518692",
+      "feature_name": "Freddie Freeman",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 518692,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": false,
+      "external_id": "fixture-518934",
+      "feature_name": "DJ LeMahieu",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 518934,
+      "role": "hitter",
+      "status": "dnp_not_in_final_boxscore"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-543037",
+      "feature_name": "Gerrit Cole",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 543037,
+      "role": "pitcher",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-592450",
+      "feature_name": "Aaron Judge",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 592450,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-605141",
+      "feature_name": "Mookie Betts",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 605141,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-607192",
+      "feature_name": "Tyler Glasnow",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 607192,
+      "role": "pitcher",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-621020",
+      "feature_name": "Austin Riley",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 621020,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-621566",
+      "feature_name": "Matt Olson",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 621566,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-645277",
+      "feature_name": "Ozzie Albies",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 645277,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-650402",
+      "feature_name": "Giancarlo Stanton",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 650402,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-660271",
+      "feature_name": "Shohei Ohtani",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 660271,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-663586",
+      "feature_name": "Ronald Acuna Jr.",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 663586,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-664285",
+      "feature_name": "Framber Valdez",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 664285,
+      "role": "pitcher",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-665161",
+      "feature_name": "Kyle Tucker",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 665161,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-665742",
+      "feature_name": "Juan Soto",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 665742,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-666158",
+      "feature_name": "Gavin Lux",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 666158,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-669257",
+      "feature_name": "Will Smith",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 669257,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-670541",
+      "feature_name": "Yordan Alvarez",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 670541,
+      "role": "hitter",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-675911",
+      "feature_name": "Spencer Strider",
+      "game_id": 1002,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 675911,
+      "role": "pitcher",
+      "status": "played"
+    },
+    {
+      "ambiguity": false,
+      "boxscore_identity_present": true,
+      "external_id": "fixture-683011",
+      "feature_name": "Anthony Volpe",
+      "game_id": 1001,
+      "mapping_method": "feature_snapshot_mlbam_id_exact",
+      "mlbam_id": 683011,
+      "role": "hitter",
+      "status": "played"
+    }
+  ],
+  "schema_version": "1.0",
+  "slate_id": "fixture-statsapi-full-pool",
+  "unresolved_count": 0
+}

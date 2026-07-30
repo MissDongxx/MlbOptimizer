@@ -1,0 +1,19 @@
+{
+  "dataset_sha256": "NO_QUALIFIED_DATASET",
+  "date_count": 0,
+  "fixed_completely_held_out_test_metrics": null,
+  "limitations": [
+    "Insufficient qualified chronological real data; no performance claim is permitted.",
+    "No model was deployed or enabled in production."
+  ],
+  "minimums": {
+    "min_test_slates": 5,
+    "min_train_slates": 20
+  },
+  "production_action": "NONE",
+  "production_default_replaced": false,
+  "reason": "insufficient chronological slates: 0 < 25",
+  "row_count": 0,
+  "schema_version": "1.0",
+  "status": "REJECTED_NOT_EVALUATED"
+}

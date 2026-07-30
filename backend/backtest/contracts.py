@@ -23,6 +23,7 @@ PROHIBITED_FEATURE_KEYS = {
     "outcome",
 }
 PROHIBITED_KEY_TOKENS = {"actual", "final", "result", "outcome", "winner", "postgame", "boxscore"}
+AMBIGUOUS_PROJECTION_SOURCES = {"draftkings_export_avg_points_per_game", "avg_points_per_game"}
 DataKind = Literal["real", "fixture", "synthetic"]
 SourceRole = Literal[
     "platform_slate_snapshot",
@@ -130,7 +131,7 @@ class FrozenPlayer(PlayerInput):
 
 
 class SlateFeatureSnapshot(StrictModel):
-    schema_version: Literal["1.0", "1.1", "1.2"] = "1.2"
+    schema_version: Literal["1.0", "1.1", "1.2", "1.3"] = "1.3"
     data_kind: DataKind
     slate_id: str = Field(min_length=1)
     site: Site
@@ -270,20 +271,37 @@ class SlateFeatureSnapshot(StrictModel):
                     raise ValueError("historical_daily_pool requires provider_game_set_verified=false")
                 if self.validation_scope != "LIMITED_SINGLE_SLATE_VALIDATION":
                     raise ValueError("historical_daily_pool is restricted to LIMITED_SINGLE_SLATE_VALIDATION")
-                required_warnings = {"provider_game_set_unverified", "uniform_salary_warning"}
+                required_warnings = {
+                    "provider_game_set_unverified",
+                    "uniform_salary_warning",
+                    "projection_untrusted_field_excluded",
+                }
                 missing_warnings = sorted(required_warnings - set(self.warnings))
                 if missing_warnings:
                     raise ValueError(f"historical_daily_pool lacks warnings: {missing_warnings}")
-                required_projection_role = "pregame_platform_projection"
+                required_projection_role = None
             roles = {source.role for source in self.sources}
             required_roles = {
                 "platform_slate_snapshot",
                 "platform_salary_snapshot",
-                required_projection_role,
             }
+            if required_projection_role is not None:
+                required_roles.add(required_projection_role)
             if not required_roles.issubset(roles):
                 raise ValueError(
                     f"real features lack required source roles: {sorted(required_roles - roles)}"
+                )
+            ambiguous_players = [
+                player.mlbam_id
+                for player in self.players
+                if player.projection_source.strip().lower() in AMBIGUOUS_PROJECTION_SOURCES
+                or any("avgpointspergame" in re.sub(r"[^a-z0-9]", "", str(key).lower())
+                       for key in player.feature_values)
+            ]
+            if ambiguous_players:
+                raise ValueError(
+                    "ambiguous AvgPointsPerGame projections must be excluded or isolated; "
+                    f"players={ambiguous_players[:20]}"
                 )
         return self
 
@@ -291,7 +309,7 @@ class SlateFeatureSnapshot(StrictModel):
 class ActualPointsRecord(StrictModel):
     mlbam_id: int
     actual_points: float
-    status: Literal["played", "dnp_not_in_final_boxscore"] | None = None
+    status: Literal["played", "dnp_not_in_final_boxscore", "dnp_no_game_appearance"] | None = None
     source_game_id: int | None = None
     source_evidence_id: str | None = None
     scoring_components: dict[str, float | int | str | bool] = Field(default_factory=dict)
@@ -304,8 +322,27 @@ class ActualPointsRecord(StrictModel):
         return value
 
 
+class ActualCoverageSummary(StrictModel):
+    feature_player_count: int = Field(ge=1)
+    records_count: int = Field(ge=1)
+    played_count: int = Field(ge=0)
+    dnp_count: int = Field(ge=0)
+    missing_ids: list[int] = Field(default_factory=list)
+    extra_ids: list[int] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def enforce_counts(self) -> ActualCoverageSummary:
+        if self.played_count + self.dnp_count != self.records_count:
+            raise ValueError("played_count + dnp_count must equal records_count")
+        if len(self.missing_ids) != len(set(self.missing_ids)):
+            raise ValueError("coverage missing_ids must be unique")
+        if len(self.extra_ids) != len(set(self.extra_ids)):
+            raise ValueError("coverage extra_ids must be unique")
+        return self
+
+
 class SlateActualPoints(StrictModel):
-    schema_version: Literal["1.0", "1.1", "1.2"] = "1.2"
+    schema_version: Literal["1.0", "1.1", "1.2", "1.3"] = "1.3"
     data_kind: DataKind
     slate_id: str = Field(min_length=1)
     site: Site
@@ -318,6 +355,10 @@ class SlateActualPoints(StrictModel):
     validation_scope: Literal["FULL_RESEARCH", "LIMITED_SINGLE_SLATE_VALIDATION"] = "FULL_RESEARCH"
     coverage_scope: Literal["all_feature_players", "selected_lineup_players"] = "all_feature_players"
     warnings: list[str] = Field(default_factory=list)
+    selection_seed: int | None = None
+    selection_feature_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+    limited_mode_acknowledgement: Literal["SELECTED_ONLY_ACTUALS_NOT_GENERALIZABLE"] | None = None
+    coverage_summary: ActualCoverageSummary | None = None
     raw_stats_artifact_ids: list[str] = Field(default_factory=list)
     scoring_rules_artifact_id: str | None = None
     points: list[ActualPointsRecord] = Field(min_length=1)
@@ -344,8 +385,43 @@ class SlateActualPoints(StrictModel):
             if self.coverage_scope == "selected_lineup_players":
                 if self.validation_scope != "LIMITED_SINGLE_SLATE_VALIDATION":
                     raise ValueError("selected lineup actual coverage is limited-validation only")
-                if "selected_lineup_actuals_only" not in self.warnings:
-                    raise ValueError("selected lineup actual coverage requires an explicit warning")
+                required_warnings = {
+                    "selected_lineup_actuals_only",
+                    "selected_only_seed_bound",
+                    "selected_only_feature_bound",
+                }
+                missing_warnings = sorted(required_warnings - set(self.warnings))
+                if missing_warnings:
+                    raise ValueError(
+                        f"selected lineup actual coverage lacks warnings: {missing_warnings}"
+                    )
+                if self.selection_seed is None:
+                    raise ValueError("selected lineup actual coverage requires selection_seed")
+                if self.selection_feature_sha256 is None:
+                    raise ValueError(
+                        "selected lineup actual coverage requires selection_feature_sha256"
+                    )
+                if self.limited_mode_acknowledgement != "SELECTED_ONLY_ACTUALS_NOT_GENERALIZABLE":
+                    raise ValueError(
+                        "selected lineup actual coverage requires explicit limited-mode acknowledgement"
+                    )
+            elif (
+                self.selection_seed is not None
+                or self.selection_feature_sha256 is not None
+                or self.limited_mode_acknowledgement is not None
+            ):
+                raise ValueError("selection-only metadata is prohibited for full-pool actuals")
+        if self.schema_version == "1.3":
+            if self.coverage_summary is None:
+                raise ValueError("schema 1.3 actuals require coverage_summary")
+            summary = self.coverage_summary
+            if summary.records_count != len(self.points):
+                raise ValueError("coverage records_count must equal points length")
+            if self.coverage_scope == "all_feature_players":
+                if summary.missing_ids or summary.extra_ids:
+                    raise ValueError("full-pool coverage cannot contain missing or extra IDs")
+                if summary.feature_player_count != summary.records_count:
+                    raise ValueError("full-pool coverage count must equal feature player count")
         return self
 
 

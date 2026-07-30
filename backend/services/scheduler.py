@@ -8,7 +8,10 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any, Callable, Iterator
 
-from apscheduler.schedulers.background import BackgroundScheduler
+try:
+    from apscheduler.schedulers.background import BackgroundScheduler
+except ImportError:  # runtime dependency; non-scheduler commands/tests remain usable
+    BackgroundScheduler = None  # type: ignore[assignment,misc]
 
 from services.cache_store import DEFAULT_CACHE_DIR, cache_store
 from services.lineup_data import get_todays_games, get_todays_player_pool
@@ -121,6 +124,11 @@ def refresh_season_data() -> dict[str, Any]:
 
 def start_scheduler() -> BackgroundScheduler:
     global _scheduler
+    if BackgroundScheduler is None:
+        raise RuntimeError(
+            "APScheduler is required to start the in-process refresh scheduler; "
+            "install the locked project dependencies first"
+        )
     scheduler = BackgroundScheduler(timezone="UTC")
     _scheduler = scheduler
     scheduler.add_job(

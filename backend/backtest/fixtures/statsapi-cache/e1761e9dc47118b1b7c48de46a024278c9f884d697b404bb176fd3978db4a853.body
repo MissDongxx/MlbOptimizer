@@ -1,0 +1,274 @@
+{
+  "gameData": {
+    "datetime": {
+      "dateTime": "2026-07-01T23:05:00Z"
+    },
+    "status": {
+      "abstractGameState": "Final",
+      "codedGameState": "F",
+      "detailedState": "Final"
+    },
+    "teams": {
+      "away": {
+        "abbreviation": "LAD"
+      },
+      "home": {
+        "abbreviation": "NYY"
+      }
+    }
+  },
+  "gamePk": 1001,
+  "liveData": {
+    "boxscore": {
+      "teams": {
+        "away": {
+          "players": {
+            "ID518692": {
+              "person": {
+                "fullName": "Freddie Freeman",
+                "id": 518692
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 0,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 3,
+                  "runs": 0,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID605141": {
+              "person": {
+                "fullName": "Mookie Betts",
+                "id": 605141
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 2,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 2,
+                  "runs": 2,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID607192": {
+              "person": {
+                "fullName": "Tyler Glasnow",
+                "id": 607192
+              },
+              "stats": {
+                "pitching": {
+                  "baseOnBalls": 0,
+                  "completeGames": 0,
+                  "earnedRuns": 0,
+                  "gamesPitched": 1,
+                  "hitBatsmen": 0,
+                  "hits": 4,
+                  "inningsPitched": "6.2",
+                  "numberOfPitches": 90,
+                  "outs": 20,
+                  "shutouts": 0,
+                  "strikeOuts": 6
+                }
+              }
+            },
+            "ID660271": {
+              "person": {
+                "fullName": "Shohei Ohtani",
+                "id": 660271
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 1,
+                  "runs": 1,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID666158": {
+              "person": {
+                "fullName": "Gavin Lux",
+                "id": 666158
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 2,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 1,
+                  "runs": 2,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID669257": {
+              "person": {
+                "fullName": "Will Smith",
+                "id": 669257
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 1,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 0,
+                  "runs": 1,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            }
+          }
+        },
+        "home": {
+          "players": {
+            "ID543037": {
+              "person": {
+                "fullName": "Gerrit Cole",
+                "id": 543037
+              },
+              "stats": {
+                "pitching": {
+                  "baseOnBalls": 2,
+                  "completeGames": 0,
+                  "earnedRuns": 3,
+                  "gamesPitched": 1,
+                  "hitBatsmen": 0,
+                  "hits": 6,
+                  "inningsPitched": "6.1",
+                  "numberOfPitches": 90,
+                  "outs": 19,
+                  "shutouts": 0,
+                  "strikeOuts": 9
+                }
+              }
+            },
+            "ID592450": {
+              "person": {
+                "fullName": "Aaron Judge",
+                "id": 592450
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 1,
+                  "plateAppearances": 4,
+                  "rbi": 2,
+                  "runs": 0,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID650402": {
+              "person": {
+                "fullName": "Giancarlo Stanton",
+                "id": 650402
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 1,
+                  "hitByPitch": 0,
+                  "hits": 2,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 0,
+                  "runs": 2,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID665742": {
+              "person": {
+                "fullName": "Juan Soto",
+                "id": 665742
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 3,
+                  "runs": 1,
+                  "stolenBases": 1,
+                  "triples": 0
+                }
+              }
+            },
+            "ID683011": {
+              "person": {
+                "fullName": "Anthony Volpe",
+                "id": 683011
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 0,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 1,
+                  "runs": 0,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "decisions": {
+      "winner": {
+        "id": 543037
+      }
+    }
+  },
+  "metaData": {
+    "timeStamp": "20260702_050000"
+  }
+}

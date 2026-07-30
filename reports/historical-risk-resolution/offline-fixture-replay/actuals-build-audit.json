@@ -1,0 +1,46 @@
+{
+  "actuals_file": "fixture-statsapi-full-pool.actuals.json",
+  "actuals_sha256": "189c321d2a17f27b233fcd99a9dd0174ddeb0dd8649709640f6b4f1c8ed14084",
+  "builder_version": "mlb-statsapi-full-pool-actuals-v1",
+  "coverage": {
+    "dnp_count": 1,
+    "extra_ids": [],
+    "feature_player_count": 21,
+    "missing_ids": [],
+    "played_count": 20,
+    "records_count": 21
+  },
+  "feature_file": "statsapi-full-pool.features.json",
+  "feature_sha256": "fa6e96e2eab07354e3a6d3670a3aad97b0c220264f7576fc3164019b83ddb013",
+  "fetches": [
+    {
+      "artifact_id": "mlb-statsapi-game-1001-59eb229e86a7",
+      "byte_count": 7410,
+      "cache_key": "e1761e9dc47118b1b7c48de46a024278c9f884d697b404bb176fd3978db4a853",
+      "fetched_at": "2026-07-02T06:00:00+00:00",
+      "from_cache": true,
+      "game_id": 1001,
+      "raw_file": "raw/mlb-statsapi/game-1001-feed-live.json",
+      "sha256": "59eb229e86a77e996362d15147757db6d4aeb01d13022419de05650abc3091b7",
+      "source_final": true,
+      "url": "https://statsapi.mlb.com/api/v1.1/game/1001/feed/live"
+    },
+    {
+      "artifact_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+      "byte_count": 6204,
+      "cache_key": "e808595b683097e1e8f8945e2217fc875d29fd0b7005650168e69e229108f3e9",
+      "fetched_at": "2026-07-02T06:00:00+00:00",
+      "from_cache": true,
+      "game_id": 1002,
+      "raw_file": "raw/mlb-statsapi/game-1002-feed-live.json",
+      "sha256": "7ebbaa211d3724cf603379b44b014e7d500260fa04888915c34ce5a98c33570c",
+      "source_final": true,
+      "url": "https://statsapi.mlb.com/api/v1.1/game/1002/feed/live"
+    }
+  ],
+  "identity_audit_file": "identity-mapping-audit.json",
+  "offline": true,
+  "schema_version": "1.0",
+  "slate_id": "fixture-statsapi-full-pool",
+  "status": "PASS_FULL_POOL"
+}

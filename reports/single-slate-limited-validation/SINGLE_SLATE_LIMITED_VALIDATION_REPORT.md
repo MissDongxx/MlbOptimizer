@@ -1,8 +1,12 @@
+# Superseded validation record
+
+> **Superseded on 2026-07-30.** This file and the sibling `backtest-output/` directory preserve an earlier limited run for audit history only. They are not current validation evidence. The `AvgPointsPerGame` projection has since been isolated, selected-only actuals are now seed- and feature-hash-bound, and the corrected runner rejects this dataset. See `../historical-risk-resolution/DELIVERY_REPORT.md`.
+
 # DraftKings MLB 2023-03-10 single-slate limited validation
 
 ## Verdict
 
-Overall: **PASS, LIMITED VALIDATION**. One real public DraftKings-format historical daily player pool passed provenance, identity, legality, separated-actuals, and deterministic execution checks. It is not asserted to be an official DraftGroup/Main Game Set, and it is not sufficient for algorithm-performance inference.
+Historical result at the time: **PASS, LIMITED VALIDATION**, now invalidated by stricter contracts. One real public DraftKings-format historical daily player pool passed provenance, identity, legality, separated-actuals, and deterministic execution checks. It is not asserted to be an official DraftGroup/Main Game Set, and it is not sufficient for algorithm-performance inference.
 
 ## Source
 
@@ -39,7 +43,7 @@ All 345 DK IDs map to 345 unique MLBAM IDs. Twenty-six ambiguous names use expli
 
 Actuals cover the 18 unique players selected by the three deterministic methods. Final public ESPN/FOX/MLB box-score evidence is transcribed into a separate machine-readable postgame artifact and scored under the bundled DraftKings MLB Classic rule table. Direct MLB StatsAPI raw JSON acquisition failed in this runtime because of DNS, so this is not described as a raw StatsAPI archive. It is also not a full 345-player actuals reconstruction.
 
-## Backtest result
+## Archived backtest result, not current evidence
 
 - Valid real slates: **1**
 - Failed/skipped: **0**

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "provider": "draftkings",
+  "provider_slate_id": "REPLACE_WITH_PROVIDER_SLATE_ID",
+  "draft_group_id": "REPLACE_WITH_DRAFT_GROUP_ID_IF_AVAILABLE",
+  "source_url": "https://REPLACE_WITH_ARCHIVED_OR_OFFICIAL_SOURCE_URL",
+  "captured_at": "2026-07-30T06:00:00Z",
+  "evidence_type": "archived_provider_game_set_metadata",
+  "notes": "The source bytes must be archived before first lock. A claimed boolean without this evidence cannot qualify a slate."
+}

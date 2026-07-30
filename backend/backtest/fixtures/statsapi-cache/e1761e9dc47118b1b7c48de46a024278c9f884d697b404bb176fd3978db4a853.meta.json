@@ -1,0 +1,11 @@
+{
+  "byte_count": 7410,
+  "cache_key": "e1761e9dc47118b1b7c48de46a024278c9f884d697b404bb176fd3978db4a853",
+  "fetched_at": "2026-07-02T06:00:00Z",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "schema_version": "1.0",
+  "sha256": "59eb229e86a77e996362d15147757db6d4aeb01d13022419de05650abc3091b7",
+  "url": "https://statsapi.mlb.com/api/v1.1/game/1001/feed/live"
+}

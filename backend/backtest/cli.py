@@ -4,7 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
-from backtest.runner import BacktestConfig, BacktestDataError, run_backtest
+from backtest.runner import (
+    SELECTED_ACTUALS_ACK,
+    BacktestConfig,
+    BacktestDataError,
+    run_backtest,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -20,6 +25,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--min-real-slates", type=int, default=30)
     parser.add_argument("--bootstrap-samples", type=int, default=2000)
     parser.add_argument("--provenance-manifest", type=Path)
+    parser.add_argument("--qualified-registry", type=Path)
+    parser.add_argument("--candidate-model", type=Path)
+    parser.add_argument(
+        "--allow-limited-selected-actuals",
+        action="store_true",
+        help="Allow seed-bound selected-only actuals for explicitly limited historical validation.",
+    )
+    parser.add_argument(
+        "--acknowledge-selected-only-risk",
+        choices=(SELECTED_ACTUALS_ACK,),
+        help="Required exact acknowledgement when selected-only actuals are enabled.",
+    )
     return parser
 
 
@@ -41,6 +58,10 @@ def main() -> int:
         min_real_slates=args.min_real_slates,
         bootstrap_samples=args.bootstrap_samples,
         provenance_manifest=args.provenance_manifest,
+        allow_limited_selected_actuals=args.allow_limited_selected_actuals,
+        selected_actuals_ack=args.acknowledge_selected_only_risk,
+        qualified_registry=args.qualified_registry,
+        candidate_model=args.candidate_model,
     )
     try:
         summary = run_backtest(config)

@@ -1,3 +1,7 @@
+# Superseded run instructions
+
+> The command below is retained for provenance archaeology. Under the 2026-07-30 risk-resolution contracts it must fail closed because selected-only actuals are disabled by default and are bound to the old feature SHA-256. Use `../historical-risk-resolution/REPRODUCE.md` for current commands.
+
 # Download and run
 
 ## Immutable source download

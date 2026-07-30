@@ -1,0 +1,8 @@
+{
+  "slate_id": "dk-mlb-YYYY-MM-DD-main",
+  "source_url": "https://REPLACE_WITH_DOWNLOAD_OR_ARCHIVE_URL",
+  "provider_slate_id": "REPLACE_WITH_PROVIDER_SLATE_ID",
+  "draft_group_id": "REPLACE_WITH_DRAFT_GROUP_ID_IF_AVAILABLE",
+  "provider_metadata": "provider-metadata.json",
+  "provider_metadata_url": "https://REPLACE_WITH_PROVIDER_METADATA_URL"
+}

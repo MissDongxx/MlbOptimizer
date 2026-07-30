@@ -1,0 +1,232 @@
+{
+  "gameData": {
+    "datetime": {
+      "dateTime": "2026-07-02T00:05:00Z"
+    },
+    "status": {
+      "abstractGameState": "Final",
+      "codedGameState": "F",
+      "detailedState": "Final"
+    },
+    "teams": {
+      "away": {
+        "abbreviation": "ATL"
+      },
+      "home": {
+        "abbreviation": "HOU"
+      }
+    }
+  },
+  "gamePk": 1002,
+  "liveData": {
+    "boxscore": {
+      "teams": {
+        "away": {
+          "players": {
+            "ID621020": {
+              "person": {
+                "fullName": "Austin Riley",
+                "id": 621020
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 2,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 2,
+                  "runs": 2,
+                  "stolenBases": 1,
+                  "triples": 0
+                }
+              }
+            },
+            "ID621566": {
+              "person": {
+                "fullName": "Matt Olson",
+                "id": 621566
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 1,
+                  "runs": 1,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID645277": {
+              "person": {
+                "fullName": "Ozzie Albies",
+                "id": 645277
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 0,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 3,
+                  "runs": 0,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID663586": {
+              "person": {
+                "fullName": "Ronald Acuna Jr.",
+                "id": 663586
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 1,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 0,
+                  "runs": 1,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID675911": {
+              "person": {
+                "fullName": "Spencer Strider",
+                "id": 675911
+              },
+              "stats": {
+                "pitching": {
+                  "baseOnBalls": 0,
+                  "completeGames": 0,
+                  "earnedRuns": 1,
+                  "gamesPitched": 1,
+                  "hitBatsmen": 0,
+                  "hits": 4,
+                  "inningsPitched": "6.1",
+                  "numberOfPitches": 90,
+                  "outs": 19,
+                  "shutouts": 0,
+                  "strikeOuts": 7
+                }
+              }
+            }
+          }
+        },
+        "home": {
+          "players": {
+            "ID514888": {
+              "person": {
+                "fullName": "Jose Altuve",
+                "id": 514888
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 2,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 1,
+                  "runs": 2,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID664285": {
+              "person": {
+                "fullName": "Framber Valdez",
+                "id": 664285
+              },
+              "stats": {
+                "pitching": {
+                  "baseOnBalls": 2,
+                  "completeGames": 0,
+                  "earnedRuns": 0,
+                  "gamesPitched": 1,
+                  "hitBatsmen": 0,
+                  "hits": 6,
+                  "inningsPitched": "6.0",
+                  "numberOfPitches": 90,
+                  "outs": 18,
+                  "shutouts": 0,
+                  "strikeOuts": 6
+                }
+              }
+            },
+            "ID665161": {
+              "person": {
+                "fullName": "Kyle Tucker",
+                "id": 665161
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 3,
+                  "baseOnBalls": 1,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 0,
+                  "plateAppearances": 4,
+                  "rbi": 3,
+                  "runs": 1,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            },
+            "ID670541": {
+              "person": {
+                "fullName": "Yordan Alvarez",
+                "id": 670541
+              },
+              "stats": {
+                "batting": {
+                  "atBats": 4,
+                  "baseOnBalls": 0,
+                  "doubles": 0,
+                  "hitByPitch": 0,
+                  "hits": 1,
+                  "homeRuns": 1,
+                  "plateAppearances": 4,
+                  "rbi": 2,
+                  "runs": 0,
+                  "stolenBases": 0,
+                  "triples": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "decisions": {
+      "winner": {
+        "id": 675911
+      }
+    }
+  },
+  "metaData": {
+    "timeStamp": "20260702_050000"
+  }
+}

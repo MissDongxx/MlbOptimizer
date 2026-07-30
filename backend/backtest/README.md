@@ -20,13 +20,13 @@ The contracts reject:
 - naive timestamps without a timezone;
 - feature keys containing post-game semantics such as `actual`, `final`, `result`, `outcome`, `winner`, `postgame`, or `boxscore`;
 - duplicate player IDs;
-- missing actual points for any frozen player;
+- non-exact full-pool actual coverage, including missing or extra player IDs;
 - non-finite actual points;
 - feature/actual `slate_id`, `site`, or `data_kind` mismatches;
 - actual scoring timestamps earlier than `slate_start`;
 - unequal lineup counts or any lineup that fails canonical validation.
 
-The backtest package never calls `pybaseball`, live provider endpoints, `.env`, cookies, or user data.
+The optimizer runner never calls `pybaseball`, live provider endpoints, `.env`, cookies, or user data. The separate historical acquisition CLI may call the official MLB StatsAPI only when explicitly invoked; every response is content-addressed and can be replayed offline.
 
 ## Schemas and sample
 
@@ -122,12 +122,55 @@ PYTHONPATH=. python -m backtest.cli \
   --bootstrap-samples 2000
 ```
 
-## Historical build CLI
+## Historical acquisition and build CLI
 
-The builder consumes an audited bundle containing an original DraftKings salary CSV,
-exact provider Game Set metadata, a stable MLB identity reference, strictly prior-date
-historical game statistics, independent final game statistics, and the applicable
-DraftKings scoring rules artifact.
+Run these commands from `backend/`.
+
+### Capture a current/future DraftKings salary export
+
+The capture command uses the runtime clock at archive time. It does not accept a user-supplied historical timestamp, refuses a fresh capture at or after the first listed game lock, and records that historical backfill is unsupported. A repeated invocation against an existing matching manifest replays the immutable archive rather than rewriting its timestamp.
+
+```bash
+PYTHONPATH=. python -m backtest.historical.cli capture-current-slate \
+  --salary-csv /path/to/DKSalaries.csv \
+  --source-url 'https://www.draftkings.com/lineup/upload' \
+  --draft-group-id '<observed-id-if-available>' \
+  --output-dir /path/to/archive/2026-07-30-dk-mlb
+```
+
+Optional raw provider metadata may be archived with `--provider-metadata` and `--provider-metadata-url`. Capturing those bytes does not by itself verify an official DraftGroup/Game Set. The manifest therefore remains `provider_game_set_verified=false` until an independent audit establishes that binding.
+
+### Reconstruct full-pool actuals from official MLB StatsAPI feeds
+
+The online run downloads each declared final game feed into an immutable URL-keyed cache and writes exact raw response bytes into the output archive:
+
+```bash
+PYTHONPATH=. python -m backtest.historical.cli build-statsapi-actuals \
+  --features /path/to/slate.features.json \
+  --cache-dir /path/to/immutable-statsapi-cache \
+  --output-dir /path/to/slate-actuals
+```
+
+After the first successful acquisition, the same build is reproducible without DNS or network access:
+
+```bash
+PYTHONPATH=. python -m backtest.historical.cli build-statsapi-actuals \
+  --features /path/to/slate.features.json \
+  --cache-dir /path/to/immutable-statsapi-cache \
+  --output-dir /path/to/offline-replay \
+  --offline
+```
+
+An offline cache miss, body/meta mismatch, URL mismatch, byte-count mismatch, hash mismatch, non-final game, game ID mismatch, or boxscore identity ambiguity is a hard failure. Players in the salary pool who have no game appearance receive an explicit DNP status and `0.0` points; they are not silently omitted.
+
+A checked-in offline fixture is available at:
+
+- `backtest/fixtures/statsapi-full-pool.features.json`
+- `backtest/fixtures/statsapi-cache/`
+
+### Build from a fully audited historical bundle
+
+The legacy historical builder consumes an audited bundle containing a DraftKings salary CSV, exact provider Game Set metadata, stable MLB identities, strict pre-first-pitch historical game statistics, independent final game statistics, and scoring rules. It now requires explicit postgame evidence for every salary-pool player rather than converting missing rows into zero points.
 
 ```bash
 PYTHONPATH=. python -m backtest.historical.cli build-slate \
@@ -138,42 +181,37 @@ PYTHONPATH=. python -m backtest.historical.cli verify-manifest \
   --slate-dir /path/to/qualified-dk-slates
 ```
 
-The small `fixtures/historical-builder` bundle is synthetic and permanently labeled
-`fixture`. It tests ingestion, identity mapping, cutoff logic, official-rule scoring,
-QA, and all three optimizer methods. It never creates a provenance manifest and cannot
-count toward the 30-real-slate gate.
+The small `fixtures/historical-builder` bundle is synthetic and permanently labeled `fixture`. It tests ingestion, identity mapping, cutoff logic, scoring, QA, and all three optimizer methods. It cannot count toward real-slate gates.
 
 Additional schemas:
 
 - `schemas/historical-build-bundle.schema.json`
 - `schemas/provenance-manifest.schema.json`
 
-## Single-slate historical daily-pool validation
+## Strict projection cutoff
 
-The checked-in `dk-mlb-2023-03-10-historical-daily-pool` dataset is a deliberately
-limited validation. Its commit-pinned DraftKings-format CSV is a real public historical
-daily player pool, but no official DraftGroup/Main Game Set identity is claimed. It is
-therefore labeled:
+Real feature snapshots reject DraftKings `AvgPointsPerGame` and equivalent ambiguous field names. The historical projection implementation uses only games whose final `completed_at` is strictly earlier than the player's slate first pitch. Rows completed exactly at the cutoff or later are excluded and listed in the projection audit. Real historical rows without a timezone-aware `completed_at` fail ingestion.
+
+## Selected-only actuals are disabled by default
+
+Full salary-pool actual coverage is the default contract. `selected_lineup_players` is restricted to `LIMITED_SINGLE_SLATE_VALIDATION` and requires all of the following:
+
+1. the CLI flag `--allow-limited-selected-actuals`;
+2. the exact acknowledgement `--acknowledge-selected-only-risk SELECTED_ONLY_ACTUALS_NOT_GENERALIZABLE`;
+3. a matching selection seed in the actuals file;
+4. the exact SHA-256 of the feature file used when those players were selected.
+
+Changing the seed or any feature bytes causes a hard failure before evaluation.
+
+## Checked-in 2023-03-10 daily-pool limitation
+
+The checked-in `dk-mlb-2023-03-10-historical-daily-pool` remains a deliberately limited public historical daily pool:
 
 - `scope=historical_daily_pool`;
 - `provider_game_set_verified=false`;
 - `validation_scope=LIMITED_SINGLE_SLATE_VALIDATION`;
-- `uniform_salary_warning` because all 345 salaries are 4500.
+- every salary is 4500;
+- the ambiguous `AvgPointsPerGame` field is excluded from optimization;
+- its old selected-only actuals are bound to the prior feature hash and no longer match the isolated projection file.
 
-The full-study default remains 30 real slates. A one-slate pipeline check must opt in:
-
-```bash
-PYTHONPATH=. python -m backtest.cli \
-  --seed 20260729 \
-  --site dk \
-  --slate-dir backtest/data/real-validation/dk-mlb-2023-03-10-historical-daily-pool \
-  --provenance-manifest backtest/data/real-validation/dk-mlb-2023-03-10-historical-daily-pool/provenance-manifest.json \
-  --lineups-per-method 1 \
-  --output-dir /tmp/dk-single-slate-run \
-  --noninferiority-margin 0.02 \
-  --min-real-slates 1 \
-  --bootstrap-samples 2000
-```
-
-In this mode the minimum-count gate may pass, but the +10%, slate-win-rate, and legacy
-non-inferiority gates stay `NOT EVALUATED`. The actual scores are informational only.
+Consequently the dataset now fails closed rather than producing an informational performance score. It remains useful only for parser, provenance, and negative-contract checks. It does not satisfy a regular-season, non-uniform salary validation and cannot upgrade the project beyond `LIMITED_SINGLE_SLATE_VALIDATION`.

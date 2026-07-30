@@ -237,8 +237,11 @@ class HistoricalSlateBuilder:
                     projection_source=PROJECTION_VERSION,
                     feature_values={
                         "projection_version": PROJECTION_VERSION,
-                        "cutoff_date_exclusive": audit["cutoff_date_exclusive"],
+                        "cutoff_timestamp_exclusive": audit["cutoff_timestamp_exclusive"],
                         "history_games_used": audit["history_games_used"],
+                        "history_game_ids_used": ",".join(
+                            str(value) for value in audit["history_game_ids_used"]
+                        ),
                         "role_prior": audit["role_prior"],
                     },
                     game_id=game.game_id,
@@ -418,6 +421,20 @@ class HistoricalSlateBuilder:
                 score = score_pitcher_game(_pitcher_stats(row))
             else:
                 raise HistoricalBuilderError(f"unsupported historical role: {role}")
+            completed_raw = row.get("completed_at")
+            if self.bundle.data_kind == "real" and not completed_raw:
+                raise HistoricalBuilderError(
+                    "real pregame history rows require completed_at for strict first-pitch cutoff"
+                )
+            completed_at = (
+                datetime.fromisoformat(str(completed_raw).replace("Z", "+00:00"))
+                if completed_raw
+                else None
+            )
+            if completed_at is not None and (
+                completed_at.tzinfo is None or completed_at.utcoffset() is None
+            ):
+                raise HistoricalBuilderError("historical completed_at must include timezone")
             history.append(
                 HistoricalFantasyGame(
                     mlbam_id=int(row["mlbam_id"]),
@@ -425,6 +442,7 @@ class HistoricalSlateBuilder:
                     game_date=game_date,
                     role=role,
                     dk_points=score,
+                    completed_at=completed_at,
                 )
             )
         return history
@@ -442,6 +460,7 @@ class HistoricalSlateBuilder:
     ) -> dict[int, float]:
         slate_game_ids = {item.game_id for item in self.bundle.games}
         score_by_id: dict[int, float] = {item.mlbam_id: 0.0 for item in players}
+        seen_platform_ids: set[int] = set()
         seen_pairs: set[tuple[int, int]] = set()
         for row in rows:
             mlbam_id = int(row["mlbam_id"])
@@ -458,6 +477,7 @@ class HistoricalSlateBuilder:
                 # Preserve the full raw artifact, but rows for non-platform players do not
                 # affect scoring and are reported as extras rather than silently mapped.
                 continue
+            seen_platform_ids.add(mlbam_id)
             if game_by_mlbam[mlbam_id] != game_id:
                 raise HistoricalBuilderError(
                     f"player {mlbam_id} postgame game does not match salary game assignment"
@@ -471,6 +491,12 @@ class HistoricalSlateBuilder:
                 score_by_id[mlbam_id] += score_hitter_game(_hitter_stats(row))
             else:
                 score_by_id[mlbam_id] += score_pitcher_game(_pitcher_stats(row))
+        missing_evidence = sorted(set(score_by_id) - seen_platform_ids)
+        if missing_evidence:
+            raise HistoricalBuilderError(
+                "postgame source lacks explicit full-pool player evidence; "
+                f"missing_mlbam_ids={missing_evidence[:20]}"
+            )
         return {key: round(value, 10) for key, value in score_by_id.items()}
 
     def _game_lookup(self) -> dict[tuple[str, str, datetime], SlateGame]:
@@ -552,7 +578,7 @@ class HistoricalSlateBuilder:
             "at_least_two_games": len(self.bundle.games) >= 2,
             "lock_matches_first_pitch": features.lock_time
             == min(item.scheduled_start for item in self.bundle.games),
-            "all_players_have_actuals": feature_ids.issubset(actual_ids),
+            "all_players_have_actuals": feature_ids == actual_ids,
             "identity_report_pass": load_json(identity_report_path)["status"] == "PASS",
             "has_two_pitchers": position_counts.get("P", 0) >= 2,
             "has_catcher": position_counts.get("C", 0) >= 1,
@@ -562,7 +588,7 @@ class HistoricalSlateBuilder:
             "has_shortstop": position_counts.get("SS", 0) >= 1,
             "has_three_outfielders": position_counts.get("OF", 0) >= 3,
             "strict_projection_cutoff": all(
-                item["cutoff_date_exclusive"] == self.bundle.lock_time.date().isoformat()
+                item["cutoff_timestamp_exclusive"] == self.bundle.lock_time.isoformat()
                 for item in projection_audit
             ),
         }

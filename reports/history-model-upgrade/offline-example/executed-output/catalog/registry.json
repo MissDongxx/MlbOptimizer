@@ -1,0 +1,272 @@
+{
+  "created_at": "2026-07-30T08:34:32.146915Z",
+  "schema_version": "1.0",
+  "slates": {
+    "fixture-statsapi-full-pool": {
+      "actuals_file": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/full-pool-actuals-189c321d2a17.actuals.json",
+      "artifacts": [
+        {
+          "artifact_id": "feature-snapshot",
+          "byte_count": 15537,
+          "captured_at": "2026-07-01T21:00:00Z",
+          "effective_at": "2026-07-01T22:00:00Z",
+          "immutable": true,
+          "path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/feature-snapshot-fa6e96e2eab0.features.json",
+          "role": "qualified_feature_candidate",
+          "sha256": "fa6e96e2eab07354e3a6d3670a3aad97b0c220264f7576fc3164019b83ddb013",
+          "source_url": null
+        },
+        {
+          "artifact_id": "full-pool-actuals",
+          "byte_count": 11249,
+          "captured_at": "2026-07-30T08:34:32.152555Z",
+          "effective_at": null,
+          "immutable": true,
+          "path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/full-pool-actuals-189c321d2a17.actuals.json",
+          "role": "postgame_actuals",
+          "sha256": "189c321d2a17f27b233fcd99a9dd0174ddeb0dd8649709640f6b4f1c8ed14084",
+          "source_url": null
+        },
+        {
+          "artifact_id": "identity-mapping-audit",
+          "byte_count": 6822,
+          "captured_at": "2026-07-30T08:34:32.152697Z",
+          "effective_at": null,
+          "immutable": true,
+          "path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/identity-mapping-audit-520fb24e97d0.json",
+          "role": "identity_mapping_audit",
+          "sha256": "520fb24e97d0e7bae21d592570a951201a5ba041360ad800ad9ae1c2c22a87df",
+          "source_url": null
+        },
+        {
+          "artifact_id": "mlb-statsapi-game-1001-59eb229e86a7",
+          "byte_count": 7410,
+          "captured_at": "2026-07-30T08:34:32.152811Z",
+          "effective_at": "2026-07-02T06:00:00Z",
+          "immutable": true,
+          "path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/mlb-statsapi-game-1001-59eb229e86a7-59eb229e86a7.json",
+          "role": "postgame_mlb_stats",
+          "sha256": "59eb229e86a77e996362d15147757db6d4aeb01d13022419de05650abc3091b7",
+          "source_url": "https://statsapi.mlb.com/api/v1.1/game/1001/feed/live"
+        },
+        {
+          "artifact_id": "mlb-statsapi-game-1002-7ebbaa211d37",
+          "byte_count": 6204,
+          "captured_at": "2026-07-30T08:34:32.152918Z",
+          "effective_at": "2026-07-02T06:00:00Z",
+          "immutable": true,
+          "path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/mlb-statsapi-game-1002-7ebbaa211d37-7ebbaa211d37.json",
+          "role": "postgame_mlb_stats",
+          "sha256": "7ebbaa211d3724cf603379b44b014e7d500260fa04888915c34ce5a98c33570c",
+          "source_url": "https://statsapi.mlb.com/api/v1.1/game/1002/feed/live"
+        }
+      ],
+      "backtest": null,
+      "blockers": [
+        "provider_game_set_unverified"
+      ],
+      "captured_at": "2026-07-01T21:00:00Z",
+      "data_kind": "fixture",
+      "draft_group_id": "fixture-draftgroup-100",
+      "effective_at": "2026-07-01T22:00:00Z",
+      "feature_file": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/feature-snapshot-fa6e96e2eab0.features.json",
+      "provenance_manifest": null,
+      "provider": "direct_upload",
+      "provider_game_set_verified": false,
+      "provider_slate_id": "fixture-draftgroup-100",
+      "provider_verification": null,
+      "qualification": {
+        "actuals_sha256": "189c321d2a17f27b233fcd99a9dd0174ddeb0dd8649709640f6b4f1c8ed14084",
+        "checks": [
+          {
+            "detail": "all registered bytes and hashes match",
+            "name": "immutable_artifact_hashes",
+            "status": "PASS"
+          },
+          {
+            "detail": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/feature-snapshot-fa6e96e2eab0.features.json",
+            "name": "feature_snapshot_present",
+            "status": "PASS"
+          },
+          {
+            "detail": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/artifacts/fixture-statsapi-full-pool/full-pool-actuals-189c321d2a17.actuals.json",
+            "name": "final_actuals_present",
+            "status": "PASS"
+          },
+          {
+            "detail": "strict schema and no-leakage validators passed",
+            "name": "feature_contract",
+            "status": "PASS"
+          },
+          {
+            "detail": "strict final/full-pool schema passed",
+            "name": "actuals_contract",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "actuals": "fixture",
+              "features": "fixture"
+            },
+            "name": "real_data_only",
+            "status": "FAIL"
+          },
+          {
+            "detail": {
+              "contest_style": "classic",
+              "site": "dk"
+            },
+            "name": "dk_classic_roster",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "actuals_slate_id": "fixture-statsapi-full-pool",
+              "feature_slate_id": "fixture-statsapi-full-pool",
+              "registry_slate_id": "fixture-statsapi-full-pool"
+            },
+            "name": "matching_slate_identity",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "maximum": 8800,
+              "minimum": 2300,
+              "unique_salary_count": 19
+            },
+            "name": "non_uniform_salary",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "evidence_artifact_ids": [],
+              "feature": false,
+              "registry": false
+            },
+            "name": "provider_game_set_verified",
+            "status": "FAIL"
+          },
+          {
+            "detail": {
+              "evidence_artifact_ids": [],
+              "evidence_captured_at": {},
+              "feature_provider_slate_id": "fixture-draftgroup-100",
+              "must_precede_lock": "2026-07-01T23:05:00+00:00",
+              "registry_provider_or_draft_group_id": "fixture-draftgroup-100"
+            },
+            "name": "provider_or_draftgroup_evidence",
+            "status": "FAIL"
+          },
+          {
+            "detail": {
+              "lock_time": "2026-07-01T23:05:00+00:00",
+              "snapshot_as_of": "2026-07-01T22:00:00+00:00"
+            },
+            "name": "pregame_capture",
+            "status": "PASS"
+          },
+          {
+            "detail": "every feature source raw SHA-256 is archived immutably",
+            "name": "pregame_raw_artifacts_archived",
+            "status": "PASS"
+          },
+          {
+            "detail": 2,
+            "name": "at_least_two_games",
+            "status": "PASS"
+          },
+          {
+            "detail": "all mapped",
+            "name": "complete_game_mapping",
+            "status": "PASS"
+          },
+          {
+            "detail": "every source available before every game",
+            "name": "event_time_no_leakage",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "actual_count": 21,
+              "coverage_scope": "all_feature_players",
+              "extra": [],
+              "feature_count": 21,
+              "missing": []
+            },
+            "name": "full_pool_coverage",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "source_final": true,
+              "source_timestamp": "2026-07-02T05:00:00+00:00"
+            },
+            "name": "final_boxscores",
+            "status": "PASS"
+          },
+          {
+            "detail": "every final raw stats artifact is registered",
+            "name": "postgame_raw_artifacts_archived",
+            "status": "PASS"
+          },
+          {
+            "detail": "DNP records have zero points and source evidence",
+            "name": "dnp_evidence",
+            "status": "PASS"
+          },
+          {
+            "detail": {
+              "ambiguous_count": 0,
+              "unresolved_count": 0
+            },
+            "name": "identity_unambiguous",
+            "status": "PASS"
+          },
+          {
+            "detail": "one legal 2P+C+1B+2B+3B+SS+3OF lineup exists",
+            "name": "classic_roster_feasible",
+            "status": "PASS"
+          }
+        ],
+        "feature_sha256": "fa6e96e2eab07354e3a6d3670a3aad97b0c220264f7576fc3164019b83ddb013",
+        "rejection_reasons": [
+          "provider_game_set_verified: {'feature': False, 'registry': False, 'evidence_artifact_ids': []}",
+          "provider_or_draftgroup_evidence: {'feature_provider_slate_id': 'fixture-draftgroup-100', 'registry_provider_or_draft_group_id': 'fixture-draftgroup-100', 'evidence_artifact_ids': [], 'evidence_captured_at': {}, 'must_precede_lock': '2026-07-01T23:05:00+00:00'}",
+          "real_data_only: {'features': 'fixture', 'actuals': 'fixture'}"
+        ],
+        "schema_version": "1.0",
+        "slate_id": "fixture-statsapi-full-pool",
+        "status": "REJECTED"
+      },
+      "rejection_reasons": [
+        "provider_game_set_verified: {'feature': False, 'registry': False, 'evidence_artifact_ids': []}",
+        "provider_or_draftgroup_evidence: {'feature_provider_slate_id': 'fixture-draftgroup-100', 'registry_provider_or_draft_group_id': 'fixture-draftgroup-100', 'evidence_artifact_ids': [], 'evidence_captured_at': {}, 'must_precede_lock': '2026-07-01T23:05:00+00:00'}",
+        "real_data_only: {'features': 'fixture', 'actuals': 'fixture'}"
+      ],
+      "site": "dk",
+      "slate_id": "fixture-statsapi-full-pool",
+      "state": "rejected",
+      "state_history": [
+        {
+          "at": "2026-07-30T08:34:32.148690Z",
+          "from": null,
+          "reason": "immutable capture registered",
+          "to": "captured"
+        },
+        {
+          "at": "2026-07-30T08:34:32.149019Z",
+          "from": "captured",
+          "reason": "feature snapshot ready; final actuals pending",
+          "to": "awaiting-results"
+        },
+        {
+          "at": "2026-07-30T08:34:32.166060Z",
+          "from": "awaiting-results",
+          "reason": "one or more strict historical qualification gates failed",
+          "to": "rejected"
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-07-30T08:34:32.166074Z"
+}

@@ -1,0 +1,63 @@
+{
+  "baseline_backtest": {
+    "reason": "no qualified real slates",
+    "status": "NOT_EVALUATED"
+  },
+  "candidate_backtest": null,
+  "dataset": null,
+  "deployment_performed": false,
+  "events": [
+    {
+      "actuals_supplied": false,
+      "feature_sha256": "fa6e96e2eab07354e3a6d3670a3aad97b0c220264f7576fc3164019b83ddb013",
+      "provider_evidence_supplied": false,
+      "slate_id": "fixture-statsapi-full-pool",
+      "stage": "direct_upload",
+      "status": "REGISTERED"
+    },
+    {
+      "stage": "integrity",
+      "status": "PASS"
+    },
+    {
+      "reason": "no qualified real slates",
+      "stage": "backtest",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "reason": "no qualified real rows are available",
+      "stage": "dataset",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "model_card_path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/models/MODEL_CARD.md",
+      "model_card_sha256": "8ee33ca7f107ed0e6b881ee50478d74a14011f90a72772ddf618f4a1f6503ada",
+      "model_path": null,
+      "model_sha256": null,
+      "report_path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/models/promotion-report.json",
+      "report_sha256": "4ca2278cc2102e5429d5cb46c4fa4a6b46043b4522f3554f43819f2d54cf2d10",
+      "stage": "model",
+      "status": "REJECTED_NOT_EVALUATED"
+    }
+  ],
+  "known_blocker": "No qualified real slate exists until a genuine pre-lock non-uniform DK Classic snapshot, verified provider/DraftGroup evidence, exact identity mapping, and final full-pool actuals are archived.",
+  "model": {
+    "model_card_path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/models/MODEL_CARD.md",
+    "model_card_sha256": "8ee33ca7f107ed0e6b881ee50478d74a14011f90a72772ddf618f4a1f6503ada",
+    "model_path": null,
+    "model_sha256": null,
+    "report_path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/models/promotion-report.json",
+    "report_sha256": "4ca2278cc2102e5429d5cb46c4fa4a6b46043b4522f3554f43819f2d54cf2d10",
+    "status": "REJECTED_NOT_EVALUATED"
+  },
+  "offline": true,
+  "production_changes": false,
+  "registry_path": "/mnt/data/mlb_history_model_work/reports/history-model-upgrade/offline-example/runtime/catalog/registry.json",
+  "registry_sha256": "857b7da272ffeb59d7db77e421cbc88f06fecee213454622e83c68bf96495196",
+  "schema_version": "1.0",
+  "seed": 20260730,
+  "slate_states": {
+    "rejected": 1
+  },
+  "status": "COMPLETE"
+}

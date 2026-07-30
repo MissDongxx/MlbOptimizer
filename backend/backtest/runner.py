@@ -11,6 +11,8 @@ from pydantic import ValidationError
 from backtest.contracts import SlateActualPoints, SlateFeatureSnapshot
 from backtest.io import load_json, write_csv, write_json
 from backtest.provenance import ProvenanceError, ProvenanceIndex
+from backtest.pipeline.modeling import predict_feature_snapshot
+from backtest.pipeline.registry import Registry, sha256_file as registry_sha256_file
 from backtest.statistics import (
     paired_bootstrap_ci,
     relative_mean_difference,
@@ -26,6 +28,7 @@ from services.optimizer_legacy import (
 
 
 METHODS = ("random", "legacy", "optimized")
+SELECTED_ACTUALS_ACK = "SELECTED_ONLY_ACTUALS_NOT_GENERALIZABLE"
 
 
 @dataclass(frozen=True)
@@ -39,6 +42,10 @@ class BacktestConfig:
     min_real_slates: int = 30
     bootstrap_samples: int = 2000
     provenance_manifest: Path | None = None
+    allow_limited_selected_actuals: bool = False
+    selected_actuals_ack: str | None = None
+    qualified_registry: Path | None = None
+    candidate_model: Path | None = None
 
 
 class BacktestDataError(ValueError):
@@ -55,7 +62,7 @@ def run_backtest(config: BacktestConfig) -> dict[str, Any]:
     has_real_inputs = any(load_json(path).get("data_kind") == "real" for path in feature_paths)
     provenance: ProvenanceIndex | None = None
     provenance_load_error: ProvenanceError | None = None
-    if has_real_inputs:
+    if has_real_inputs and config.qualified_registry is None:
         try:
             provenance = ProvenanceIndex.load(config.slate_dir, config.provenance_manifest)
         except ProvenanceError as exc:
@@ -116,6 +123,20 @@ def _validate_config(config: BacktestConfig) -> None:
         raise BacktestDataError("noninferiority_margin must be in [0, 1)")
     if config.bootstrap_samples < 1:
         raise BacktestDataError("bootstrap_samples must be at least 1")
+    if config.qualified_registry is not None and not config.qualified_registry.is_file():
+        raise BacktestDataError(f"qualified_registry does not exist: {config.qualified_registry}")
+    if config.candidate_model is not None and not config.candidate_model.is_file():
+        raise BacktestDataError(f"candidate_model does not exist: {config.candidate_model}")
+    if config.allow_limited_selected_actuals:
+        if config.selected_actuals_ack != SELECTED_ACTUALS_ACK:
+            raise BacktestDataError(
+                "selected-only actuals require --acknowledge-selected-only-risk "
+                f"{SELECTED_ACTUALS_ACK}"
+            )
+    elif config.selected_actuals_ack is not None:
+        raise BacktestDataError(
+            "selected_actuals_ack is invalid unless allow_limited_selected_actuals is enabled"
+        )
 
 
 def _run_slate(
@@ -143,53 +164,99 @@ def _run_slate(
         raise BacktestDataError("Actual-points acquired_at must be at or after slate_start")
 
     manifest_entry = None
+    registry_entry = None
     if features.data_kind == "real":
-        if provenance_load_error is not None:
-            raise provenance_load_error
-        if provenance is None:
-            raise ProvenanceError("A qualified provenance manifest is required for real data")
-        assert features.contest_style is not None
-        assert features.provider_slate_id is not None
-        manifest_entry = provenance.validate_real_slate(
-            slate_id=features.slate_id,
-            site=features.site,
-            contest_style=features.contest_style,
-            provider_slate_id=features.provider_slate_id,
-            game_ids=features.game_ids,
-            lock_time=features.lock_time,
-            snapshot_as_of=features.snapshot_as_of,
-            scope=features.scope,
-            provider_game_set_verified=features.provider_game_set_verified,
-            validation_scope=features.validation_scope,
-            warnings=features.warnings,
-            feature_path=feature_path,
-            actuals_path=actual_path,
-            scoring_rules_version=actuals.scoring_rules_version,
-            feature_sources=features.sources,
-            raw_stats_artifact_ids=actuals.raw_stats_artifact_ids,
-            scoring_rules_artifact_id=actuals.scoring_rules_artifact_id,
-            actuals_source_record_id=actuals.source_record_id,
-            actuals_source_timestamp=actuals.source_timestamp,
-            actuals_acquired_at=actuals.acquired_at,
-            actuals_source_final=actuals.source_final,
-        )
+        if config.qualified_registry is not None:
+            registry_entry = Registry(config.qualified_registry).get(features.slate_id)
+            if registry_entry is None or registry_entry.get("state") not in {"qualified", "backtested"}:
+                raise BacktestDataError(
+                    f"real slate {features.slate_id} is not qualified in the supplied registry"
+                )
+            qualification = registry_entry.get("qualification") or {}
+            if qualification.get("status") != "QUALIFIED":
+                raise BacktestDataError(
+                    f"real slate {features.slate_id} lacks a passing qualification report"
+                )
+            if qualification.get("feature_sha256") != _sha256(feature_path):
+                raise BacktestDataError("staged feature bytes differ from the registry-qualified hash")
+            if qualification.get("actuals_sha256") != _sha256(actual_path):
+                raise BacktestDataError("staged actuals bytes differ from the registry-qualified hash")
+        else:
+            if provenance_load_error is not None:
+                raise provenance_load_error
+            if provenance is None:
+                raise ProvenanceError("A qualified provenance manifest is required for real data")
+            assert features.contest_style is not None
+            assert features.provider_slate_id is not None
+            manifest_entry = provenance.validate_real_slate(
+                slate_id=features.slate_id,
+                site=features.site,
+                contest_style=features.contest_style,
+                provider_slate_id=features.provider_slate_id,
+                game_ids=features.game_ids,
+                lock_time=features.lock_time,
+                snapshot_as_of=features.snapshot_as_of,
+                scope=features.scope,
+                provider_game_set_verified=features.provider_game_set_verified,
+                validation_scope=features.validation_scope,
+                warnings=features.warnings,
+                feature_path=feature_path,
+                actuals_path=actual_path,
+                scoring_rules_version=actuals.scoring_rules_version,
+                feature_sources=features.sources,
+                raw_stats_artifact_ids=actuals.raw_stats_artifact_ids,
+                scoring_rules_artifact_id=actuals.scoring_rules_artifact_id,
+                actuals_source_record_id=actuals.source_record_id,
+                actuals_source_timestamp=actuals.source_timestamp,
+                actuals_acquired_at=actuals.acquired_at,
+                actuals_source_final=actuals.source_final,
+            )
 
     actual_by_id = {record.mlbam_id: record.actual_points for record in actuals.points}
     if actuals.validation_scope != features.validation_scope:
         raise BacktestDataError("Feature and actuals validation_scope values differ")
+    feature_ids = {player.mlbam_id for player in features.players}
+    actual_ids = set(actual_by_id)
     if actuals.coverage_scope == "all_feature_players":
-        missing_actuals = sorted(
-            player.mlbam_id for player in features.players if player.mlbam_id not in actual_by_id
-        )
-        if missing_actuals:
+        missing_actuals = sorted(feature_ids - actual_ids)
+        extra_actuals = sorted(actual_ids - feature_ids)
+        if missing_actuals or extra_actuals:
             raise BacktestDataError(
-                f"Actual points are missing for feature players: {missing_actuals[:20]}"
+                "Full-pool actual coverage must exactly equal the feature salary pool; "
+                f"missing={missing_actuals[:20]} extra={extra_actuals[:20]}"
             )
-    elif not (
-        features.scope == "historical_daily_pool"
-        and features.validation_scope == "LIMITED_SINGLE_SLATE_VALIDATION"
-    ):
-        raise BacktestDataError("selected-lineup actual coverage is only allowed for a limited historical daily pool")
+        if actuals.coverage_summary is not None:
+            if actuals.coverage_summary.feature_player_count != len(feature_ids):
+                raise BacktestDataError(
+                    "Actual coverage summary feature_player_count disagrees with feature pool"
+                )
+    else:
+        if not (
+            features.scope == "historical_daily_pool"
+            and features.validation_scope == "LIMITED_SINGLE_SLATE_VALIDATION"
+        ):
+            raise BacktestDataError(
+                "selected-lineup actual coverage is only allowed for a limited historical daily pool"
+            )
+        if not config.allow_limited_selected_actuals:
+            raise BacktestDataError(
+                "selected-only actuals are disabled by default; explicit limited-mode flag and "
+                "risk acknowledgement are required"
+            )
+        if actuals.selection_seed != config.seed:
+            raise BacktestDataError(
+                "selected-only actuals are seed-bound; "
+                f"actuals seed={actuals.selection_seed}, requested seed={config.seed}"
+            )
+        feature_sha256 = _sha256(feature_path)
+        if actuals.selection_feature_sha256 != feature_sha256:
+            raise BacktestDataError(
+                "selected-only actuals are feature-bound; "
+                f"actuals feature hash={actuals.selection_feature_sha256}, "
+                f"current feature hash={feature_sha256}"
+            )
+        if actuals.limited_mode_acknowledgement != SELECTED_ACTUALS_ACK:
+            raise BacktestDataError("selected-only actuals file lacks the required risk acknowledgement")
 
     request = OptimizeRequest(
         site=features.site,
@@ -200,6 +267,11 @@ def _run_slate(
     )
 
     method_responses: dict[str, OptimizeResponse] = {}
+    method_requests: dict[str, OptimizeRequest] = {
+        "random": request,
+        "legacy": request,
+        "optimized": request,
+    }
     method_responses["random"] = generate_lineups(
         request, method="random", seed=config.seed, prefer_pydfs=False
     )
@@ -210,6 +282,25 @@ def _run_slate(
     method_responses["optimized"] = generate_lineups(
         request, method="optimized", seed=config.seed, prefer_pydfs=False
     )
+    if config.candidate_model is not None:
+        candidate_predictions = predict_feature_snapshot(features, config.candidate_model)
+        candidate_request = request.model_copy(
+            deep=True,
+            update={
+                "players": [
+                    player.model_copy(
+                        update={"projected_points": candidate_predictions[player.mlbam_id]}
+                    )
+                    for player in request.players
+                ]
+            },
+        )
+        candidate_response = generate_lineups(
+            candidate_request, method="optimized", seed=config.seed, prefer_pydfs=False
+        )
+        candidate_response.method = "candidate_model"
+        method_responses["candidate_model"] = candidate_response
+        method_requests["candidate_model"] = candidate_request
 
     for method, response in method_responses.items():
         if len(response.lineups) != config.lineups_per_method:
@@ -217,7 +308,7 @@ def _run_slate(
                 f"{method} generated {len(response.lineups)} lineups; "
                 f"expected {config.lineups_per_method}"
             )
-        validate_lineup_set(request, response.lineups)
+        validate_lineup_set(method_requests[method], response.lineups)
 
     if actuals.coverage_scope == "selected_lineup_players":
         selected_ids = {
@@ -239,10 +330,11 @@ def _run_slate(
 
     rows: list[dict[str, Any]] = []
     method_scores: dict[str, list[float]] = {}
-    for method in METHODS:
+    methods = list(METHODS) + (["candidate_model"] if "candidate_model" in method_responses else [])
+    for method in methods:
         method_scores[method] = []
         for lineup in method_responses[method].lineups:
-            validation = validate_lineup(request, lineup)
+            validation = validate_lineup(method_requests[method], lineup)
             actual_score = sum(actual_by_id[player.mlbam_id] for player in lineup.players)
             method_scores[method].append(actual_score)
             rows.append(
@@ -293,6 +385,7 @@ def _run_slate(
         "validation_scope": features.validation_scope,
         "warnings": sorted(set(features.warnings + actuals.warnings)),
         "actuals_coverage_scope": actuals.coverage_scope,
+        "selected_actuals_limited_mode": actuals.coverage_scope == "selected_lineup_players",
         "lineups_per_method": config.lineups_per_method,
         "random_mean_actual": means["random"],
         "legacy_mean_actual": means["legacy"],
@@ -300,6 +393,18 @@ def _run_slate(
         "optimized_vs_random_relative": _relative(means["optimized"], means["random"]),
         "optimized_vs_legacy_relative": _relative(means["optimized"], means["legacy"]),
         "optimized_beats_random": means["optimized"] > means["random"],
+        "candidate_model_mean_actual": means.get("candidate_model"),
+        "candidate_model_vs_optimized_relative": (
+            _relative(means["candidate_model"], means["optimized"])
+            if "candidate_model" in means else None
+        ),
+        "candidate_model_vs_legacy_relative": (
+            _relative(means["candidate_model"], means["legacy"])
+            if "candidate_model" in means else None
+        ),
+        "candidate_model_sha256": (
+            registry_sha256_file(config.candidate_model) if config.candidate_model else None
+        ),
         "sample_size_per_method": config.lineups_per_method,
         "snapshot_as_of": features.snapshot_as_of.isoformat(),
         "lock_time": features.lock_time.isoformat(),
@@ -316,6 +421,9 @@ def _run_slate(
         ),
         "provenance_qualification_status": (
             manifest_entry.qualification_status if manifest_entry else None
+        ),
+        "registry_qualification_status": (
+            (registry_entry.get("qualification") or {}).get("status") if registry_entry else None
         ),
     }
     write_json(config.output_dir / f"{base_name}.summary.json", slate_summary)
@@ -404,6 +512,54 @@ def _summarize(
         random_differences = legacy_differences = []
         random_ci = legacy_ci = (None, None)
 
+    candidate_slates = [
+        slate for slate in evaluation_slates if slate.get("candidate_model_mean_actual") is not None
+    ]
+    if candidate_slates:
+        candidate_mean = fmean(float(item["candidate_model_mean_actual"]) for item in candidate_slates)
+        candidate_vs_optimized_pairs = [
+            (float(item["candidate_model_mean_actual"]), float(item["optimized_mean_actual"]))
+            for item in candidate_slates
+        ]
+        candidate_vs_legacy_pairs = [
+            (float(item["candidate_model_mean_actual"]), float(item["legacy_mean_actual"]))
+            for item in candidate_slates
+        ]
+        candidate_vs_random_pairs = [
+            (float(item["candidate_model_mean_actual"]), float(item["random_mean_actual"]))
+            for item in candidate_slates
+        ]
+        candidate_metrics = {
+            "slate_count": len(candidate_slates),
+            "mean_actual": candidate_mean,
+            "vs_current_optimized_relative": relative_mean_difference(candidate_vs_optimized_pairs),
+            "vs_current_optimized_relative_bootstrap_95_ci": list(
+                paired_bootstrap_ci(
+                    candidate_vs_optimized_pairs,
+                    statistic=relative_mean_difference,
+                    seed=config.seed + 303,
+                    samples=config.bootstrap_samples,
+                )
+            ),
+            "vs_legacy_relative": relative_mean_difference(candidate_vs_legacy_pairs),
+            "vs_random_relative": relative_mean_difference(candidate_vs_random_pairs),
+            "interpretation": (
+                "FORMAL_SAMPLE_AVAILABLE" if len(candidate_slates) >= config.min_real_slates
+                else "NOT_EVALUATED_INSUFFICIENT_QUALIFIED_SLATES"
+            ),
+        }
+    else:
+        candidate_mean = None
+        candidate_metrics = {
+            "slate_count": 0,
+            "mean_actual": None,
+            "vs_current_optimized_relative": None,
+            "vs_current_optimized_relative_bootstrap_95_ci": [None, None],
+            "vs_legacy_relative": None,
+            "vs_random_relative": None,
+            "interpretation": "NOT_RUN",
+        }
+
     enough_data = len(evaluation_slates) >= config.min_real_slates
     limited_validation = bool(evaluation_slates) and any(
         slate.get("validation_scope") == "LIMITED_SINGLE_SLATE_VALIDATION"
@@ -476,6 +632,7 @@ def _summarize(
             "random_actual": random_mean,
             "legacy_actual": legacy_mean,
             "optimized_actual": optimized_mean,
+            "candidate_model_actual": candidate_mean,
         },
         "paired_metrics_real_slates_only": {
             "optimized_vs_random_relative": relative_random,
@@ -486,6 +643,7 @@ def _summarize(
             "optimized_vs_legacy_relative_bootstrap_95_ci": list(legacy_ci),
             "optimized_vs_legacy_difference_standard_error": standard_error(legacy_differences),
         },
+        "candidate_model_lineup_comparison": candidate_metrics,
         "gates": gates,
         "slates": sorted(slates, key=lambda item: item["slate_id"]),
         "failures": failures,
@@ -513,6 +671,7 @@ def _flatten_summary(summary: dict[str, Any]) -> dict[str, Any]:
         "random_mean_actual": means["random_actual"],
         "legacy_mean_actual": means["legacy_actual"],
         "optimized_mean_actual": means["optimized_actual"],
+        "candidate_model_mean_actual": means.get("candidate_model_actual"),
         "optimized_vs_random_relative": metrics["optimized_vs_random_relative"],
         "optimized_vs_random_win_rate": metrics["optimized_vs_random_slate_win_rate"],
         "optimized_vs_legacy_relative": metrics["optimized_vs_legacy_relative"],
@@ -520,6 +679,7 @@ def _flatten_summary(summary: dict[str, Any]) -> dict[str, Any]:
         "random_improvement_status": gates["optimized_vs_random_mean"]["status"],
         "slate_win_rate_status": gates["optimized_vs_random_slate_win_rate"]["status"],
         "legacy_noninferiority_status": gates["optimized_vs_legacy_noninferiority"]["status"],
+        "candidate_model_interpretation": summary["candidate_model_lineup_comparison"]["interpretation"],
     }
 
 

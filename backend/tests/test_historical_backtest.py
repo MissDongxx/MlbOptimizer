@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 from datetime import UTC, date, datetime
 from pathlib import Path
 import tempfile
@@ -10,7 +11,7 @@ import unittest
 from pydantic import ValidationError
 
 from backtest.contracts import SlateFeatureSnapshot
-from backtest.historical.builder import HistoricalSlateBuilder
+from backtest.historical.builder import HistoricalBuilderError, HistoricalSlateBuilder
 from backtest.historical.identity import (
     IdentityMappingError,
     MlbIdentity,
@@ -88,8 +89,10 @@ class HistoricalDataTests(unittest.TestCase):
         )
         self.assertEqual(projection, 10.0)
         self.assertEqual(audit["history_games_used"], 1)
-        self.assertEqual(audit["future_rows_ignored"], 2)
-        self.assertEqual(audit["cutoff_date_exclusive"], "2026-07-01")
+        self.assertEqual(audit["cutoff_or_future_rows_ignored"], 2)
+        self.assertEqual(
+            audit["cutoff_timestamp_exclusive"], "2026-07-01T23:05:00+00:00"
+        )
 
     def test_identity_mapping_requires_explicit_resolution_for_ambiguity(self) -> None:
         platform = [PlatformPlayerIdentity("dk-1", "Jose Ramirez Jr.", "CLE")]
@@ -159,6 +162,27 @@ class HistoricalDataTests(unittest.TestCase):
             self.assertEqual(summary["gates"]["minimum_real_slates"]["status"], "FAIL")
             slate = summary["slates"][0]
             self.assertEqual(slate["lineups_per_method"], 2)
+
+    def test_historical_builder_rejects_missing_full_pool_postgame_evidence(self) -> None:
+        source_root = FIXTURE_DIR.parent / "historical-builder"
+        with tempfile.TemporaryDirectory() as temp_root, tempfile.TemporaryDirectory() as output_dir:
+            copied = Path(temp_root) / "historical-builder"
+            shutil.copytree(source_root, copied)
+            postgame_path = copied / "raw-input" / "fixture-postgame-stats.json"
+            payload = json.loads(postgame_path.read_text())
+            removed = payload["rows"].pop()
+            postgame_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+            bundle_path = copied / "bundle.json"
+            bundle = json.loads(bundle_path.read_text())
+            for artifact in bundle["artifacts"]:
+                if artifact["role"] == "postgame_mlb_stats":
+                    artifact["sha256"] = hashlib.sha256(postgame_path.read_bytes()).hexdigest()
+            bundle_path.write_text(json.dumps(bundle, indent=2, sort_keys=True) + "\n")
+            with self.assertRaisesRegex(
+                HistoricalBuilderError, "lacks explicit full-pool player evidence"
+            ):
+                HistoricalSlateBuilder(bundle_path, Path(output_dir)).build()
+            self.assertIsInstance(removed["mlbam_id"], int)
 
     def test_real_contract_without_manifest_is_rejected_by_runner(self) -> None:
         with (

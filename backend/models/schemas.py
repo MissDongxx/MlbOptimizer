@@ -193,7 +193,7 @@ class OptimizeResponse(BaseModel):
     lineups: list[Lineup]
     solve_time_ms: int
     warnings: list[str] = []
-    method: Literal["optimized", "random", "legacy"] | None = None
+    method: Literal["optimized", "random", "legacy", "candidate_model"] | None = None
     seed: int | None = None
 
 
