@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { absoluteUrl, brandName, defaultOgImage, homeSeo, siteName, siteUrl } from "@/lib/seo";
+import { brandName, defaultOgImage, homeSeo, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {

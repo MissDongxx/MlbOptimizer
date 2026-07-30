@@ -3,7 +3,6 @@
 import {
   Activity,
   ChevronDown,
-  Download,
   List,
   Mail,
   Settings,
@@ -368,7 +367,7 @@ export default function Home() {
     return () => window.clearInterval(timer);
   }, [optimizing]);
 
-  const allPlayers = data?.players ?? [];
+  const allPlayers = useMemo(() => data?.players ?? [], [data?.players]);
   const players = useMemo(
     () =>
       allPlayers.filter(

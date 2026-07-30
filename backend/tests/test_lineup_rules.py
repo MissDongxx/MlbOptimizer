@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import Counter
 import unittest
 
-from models.schemas import Lineup, LineupPlayer, OptimizeRequest, OptimizerSettings, PlayerInput
+from models.schemas import OptimizeRequest, OptimizerSettings, PlayerInput
 from services.lineup_rules import assign_slots, max_exposure_count, validate_lineup, validate_lineup_set
 from services.mock_data import mock_players
 from services.optimizer import generate_lineups
