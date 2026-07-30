@@ -17,6 +17,47 @@ class LineupDataTests(unittest.TestCase):
         lineup_data._player_pool_cache = None
         lineup_data._player_pool_cached_at = 0.0
 
+    @patch.dict("os.environ", {"USE_MOCK_DATA": "true"})
+    def test_selected_slate_mock_mode_uses_cached_full_pool_without_network(self) -> None:
+        now = datetime.now(UTC)
+        slate = {
+            "last_updated": now.isoformat(),
+            "source": "daily_fantasy_fuel",
+            "players": [
+                {
+                    "name": f"Slate Player {index}",
+                    "team": "LAD" if index % 2 else "NYY",
+                    "opponent": "NYY" if index % 2 else "LAD",
+                    "positions": ["P"] if index < 4 else ["OF"],
+                    "salary": 3000 + index * 100,
+                    "projected_points": 5.0 + index,
+                    "lineup_status": "expected",
+                }
+                for index in range(30)
+            ],
+        }
+        with (
+            patch.object(lineup_data, "load_salary_slate", return_value=slate),
+            patch.object(lineup_data, "_get_live_player_pool") as live_pool,
+        ):
+            response = lineup_data.get_player_pool_for_slate("dk", "24F83")
+
+        live_pool.assert_not_called()
+        self.assertEqual(len(response.players), 30)
+        self.assertEqual(response.data_status, "mock")
+        self.assertIn("cached public slate player pool", response.warnings[0])
+
+    @patch.dict("os.environ", {"USE_MOCK_DATA": "false"})
+    def test_selected_slate_missing_cache_fails_fast_for_background_refresh(self) -> None:
+        with (
+            patch.object(lineup_data, "load_salary_slate", return_value={"players": []}),
+            patch.object(lineup_data, "_get_live_player_pool") as live_pool,
+        ):
+            with self.assertRaises(lineup_data.SlateDataUnavailable):
+                lineup_data.get_player_pool_for_slate("dk", "missing")
+
+        live_pool.assert_not_called()
+
     def test_players_from_boxscore_side_marks_confirmed_starters(self) -> None:
         boxscore = {
             "away": {

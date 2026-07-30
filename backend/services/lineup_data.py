@@ -16,10 +16,14 @@ from services.season_cache import load_season_splits
 from services.slate_data import (
     apply_salary_slates,
     load_salary_slate,
-    refresh_dff_slate,
     update_dff_slate_membership,
     validate_with_rotowire,
 )
+
+
+class SlateDataUnavailable(ValueError):
+    """Raised when a selected slate has not been warmed into the local cache."""
+
 
 _last_refresh_timestamp: datetime | None = None
 _last_player_count = 0
@@ -89,6 +93,7 @@ def get_player_pool_for_slate(site: str, slate_id: str) -> PlayerPoolResponse:
 
     now = datetime.now(UTC)
     target_date = date.today().isoformat()
+    use_mock = os.getenv("USE_MOCK_DATA", "true").lower() == "true"
     slate = load_salary_slate(normalized_site, target_date, normalized_slate_id)
     slate_stale = bool(slate.get("players")) and not _cache_is_recent_minutes(
         slate.get("last_updated"),
@@ -96,17 +101,32 @@ def get_player_pool_for_slate(site: str, slate_id: str) -> PlayerPoolResponse:
         minutes=max(1, int(os.getenv("DFF_REFRESH_MINUTES", "10"))),
     )
     if not slate.get("players"):
-        slate = refresh_dff_slate(normalized_site, target_date, normalized_slate_id)
+        if not use_mock:
+            raise SlateDataUnavailable(
+                f"{normalized_site.upper()} slate {normalized_slate_id} is not cached yet; "
+                "the background data refresh must complete before it can be selected."
+            )
     salary_slates = {normalized_site: slate}
 
-    use_mock = os.getenv("USE_MOCK_DATA", "true").lower() == "true"
     base_updated = now
     used_snapshot = False
     snapshot_stale = False
     if use_mock:
         games = mock_games()
-        players = mock_players()
-        warnings = ["Using mock data. Disable USE_MOCK_DATA for live production traffic."]
+        if slate.get("players"):
+            players = []
+            _add_salary_slate_candidates(players, games, now, salary_slates)
+            _retain_salary_slate_players(players, target_date, salary_slates)
+            apply_salary_slates(players, target_date, salary_slates)
+            warnings = [
+                "Development mode: using the cached public slate player pool with mock game context."
+            ]
+            base_updated = _slate_updated_at(slate, now)
+        else:
+            players = mock_players()
+            warnings = [
+                "Development mode: this slate is not cached, so the small built-in mock pool is shown."
+            ]
         data_status = "mock"
     else:
         snapshot = _load_player_pool_snapshot(target_date)
@@ -150,11 +170,15 @@ def get_player_pool_for_slate(site: str, slate_id: str) -> PlayerPoolResponse:
         for item in slate.get("players", [])
         if item.get("team")
     }
-    selected_games = [
-        game
-        for game in games
-        if _team_key(game.away_team) in slate_teams or _team_key(game.home_team) in slate_teams
-    ]
+    selected_games = (
+        games
+        if use_mock
+        else [
+            game
+            for game in games
+            if _team_key(game.away_team) in slate_teams or _team_key(game.home_team) in slate_teams
+        ]
+    )
     update_dff_slate_membership(
         normalized_site,
         target_date,
@@ -190,6 +214,17 @@ def get_player_pool_for_slate(site: str, slate_id: str) -> PlayerPoolResponse:
             use_mock,
         ),
     )
+
+
+def _slate_updated_at(slate: dict[str, Any], fallback: datetime) -> datetime:
+    value = slate.get("last_updated")
+    if not value:
+        return fallback
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return fallback
+    return parsed if parsed.tzinfo is not None else parsed.replace(tzinfo=UTC)
 
 
 def get_todays_player_pool(force_refresh: bool = False) -> PlayerPoolResponse:

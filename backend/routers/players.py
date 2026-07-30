@@ -3,7 +3,11 @@ from datetime import date
 from fastapi import APIRouter, HTTPException, Query
 
 from models.schemas import PlayerPoolResponse, SlateListResponse
-from services.lineup_data import get_player_pool_for_slate, get_todays_player_pool
+from services.lineup_data import (
+    SlateDataUnavailable,
+    get_player_pool_for_slate,
+    get_todays_player_pool,
+)
 from services.slate_data import get_dff_slates
 
 router = APIRouter()
@@ -20,7 +24,10 @@ async def players_today(
             detail="site and slate_id must be provided together",
         )
     if site and slate_id:
-        return get_player_pool_for_slate(site, slate_id)
+        try:
+            return get_player_pool_for_slate(site, slate_id)
+        except SlateDataUnavailable as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
     return get_todays_player_pool()
 
 
