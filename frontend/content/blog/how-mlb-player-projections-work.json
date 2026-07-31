@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "slug": "how-mlb-player-projections-work",
+  "category": "projections-stats",
+  "primaryKeyword": "how mlb player projections work",
+  "intent": "informational",
+  "title": "How MLB Player Projections Work: A Practical Guide",
+  "description": "Learn how MLB player projections blend recent performance, platoon context, park effects, batting order, playing time, and uncertainty.",
+  "excerpt": "A transparent guide to the layers behind an MLB player projection, from a stable performance baseline to matchup context and a final range of outcomes.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "keyTakeaways": [
+    "A useful projection starts with an estimate of underlying player skill, not a copy of the latest box score or season average.",
+    "Opponent handedness, ballpark, expected batting order, and playing time change the opportunity and context around that baseline.",
+    "The final number is an estimate near the center of many possible outcomes, so late information and uncertainty belong in the workflow."
+  ],
+  "sections": [
+    {
+      "heading": "Start with the question a projection answers",
+      "paragraphs": [
+        "An MLB player projection is a forecast for a defined period: a season, the rest of a season, or one game. It is not a statement of what must happen. MLB's projection-systems glossary describes the common foundation as past performance, with recent results weighted more heavily, plus age and other factors. The time horizon matters because a season forecast estimates a large body of opportunity, while a daily fantasy projection must also estimate whether the player starts, where he bats, and how much of the game he is likely to play.",
+        "Separate rate from opportunity. A hitter can have a strong forecast per plate appearance but a modest single-game total if he is expected to bat near the bottom of the order or might not start. A pitcher can have an attractive strikeout rate but a lower total projection when workload is uncertain. A complete fantasy projection therefore combines an estimate of performance per opportunity with an estimate of opportunities, then translates the expected events into the relevant scoring system.",
+        "This is also why two responsible models can disagree without either one being dishonest. They may use different history windows, aging assumptions, playing-time estimates, matchup adjustments, or update times. The useful question is not which number looks more precise. It is what the number represents, what information was available when it was produced, and which assumptions would change it."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-steamer",
+        "mlb-plate-appearance",
+        "fangraphs-projections"
+      ]
+    },
+    {
+      "heading": "Build a stable baseline from past performance",
+      "paragraphs": [
+        "The baseline is an estimate of a player's current underlying ability before today's opponent and venue are applied. A simple model might weight several seasons of rates, emphasize the most recent data, adjust for age, and pull extreme results toward an appropriate comparison group. More elaborate systems can add minor-league translations, pitch tracking, batted-ball components, injuries, role information, or similar-player aging patterns. The exact recipe varies, so an article about projections should not pretend that every model uses the same proprietary inputs.",
+        "Regression toward an appropriate mean is a safeguard against treating a short hot or cold stretch as permanent talent. It does not erase player differences. It reduces the amount of confidence assigned to noisy observations, especially when the sample is small. FanGraphs explains projections as attempts to infer true talent from the whole relevant record rather than simply carrying the last few weeks forward. MLB's Steamer glossary likewise says that Steamer uses past performance and aging trends, while incorporating pitch-tracking data for pitcher forecasts.",
+        "Underlying contact measures can add context to ordinary results. Baseball Savant says its expected statistics use exit velocity and launch angle to assign outcomes based on comparable historical balls in play, then combine those contact estimates with actual strikeouts, walks, and hit-by-pitches. That can help distinguish quality of contact from what happened after the ball was hit. Expected statistics are evidence about performance, however, not a finished fantasy projection: they do not by themselves supply today's opponent, batting order, playing time, park, or scoring conversion."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-steamer",
+        "savant-expected-statistics",
+        "fangraphs-projections"
+      ]
+    },
+    {
+      "heading": "Estimate opportunity separately from skill",
+      "paragraphs": [
+        "Counting statistics require playing time. FanGraphs' current projection page distinguishes rate forecasts from Depth Charts projections, which combine Steamer and ZiPS with staff playing-time estimates. That distinction is practical: projected home runs, runs, strikeouts, or fantasy points depend on how often the underlying rates have a chance to occur. A role change can move the total even when the model's estimate of per-opportunity skill barely changes.",
+        "For a hitter, the opportunity layer asks whether he will be in the lineup, his expected plate appearances, and the risk of a pinch hitter or defensive replacement. For a pitcher, it asks whether he is confirmed to start, his expected innings or batters faced, and any workload restriction. These are estimates, not guarantees. Team decisions, injury recovery, game state, and weather can shorten or remove the expected opportunity.",
+        "Keep the units visible when comparing projections. A rest-of-season rate, a forecast over a fixed number of plate appearances, and a one-game fantasy-point total answer different questions. Multiplying a rate by an opportunity estimate is a transparent conceptual bridge, but production systems may model the event distribution in more detail. Users should compare projections only after confirming that time horizon, playing-time assumption, and scoring format match."
+      ],
+      "sourceIds": [
+        "fangraphs-current-projections",
+        "fangraphs-depth-charts",
+        "mlb-plate-appearance",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Apply platoon splits without trusting tiny samples",
+      "paragraphs": [
+        "Platoon context separates performance against left-handed and right-handed pitching. FanGraphs' splits guide describes the usual pattern: hitters generally perform better against opposite-handed pitching, while pitchers tend to have the corresponding advantage against same-handed hitters. A daily projection can use the probable starter's throwing hand and the batter's side to adjust a neutral baseline, then account for the chance that relievers of another hand enter later.",
+        "Observed splits are not automatically true-talent splits. Dividing a player's history creates smaller samples, and the opponents in each group may not be equal. FanGraphs warns that the plate appearances in each side of a split matter and that observed differences include both skill and random variation. A responsible projection therefore tempers a player's raw split with a broader prior instead of assuming that a dramatic result from a limited record will continue unchanged.",
+        "Verify the actual matchup rather than relying on an early assumption. MLB's starting-lineup page identifies probable or starting pitchers by throwing hand and lists confirmed hitters with batting side when available, while also labeling the information subject to change. A starter replacement can alter the split adjustment, the opponent quality, and even whether a platoon hitter starts. Recalculate rather than manually preserving an obsolete matchup boost."
+      ],
+      "sourceIds": [
+        "fangraphs-splits",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Adjust for the ballpark, not the team name",
+      "paragraphs": [
+        "Ballparks change the environment in which the same contact can become a hit, extra-base hit, out, or run. Baseball Savant's Statcast Park Factors compare how often a selected event occurred for players in a venue with how those same players performed elsewhere, controlling for handedness. The leaderboard centers each metric at 100, so a factor should be read relative to average for that specific event rather than as a general label that a stadium is always good or bad for every hitter.",
+        "Use the factor that matches the projection component. Home-run environment, overall run scoring, singles, doubles, and strikeouts are different measurements. A venue can affect left-handed and right-handed batters differently, and a multi-year view may be more stable than a partial season. The adjustment should also avoid double counting: if the baseline source already contains park-neutral rates or the model already includes a venue effect, adding the same factor again would distort the forecast.",
+        "Park factors describe observed environment, not a guarantee for tonight. Roof status, temperature, wind, air density, field changes, and the particular batted balls in one game can differ from a historical average. A projection can use the park as one contextual layer while reserving weather and roof information for a separate, time-stamped update."
+      ],
+      "sourceIds": [
+        "savant-park-factors",
+        "savant-expected-statistics"
+      ]
+    },
+    {
+      "heading": "Use batting order to update plate appearances",
+      "paragraphs": [
+        "Batting order mainly changes opportunity. The lineup cycles in sequence, so hitters placed earlier begin closer to their next turn and generally have more chances to reach the plate over a game than hitters placed later. MLB defines a plate appearance as a completed turn batting, and its starting-lineup page displays the order from first through ninth. More projected plate appearances create more chances for hits, walks, runs, RBIs, and fantasy scoring, but do not make each individual plate appearance more successful.",
+        "The order also changes surrounding context. A leadoff hitter may have more opportunities to score, while a hitter placed behind strong on-base bats may have more RBI chances. Those effects depend on teammates and game flow, so they should be modeled as probabilities rather than fixed bonuses. A move from second to seventh can reduce the opportunity forecast even if the player's baseline skill and opposing pitcher remain identical.",
+        "Treat an unconfirmed order as a scenario, not a fact. DiamScore's current public page says it applies a multiplier based on confirmed batting-order position, and MLB labels its lineup listings subject to change. If a hitter moves, sits, or is scratched, the projection should be refreshed. The confirmed order is especially important for players whose roster status or platoon role is uncertain."
+      ],
+      "sourceIds": [
+        "mlb-plate-appearance",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Translate baseball events into fantasy points",
+      "paragraphs": [
+        "After estimating event rates and opportunities, a fantasy model maps the expected events to the selected platform's scoring. Conceptually, expected fantasy points equal the sum of each projected scoring event multiplied by that event's scoring value. A hitter forecast may include singles, doubles, triples, home runs, walks, hit-by-pitches, runs, RBIs, and stolen bases. A pitcher forecast may include innings, strikeouts, earned runs, hits or walks allowed, and outcome-dependent bonuses where the platform awards them.",
+        "Expected points are not the same as the most likely exact box score. A home run can be unlikely for one player in one game while still contributing meaningful expected value. Correlated events also complicate the distribution: a hit can create both a run and an RBI across teammates, while a pitcher's win depends partly on team offense, bullpen performance, innings, and official scoring. Summing event expectations provides a center for comparison, not a script of the game.",
+        "Scoring and roster rules can change or differ by contest. DiamScore publishes the scoring table currently used for its DraftKings and FanDuel calculations, but readers should compare it with the live contest rules before using any output. A projection calculated under one scoring system should not be assumed to transfer unchanged to another."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "mlb-projection-systems"
+      ]
+    },
+    {
+      "heading": "Practical example: update a fictional hitter",
+      "paragraphs": [
+        "Consider a fictional hitter named Alex Harbor. The following numbers are invented to demonstrate a workflow, not to forecast a real player or recommend a lineup. A model begins with a neutral expectation of 8.0 fantasy points for a full game, derived from a recency-weighted performance baseline and an estimated number of plate appearances. That is the starting reference, not the final answer.",
+        "The expected opposing starter throws from the side against which Harbor's regressed platoon forecast is slightly stronger, moving the estimate to 8.4. The park adjustment for the relevant mix of events raises it to 8.6. An early lineup estimate places Harbor second, supporting the original opportunity assumption. When the confirmed lineup later lists him seventh, the model reduces expected plate appearances and updates the total to 7.7. These figures are illustrative choices, not universal adjustment sizes.",
+        "The audit record should preserve every step: baseline version, matchup and starter, platoon method, venue factor and period, projected batting slot, scoring system, update time, and final value. It should also list an alternative scenario, such as Harbor not starting or the opposing starter changing. This makes the projection explainable and tells the user exactly which new information requires a rebuild."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "fangraphs-splits",
+        "savant-park-factors",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Understand uncertainty and verify late changes",
+      "paragraphs": [
+        "A projection is a point estimate drawn from a range of possible outcomes. FanGraphs explains that its displayed projection represents a median expected outcome: actual performance can finish above or below it. Uncertainty is wider when data is sparse, a role is unsettled, a player has recently changed skills or health, or the one-game result depends heavily on a few volatile events. Extra decimal places do not remove that uncertainty.",
+        "Compare models as estimates, not votes that guarantee an answer. Agreement can raise confidence that similar assumptions lead to a similar center, while disagreement is a prompt to inspect playing time, park treatment, matchup, data freshness, and scoring. Track calibration over many forecasts with a stated error measure rather than judging a system by one surprising game. A correct process will still produce misses because baseball outcomes contain randomness.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Check the official starting lineup, opposing starter, venue, current scoring, and lock status immediately before using a projection. DiamScore's public page describes daily MLB Stats API updates, split-adjusted projections, lineup-status information, and an optimizer that searches for high-projected legal builds; it does not make the resulting forecast certain or replace a final review."
+      ],
+      "sourceIds": [
+        "fangraphs-projections",
+        "mlb-projection-systems",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is an MLB player projection?",
+      "answer": "It is an estimate of future performance over a stated period. A fantasy projection combines expected skill, playing time, matchup and environment, then converts projected events through the selected scoring rules."
+    },
+    {
+      "question": "Why are projections different from season averages?",
+      "answer": "Season averages describe what happened. Projections weight relevant history, account for aging and regression, estimate current skill, and can add today's playing time, opponent, park, and batting-order context."
+    },
+    {
+      "question": "How do platoon splits affect a projection?",
+      "answer": "They adjust the matchup for batter and pitcher handedness. Reliable models temper raw observed splits because each side of a split can contain limited data and unequal opponents."
+    },
+    {
+      "question": "Why does batting order matter for fantasy projections?",
+      "answer": "Earlier lineup spots generally receive more plate appearances, creating more scoring opportunities. The confirmed order can also change run and RBI context, so projections should update when the lineup changes."
+    },
+    {
+      "question": "Are MLB projections guaranteed to be accurate?",
+      "answer": "No. They are estimates near the center of a range, and one-game baseball results are volatile. Verify late lineups, injuries, weather, starters, scoring, and contest rules before relying on them."
+    }
+  ],
+  "sources": [
+    {
+      "id": "mlb-projection-systems",
+      "title": "Projection Systems",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/projection-systems",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-steamer",
+      "title": "Steamer",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/projection-systems/steamer",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "savant-expected-statistics",
+      "title": "Expected Statistics Leaderboard",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/expected_statistics",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "savant-park-factors",
+      "title": "Statcast Park Factors",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/leaderboard/statcast-park-factors",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-plate-appearance",
+      "title": "Plate Appearance (PA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/plate-appearance",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-07-31",
+      "type": "primary"
+    },
+    {
+      "id": "fangraphs-projections",
+      "title": "Projection Systems",
+      "publisher": "FanGraphs",
+      "url": "https://library.fangraphs.com/principles/projections/",
+      "accessedAt": "2026-07-31",
+      "type": "secondary"
+    },
+    {
+      "id": "fangraphs-current-projections",
+      "title": "2026 Projections",
+      "publisher": "FanGraphs",
+      "url": "https://www.fangraphs.com/projections",
+      "accessedAt": "2026-07-31",
+      "type": "secondary"
+    },
+    {
+      "id": "fangraphs-depth-charts",
+      "title": "Depth Charts",
+      "publisher": "FanGraphs",
+      "url": "https://library.fangraphs.com/depth-charts/",
+      "accessedAt": "2026-07-31",
+      "type": "secondary"
+    },
+    {
+      "id": "fangraphs-splits",
+      "title": "Splits",
+      "publisher": "FanGraphs",
+      "url": "https://library.fangraphs.com/principles/split/",
+      "accessedAt": "2026-07-31",
+      "type": "secondary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB DFS exposure limits",
+      "href": "/blog/mlb-dfs-exposure-limits"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

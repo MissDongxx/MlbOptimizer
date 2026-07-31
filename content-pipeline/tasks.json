@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29",
+  "updatedAt": "2026-07-31",
   "tasks": [
     {
       "id": "mlb-001",
@@ -73,7 +73,7 @@
     {
       "id": "mlb-005",
       "priority": 5,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "how mlb player projections work",
       "slug": "how-mlb-player-projections-work",
       "category": "projections-stats",
