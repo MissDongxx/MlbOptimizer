@@ -26,7 +26,21 @@
     "requirePrimaryKeywordInSectionHeading": true,
     "requirePrimaryKeywordInConclusion": true,
     "requireConclusionSection": true,
-    "requireContentDifferentiation": true
+    "requireContentDifferentiation": true,
+    "requireFormatMetadata": true,
+    "minimumFormatReasonCharacters": 30,
+    "minimumUniqueValueCharacters": 40,
+    "allowedContentFormats": [
+      "deep_explanation",
+      "how_to",
+      "comparison",
+      "review",
+      "structured_recommendation",
+      "tool_landing_page",
+      "product_use_case"
+    ],
+    "allowedFunnelStages": ["TOFU", "MOFU", "BOFU"],
+    "allowedVisualRequirements": ["required", "recommended", "optional", "not_applicable"]
   },
   "evidence": {
     "requireClaimSourceMapping": true,
@@ -43,6 +57,9 @@
     "multiple unrelated search intents",
     "prediction presented as fact",
     "duplicate primary keyword",
+    "format mismatch or missing format evidence",
+    "generic programmatic page without unique value",
+    "unsupported testimonial or first-hand claim",
     "blocked topic",
     "automatic publication after a failed quality gate"
   ]

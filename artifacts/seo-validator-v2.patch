@@ -1,65 +1,67 @@
-diff --git a/content-pipeline/WORKFLOW.md b/content-pipeline/WORKFLOW.md
-index 2801e4a..f13ebf9 100644
---- a/content-pipeline/WORKFLOW.md
-+++ b/content-pipeline/WORKFLOW.md
-@@ -17,18 +17,41 @@ all quality gates pass. The automated reviewer name must be
-
- ## Per-run contract
-
--1. Run `npm run content:next` and select only the returned task.
--2. Verify the task does not overlap an existing primary keyword or search intent.
--3. Research the topic from the source policy in `site.config.json`.
--4. Create one article JSON from `article.example.json`.
--5. Map each section to real source IDs.
--6. Run `npm run content:validate -- <slug>`.
--7. If validation passes, set the article and task to `approved`, use the
-+1. Import or update `tasks.json` from the supplied keyword table. For strategy
-+   exports with a `Page` column, create one task per Page: choose the highest-
-+   volume keyword as primary, keep the next 3-5 as supporting keywords, and
-+   turn seed keywords into required angles. Preserve one search intent per task.
-+   Apply the site's allowed-topic and blocked-term filters before adding tasks.
-+2. Run `npm run content:next` and select only the returned task.
-+3. Compare the task with existing primary keywords, titles, headings, and search
-+   intents. Record the distinct reader question in `contentDifferentiation`.
-+4. Create a short task card, then an intent-first outline before drafting.
-+5. Research the topic from the source policy in `site.config.json`. Build a claim
-+   ledger for numeric, time-sensitive, product, policy, and other checkable facts.
-+6. Create one text-only article JSON from `article.example.json`; do not create,
-+   search for, download, or modify article images.
-+7. Put the primary keyword naturally in the title, opening 100 words, at least
-+   one section heading, and the conclusion. Cover 3-5 supporting keywords without
-+   stuffing. Include a limitations section, original example, FAQ, internal links,
-+   CTA, and an explicit conclusion or next-steps section.
-+8. Map each section and each verified claim to real source IDs. Add access dates.
-+9. Run the intent, depth, fact-check, and post-edit humanization audit; record the
-+   result in `editorialAudit`, then recheck facts, links, keywords, and metadata.
-+10. Run `npm run content:validate -- <slug>` while the article is in draft/review.
-+11. Run `npm run content:validate:sources -- <slug>` to verify that every cited
-+    URL is reachable. Fix, replace, soften, or remove unsupported claims.
-+12. If validation passes, set the article and task to `approved`, use the
-    configured automated reviewer, and set publication/update dates.
--8. If evidence is insufficient, mark the task `blocked` and record the reason.
--9. Re-run validation after approval. Never publish or weaken a failed gate.
--10. Run frontend typecheck and production build.
--11. Commit only the task list and generated article, then push `dev`.
-+13. If evidence is insufficient, mark the task `blocked` and record the reason.
-+14. Re-run article, source, and all-content validation after approval. Never
-+    publish or weaken a failed gate.
-+15. Run frontend typecheck and production build, then run
-+    `npm run content:verify-rendered -- <slug>` against the static output.
-+16. Commit only the task list and generated article, then push `dev`.
-+
-+Articles without `seoAuditVersion: 2` remain legacy-compatible. New articles
-+must use version 2 and pass keyword placement, supporting keyword, conclusion,
-+claim-ledger, differentiation, and editorial-audit checks.
-
- ## Publication mode
-
-diff --git a/content-pipeline/article.example.json b/content-pipeline/article.example.json
-index a797d30..abbf8ca 100644
+--- a/content-pipeline/quality-gates.json
++++ b/content-pipeline/quality-gates.json
+@@ -1,11 +1,14 @@
+ {
+-  "schemaVersion": 1,
++  "schemaVersion": 2,
+   "publishing": {
+     "allowAutomaticPublish": true,
+     "requiredStatus": "approved",
+-    "requireNamedReviewer": false
++    "requireNamedReviewer": true,
++    "requireReachableSources": true,
++    "requireRenderedSeoVerification": true
+   },
+   "seo": {
++    "currentAuditVersion": 2,
+     "titleMinCharacters": 35,
+     "titleMaxCharacters": 65,
+     "descriptionMinCharacters": 120,
+@@ -14,13 +17,39 @@
+     "maximumPrimaryKeywordDensity": 0.03,
+     "minimumSections": 4,
+     "minimumFaqItems": 3,
+-    "minimumInternalLinks": 2
++    "minimumInternalLinks": 2,
++    "openingWordWindow": 100,
++    "minimumSupportingKeywords": 3,
++    "maximumSupportingKeywords": 5,
++    "requirePrimaryKeywordInTitle": true,
++    "requirePrimaryKeywordInOpening": true,
++    "requirePrimaryKeywordInSectionHeading": true,
++    "requirePrimaryKeywordInConclusion": true,
++    "requireConclusionSection": true,
++    "requireContentDifferentiation": true,
++    "requireFormatMetadata": true,
++    "minimumFormatReasonCharacters": 30,
++    "minimumUniqueValueCharacters": 40,
++    "allowedContentFormats": [
++      "deep_explanation",
++      "how_to",
++      "comparison",
++      "review",
++      "structured_recommendation",
++      "tool_landing_page",
++      "product_use_case"
++    ],
++    "allowedFunnelStages": ["TOFU", "MOFU", "BOFU"],
++    "allowedVisualRequirements": ["required", "recommended", "optional", "not_applicable"]
+   },
+   "evidence": {
+     "requireClaimSourceMapping": true,
+     "requireAccessDate": true,
+     "requireLimitationsSection": true,
+-    "requireUpdatedAt": true
++    "requireUpdatedAt": true,
++    "requireClaimLedger": true,
++    "requireEditorialAudit": true,
++    "sourceRequestTimeoutMs": 15000
+   },
+   "hardFailures": [
+     "missing or fabricated source",
 --- a/content-pipeline/article.example.json
 +++ b/content-pipeline/article.example.json
-@@ -1,13 +1,21 @@
+@@ -1,13 +1,29 @@
  {
    "schemaVersion": 1,
 +  "seoAuditVersion": 2,
@@ -74,7 +76,15 @@ index a797d30..abbf8ca 100644
 +    "supporting keyword three"
 +  ],
    "intent": "informational",
++  "contentFormat": "deep_explanation",
++  "formatReason": "A deep explanation matches an informational workflow query and adds original process analysis.",
++  "funnelStage": "TOFU",
++  "conversionGoal": "learn_and_apply",
++  "requiredModules": ["directAnswer", "originalExample", "limitations", "internalLinks", "cta"],
++  "visualRequirement": "optional",
++  "variantDimensions": [],
 +  "contentDifferentiation": "Explain which existing pages were reviewed and how this page answers a distinct reader question without keyword cannibalization.",
++  "uniqueValue": "The article contributes an original workflow example and explicit evidence-to-claim mapping rather than summarizing generic SEO advice.",
    "title": "Example Primary Keyword: A Practical Guide",
    "description": "A concise description that states what the reader will learn, who the guide is for, and the practical outcome without listing keyword variants.",
 -  "excerpt": "A short reader-facing summary.",
@@ -82,7 +92,7 @@ index a797d30..abbf8ca 100644
    "author": "Editorial Team",
    "reviewer": "Pending editorial review",
    "publishedAt": null,
-@@ -15,8 +23,8 @@
+@@ -15,8 +31,8 @@
    "keyTakeaways": ["Takeaway one", "Takeaway two", "Takeaway three"],
    "sections": [
      {
@@ -93,7 +103,7 @@ index a797d30..abbf8ca 100644
        "sourceIds": ["source-1"]
      },
      {
-@@ -31,8 +39,13 @@
+@@ -31,8 +47,13 @@
      },
      {
        "heading": "Limitations and what to verify",
@@ -108,7 +118,7 @@ index a797d30..abbf8ca 100644
      }
    ],
    "faq": [
-@@ -40,6 +53,29 @@
+@@ -40,6 +61,29 @@
      {"question": "Question two?", "answer": "Answer two."},
      {"question": "Question three?", "answer": "Answer three."}
    ],
@@ -138,57 +148,76 @@ index a797d30..abbf8ca 100644
    "sources": [
      {
        "id": "source-1",
-diff --git a/content-pipeline/quality-gates.json b/content-pipeline/quality-gates.json
-index a6d83d5..842ce00 100644
---- a/content-pipeline/quality-gates.json
-+++ b/content-pipeline/quality-gates.json
-@@ -1,11 +1,14 @@
- {
--  "schemaVersion": 1,
-+  "schemaVersion": 2,
-   "publishing": {
-     "allowAutomaticPublish": true,
-     "requiredStatus": "approved",
--    "requireNamedReviewer": false
-+    "requireNamedReviewer": true,
-+    "requireReachableSources": true,
-+    "requireRenderedSeoVerification": true
-   },
-   "seo": {
-+    "currentAuditVersion": 2,
-     "titleMinCharacters": 35,
-     "titleMaxCharacters": 65,
-     "descriptionMinCharacters": 120,
-@@ -14,13 +17,25 @@
-     "maximumPrimaryKeywordDensity": 0.03,
-     "minimumSections": 4,
-     "minimumFaqItems": 3,
--    "minimumInternalLinks": 2
-+    "minimumInternalLinks": 2,
-+    "openingWordWindow": 100,
-+    "minimumSupportingKeywords": 3,
-+    "maximumSupportingKeywords": 5,
-+    "requirePrimaryKeywordInTitle": true,
-+    "requirePrimaryKeywordInOpening": true,
-+    "requirePrimaryKeywordInSectionHeading": true,
-+    "requirePrimaryKeywordInConclusion": true,
-+    "requireConclusionSection": true,
-+    "requireContentDifferentiation": true
-   },
-   "evidence": {
-     "requireClaimSourceMapping": true,
-     "requireAccessDate": true,
-     "requireLimitationsSection": true,
--    "requireUpdatedAt": true
-+    "requireUpdatedAt": true,
-+    "requireClaimLedger": true,
-+    "requireEditorialAudit": true,
-+    "sourceRequestTimeoutMs": 15000
-   },
-   "hardFailures": [
-     "missing or fabricated source",
-diff --git a/content-pipeline/scripts/content-pipeline.mjs b/content-pipeline/scripts/content-pipeline.mjs
-index e6f4aa9..5eb1562 100644
+--- a/content-pipeline/WORKFLOW.md
++++ b/content-pipeline/WORKFLOW.md
+@@ -17,19 +17,56 @@
+
+ ## Per-run contract
+
+-1. Run `npm run content:next` and select only the returned task.
+-2. Verify the task does not overlap an existing primary keyword or search intent.
+-3. Research the topic from the source policy in `site.config.json`.
+-4. Create one article JSON from `article.example.json`.
+-5. Map each section to real source IDs.
+-6. Run `npm run content:validate -- <slug>`.
+-7. If validation passes, set the article and task to `approved`, use the
++1. Import or update `tasks.json` from the supplied keyword table. For strategy
++   exports with a `Page` column, create one task per Page: choose the highest-
++   volume keyword as primary, keep the next 3-5 as supporting keywords, and
++   turn seed keywords into required angles. Preserve one search intent per task.
++   Apply the site's allowed-topic and blocked-term filters before adding tasks.
++2. Run `npm run content:next` and select only the returned task.
++3. Compare the task with existing primary keywords, titles, headings, and search
++   intents. Record the distinct reader question in `contentDifferentiation`.
++4. Create a short task card with `contentFormat`, `formatReason`, `funnelStage`,
++   `conversionGoal`, `requiredModules`, `visualRequirement`, and
++   `variantDimensions`, then build a format-specific intent-first outline.
++5. Research the topic from the source policy in `site.config.json`. Build a claim
++   ledger for numeric, time-sensitive, product, policy, and other checkable facts.
++6. Create one text-only article JSON from `article.example.json`; strict articles
++   must also declare `uniqueValue` and the selected format metadata. Do not create,
++   search for, download, or modify article images.
++7. Route format by intent: informational queries use `deep_explanation`, procedural
++   queries use `how_to`, explicit comparisons use `comparison`, commercial selection
++   uses `structured_recommendation`, reviews require first-hand evidence, and
++   tools/templates use `tool_landing_page`. Format-specific proof is conditional:
++   how-to pages need prerequisites, ordered steps, expected outcomes, and
++   troubleshooting; comparison pages need consistent criteria and a fit verdict;
++   tool/template pages need use cases, examples, and distinct variant dimensions.
++8. Put the primary keyword naturally in the title, opening 100 words, at least
++   one section heading, and the conclusion. Cover 3-5 supporting keywords without
++   stuffing. Include a limitations section, original example, relevant FAQ,
++   internal links, CTA, and an explicit conclusion or next-steps section.
++9. Map each section and each verified claim to real source IDs. Add access dates.
++10. Run the intent, depth, format-fit, fact-check, and post-edit humanization audit; record the
++   result in `editorialAudit`, then recheck facts, links, keywords, and metadata.
++11. Run `npm run content:validate -- <slug>` while the article is in draft/review.
++12. Run `npm run content:validate:sources -- <slug>` to verify that every cited
++    URL is reachable. Fix, replace, soften, or remove unsupported claims.
++13. If validation passes, set the article and task to `approved`, use the
+    configured automated reviewer, and set publication/update dates.
+-8. If evidence is insufficient, mark the task `blocked` and record the reason.
+-9. Re-run validation after approval. Never publish or weaken a failed gate.
+-10. Run frontend typecheck and production build.
+-11. Commit only the task list and generated article, then push `dev`.
++14. If evidence is insufficient, mark the task `blocked` and record the reason.
++15. Re-run article, source, and all-content validation after approval. Never
++    publish or weaken a failed gate.
++16. Run frontend typecheck and production build, then run
++    `npm run content:verify-rendered -- <slug>` against the static output.
++17. Commit only the task list and generated article, then push `dev`.
+
++Articles without `seoAuditVersion: 2` remain legacy-compatible. New articles
++must use version 2 and pass keyword placement, supporting keyword, conclusion,
++format-fit, unique-value, claim-ledger, differentiation, and editorial-audit checks.
++
++Community observations such as declining “best listicles,” fixed word counts, or
++universal conversion rankings are hypotheses for SERP and analytics testing, not
++hard Google requirements.
++
+ ## Publication mode
+
+ Manual browser approval is temporarily disabled. Publishing uses the existing
 --- a/content-pipeline/scripts/content-pipeline.mjs
 +++ b/content-pipeline/scripts/content-pipeline.mjs
 @@ -1,6 +1,7 @@
@@ -199,7 +228,7 @@ index e6f4aa9..5eb1562 100644
 
  const root = process.cwd();
  const pipelineDir = path.join(root, "content-pipeline");
-@@ -28,6 +29,28 @@ function words(value) {
+@@ -28,6 +29,28 @@
      .filter(Boolean);
  }
 
@@ -228,7 +257,7 @@ index e6f4aa9..5eb1562 100644
  function bodyText(article) {
    return [
      article.excerpt,
-@@ -40,6 +63,14 @@ function bodyText(article) {
+@@ -40,6 +63,14 @@
    ].join(" ");
  }
 
@@ -243,7 +272,7 @@ index e6f4aa9..5eb1562 100644
  function hostname(url) {
    try {
      return new URL(url).hostname.replace(/^www\./, "");
-@@ -48,10 +79,93 @@ function hostname(url) {
+@@ -48,10 +79,184 @@
    }
  }
 
@@ -330,6 +359,97 @@ index e6f4aa9..5eb1562 100644
 +  }
 +}
 +
++function nonEmptyStrings(value) {
++  return Array.isArray(value) && value.every((item) => String(item || "").trim().length > 0);
++}
++
++function validateFormat(article, errors) {
++  const seo = gates.seo;
++  const allowedFormats = new Set(seo.allowedContentFormats || []);
++  const allowedStages = new Set(seo.allowedFunnelStages || []);
++  const allowedVisualRequirements = new Set(seo.allowedVisualRequirements || []);
++  const format = String(article.contentFormat || "").trim();
++  if (!format || !allowedFormats.has(format)) {
++    errors.push(`contentFormat must be one of: ${[...allowedFormats].join(", ")}`);
++    return;
++  }
++  if (!article.formatReason || String(article.formatReason).trim().length < seo.minimumFormatReasonCharacters) {
++    errors.push(`formatReason must contain at least ${seo.minimumFormatReasonCharacters} characters`);
++  }
++  if (!allowedStages.has(article.funnelStage)) {
++    errors.push(`funnelStage must be one of: ${[...allowedStages].join(", ")}`);
++  }
++  if (!article.conversionGoal || !String(article.conversionGoal).trim()) {
++    errors.push("conversionGoal is required");
++  }
++  if (!allowedVisualRequirements.has(article.visualRequirement)) {
++    errors.push(`visualRequirement must be one of: ${[...allowedVisualRequirements].join(", ")}`);
++  }
++  if (!nonEmptyStrings(article.requiredModules)) {
++    errors.push("requiredModules must be an array of non-empty strings");
++  }
++  if (!nonEmptyStrings(article.variantDimensions)) {
++    errors.push("variantDimensions must be an array of non-empty strings");
++  }
++  if (!article.uniqueValue || String(article.uniqueValue).trim().length < seo.minimumUniqueValueCharacters) {
++    errors.push(`uniqueValue must contain at least ${seo.minimumUniqueValueCharacters} characters`);
++  }
++
++  if (format === "how_to") {
++    if (!nonEmptyStrings(article.prerequisites) || article.prerequisites.length < 1) {
++      errors.push("how_to format requires at least one prerequisite");
++    }
++    if (!Array.isArray(article.steps) || article.steps.length < 3 || article.steps.some((step) => !step.title || !step.instruction)) {
++      errors.push("how_to format requires at least three ordered steps with title and instruction");
++    }
++    if (!nonEmptyStrings(article.expectedOutcomes) || article.expectedOutcomes.length < 1) {
++      errors.push("how_to format requires expectedOutcomes");
++    }
++    if (!nonEmptyStrings(article.troubleshooting) || article.troubleshooting.length < 1) {
++      errors.push("how_to format requires troubleshooting guidance");
++    }
++  }
++  if (format === "comparison") {
++    const comparison = article.comparison;
++    if (!comparison || !nonEmptyStrings(comparison.items) || comparison.items.length < 2) {
++      errors.push("comparison format requires at least two compared items");
++    }
++    if (!comparison || !nonEmptyStrings(comparison.criteria) || comparison.criteria.length < 2) {
++      errors.push("comparison format requires at least two comparison criteria");
++    }
++    if (!comparison || !comparison.verdict || String(comparison.verdict).trim().length < 30) {
++      errors.push("comparison format requires a fit-based verdict");
++    }
++  }
++  if (format === "review") {
++    if (!article.reviewMethod || String(article.reviewMethod).trim().length < 40) {
++      errors.push("review format requires a disclosed reviewMethod");
++    }
++    if (!nonEmptyStrings(article.reviewEvidence) || article.reviewEvidence.length < 1) {
++      errors.push("review format requires reviewEvidence");
++    }
++  }
++  if (format === "structured_recommendation") {
++    if (!nonEmptyStrings(article.recommendationCriteria) || article.recommendationCriteria.length < 2) {
++      errors.push("structured_recommendation requires at least two recommendationCriteria");
++    }
++    if (!nonEmptyStrings(article.recommendations) || article.recommendations.length < 2) {
++      errors.push("structured_recommendation requires at least two recommendations");
++    }
++  }
++  if (format === "tool_landing_page") {
++    if (!nonEmptyStrings(article.useCases) || article.useCases.length < 2) {
++      errors.push("tool_landing_page requires at least two useCases");
++    }
++    if (!nonEmptyStrings(article.examples) || article.examples.length < 1) {
++      errors.push("tool_landing_page requires at least one example");
++    }
++    if (!Array.isArray(article.variantDimensions) || article.variantDimensions.length < 1) {
++      errors.push("tool_landing_page requires variantDimensions for scalable uniqueness");
++    }
++  }
++}
++
 +export function validateArticle(article, allArticles = []) {
    const errors = [];
    const warnings = [];
@@ -338,7 +458,7 @@ index e6f4aa9..5eb1562 100644
    const sourceIds = new Set((article.sources || []).map((source) => source.id));
    const text = bodyText(article);
    const textWords = words(text);
-@@ -87,17 +201,20 @@ function validateArticle(article, allArticles = []) {
+@@ -87,17 +292,20 @@
      errors.push("slug must use lowercase kebab-case");
    }
    if ((article.title || "").length < seo.titleMinCharacters) {
@@ -361,7 +481,7 @@ index e6f4aa9..5eb1562 100644
    if (textWords.length < seo.minimumBodyWords) {
      errors.push(`body has ${textWords.length} words; minimum is ${seo.minimumBodyWords}`);
    }
-@@ -113,6 +230,68 @@ function validateArticle(article, allArticles = []) {
+@@ -113,6 +321,69 @@
    if ((article.internalLinks || []).length < seo.minimumInternalLinks) {
      errors.push(`requires at least ${seo.minimumInternalLinks} internal links`);
    }
@@ -420,6 +540,7 @@ index e6f4aa9..5eb1562 100644
 +    ) {
 +      errors.push("contentDifferentiation must explain how this intent differs from existing pages");
 +    }
++    if (seo.requireFormatMetadata) validateFormat(article, errors);
 +    if (gates.evidence.requireClaimLedger) validateClaimLedger(article, sourceIds, errors);
 +    if (gates.evidence.requireEditorialAudit) validateEditorialAudit(article, errors);
 +    for (const disclosure of config.editorial.requiredDisclosures || []) {
@@ -430,7 +551,7 @@ index e6f4aa9..5eb1562 100644
    if ((article.sources || []).length < config.sources.minimum) {
      errors.push(`requires at least ${config.sources.minimum} sources`);
    }
-@@ -154,7 +333,7 @@ function validateArticle(article, allArticles = []) {
+@@ -154,7 +425,7 @@
    }
    for (const blocked of config.editorial.blockedTopics) {
      if (new RegExp(`\\b${blocked.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(text)) {
@@ -439,7 +560,7 @@ index e6f4aa9..5eb1562 100644
      }
    }
    const duplicate = allArticles.find(
-@@ -163,6 +342,17 @@ function validateArticle(article, allArticles = []) {
+@@ -163,6 +434,17 @@
        String(candidate.primaryKeyword || "").toLowerCase() === keyword,
    );
    if (duplicate) errors.push(`duplicate primary keyword with ${duplicate.slug}`);
@@ -457,7 +578,7 @@ index e6f4aa9..5eb1562 100644
    if (article.status === "approved") {
      if (!article.publishedAt) errors.push("approved article requires publishedAt");
      if (
-@@ -176,6 +366,7 @@ function validateArticle(article, allArticles = []) {
+@@ -176,6 +458,7 @@
    return {
      slug: article.slug,
      status: article.status,
@@ -465,7 +586,7 @@ index e6f4aa9..5eb1562 100644
      words: textWords.length,
      keywordDensity: Number(keywordDensity.toFixed(4)),
      errors,
-@@ -184,56 +375,182 @@ function validateArticle(article, allArticles = []) {
+@@ -184,56 +467,182 @@
    };
  }
 
@@ -536,7 +657,28 @@ index e6f4aa9..5eb1562 100644
 +  const detail = result.error || `HTTP ${result.status}${result.finalUrl && result.finalUrl !== result.url ? ` -> ${result.finalUrl}` : ""}`;
 +  console.log(`${marker} ${result.id}: ${detail}`);
 +}
-+
+
+-if (command === "status") {
+-  const taskCounts = Object.fromEntries(
+-    ["queued", "researching", "drafted", "review", "approved", "blocked"].map((status) => [
+-      status,
+-      queue.tasks.filter((task) => task.status === status).length,
+-    ]),
+-  );
+-  const articleCounts = Object.fromEntries(
+-    ["draft", "review", "approved"].map((status) => [
+-      status,
+-      articles.filter((article) => article.status === status).length,
+-    ]),
+-  );
+-  console.log(JSON.stringify({ tasks: taskCounts, articles: articleCounts }, null, 2));
+-} else if (command === "next") {
+-  const next = [...queue.tasks]
+-    .filter((task) => task.status === "queued")
+-    .sort((a, b) => a.priority - b.priority)[0];
+-  if (!next) {
+-    console.log("No queued content tasks.");
+-    process.exit(2);
 +function resolveRenderedHtml(slug, explicitRoot) {
 +  const roots = explicitRoot
 +    ? [path.resolve(root, explicitRoot)]
@@ -549,7 +691,21 @@ index e6f4aa9..5eb1562 100644
 +    for (const candidate of candidates) {
 +      if (fs.existsSync(candidate)) return candidate;
 +    }
-+  }
+   }
+-  console.log(JSON.stringify(next, null, 2));
+-} else if (command === "validate") {
+-  const slug = process.argv[3];
+-  if (!slug) throw new Error("Usage: npm run content:validate -- <slug>");
+-  const match = loaded.find(({ article }) => article.slug === slug);
+-  if (!match) throw new Error(`Article not found: ${slug}`);
+-  const result = validateArticle(match.article, articles);
+-  printResult(result);
+-  process.exit(result.passed ? 0 : 1);
+-} else if (command === "validate-all") {
+-  const results = articles.map((article) => validateArticle(article, articles));
+-  for (const result of results) printResult(result);
+-  process.exit(results.every((result) => result.passed) ? 0 : 1);
+-} else {
 +  return null;
 +}
 +
@@ -643,43 +799,7 @@ index e6f4aa9..5eb1562 100644
 +    }
 +    return failed ? 1 : 0;
 +  }
-
--if (command === "status") {
--  const taskCounts = Object.fromEntries(
--    ["queued", "researching", "drafted", "review", "approved", "blocked"].map((status) => [
--      status,
--      queue.tasks.filter((task) => task.status === status).length,
--    ]),
--  );
--  const articleCounts = Object.fromEntries(
--    ["draft", "review", "approved"].map((status) => [
--      status,
--      articles.filter((article) => article.status === status).length,
--    ]),
--  );
--  console.log(JSON.stringify({ tasks: taskCounts, articles: articleCounts }, null, 2));
--} else if (command === "next") {
--  const next = [...queue.tasks]
--    .filter((task) => task.status === "queued")
--    .sort((a, b) => a.priority - b.priority)[0];
--  if (!next) {
--    console.log("No queued content tasks.");
--    process.exit(2);
--  }
--  console.log(JSON.stringify(next, null, 2));
--} else if (command === "validate") {
--  const slug = process.argv[3];
--  if (!slug) throw new Error("Usage: npm run content:validate -- <slug>");
--  const match = loaded.find(({ article }) => article.slug === slug);
--  if (!match) throw new Error(`Article not found: ${slug}`);
--  const result = validateArticle(match.article, articles);
--  printResult(result);
--  process.exit(result.passed ? 0 : 1);
--} else if (command === "validate-all") {
--  const results = articles.map((article) => validateArticle(article, articles));
--  for (const result of results) printResult(result);
--  process.exit(results.every((result) => result.passed) ? 0 : 1);
--} else {
++
    throw new Error(`Unknown command: ${command}`);
  }
 +
@@ -688,22 +808,246 @@ index e6f4aa9..5eb1562 100644
 +  const exitCode = await main();
 +  if (exitCode) process.exit(exitCode);
 +}
-diff --git a/content-pipeline/tasks.json b/content-pipeline/tasks.json
-index 7adae97..e3570f7 100644
+--- a/package.json
++++ b/package.json
+@@ -6,7 +6,10 @@
+     "content:status": "node content-pipeline/scripts/content-pipeline.mjs status",
+     "content:next": "node content-pipeline/scripts/content-pipeline.mjs next",
+     "content:validate": "node content-pipeline/scripts/content-pipeline.mjs validate",
++    "content:validate:sources": "node content-pipeline/scripts/content-pipeline.mjs validate-sources",
+     "content:validate:all": "node content-pipeline/scripts/content-pipeline.mjs validate-all",
++    "content:verify-rendered": "node content-pipeline/scripts/content-pipeline.mjs verify-rendered",
++    "content:test": "node --test content-pipeline/scripts/content-pipeline.test.mjs",
+     "content:review-server": "node content-pipeline/scripts/review-server.mjs"
+   }
+ }
 --- a/content-pipeline/tasks.json
 +++ b/content-pipeline/tasks.json
-@@ -1,6 +1,6 @@
+@@ -1,176 +1,5883 @@
  {
    "schemaVersion": 1,
 -  "updatedAt": "2026-07-31",
+-  "tasks": [
+-    {
+-      "id": "mlb-001",
+-      "priority": 1,
+-      "status": "approved",
+-      "primaryKeyword": "how to use an mlb lineup optimizer",
+-      "slug": "how-to-use-mlb-lineup-optimizer",
+-      "category": "lineup-building",
+-      "intent": "tutorial",
+-      "parentPillar": "/mlb-lineup-optimizer",
+-      "requiredAngles": [
+-        "player pool",
+-        "locks and fades",
+-        "stack settings",
+-        "salary rules",
+-        "review before export"
+-      ]
+-    },
+-    {
+-      "id": "mlb-002",
+-      "priority": 2,
+-      "status": "approved",
+-      "primaryKeyword": "mlb dfs strategy",
+-      "slug": "mlb-dfs-strategy",
+-      "category": "dfs-strategy",
+-      "intent": "informational",
+-      "parentPillar": "/mlb-dfs-optimizer",
+-      "requiredAngles": [
+-        "contest selection",
+-        "pitcher selection",
+-        "stacks",
+-        "ownership",
+-        "late news"
+-      ]
+-    },
+-    {
+-      "id": "mlb-003",
+-      "priority": 3,
+-      "status": "approved",
+-      "primaryKeyword": "mlb dfs stacking strategy",
+-      "slug": "mlb-dfs-stacking-strategy",
+-      "category": "dfs-strategy",
+-      "intent": "informational",
+-      "parentPillar": "/mlb-dfs-optimizer",
+-      "requiredAngles": [
+-        "correlation",
+-        "stack sizes",
+-        "mini stacks",
+-        "ownership",
+-        "common mistakes"
+-      ]
+-    },
+-    {
+-      "id": "mlb-004",
+-      "priority": 4,
+-      "status": "approved",
+-      "primaryKeyword": "mlb dfs exposure limits",
+-      "slug": "mlb-dfs-exposure-limits",
+-      "category": "dfs-strategy",
+-      "intent": "informational",
+-      "parentPillar": "/mlb-dfs-optimizer",
+-      "requiredAngles": [
+-        "maximum exposure",
+-        "minimum exposure",
+-        "portfolio risk",
+-        "field size",
+-        "late scratches"
+-      ]
+-    },
+-    {
+-      "id": "mlb-005",
+-      "priority": 5,
+-      "status": "approved",
+-      "primaryKeyword": "how mlb player projections work",
+-      "slug": "how-mlb-player-projections-work",
+-      "category": "projections-stats",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "baseline performance",
+-        "platoon splits",
+-        "park factors",
+-        "batting order",
+-        "uncertainty"
+-      ]
+-    },
+-    {
+-      "id": "mlb-006",
+-      "priority": 6,
+-      "status": "queued",
+-      "primaryKeyword": "batter vs pitcher stats",
+-      "slug": "batter-vs-pitcher-stats",
+-      "category": "projections-stats",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "BvP definition",
+-        "sample size",
+-        "pitch mix",
+-        "platoon context",
+-        "responsible use"
+-      ]
+-    },
+-    {
+-      "id": "mlb-007",
+-      "priority": 7,
+-      "status": "queued",
+-      "primaryKeyword": "how weather affects baseball",
+-      "slug": "how-weather-affects-baseball",
+-      "category": "weather-ballparks",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "wind",
+-        "temperature",
+-        "humidity",
+-        "rain delays",
+-        "ballpark orientation"
+-      ]
+-    },
+-    {
+-      "id": "mlb-008",
+-      "priority": 8,
+-      "status": "queued",
+-      "primaryKeyword": "baseball rain delay rules",
+-      "slug": "baseball-rain-delay-rules",
+-      "category": "weather-ballparks",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "delay vs postponement",
+-        "official game",
+-        "suspended games",
+-        "DFS implications",
+-        "verify current rules"
+-      ]
+-    },
+-    {
+-      "id": "mlb-009",
+-      "priority": 9,
+-      "status": "queued",
+-      "primaryKeyword": "fantasy baseball scoring",
+-      "slug": "fantasy-baseball-scoring",
+-      "category": "fantasy-baseball",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "points leagues",
+-        "categories",
+-        "platform differences",
+-        "hitters",
+-        "pitchers"
+-      ]
+-    },
+-    {
+-      "id": "mlb-010",
+-      "priority": 10,
+-      "status": "queued",
+-      "primaryKeyword": "mlb injured list explained",
+-      "slug": "mlb-injured-list-explained",
+-      "category": "injuries-rosters",
+-      "intent": "informational",
+-      "parentPillar": "/",
+-      "requiredAngles": [
+-        "10-day IL",
+-        "15-day IL",
+-        "60-day IL",
+-        "roster effects",
+-        "projection updates"
+-      ]
+-    }
+-  ]
 +  "updatedAt": "2026-08-04",
-   "tasks": [
-     {
-       "id": "mlb-001",
-@@ -34,6 +34,20 @@
-         "stacks",
-         "ownership",
-         "late news"
++  "tasks": [
++    {
++      "id": "mlb-001",
++      "priority": 1,
++      "status": "approved",
++      "primaryKeyword": "how to use an mlb lineup optimizer",
++      "slug": "how-to-use-mlb-lineup-optimizer",
++      "category": "lineup-building",
++      "intent": "tutorial",
++      "parentPillar": "/mlb-lineup-optimizer",
++      "requiredAngles": [
++        "player pool",
++        "locks and fades",
++        "stack settings",
++        "salary rules",
++        "review before export"
++      ],
++      "contentFormat": "how_to",
++      "formatReason": "how_to matches the existing task intent and page type.",
++      "funnelStage": "MOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "prerequisites",
++        "steps",
++        "expectedOutcomes",
++        "troubleshooting",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-002",
++      "priority": 2,
++      "status": "approved",
++      "primaryKeyword": "mlb dfs strategy",
++      "slug": "mlb-dfs-strategy",
++      "category": "dfs-strategy",
++      "intent": "informational",
++      "parentPillar": "/mlb-dfs-optimizer",
++      "requiredAngles": [
++        "contest selection",
++        "pitcher selection",
++        "stacks",
++        "ownership",
++        "late news"
 +      ],
 +      "targetPage": "mlb dfs strategy",
 +      "pageType": "Pillar page",
@@ -718,13 +1062,126 @@ index 7adae97..e3570f7 100644
 +      ],
 +      "supportingKeywords": [
 +        "mlb draftkings strategy"
-       ]
-     },
-     {
-@@ -102,6 +116,25 @@
-         "pitch mix",
-         "platoon context",
-         "responsible use"
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-003",
++      "priority": 3,
++      "status": "approved",
++      "primaryKeyword": "mlb dfs stacking strategy",
++      "slug": "mlb-dfs-stacking-strategy",
++      "category": "dfs-strategy",
++      "intent": "informational",
++      "parentPillar": "/mlb-dfs-optimizer",
++      "requiredAngles": [
++        "correlation",
++        "stack sizes",
++        "mini stacks",
++        "ownership",
++        "common mistakes"
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-004",
++      "priority": 4,
++      "status": "approved",
++      "primaryKeyword": "mlb dfs exposure limits",
++      "slug": "mlb-dfs-exposure-limits",
++      "category": "dfs-strategy",
++      "intent": "informational",
++      "parentPillar": "/mlb-dfs-optimizer",
++      "requiredAngles": [
++        "maximum exposure",
++        "minimum exposure",
++        "portfolio risk",
++        "field size",
++        "late scratches"
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-005",
++      "priority": 5,
++      "status": "approved",
++      "primaryKeyword": "how mlb player projections work",
++      "slug": "how-mlb-player-projections-work",
++      "category": "projections-stats",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "baseline performance",
++        "platoon splits",
++        "park factors",
++        "batting order",
++        "uncertainty"
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-006",
++      "priority": 6,
++      "status": "queued",
++      "primaryKeyword": "batter vs pitcher stats",
++      "slug": "batter-vs-pitcher-stats",
++      "category": "projections-stats",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "BvP definition",
++        "sample size",
++        "pitch mix",
++        "platoon context",
++        "responsible use"
 +      ],
 +      "targetPage": "bvp mlb",
 +      "pageType": "Sub page",
@@ -744,14 +1201,36 @@ index 7adae97..e3570f7 100644
 +        "bvp baseball",
 +        "bvp stats",
 +        "pitcher vs hitter stats"
-       ]
-     },
-     {
-@@ -119,7 +152,28 @@
-         "humidity",
-         "rain delays",
-         "ballpark orientation"
--      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-007",
++      "priority": 7,
++      "status": "queued",
++      "primaryKeyword": "how weather affects baseball",
++      "slug": "how-weather-affects-baseball",
++      "category": "weather-ballparks",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "wind",
++        "temperature",
++        "humidity",
++        "rain delays",
++        "ballpark orientation"
 +      ],
 +      "targetPage": "mlb weather",
 +      "pageType": "Pillar page",
@@ -773,15 +1252,36 @@ index 7adae97..e3570f7 100644
 +        "mlb wind"
 +      ],
 +      "strategyPrimaryKeyword": "mlb weather",
-+      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent."
-     },
-     {
-       "id": "mlb-008",
-@@ -136,7 +190,27 @@
-         "suspended games",
-         "DFS implications",
-         "verify current rules"
--      ]
++      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent.",
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-008",
++      "priority": 8,
++      "status": "queued",
++      "primaryKeyword": "baseball rain delay rules",
++      "slug": "baseball-rain-delay-rules",
++      "category": "weather-ballparks",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "delay vs postponement",
++        "official game",
++        "suspended games",
++        "DFS implications",
++        "verify current rules"
 +      ],
 +      "targetPage": "rain delays in mlb",
 +      "pageType": "Sub page",
@@ -802,14 +1302,36 @@ index 7adae97..e3570f7 100644
 +        "rain stoppage"
 +      ],
 +      "strategyPrimaryKeyword": "rain delays in mlb",
-+      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent."
-     },
-     {
-       "id": "mlb-009",
-@@ -153,6 +227,24 @@
-         "platform differences",
-         "hitters",
-         "pitchers"
++      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent.",
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-009",
++      "priority": 9,
++      "status": "queued",
++      "primaryKeyword": "fantasy baseball scoring",
++      "slug": "fantasy-baseball-scoring",
++      "category": "fantasy-baseball",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "points leagues",
++        "categories",
++        "platform differences",
++        "hitters",
++        "pitchers"
 +      ],
 +      "targetPage": "fantasy baseball scoring",
 +      "pageType": "Sub page",
@@ -828,13 +1350,50 @@ index 7adae97..e3570f7 100644
 +        "mlb fantasy scoring",
 +        "mlb fantasy points",
 +        "hitter fantasy score chart"
-       ]
-     },
-     {
-@@ -171,6 +263,3831 @@
-         "roster effects",
-         "projection updates"
-       ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    },
++    {
++      "id": "mlb-010",
++      "priority": 10,
++      "status": "queued",
++      "primaryKeyword": "mlb injured list explained",
++      "slug": "mlb-injured-list-explained",
++      "category": "injuries-rosters",
++      "intent": "informational",
++      "parentPillar": "/",
++      "requiredAngles": [
++        "10-day IL",
++        "15-day IL",
++        "60-day IL",
++        "roster effects",
++        "projection updates"
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-077",
@@ -870,7 +1429,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-002",
@@ -903,7 +1475,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, transactional",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-088",
@@ -936,7 +1521,22 @@ index 7adae97..e3570f7 100644
 +        "navigational",
 +        "informational, commercial",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-085",
@@ -973,7 +1573,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-087",
@@ -1009,7 +1622,20 @@ index 7adae97..e3570f7 100644
 +        "informational, commercial",
 +        "informational, transactional",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-102",
@@ -1046,7 +1672,20 @@ index 7adae97..e3570f7 100644
 +        "navigational",
 +        "commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-074",
@@ -1078,7 +1717,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "commercial",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-097",
@@ -1109,7 +1761,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-017",
@@ -1141,7 +1806,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-052",
@@ -1178,7 +1856,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-124",
@@ -1212,7 +1903,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-042",
@@ -1247,7 +1951,20 @@ index 7adae97..e3570f7 100644
 +        "informational, commercial",
 +        "navigational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-130",
@@ -1281,7 +1998,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-125",
@@ -1315,7 +2045,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-092",
@@ -1346,7 +2089,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 65,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-050",
@@ -1380,7 +2136,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-129",
@@ -1414,7 +2183,20 @@ index 7adae97..e3570f7 100644
 +        "informational, commercial",
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-103",
@@ -1447,7 +2229,20 @@ index 7adae97..e3570f7 100644
 +        "informational, transactional",
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-091",
@@ -1480,7 +2275,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-028",
@@ -1509,7 +2317,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-053",
@@ -1544,7 +2365,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-032",
@@ -1576,7 +2410,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-071",
@@ -1610,7 +2457,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-090",
@@ -1645,7 +2505,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-039",
@@ -1677,7 +2550,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-094",
@@ -1712,7 +2598,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-075",
@@ -1744,7 +2643,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-005",
@@ -1774,7 +2686,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 36,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-019",
@@ -1801,7 +2726,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 48,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-029",
@@ -1827,7 +2765,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 50,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-108",
@@ -1857,7 +2808,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-078",
@@ -1887,7 +2851,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-018",
@@ -1922,7 +2899,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-059",
@@ -1957,7 +2947,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-016",
@@ -1989,7 +2992,20 @@ index 7adae97..e3570f7 100644
 +        "informational, commercial",
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-093",
@@ -2015,7 +3031,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 50,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-006",
@@ -2045,7 +3074,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 24,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-031",
@@ -2072,7 +3114,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-107",
@@ -2100,7 +3155,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-084",
@@ -2130,7 +3198,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-118",
@@ -2159,7 +3240,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-067",
@@ -2190,7 +3284,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 39,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-068",
@@ -2216,7 +3323,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 55,
 +      "intentVariants": [
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-086",
@@ -2248,7 +3368,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-043",
@@ -2281,7 +3414,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "commercial",
 +        "navigational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-065",
@@ -2311,7 +3457,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 30,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-049",
@@ -2344,7 +3503,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-080",
@@ -2373,7 +3545,20 @@ index 7adae97..e3570f7 100644
 +        "informational, transactional",
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-112",
@@ -2405,7 +3590,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-073",
@@ -2433,7 +3631,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-051",
@@ -2470,7 +3681,20 @@ index 7adae97..e3570f7 100644
 +        "informational, transactional",
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-038",
@@ -2497,7 +3721,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 19,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-058",
@@ -2526,7 +3763,22 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 23,
 +      "intentVariants": [
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-063",
@@ -2555,7 +3807,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-117",
@@ -2585,7 +3850,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 82,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-123",
@@ -2615,7 +3893,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-045",
@@ -2648,7 +3939,20 @@ index 7adae97..e3570f7 100644
 +        "informational, transactional",
 +        "transactional",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-081",
@@ -2675,7 +3979,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-013",
@@ -2703,7 +4020,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 50,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-057",
@@ -2737,7 +4067,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-009",
@@ -2770,7 +4113,22 @@ index 7adae97..e3570f7 100644
 +        "informational, commercial",
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-064",
@@ -2796,7 +4154,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 49,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-095",
@@ -2827,7 +4198,22 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-062",
@@ -2858,7 +4244,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-025",
@@ -2887,7 +4286,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 28,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-113",
@@ -2922,7 +4334,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "commercial",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-116",
@@ -2956,7 +4381,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-060",
@@ -2985,7 +4423,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 29,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-082",
@@ -3015,7 +4466,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-021",
@@ -3042,7 +4506,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 34,
 +      "intentVariants": [
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-004",
@@ -3070,7 +4547,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 34,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-105",
@@ -3104,7 +4594,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "informational, transactional",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-114",
@@ -3133,7 +4636,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-027",
@@ -3165,7 +4681,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-034",
@@ -3196,7 +4725,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-069",
@@ -3225,7 +4767,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-001",
@@ -3252,7 +4807,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 41,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-036",
@@ -3285,7 +4853,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-011",
@@ -3314,7 +4895,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-101",
@@ -3340,7 +4934,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 43,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-104",
@@ -3368,7 +4975,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-096",
@@ -3398,7 +5018,22 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-008",
@@ -3425,7 +5060,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 20,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-044",
@@ -3457,7 +5105,20 @@ index 7adae97..e3570f7 100644
 +        "commercial",
 +        "transactional",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-055",
@@ -3488,7 +5149,20 @@ index 7adae97..e3570f7 100644
 +        "navigational",
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-126",
@@ -3519,7 +5193,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-022",
@@ -3546,7 +5233,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-110",
@@ -3573,7 +5273,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 31,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-046",
@@ -3601,7 +5314,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-115",
@@ -3629,7 +5355,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-033",
@@ -3660,7 +5399,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-056",
@@ -3691,7 +5443,22 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-127",
@@ -3721,7 +5488,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 41,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-066",
@@ -3753,7 +5533,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-070",
@@ -3780,7 +5573,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, transactional",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-128",
@@ -3806,7 +5612,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 27,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-003",
@@ -3837,7 +5656,20 @@ index 7adae97..e3570f7 100644
 +        "informational",
 +        "informational, commercial",
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-026",
@@ -3865,7 +5697,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-061",
@@ -3893,7 +5738,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 37,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-083",
@@ -3922,7 +5780,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-023",
@@ -3954,7 +5825,20 @@ index 7adae97..e3570f7 100644
 +        "informational, transactional",
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-121",
@@ -3984,7 +5868,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-106",
@@ -4013,7 +5910,20 @@ index 7adae97..e3570f7 100644
 +        "informational, navigational",
 +        "informational, transactional",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-089",
@@ -4041,7 +5951,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-120",
@@ -4067,7 +5990,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 30,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-100",
@@ -4096,7 +6032,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, transactional",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-131",
@@ -4126,7 +6075,22 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-030",
@@ -4154,7 +6118,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-007",
@@ -4181,7 +6158,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 21,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-035",
@@ -4208,7 +6198,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-041",
@@ -4236,7 +6239,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 36,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-037",
@@ -4262,7 +6278,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 24,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-072",
@@ -4289,7 +6318,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 38,
 +      "intentVariants": [
 +        "informational, transactional"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-076",
@@ -4317,7 +6359,22 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational, commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-012",
@@ -4345,7 +6402,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-024",
@@ -4375,7 +6445,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "informational",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-099",
@@ -4402,7 +6485,22 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 19,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-047",
@@ -4429,7 +6527,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-048",
@@ -4457,7 +6568,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "navigational, transactional",
 +        "informational, commercial"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-122",
@@ -4483,7 +6607,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 9,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-015",
@@ -4510,7 +6647,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "commercial",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-010",
@@ -4536,7 +6686,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 21,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-109",
@@ -4562,7 +6725,20 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 32,
 +      "intentVariants": [
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-014",
@@ -4589,7 +6765,22 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 20,
 +      "intentVariants": [
 +        "commercial"
-+      ]
++      ],
++      "contentFormat": "tool_landing_page",
++      "formatReason": "tool_landing_page matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "start_optimizer",
++      "requiredModules": [
++        "hero",
++        "problem",
++        "useCases",
++        "examples",
++        "features",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-119",
@@ -4616,7 +6807,20 @@ index 7adae97..e3570f7 100644
 +      "intentVariants": [
 +        "navigational, transactional",
 +        "informational"
-+      ]
++      ],
++      "contentFormat": "deep_explanation",
++      "formatReason": "deep_explanation matches the existing task intent and page type.",
++      "funnelStage": "TOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "directAnswer",
++        "originalAnalysis",
++        "limitations",
++        "internalLinks",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
 +    },
 +    {
 +      "id": "strategy-040",
@@ -4642,9 +6846,21 @@ index 7adae97..e3570f7 100644
 +      "keywordDifficulty": 13,
 +      "intentVariants": [
 +        "commercial"
-+      ]
-     }
--  ]
++      ],
++      "contentFormat": "structured_recommendation",
++      "formatReason": "structured_recommendation matches the existing task intent and page type.",
++      "funnelStage": "BOFU",
++      "conversionGoal": "learn_and_apply",
++      "requiredModules": [
++        "selectionCriteria",
++        "recommendations",
++        "limitations",
++        "faq",
++        "cta"
++      ],
++      "visualRequirement": "optional",
++      "variantDimensions": []
++    }
 +  ],
 +  "strategySource": {
 +    "file": "mlb-optimizer_pages_2026-07-22.csv",
@@ -4664,27 +6880,9 @@ index 7adae97..e3570f7 100644
 +    ]
 +  }
  }
-diff --git a/package.json b/package.json
-index d44aca2..1420534 100644
---- a/package.json
-+++ b/package.json
-@@ -6,7 +6,10 @@
-     "content:status": "node content-pipeline/scripts/content-pipeline.mjs status",
-     "content:next": "node content-pipeline/scripts/content-pipeline.mjs next",
-     "content:validate": "node content-pipeline/scripts/content-pipeline.mjs validate",
-+    "content:validate:sources": "node content-pipeline/scripts/content-pipeline.mjs validate-sources",
-     "content:validate:all": "node content-pipeline/scripts/content-pipeline.mjs validate-all",
-+    "content:verify-rendered": "node content-pipeline/scripts/content-pipeline.mjs verify-rendered",
-+    "content:test": "node --test content-pipeline/scripts/content-pipeline.test.mjs",
-     "content:review-server": "node content-pipeline/scripts/review-server.mjs"
-   }
- }
-diff --git a/content-pipeline/scripts/content-pipeline.test.mjs b/content-pipeline/scripts/content-pipeline.test.mjs
-new file mode 100644
-index 0000000..c6d281f
 --- /dev/null
 +++ b/content-pipeline/scripts/content-pipeline.test.mjs
-@@ -0,0 +1,149 @@
+@@ -0,0 +1,174 @@
 +import assert from "node:assert/strict";
 +import test from "node:test";
 +
@@ -4705,8 +6903,17 @@ index 0000000..c6d281f
 +    primaryKeyword: "example seo workflow",
 +    supportingKeywords: ["search intent", "source verification", "content audit"],
 +    intent: "informational",
++    contentFormat: "deep_explanation",
++    formatReason: "A deep explanation matches this informational workflow query and adds original process analysis.",
++    funnelStage: "TOFU",
++    conversionGoal: "learn_and_apply",
++    requiredModules: ["directAnswer", "originalExample", "limitations", "internalLinks", "cta"],
++    visualRequirement: "optional",
++    variantDimensions: [],
 +    contentDifferentiation:
 +      "This page focuses on a repeatable publishing workflow rather than a general introduction to search optimization.",
++    uniqueValue:
++      "This article adds an original workflow example and evidence mapping instead of repeating generic SEO advice.",
 +    title: "Example SEO Workflow: A Practical Publishing Guide",
 +    description:
 +      "Use an evidence-led SEO workflow to align search intent, source verification, content auditing, and publication checks in one repeatable process.",
@@ -4833,4 +7040,20 @@ index 0000000..c6d281f
 +  article.sections[1].paragraphs.push("The process increased the result by 42 percent.");
 +  const result = validateArticle(article, [article]);
 +  assert(result.errors.some((error) => error.includes("numeric claim 42")));
++});
++
++test("comparison format requires comparable evidence and a fit-based verdict", () => {
++  const article = makeArticle();
++  article.contentFormat = "comparison";
++  article.formatReason = "A comparison format matches an explicit alternatives query and supports a fit-based decision.";
++  const result = validateArticle(article, [article]);
++  assert(result.errors.some((error) => error.includes("compared items")));
++  assert(result.errors.some((error) => error.includes("comparison criteria")));
++});
++
++test("format metadata rejects a generic batch page without unique value", () => {
++  const article = makeArticle();
++  article.uniqueValue = "Generic text.";
++  const result = validateArticle(article, [article]);
++  assert(result.errors.some((error) => error.includes("uniqueValue")));
 +});

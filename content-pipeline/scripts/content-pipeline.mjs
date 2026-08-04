@@ -161,6 +161,97 @@ function validateEditorialAudit(article, errors) {
   }
 }
 
+function nonEmptyStrings(value) {
+  return Array.isArray(value) && value.every((item) => String(item || "").trim().length > 0);
+}
+
+function validateFormat(article, errors) {
+  const seo = gates.seo;
+  const allowedFormats = new Set(seo.allowedContentFormats || []);
+  const allowedStages = new Set(seo.allowedFunnelStages || []);
+  const allowedVisualRequirements = new Set(seo.allowedVisualRequirements || []);
+  const format = String(article.contentFormat || "").trim();
+  if (!format || !allowedFormats.has(format)) {
+    errors.push(`contentFormat must be one of: ${[...allowedFormats].join(", ")}`);
+    return;
+  }
+  if (!article.formatReason || String(article.formatReason).trim().length < seo.minimumFormatReasonCharacters) {
+    errors.push(`formatReason must contain at least ${seo.minimumFormatReasonCharacters} characters`);
+  }
+  if (!allowedStages.has(article.funnelStage)) {
+    errors.push(`funnelStage must be one of: ${[...allowedStages].join(", ")}`);
+  }
+  if (!article.conversionGoal || !String(article.conversionGoal).trim()) {
+    errors.push("conversionGoal is required");
+  }
+  if (!allowedVisualRequirements.has(article.visualRequirement)) {
+    errors.push(`visualRequirement must be one of: ${[...allowedVisualRequirements].join(", ")}`);
+  }
+  if (!nonEmptyStrings(article.requiredModules)) {
+    errors.push("requiredModules must be an array of non-empty strings");
+  }
+  if (!nonEmptyStrings(article.variantDimensions)) {
+    errors.push("variantDimensions must be an array of non-empty strings");
+  }
+  if (!article.uniqueValue || String(article.uniqueValue).trim().length < seo.minimumUniqueValueCharacters) {
+    errors.push(`uniqueValue must contain at least ${seo.minimumUniqueValueCharacters} characters`);
+  }
+
+  if (format === "how_to") {
+    if (!nonEmptyStrings(article.prerequisites) || article.prerequisites.length < 1) {
+      errors.push("how_to format requires at least one prerequisite");
+    }
+    if (!Array.isArray(article.steps) || article.steps.length < 3 || article.steps.some((step) => !step.title || !step.instruction)) {
+      errors.push("how_to format requires at least three ordered steps with title and instruction");
+    }
+    if (!nonEmptyStrings(article.expectedOutcomes) || article.expectedOutcomes.length < 1) {
+      errors.push("how_to format requires expectedOutcomes");
+    }
+    if (!nonEmptyStrings(article.troubleshooting) || article.troubleshooting.length < 1) {
+      errors.push("how_to format requires troubleshooting guidance");
+    }
+  }
+  if (format === "comparison") {
+    const comparison = article.comparison;
+    if (!comparison || !nonEmptyStrings(comparison.items) || comparison.items.length < 2) {
+      errors.push("comparison format requires at least two compared items");
+    }
+    if (!comparison || !nonEmptyStrings(comparison.criteria) || comparison.criteria.length < 2) {
+      errors.push("comparison format requires at least two comparison criteria");
+    }
+    if (!comparison || !comparison.verdict || String(comparison.verdict).trim().length < 30) {
+      errors.push("comparison format requires a fit-based verdict");
+    }
+  }
+  if (format === "review") {
+    if (!article.reviewMethod || String(article.reviewMethod).trim().length < 40) {
+      errors.push("review format requires a disclosed reviewMethod");
+    }
+    if (!nonEmptyStrings(article.reviewEvidence) || article.reviewEvidence.length < 1) {
+      errors.push("review format requires reviewEvidence");
+    }
+  }
+  if (format === "structured_recommendation") {
+    if (!nonEmptyStrings(article.recommendationCriteria) || article.recommendationCriteria.length < 2) {
+      errors.push("structured_recommendation requires at least two recommendationCriteria");
+    }
+    if (!nonEmptyStrings(article.recommendations) || article.recommendations.length < 2) {
+      errors.push("structured_recommendation requires at least two recommendations");
+    }
+  }
+  if (format === "tool_landing_page") {
+    if (!nonEmptyStrings(article.useCases) || article.useCases.length < 2) {
+      errors.push("tool_landing_page requires at least two useCases");
+    }
+    if (!nonEmptyStrings(article.examples) || article.examples.length < 1) {
+      errors.push("tool_landing_page requires at least one example");
+    }
+    if (!Array.isArray(article.variantDimensions) || article.variantDimensions.length < 1) {
+      errors.push("tool_landing_page requires variantDimensions for scalable uniqueness");
+    }
+  }
+}
+
 export function validateArticle(article, allArticles = []) {
   const errors = [];
   const warnings = [];
@@ -285,6 +376,7 @@ export function validateArticle(article, allArticles = []) {
     ) {
       errors.push("contentDifferentiation must explain how this intent differs from existing pages");
     }
+    if (seo.requireFormatMetadata) validateFormat(article, errors);
     if (gates.evidence.requireClaimLedger) validateClaimLedger(article, sourceIds, errors);
     if (gates.evidence.requireEditorialAudit) validateEditorialAudit(article, errors);
     for (const disclosure of config.editorial.requiredDisclosures || []) {

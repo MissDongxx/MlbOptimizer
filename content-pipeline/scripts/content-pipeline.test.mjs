@@ -18,8 +18,17 @@ function makeArticle() {
     primaryKeyword: "example seo workflow",
     supportingKeywords: ["search intent", "source verification", "content audit"],
     intent: "informational",
+    contentFormat: "deep_explanation",
+    formatReason: "A deep explanation matches this informational workflow query and adds original process analysis.",
+    funnelStage: "TOFU",
+    conversionGoal: "learn_and_apply",
+    requiredModules: ["directAnswer", "originalExample", "limitations", "internalLinks", "cta"],
+    visualRequirement: "optional",
+    variantDimensions: [],
     contentDifferentiation:
       "This page focuses on a repeatable publishing workflow rather than a general introduction to search optimization.",
+    uniqueValue:
+      "This article adds an original workflow example and evidence mapping instead of repeating generic SEO advice.",
     title: "Example SEO Workflow: A Practical Publishing Guide",
     description:
       "Use an evidence-led SEO workflow to align search intent, source verification, content auditing, and publication checks in one repeatable process.",
@@ -146,4 +155,20 @@ test("numeric claims must be represented in the claim ledger", () => {
   article.sections[1].paragraphs.push("The process increased the result by 42 percent.");
   const result = validateArticle(article, [article]);
   assert(result.errors.some((error) => error.includes("numeric claim 42")));
+});
+
+test("comparison format requires comparable evidence and a fit-based verdict", () => {
+  const article = makeArticle();
+  article.contentFormat = "comparison";
+  article.formatReason = "A comparison format matches an explicit alternatives query and supports a fit-based decision.";
+  const result = validateArticle(article, [article]);
+  assert(result.errors.some((error) => error.includes("compared items")));
+  assert(result.errors.some((error) => error.includes("comparison criteria")));
+});
+
+test("format metadata rejects a generic batch page without unique value", () => {
+  const article = makeArticle();
+  article.uniqueValue = "Generic text.";
+  const result = validateArticle(article, [article]);
+  assert(result.errors.some((error) => error.includes("uniqueValue")));
 });
