@@ -1,13 +1,21 @@
 {
   "schemaVersion": 1,
+  "seoAuditVersion": 2,
   "status": "draft",
   "slug": "example-article",
   "category": "example-category",
   "primaryKeyword": "example primary keyword",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "supporting keyword one",
+    "supporting keyword two",
+    "supporting keyword three"
+  ],
   "intent": "informational",
+  "contentDifferentiation": "Explain which existing pages were reviewed and how this page answers a distinct reader question without keyword cannibalization.",
   "title": "Example Primary Keyword: A Practical Guide",
   "description": "A concise description that states what the reader will learn, who the guide is for, and the practical outcome without listing keyword variants.",
-  "excerpt": "A short reader-facing summary.",
+  "excerpt": "Example primary keyword explained for the target reader, including supporting keyword one and the practical outcome this guide delivers.",
   "author": "Editorial Team",
   "reviewer": "Pending editorial review",
   "publishedAt": null,
@@ -15,8 +23,8 @@
   "keyTakeaways": ["Takeaway one", "Takeaway two", "Takeaway three"],
   "sections": [
     {
-      "heading": "Direct answer",
-      "paragraphs": ["Answer the query directly and distinguish facts, analysis, and uncertainty."],
+      "heading": "Example primary keyword: direct answer",
+      "paragraphs": ["Answer the query directly, use supporting keyword two naturally, and distinguish facts, analysis, and uncertainty."],
       "sourceIds": ["source-1"]
     },
     {
@@ -31,8 +39,13 @@
     },
     {
       "heading": "Limitations and what to verify",
-      "paragraphs": ["State limitations and facts that can change."],
+      "paragraphs": ["State limitations, supporting keyword three, and facts that can change. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes."],
       "sourceIds": ["source-1", "source-2"]
+    },
+    {
+      "heading": "Conclusion and next steps",
+      "paragraphs": ["Summarize how to apply the example primary keyword responsibly and give the reader a concrete next action."],
+      "sourceIds": ["source-1"]
     }
   ],
   "faq": [
@@ -40,6 +53,29 @@
     {"question": "Question two?", "answer": "Answer two."},
     {"question": "Question three?", "answer": "Answer three."}
   ],
+  "claimLedger": [
+    {
+      "claim": "A concise objective claim from the article.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": ["source-1"],
+      "checkedAt": "2026-07-24"
+    },
+    {
+      "claim": "An invented value used only inside a clearly labeled fictional example.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-07-24",
+    "notes": "Record the intent, evidence, depth, and post-humanization integrity checks completed for this article."
+  },
   "sources": [
     {
       "id": "source-1",

@@ -6,7 +6,10 @@
     "content:status": "node content-pipeline/scripts/content-pipeline.mjs status",
     "content:next": "node content-pipeline/scripts/content-pipeline.mjs next",
     "content:validate": "node content-pipeline/scripts/content-pipeline.mjs validate",
+    "content:validate:sources": "node content-pipeline/scripts/content-pipeline.mjs validate-sources",
     "content:validate:all": "node content-pipeline/scripts/content-pipeline.mjs validate-all",
+    "content:verify-rendered": "node content-pipeline/scripts/content-pipeline.mjs verify-rendered",
+    "content:test": "node --test content-pipeline/scripts/content-pipeline.test.mjs",
     "content:review-server": "node content-pipeline/scripts/review-server.mjs"
   }
 }

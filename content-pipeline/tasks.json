@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-08-04",
   "tasks": [
     {
       "id": "mlb-001",
@@ -34,6 +34,20 @@
         "stacks",
         "ownership",
         "late news"
+      ],
+      "targetPage": "mlb dfs strategy",
+      "pageType": "Pillar page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 90,
+      "primaryVolume": 50,
+      "keywordDifficulty": 6,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ],
+      "supportingKeywords": [
+        "mlb draftkings strategy"
       ]
     },
     {
@@ -102,6 +116,25 @@
         "pitch mix",
         "platoon context",
         "responsible use"
+      ],
+      "targetPage": "bvp mlb",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 25,
+      "clusterVolume": 10470,
+      "primaryVolume": 5400,
+      "keywordDifficulty": 39,
+      "intentVariants": [
+        "commercial",
+        "informational, commercial",
+        "informational"
+      ],
+      "supportingKeywords": [
+        "bvp mlb",
+        "pitchers vs batters today",
+        "bvp baseball",
+        "bvp stats",
+        "pitcher vs hitter stats"
       ]
     },
     {
@@ -119,7 +152,28 @@
         "humidity",
         "rain delays",
         "ballpark orientation"
-      ]
+      ],
+      "targetPage": "mlb weather",
+      "pageType": "Pillar page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 30,
+      "clusterVolume": 125260,
+      "primaryVolume": 60500,
+      "keywordDifficulty": 52,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ],
+      "supportingKeywords": [
+        "mlb weather today",
+        "mlb weather report",
+        "major league baseball weather",
+        "baseball weather",
+        "mlb wind"
+      ],
+      "strategyPrimaryKeyword": "mlb weather",
+      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent."
     },
     {
       "id": "mlb-008",
@@ -136,7 +190,27 @@
         "suspended games",
         "DFS implications",
         "verify current rules"
-      ]
+      ],
+      "targetPage": "rain delays in mlb",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 21,
+      "clusterVolume": 4010,
+      "primaryVolume": 720,
+      "keywordDifficulty": 21,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ],
+      "supportingKeywords": [
+        "rain delay baseball",
+        "rain delay baseball game",
+        "baseball in the rain",
+        "do baseball games get cancelled for rain",
+        "rain stoppage"
+      ],
+      "strategyPrimaryKeyword": "rain delays in mlb",
+      "strategyNote": "Existing queued query retained; mapped to the strategy table page cluster to prevent duplicate page intent."
     },
     {
       "id": "mlb-009",
@@ -153,6 +227,24 @@
         "platform differences",
         "hitters",
         "pitchers"
+      ],
+      "targetPage": "fantasy baseball scoring",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 21,
+      "clusterVolume": 2390,
+      "primaryVolume": 480,
+      "keywordDifficulty": 21,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ],
+      "supportingKeywords": [
+        "hitter fantasy scores",
+        "mlb hitter fantasy score",
+        "mlb fantasy scoring",
+        "mlb fantasy points",
+        "hitter fantasy score chart"
       ]
     },
     {
@@ -171,6 +263,3831 @@
         "roster effects",
         "projection updates"
       ]
+    },
+    {
+      "id": "strategy-077",
+      "priority": 11,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs",
+      "slug": "mlb-dfs-picks-today",
+      "targetPage": "mlb dfs picks today",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb daily fantasy baseball",
+        "mlb dfs picks today",
+        "daily fantasy sports mlb",
+        "mlb dfs picks",
+        "daily fantasy baseball"
+      ],
+      "requiredAngles": [
+        "mlb optimizer",
+        "mlb fantasy daily picks",
+        "mlb daily fantasy picks today",
+        "mlb dfs lineups",
+        "mlb dfs picks today"
+      ],
+      "parentPillar": "/",
+      "pageType": "Pillar page",
+      "topic": "mlb dfs exposure limits",
+      "clusterSize": 30,
+      "clusterVolume": 30880,
+      "primaryVolume": 8100,
+      "keywordDifficulty": 43,
+      "intentVariants": [
+        "commercial",
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-002",
+      "priority": 12,
+      "status": "queued",
+      "primaryKeyword": "mlb injury report",
+      "slug": "al-injury-report",
+      "targetPage": "al injury report",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb injuries",
+        "al injury report",
+        "baseball injuries",
+        "baseball injured",
+        "mlb injured list"
+      ],
+      "requiredAngles": [
+        "mlb injury report",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Pillar page",
+      "topic": "mlb player injuries",
+      "clusterSize": 30,
+      "clusterVolume": 12720,
+      "primaryVolume": 2900,
+      "keywordDifficulty": 66,
+      "intentVariants": [
+        "informational",
+        "informational, transactional",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-088",
+      "priority": 13,
+      "status": "queued",
+      "primaryKeyword": "mlb optimizer",
+      "slug": "mlb-optimizer",
+      "targetPage": "mlb optimizer",
+      "category": "dfs-strategy",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "dfs mlb optimizer",
+        "fanduel optimal lineup mlb",
+        "best mlb fanduel lineup",
+        "fanduel mlb lineup",
+        "mlb lineup builder"
+      ],
+      "requiredAngles": [
+        "mlb optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Pillar page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 12,
+      "clusterVolume": 9480,
+      "primaryVolume": 8100,
+      "keywordDifficulty": 33,
+      "intentVariants": [
+        "informational",
+        "navigational",
+        "informational, commercial",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-085",
+      "priority": 14,
+      "status": "queued",
+      "primaryKeyword": "major league baseball projections",
+      "slug": "mlb-home-run-projections",
+      "targetPage": "mlb home run projections",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb home run projections today",
+        "mlb home run projections",
+        "fantasy baseball projections",
+        "how often are mlb stat projections updated",
+        "home run projections today"
+      ],
+      "requiredAngles": [
+        "mlb fantasy projections today",
+        "daily baseball projections",
+        "fantasy baseball daily rankings",
+        "daily mlb projections",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Pillar page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 21,
+      "clusterVolume": 4140,
+      "primaryVolume": 590,
+      "keywordDifficulty": 42,
+      "intentVariants": [
+        "informational",
+        "commercial",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-087",
+      "priority": 15,
+      "status": "queued",
+      "primaryKeyword": "mlb lineups",
+      "slug": "mlb-lineups",
+      "targetPage": "mlb lineups",
+      "category": "projections-stats",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "mlb starting lineups",
+        "mlb lineups today",
+        "major league baseball lineups for today",
+        "starting pitchers today",
+        "mlb starting lineups today"
+      ],
+      "requiredAngles": [
+        "mlb express lineup",
+        "mlb lineup projections",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 237830,
+      "primaryVolume": 90500,
+      "keywordDifficulty": 82,
+      "intentVariants": [
+        "navigational",
+        "informational",
+        "informational, commercial",
+        "informational, transactional",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-102",
+      "priority": 16,
+      "status": "queued",
+      "primaryKeyword": "mlb home run leaders",
+      "slug": "nl-batting-leaders",
+      "targetPage": "nl batting leaders",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "home run leaders",
+        "baseball player",
+        "baseball stats",
+        "mlb player stats",
+        "baseball statistics"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections",
+        "mlb dfs rankings",
+        "fantasy baseball daily rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 121880,
+      "primaryVolume": 49500,
+      "keywordDifficulty": 82,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "navigational",
+        "commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-074",
+      "priority": 17,
+      "status": "queued",
+      "primaryKeyword": "all time home run leaders",
+      "slug": "mlb-active-home-run-leaders",
+      "targetPage": "mlb active home run leaders",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "home runs today",
+        "home run record",
+        "mlb home run record",
+        "mlb all time home run leaders",
+        "most home runs all time"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 72390,
+      "primaryVolume": 12100,
+      "keywordDifficulty": 57,
+      "intentVariants": [
+        "informational",
+        "commercial",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-097",
+      "priority": 18,
+      "status": "queued",
+      "primaryKeyword": "mlb news and rumors",
+      "slug": "mlb-trade-tracker",
+      "targetPage": "mlb trade tracker",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball rumors",
+        "mlb trade tracker",
+        "major league transactions",
+        "minor league transactions",
+        "baseball trades"
+      ],
+      "requiredAngles": [
+        "mlb player news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 53230,
+      "primaryVolume": 22200,
+      "keywordDifficulty": 76,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-017",
+      "priority": 19,
+      "status": "queued",
+      "primaryKeyword": "best players of all time baseball",
+      "slug": "best-players-of-all-time-baseball",
+      "targetPage": "best players of all time baseball",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "greatest baseball players of all time",
+        "best baseball player ever",
+        "greatest baseball player of all time",
+        "best players of all time mlb",
+        "great baseball players of all time"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 14,
+      "clusterVolume": 28100,
+      "primaryVolume": 12100,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "commercial",
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-052",
+      "priority": 20,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball rankings",
+      "slug": "fantasy-baseball-rankings",
+      "targetPage": "fantasy baseball rankings",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb fantasy rankings",
+        "mlb fantasy baseball rankings",
+        "fantasy baseball draft",
+        "fantasy baseball points league rankings",
+        "mlb fantasy picks"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb dfs rankings",
+        "mlb fantasy projections today",
+        "fantasy picks mlb",
+        "mlb daily fantasy rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 21730,
+      "primaryVolume": 12100,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-124",
+      "priority": 21,
+      "status": "queued",
+      "primaryKeyword": "best mlb players",
+      "slug": "top-mlb-players",
+      "targetPage": "top mlb players",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "top mlb players",
+        "best baseball player mlb",
+        "best major league baseball players",
+        "best baseball players right now",
+        "best mlb players right now"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "fantasy picks mlb",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 17,
+      "clusterVolume": 18050,
+      "primaryVolume": 3600,
+      "keywordDifficulty": 43,
+      "intentVariants": [
+        "commercial",
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-042",
+      "priority": 22,
+      "status": "queued",
+      "primaryKeyword": "dodgers starting lineup today",
+      "slug": "dodgers-starting-lineup-today",
+      "targetPage": "dodgers starting lineup today",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "dodger lineup tonight",
+        "la dodgers starting lineup",
+        "los angeles dodgers starting lineup",
+        "dodgers starting lineup today espn",
+        "dodgers lineup tomorrow"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs exposure limits",
+      "clusterSize": 30,
+      "clusterVolume": 15400,
+      "primaryVolume": 8100,
+      "keywordDifficulty": 54,
+      "intentVariants": [
+        "informational, transactional",
+        "informational",
+        "informational, commercial",
+        "navigational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-130",
+      "priority": 23,
+      "status": "queued",
+      "primaryKeyword": "wrigley weather",
+      "slug": "wrigley-weather",
+      "targetPage": "wrigley weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "wrigley field wind",
+        "weather at wrigley field",
+        "wind at wrigley",
+        "wrigley field wind today",
+        "cubs weather"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast",
+        "mlb dfs weather",
+        "mlb weather",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 30,
+      "clusterVolume": 12110,
+      "primaryVolume": 3600,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-125",
+      "priority": 24,
+      "status": "queued",
+      "primaryKeyword": "baseball news",
+      "slug": "tshousebaseball-mlb-updates-from-thesportshouse",
+      "targetPage": "tshousebaseball mlb updates from thesportshouse",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb baseball updates",
+        "baseball news today",
+        "baseball articles",
+        "baseball reporting",
+        "sports articles baseball"
+      ],
+      "requiredAngles": [
+        "mlb player news",
+        "fantasy baseball daily rankings",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 16,
+      "clusterVolume": 12090,
+      "primaryVolume": 6600,
+      "keywordDifficulty": 100,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-092",
+      "priority": 25,
+      "status": "queued",
+      "primaryKeyword": "mlb rosters",
+      "slug": "mlb-rosters",
+      "targetPage": "mlb rosters",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb roster",
+        "mlb baseball rosters",
+        "mlb team rosters",
+        "major league baseball opening day rosters",
+        "current mlb rosters"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 9,
+      "clusterVolume": 8080,
+      "primaryVolume": 4400,
+      "keywordDifficulty": 65,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-050",
+      "priority": 26,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball news",
+      "slug": "fantasy-baseball-news",
+      "targetPage": "fantasy baseball news",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb player news",
+        "mlb transactions roto",
+        "roto baseball",
+        "roto baseball news",
+        "baseball player news"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb player news",
+        "fantasy picks mlb",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 7,
+      "clusterVolume": 7780,
+      "primaryVolume": 4400,
+      "keywordDifficulty": 69,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-129",
+      "priority": 27,
+      "status": "queued",
+      "primaryKeyword": "home run tracker",
+      "slug": "which-mlb-player-homers-the-most-on-monday",
+      "targetPage": "which mlb player homers the most on monday",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb home run tracker",
+        "which mlb player homers the most on monday",
+        "who hit home runs yesterday",
+        "which mlb player homers the most on saturday this year",
+        "hr leads"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 10,
+      "clusterVolume": 7440,
+      "primaryVolume": 3600,
+      "keywordDifficulty": 56,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-103",
+      "priority": 28,
+      "status": "queued",
+      "primaryKeyword": "oswaldo cabrera injury update",
+      "slug": "oswaldo-cabrera-injury-update",
+      "targetPage": "oswaldo cabrera injury update",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "injured yankees players",
+        "yankee injury update",
+        "yankees il",
+        "cabrera injury update",
+        "yankee injury"
+      ],
+      "requiredAngles": [
+        "mlb injury report",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 30,
+      "clusterVolume": 6180,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 35,
+      "intentVariants": [
+        "informational, transactional",
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-091",
+      "priority": 29,
+      "status": "queued",
+      "primaryKeyword": "mlb player props",
+      "slug": "mlb-player-props",
+      "targetPage": "mlb player props",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "mlb cheat sheet",
+        "mlb cheat sheet today",
+        "mlb player picks",
+        "baseball player props",
+        "hit sheet"
+      ],
+      "requiredAngles": [
+        "daily mlb projections",
+        "mlb draftkings cheat sheet",
+        "free mlb fantasy picks today"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 9,
+      "clusterVolume": 6100,
+      "primaryVolume": 5400,
+      "keywordDifficulty": 23,
+      "intentVariants": [
+        "commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-028",
+      "priority": 30,
+      "status": "queued",
+      "primaryKeyword": "cubs starting lineup today",
+      "slug": "cubs-starting-lineup-today",
+      "targetPage": "cubs starting lineup today",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "cubs lineup tonight",
+        "projected cubs lineup"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 5450,
+      "primaryVolume": 4400,
+      "keywordDifficulty": 46,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-053",
+      "priority": 31,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball rest of season rankings",
+      "slug": "fantasy-baseball-rest-of-season-rankings",
+      "targetPage": "fantasy baseball rest of season rankings",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb player rankings",
+        "best fantasy baseball players",
+        "fantasy baseball hitter rankings",
+        "fantasy baseball tiers",
+        "baseball player rankings"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb dfs rankings",
+        "fantasy picks mlb"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 5120,
+      "primaryVolume": 1600,
+      "keywordDifficulty": 46,
+      "intentVariants": [
+        "informational",
+        "commercial",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-032",
+      "priority": 32,
+      "status": "queued",
+      "primaryKeyword": "detroit tigers injuries",
+      "slug": "detroit-tigers-injuries",
+      "targetPage": "detroit tigers injuries",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "detroit tigers injured list",
+        "tigers injuries",
+        "detroit tigers injury list",
+        "tigers injury list",
+        "detroit tigers injury report"
+      ],
+      "requiredAngles": [
+        "mlb injury updates",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 11,
+      "clusterVolume": 4640,
+      "primaryVolume": 720,
+      "keywordDifficulty": 24,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-071",
+      "priority": 33,
+      "status": "queued",
+      "primaryKeyword": "mets weather",
+      "slug": "mets-weather",
+      "targetPage": "mets weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mets rain delay today",
+        "mets rainout",
+        "is the mets game rained out today",
+        "mets game delay today",
+        "mets delay today"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "mlb rain delay",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 18,
+      "clusterVolume": 4170,
+      "primaryVolume": 1600,
+      "keywordDifficulty": 31,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-090",
+      "priority": 34,
+      "status": "queued",
+      "primaryKeyword": "mlb player comparison",
+      "slug": "mlb-player-comparison",
+      "targetPage": "mlb player comparison",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "mlb stat comparison",
+        "baseball player comparison",
+        "fantasy baseball player comparison",
+        "compare fantasy baseball players",
+        "baseball ref compare"
+      ],
+      "requiredAngles": [
+        "daily baseball projections",
+        "mlb player stats",
+        "mlb fantasy baseball projections",
+        "fantasy picks mlb"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 6,
+      "clusterVolume": 3950,
+      "primaryVolume": 2400,
+      "keywordDifficulty": 37,
+      "intentVariants": [
+        "commercial",
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-039",
+      "priority": 35,
+      "status": "queued",
+      "primaryKeyword": "dodgers injuries",
+      "slug": "dodgers-injuries",
+      "targetPage": "dodgers injuries",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "los angeles dodgers injury report",
+        "dodgers pitcher injured today",
+        "dodgers current injury list",
+        "los angeles dodgers injury update",
+        "dodgers pitchers injured yesterday"
+      ],
+      "requiredAngles": [
+        "mlb injury report",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 6,
+      "clusterVolume": 3670,
+      "primaryVolume": 2900,
+      "keywordDifficulty": 54,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-094",
+      "priority": 36,
+      "status": "queued",
+      "primaryKeyword": "mlb strikeout props",
+      "slug": "mlb-strikeout-props",
+      "targetPage": "mlb strikeout props",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "mlb pitcher props today",
+        "mlb pitcher props",
+        "mlb player projections today",
+        "mlb projections today",
+        "mlb strikeout prop bets today"
+      ],
+      "requiredAngles": [
+        "daily mlb projections",
+        "mlb fantasy projections today",
+        "mlb dfs projections today",
+        "daily baseball projections",
+        "mlb optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 30,
+      "clusterVolume": 3570,
+      "primaryVolume": 390,
+      "keywordDifficulty": 30,
+      "intentVariants": [
+        "commercial",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-075",
+      "priority": 37,
+      "status": "queued",
+      "primaryKeyword": "war mlb",
+      "slug": "mlb-all-time-war-leaders",
+      "targetPage": "mlb all time war leaders",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb all time war leaders",
+        "wins above replacement mlb",
+        "best war in baseball",
+        "war stats",
+        "war rankings mlb"
+      ],
+      "requiredAngles": [
+        "daily baseball projections",
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 9,
+      "clusterVolume": 3380,
+      "primaryVolume": 880,
+      "keywordDifficulty": 61,
+      "intentVariants": [
+        "commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-005",
+      "priority": 38,
+      "status": "queued",
+      "primaryKeyword": "youngest mlb team",
+      "slug": "average-age-of-mlb-player",
+      "targetPage": "average age of mlb player",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "average age of mlb player",
+        "average mlb age",
+        "average age of a major league baseball player",
+        "average age of baseball players",
+        "average age of mlb teams"
+      ],
+      "requiredAngles": [
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 12,
+      "clusterVolume": 2490,
+      "primaryVolume": 720,
+      "keywordDifficulty": 36,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-019",
+      "priority": 39,
+      "status": "queued",
+      "primaryKeyword": "buffalo bills stadium weather",
+      "slug": "buffalo-bills-stadium-weather",
+      "targetPage": "buffalo bills stadium weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "bills stadium weather",
+        "buffalo bills weather sunday"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 3,
+      "clusterVolume": 2480,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 48,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-029",
+      "priority": 40,
+      "status": "queued",
+      "primaryKeyword": "mlb hitting streak",
+      "slug": "current-mlb-hitting-streaks-today",
+      "targetPage": "current mlb hitting streaks today",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "current mlb hitting streaks today"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 2320,
+      "primaryVolume": 1600,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-108",
+      "priority": 41,
+      "status": "queued",
+      "primaryKeyword": "pitchers stat",
+      "slug": "pitchers-stat",
+      "targetPage": "pitchers stat",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "lowest team era in mlb right now",
+        "nl era leaders",
+        "national league era leaders",
+        "lowest era this season"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 5,
+      "clusterVolume": 2260,
+      "primaryVolume": 720,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-078",
+      "priority": 42,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs projections",
+      "slug": "mlb-dfs-projections",
+      "targetPage": "mlb dfs projections",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "daily fantasy baseball projections",
+        "mlb dfs ownership projections",
+        "mlb fantasy projections today"
+      ],
+      "requiredAngles": [
+        "mlb optimizer",
+        "mlb dfs projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 2100,
+      "primaryVolume": 1600,
+      "keywordDifficulty": 18,
+      "intentVariants": [
+        "informational, commercial",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-018",
+      "priority": 43,
+      "status": "queued",
+      "primaryKeyword": "is braves game cancelled today",
+      "slug": "braves-weather-delay",
+      "targetPage": "braves weather delay",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "braves weather delay",
+        "braves rain delay update",
+        "braves rain delay today",
+        "atlanta braves rain delay today",
+        "braves game delay today"
+      ],
+      "requiredAngles": [
+        "mlb rain delay",
+        "mlb dfs weather",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 23,
+      "clusterVolume": 2060,
+      "primaryVolume": 390,
+      "keywordDifficulty": 66,
+      "intentVariants": [
+        "informational",
+        "commercial",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-059",
+      "priority": 44,
+      "status": "queued",
+      "primaryKeyword": "fantasy pitcher rankings",
+      "slug": "fantasy-pitcher-rankings",
+      "targetPage": "fantasy pitcher rankings",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "fantasy pitchers",
+        "fantasy baseball pitching",
+        "mlb fantasy pitcher rankings",
+        "best fantasy pitchers today",
+        "best fantasy baseball pitchers"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb dfs rankings",
+        "fantasy picks mlb"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 15,
+      "clusterVolume": 2000,
+      "primaryVolume": 880,
+      "keywordDifficulty": 24,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-016",
+      "priority": 45,
+      "status": "queued",
+      "primaryKeyword": "best pitchers",
+      "slug": "best-pitchers",
+      "targetPage": "best pitchers",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "ranking starting pitchers",
+        "best starting pitchers",
+        "professional pitchers",
+        "pitcher for baseball",
+        "who is the pitcher"
+      ],
+      "requiredAngles": [
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 6,
+      "clusterVolume": 1900,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-093",
+      "priority": 46,
+      "status": "queued",
+      "primaryKeyword": "mlb saves leaders",
+      "slug": "mlb-saves-leaders",
+      "targetPage": "mlb saves leaders",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb leader in saves"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 1890,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-006",
+      "priority": 47,
+      "status": "queued",
+      "primaryKeyword": "average mlb player height",
+      "slug": "average-mlb-player-height",
+      "targetPage": "average mlb player height",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "average mlb height",
+        "average mlb player height and weight",
+        "average height of mlb players",
+        "tallest baseball player right now",
+        "tallest mlb player right now"
+      ],
+      "requiredAngles": [
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 9,
+      "clusterVolume": 1790,
+      "primaryVolume": 720,
+      "keywordDifficulty": 24,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-031",
+      "priority": 48,
+      "status": "queued",
+      "primaryKeyword": "detroit injury report",
+      "slug": "detroit-injury-report",
+      "targetPage": "detroit injury report",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "detroit injury"
+      ],
+      "requiredAngles": [
+        "mlb injury updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 1780,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 38,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-107",
+      "priority": 49,
+      "status": "queued",
+      "primaryKeyword": "phillies injury report",
+      "slug": "phillies-injury-report",
+      "targetPage": "phillies injury report",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "phillies injuries",
+        "phillies injury report today"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 3,
+      "clusterVolume": 1690,
+      "primaryVolume": 880,
+      "keywordDifficulty": 25,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-084",
+      "priority": 50,
+      "status": "queued",
+      "primaryKeyword": "mlb first baseman",
+      "slug": "mlb-first-baseman",
+      "targetPage": "mlb first baseman",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb 1st baseman",
+        "mlb 1b",
+        "first basemen"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "mlb dfs early"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 1660,
+      "primaryVolume": 720,
+      "keywordDifficulty": 36,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-118",
+      "priority": 51,
+      "status": "queued",
+      "primaryKeyword": "seattle mariners injury",
+      "slug": "seattle-mariners-injury",
+      "targetPage": "seattle mariners injury",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mariners injury report",
+        "mariners injury",
+        "mariners injury today"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 4,
+      "clusterVolume": 1640,
+      "primaryVolume": 590,
+      "keywordDifficulty": 30,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-067",
+      "priority": 52,
+      "status": "queued",
+      "primaryKeyword": "major league baseball roster size",
+      "slug": "major-league-baseball-roster-size",
+      "targetPage": "major league baseball roster size",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "major league roster size",
+        "players on a baseball team",
+        "baseball p",
+        "baseball team size",
+        "how many players on a baseball roster"
+      ],
+      "requiredAngles": [
+        "mlb express lineup",
+        "fantasy picks mlb"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 6,
+      "clusterVolume": 1610,
+      "primaryVolume": 480,
+      "keywordDifficulty": 39,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-068",
+      "priority": 53,
+      "status": "queued",
+      "primaryKeyword": "major league home run leaders by year",
+      "slug": "major-league-home-run-leaders-by-year",
+      "targetPage": "major league home run leaders by year",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "home run leaders by year"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 1600,
+      "primaryVolume": 880,
+      "keywordDifficulty": 55,
+      "intentVariants": [
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-086",
+      "priority": 54,
+      "status": "queued",
+      "primaryKeyword": "mlb implied runs",
+      "slug": "mlb-implied-runs",
+      "targetPage": "mlb implied runs",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb run totals",
+        "mlb projected runs",
+        "mlb implied runs today"
+      ],
+      "requiredAngles": [
+        "mlb express lineup",
+        "mlb draftkings lineup",
+        "daily baseball projections",
+        "mlb lineup projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 1570,
+      "primaryVolume": 1300,
+      "keywordDifficulty": 67,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-043",
+      "priority": 55,
+      "status": "queued",
+      "primaryKeyword": "world series pitchers tonight",
+      "slug": "dodgers-vs-blue-jays-lineup",
+      "targetPage": "dodgers vs blue jays lineup",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "world series lineup",
+        "dodgers vs blue jays lineup",
+        "who is pitching for the world series tonight",
+        "world series starters",
+        "starting lineup world series"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 7,
+      "clusterVolume": 1560,
+      "primaryVolume": 390,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational",
+        "commercial",
+        "navigational"
+      ]
+    },
+    {
+      "id": "strategy-065",
+      "priority": 56,
+      "status": "queued",
+      "primaryKeyword": "how many outs in an inning",
+      "slug": "how-many-outs-in-an-inning",
+      "targetPage": "how many outs in an inning",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "how many outs are in baseball",
+        "how does baseball innings work",
+        "rules in baseball",
+        "how many outs in baseball inning",
+        "how many innings are in major league baseball"
+      ],
+      "requiredAngles": [
+        "mlb rain delay"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 6,
+      "clusterVolume": 1550,
+      "primaryVolume": 390,
+      "keywordDifficulty": 30,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-049",
+      "priority": 57,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball adp",
+      "slug": "fantasy-baseball-adp",
+      "targetPage": "fantasy baseball adp",
+      "category": "projections-stats",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "baseball adp",
+        "average draft position fantasy baseball",
+        "adp mlb",
+        "average draft position baseball",
+        "mlb average draft position"
+      ],
+      "requiredAngles": [
+        "fantasy picks mlb"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 8,
+      "clusterVolume": 1400,
+      "primaryVolume": 720,
+      "keywordDifficulty": 40,
+      "intentVariants": [
+        "informational, commercial",
+        "commercial",
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-080",
+      "priority": 58,
+      "status": "queued",
+      "primaryKeyword": "baseball encyclopedia",
+      "slug": "mlb-encyclopedia",
+      "targetPage": "mlb encyclopedia",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb encyclopedia",
+        "major league baseball encyclopedia"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 1370,
+      "primaryVolume": 880,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational, transactional",
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-112",
+      "priority": 59,
+      "status": "queued",
+      "primaryKeyword": "reds injury report",
+      "slug": "reds-injury-report",
+      "targetPage": "reds injury report",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "reds injury",
+        "cincinnati reds injury",
+        "reds injury news",
+        "reds injury today",
+        "reds injury updates"
+      ],
+      "requiredAngles": [
+        "mlb injury news",
+        "mlb injury report"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 7,
+      "clusterVolume": 1360,
+      "primaryVolume": 720,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-073",
+      "priority": 60,
+      "status": "queued",
+      "primaryKeyword": "mlb 3rd baseman",
+      "slug": "mlb-3rd-baseman",
+      "targetPage": "mlb 3rd baseman",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb third baseman",
+        "mlb third baseman rankings"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 1240,
+      "primaryVolume": 590,
+      "keywordDifficulty": 31,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-051",
+      "priority": 61,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball pitcher streaming",
+      "slug": "fantasy-baseball-pitcher-streaming",
+      "targetPage": "fantasy baseball pitcher streaming",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "pitcher streamer",
+        "fantasy baseball pitcher streamers",
+        "fantasy baseball streaming",
+        "mlb pitcher streamers",
+        "mlb fantasy pitcher streamers"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb dfs rankings",
+        "fantasy picks mlb",
+        "daily mlb projections",
+        "fantasy baseball lineup analyzer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 9,
+      "clusterVolume": 1230,
+      "primaryVolume": 320,
+      "keywordDifficulty": 24,
+      "intentVariants": [
+        "informational, commercial",
+        "informational, transactional",
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-038",
+      "priority": 62,
+      "status": "queued",
+      "primaryKeyword": "dk live",
+      "slug": "dk-live",
+      "targetPage": "dk live",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "dk live app",
+        "draftkings scores"
+      ],
+      "requiredAngles": [
+        "daily fantasy sports software"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 3,
+      "clusterVolume": 1220,
+      "primaryVolume": 1000,
+      "keywordDifficulty": 19,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-058",
+      "priority": 63,
+      "status": "queued",
+      "primaryKeyword": "fantasy football tools",
+      "slug": "fantasy-football-tools",
+      "targetPage": "fantasy football tools",
+      "category": "dfs-strategy",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "best fantasy football tools",
+        "best fantasy football draft tools",
+        "best fantasy draft tool",
+        "best fantasy football software"
+      ],
+      "requiredAngles": [
+        "fantasy sports tools"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 5,
+      "clusterVolume": 1180,
+      "primaryVolume": 880,
+      "keywordDifficulty": 23,
+      "intentVariants": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-063",
+      "priority": 64,
+      "status": "queued",
+      "primaryKeyword": "hottest hitters in baseball",
+      "slug": "hottest-hitters-in-mlb-last-15-days",
+      "targetPage": "hottest hitters in mlb last 15 days",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "hottest hitters in mlb",
+        "hottest hitters in mlb last 15 days"
+      ],
+      "requiredAngles": [
+        "fantasy picks mlb",
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 1150,
+      "primaryVolume": 590,
+      "keywordDifficulty": 56,
+      "intentVariants": [
+        "commercial",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-117",
+      "priority": 65,
+      "status": "queued",
+      "primaryKeyword": "injury list",
+      "slug": "season-ending-injury",
+      "targetPage": "season ending injury",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "player injured",
+        "season ending injury",
+        "out for season",
+        "injuries in all star games"
+      ],
+      "requiredAngles": [
+        "mlb injury report",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 5,
+      "clusterVolume": 1100,
+      "primaryVolume": 720,
+      "keywordDifficulty": 82,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-123",
+      "priority": 66,
+      "status": "queued",
+      "primaryKeyword": "top fantasy baseball prospects",
+      "slug": "top-fantasy-baseball-prospects",
+      "targetPage": "top fantasy baseball prospects",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "prospects fantasy baseball",
+        "baseball top 100",
+        "best fantasy baseball prospects"
+      ],
+      "requiredAngles": [
+        "mlb dfs rankings",
+        "fantasy baseball daily rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 1090,
+      "primaryVolume": 480,
+      "keywordDifficulty": 33,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-045",
+      "priority": 67,
+      "status": "queued",
+      "primaryKeyword": "draftkings gift card online",
+      "slug": "draftkings-gift-card-online",
+      "targetPage": "draftkings gift card online",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "draftkings e gift card",
+        "draftkings gift cards where to buy",
+        "buy a draftkings gift card online",
+        "draftkings gift card digital",
+        "how to buy draftkings gift card"
+      ],
+      "requiredAngles": [
+        "daily fantasy sports software"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 6,
+      "clusterVolume": 1080,
+      "primaryVolume": 720,
+      "keywordDifficulty": 15,
+      "intentVariants": [
+        "informational",
+        "informational, transactional",
+        "transactional",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-081",
+      "priority": 68,
+      "status": "queued",
+      "primaryKeyword": "mlb errors leaders",
+      "slug": "mlb-errors-leaders",
+      "targetPage": "mlb errors leaders",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball errors"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 1070,
+      "primaryVolume": 590,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-013",
+      "priority": 69,
+      "status": "queued",
+      "primaryKeyword": "baseball score page",
+      "slug": "baseball-stat-sheet",
+      "targetPage": "baseball stat sheet",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball stat sheet",
+        "baseball statistics sheet"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 990,
+      "primaryVolume": 590,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-057",
+      "priority": 70,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball trade",
+      "slug": "fantasy-baseball-trade",
+      "targetPage": "fantasy baseball trade",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "fantasy baseball rankings auction values",
+        "fantasy baseball calculator",
+        "rate my fantasy baseball trade",
+        "espn fantasy baseball trade analyzer",
+        "mlb fantasy trades"
+      ],
+      "requiredAngles": [
+        "fantasy picks mlb",
+        "fantasy baseball lineup analyzer",
+        "mlb fantasy projections today"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 7,
+      "clusterVolume": 990,
+      "primaryVolume": 390,
+      "keywordDifficulty": 33,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-009",
+      "priority": 71,
+      "status": "queued",
+      "primaryKeyword": "baseball lineup generator",
+      "slug": "baseball-lineup-generator",
+      "targetPage": "baseball lineup generator",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball lineup maker",
+        "lineup creator baseball",
+        "baseball lineup builder",
+        "create baseball lineup",
+        "batting lineup generator"
+      ],
+      "requiredAngles": [
+        "baseball lineup optimizer",
+        "mlb lineup builder"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 8,
+      "clusterVolume": 980,
+      "primaryVolume": 390,
+      "keywordDifficulty": 12,
+      "intentVariants": [
+        "informational, commercial",
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-064",
+      "priority": 72,
+      "status": "queued",
+      "primaryKeyword": "astros projected lineup",
+      "slug": "houston-astros-projected-lineup",
+      "targetPage": "houston astros projected lineup",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "houston astros projected lineup"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 980,
+      "primaryVolume": 590,
+      "keywordDifficulty": 49,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-095",
+      "priority": 73,
+      "status": "queued",
+      "primaryKeyword": "mlb team builder",
+      "slug": "mlb-team-builder",
+      "targetPage": "mlb team builder",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball team creator",
+        "baseball team maker",
+        "baseball team builder",
+        "make your own mlb team",
+        "create your own mlb team"
+      ],
+      "requiredAngles": [
+        "mlb lineup builder"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 10,
+      "clusterVolume": 980,
+      "primaryVolume": 170,
+      "keywordDifficulty": 12,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-062",
+      "priority": 74,
+      "status": "queued",
+      "primaryKeyword": "guardians injury report",
+      "slug": "guardians-injury-report",
+      "targetPage": "guardians injury report",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "cleveland guardians injury report",
+        "guardians injury",
+        "cleveland guardians injury",
+        "guardians injury list",
+        "guardians pitcher injury"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 9,
+      "clusterVolume": 870,
+      "primaryVolume": 260,
+      "keywordDifficulty": 23,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-025",
+      "priority": 75,
+      "status": "queued",
+      "primaryKeyword": "rate field weather",
+      "slug": "chicago-white-sox-weather",
+      "targetPage": "chicago white sox weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "chicago white sox weather",
+        "white sox weather",
+        "white sox stadium weather"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 4,
+      "clusterVolume": 860,
+      "primaryVolume": 320,
+      "keywordDifficulty": 28,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-113",
+      "priority": 76,
+      "status": "queued",
+      "primaryKeyword": "red sox rain delay today live",
+      "slug": "red-sox-rain-delay-today-live",
+      "targetPage": "red sox rain delay today live",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "white sox rain delay today",
+        "rain out red sox",
+        "red sox game delayed today",
+        "white sox rain",
+        "is the sox game cancelled today"
+      ],
+      "requiredAngles": [
+        "mlb rain delay",
+        "mlb weather updates",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 9,
+      "clusterVolume": 850,
+      "primaryVolume": 260,
+      "keywordDifficulty": 39,
+      "intentVariants": [
+        "informational, transactional",
+        "informational",
+        "commercial",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-116",
+      "priority": 77,
+      "status": "queued",
+      "primaryKeyword": "royals rain delay",
+      "slug": "royals-rain-delay",
+      "targetPage": "royals rain delay",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "royals game delay today",
+        "royals weather",
+        "royals rain delay today",
+        "is the royals game cancelled today",
+        "mets royals delay"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "mlb rain delay",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 7,
+      "clusterVolume": 810,
+      "primaryVolume": 260,
+      "keywordDifficulty": 37,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-060",
+      "priority": 78,
+      "status": "queued",
+      "primaryKeyword": "giants stadium weather",
+      "slug": "giants-stadium-weather",
+      "targetPage": "giants stadium weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "weather for giants game today",
+        "giants baseball weather",
+        "weather for giants game"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 4,
+      "clusterVolume": 790,
+      "primaryVolume": 480,
+      "keywordDifficulty": 29,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-082",
+      "priority": 79,
+      "status": "queued",
+      "primaryKeyword": "mlb fantasy baseball sleepers",
+      "slug": "mlb-fantasy-baseball-sleepers",
+      "targetPage": "mlb fantasy baseball sleepers",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball fantasy sleepers",
+        "baseball sleepers",
+        "mlb sleepers fantasy",
+        "sleeper hitters fantasy baseball"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 5,
+      "clusterVolume": 760,
+      "primaryVolume": 260,
+      "keywordDifficulty": 13,
+      "intentVariants": [
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-021",
+      "priority": 80,
+      "status": "queued",
+      "primaryKeyword": "cabrera yankees injury",
+      "slug": "cabrera-yankees-injury",
+      "targetPage": "cabrera yankees injury",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "yankee broken ankle",
+        "yankee ankle injury"
+      ],
+      "requiredAngles": [
+        "mlb injury report"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 3,
+      "clusterVolume": 720,
+      "primaryVolume": 590,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-004",
+      "priority": 81,
+      "status": "queued",
+      "primaryKeyword": "atlanta braves weather",
+      "slug": "atlanta-braves-weather",
+      "targetPage": "atlanta braves weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "braves weather",
+        "atlanta braves stadium weather",
+        "braves stadium weather"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 4,
+      "clusterVolume": 690,
+      "primaryVolume": 320,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-105",
+      "priority": 82,
+      "status": "queued",
+      "primaryKeyword": "park effects",
+      "slug": "park-effects",
+      "targetPage": "park effects",
+      "category": "projections-stats",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "home runs by ballpark",
+        "best home run ballparks",
+        "home run zone",
+        "baseball park factors",
+        "ballpark statistics"
+      ],
+      "requiredAngles": [
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 7,
+      "clusterVolume": 690,
+      "primaryVolume": 260,
+      "keywordDifficulty": 37,
+      "intentVariants": [
+        "informational, commercial",
+        "navigational",
+        "commercial",
+        "informational, transactional",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-114",
+      "priority": 83,
+      "status": "queued",
+      "primaryKeyword": "red sox weather",
+      "slug": "red-sox-weather",
+      "targetPage": "red sox weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "red sox weather today",
+        "red sox weather tonight",
+        "red sox game weather"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 4,
+      "clusterVolume": 690,
+      "primaryVolume": 480,
+      "keywordDifficulty": 38,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-027",
+      "priority": 84,
+      "status": "queued",
+      "primaryKeyword": "colorado rockies weather",
+      "slug": "colorado-rockies-weather",
+      "targetPage": "colorado rockies weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "colorado rockies baseball weather",
+        "rockies baseball weather",
+        "colorado rockies stadium weather",
+        "colorado rockies game weather",
+        "rockies game weather"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 6,
+      "clusterVolume": 670,
+      "primaryVolume": 260,
+      "keywordDifficulty": 35,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-034",
+      "priority": 85,
+      "status": "queued",
+      "primaryKeyword": "detroit tigers weather",
+      "slug": "detroit-tigers-weather-today",
+      "targetPage": "detroit tigers weather today",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "detroit lions weather",
+        "detroit tigers weather today",
+        "detroit tigers stadium weather",
+        "weather for tigers game today"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "mlb weather forecast"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 5,
+      "clusterVolume": 670,
+      "primaryVolume": 260,
+      "keywordDifficulty": 48,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-069",
+      "priority": 86,
+      "status": "queued",
+      "primaryKeyword": "major league pitching stats",
+      "slug": "major-league-pitching-stats",
+      "targetPage": "major league pitching stats",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "team pitching stats",
+        "pitching outs stats"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 670,
+      "primaryVolume": 480,
+      "keywordDifficulty": 37,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-001",
+      "priority": 87,
+      "status": "queued",
+      "primaryKeyword": "advanced baseball stats",
+      "slug": "advanced-baseball-stats",
+      "targetPage": "advanced baseball stats",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball next gen stats"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 640,
+      "primaryVolume": 320,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-036",
+      "priority": 88,
+      "status": "queued",
+      "primaryKeyword": "daily fantasy advice",
+      "slug": "dfs-strategy",
+      "targetPage": "dfs strategy",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "dfs advice",
+        "daily fantasy sports advice",
+        "dfs strategy",
+        "fantasy dfs advice",
+        "dfs today"
+      ],
+      "requiredAngles": [
+        "dfs advice mlb",
+        "fantasy football optimizer",
+        "mlb dfs early slate today"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs exposure limits",
+      "clusterSize": 6,
+      "clusterVolume": 640,
+      "primaryVolume": 170,
+      "keywordDifficulty": 61,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-011",
+      "priority": 89,
+      "status": "queued",
+      "primaryKeyword": "baseball rank",
+      "slug": "baseball-rank",
+      "targetPage": "baseball rank",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "top baseball",
+        "baseball top 10"
+      ],
+      "requiredAngles": [
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 630,
+      "primaryVolume": 480,
+      "keywordDifficulty": 50,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-101",
+      "priority": 90,
+      "status": "queued",
+      "primaryKeyword": "nationals park weather",
+      "slug": "nationals-park-weather",
+      "targetPage": "nationals park weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "nationals weather"
+      ],
+      "requiredAngles": [
+        "mlb rain delay"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 600,
+      "primaryVolume": 390,
+      "keywordDifficulty": 43,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-104",
+      "priority": 91,
+      "status": "queued",
+      "primaryKeyword": "panthers weather",
+      "slug": "panthers-weather",
+      "targetPage": "panthers weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "weather at panthers game",
+        "weather for the carolina panthers game"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 3,
+      "clusterVolume": 600,
+      "primaryVolume": 260,
+      "keywordDifficulty": 28,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-096",
+      "priority": 92,
+      "status": "queued",
+      "primaryKeyword": "mlb the show team builder",
+      "slug": "mlb-the-show-team-builder",
+      "targetPage": "mlb the show team builder",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb the show 24 team builder",
+        "mlb the show lineup builder",
+        "mlb the show 25 team builder",
+        "mlb the show 25 lineup builder"
+      ],
+      "requiredAngles": [
+        "mlb lineup builder"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 5,
+      "clusterVolume": 580,
+      "primaryVolume": 260,
+      "keywordDifficulty": 3,
+      "intentVariants": [
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-008",
+      "priority": 93,
+      "status": "queued",
+      "primaryKeyword": "baseball fielder numbers",
+      "slug": "baseball-fielder-numbers",
+      "targetPage": "baseball fielder numbers",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "4 in baseball",
+        "baseball player numbers by position"
+      ],
+      "requiredAngles": [
+        "mlb player stats"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 570,
+      "primaryVolume": 260,
+      "keywordDifficulty": 20,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-044",
+      "priority": 94,
+      "status": "queued",
+      "primaryKeyword": "draftkings bet 5 get 200",
+      "slug": "draftkings-bet-5-get-200",
+      "targetPage": "draftkings bet 5 get 200",
+      "category": "dfs-strategy",
+      "intent": "transactional",
+      "supportingKeywords": [
+        "what is a bet and get draftkings",
+        "draftkings free 200",
+        "draftkings 200 promo",
+        "best draftkings promo"
+      ],
+      "requiredAngles": [
+        "draftkings simulator",
+        "daily fantasy sports software"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 5,
+      "clusterVolume": 560,
+      "primaryVolume": 260,
+      "keywordDifficulty": 52,
+      "intentVariants": [
+        "commercial",
+        "transactional",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-055",
+      "priority": 95,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball starting pitchers",
+      "slug": "fantasy-baseball-starting-pitchers",
+      "targetPage": "fantasy baseball starting pitchers",
+      "category": "projections-stats",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "fantasy baseball sp rankings",
+        "fantasy baseball pitcher rankings today",
+        "fantasy baseball top pitchers"
+      ],
+      "requiredAngles": [
+        "mlb dfs rankings",
+        "fantasy baseball daily rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 550,
+      "primaryVolume": 210,
+      "keywordDifficulty": 27,
+      "intentVariants": [
+        "navigational",
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-126",
+      "priority": 96,
+      "status": "queued",
+      "primaryKeyword": "twins rain delay update",
+      "slug": "twins-rain-delay-update",
+      "targetPage": "twins rain delay update",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "twins game delay today",
+        "twins weather delay",
+        "rain delay twins game today",
+        "twins game today cancelled",
+        "will the twins game be rained out today"
+      ],
+      "requiredAngles": [
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 10,
+      "clusterVolume": 550,
+      "primaryVolume": 110,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-022",
+      "priority": 97,
+      "status": "queued",
+      "primaryKeyword": "cardinals rain delay today",
+      "slug": "cardinals-rain-delay-today",
+      "targetPage": "cardinals rain delay today",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "cardinals weather delay"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 530,
+      "primaryVolume": 480,
+      "keywordDifficulty": 38,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-110",
+      "priority": 98,
+      "status": "queued",
+      "primaryKeyword": "progressive field weather",
+      "slug": "progressive-field-weather",
+      "targetPage": "progressive field weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "guardians game weather today"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 530,
+      "primaryVolume": 480,
+      "keywordDifficulty": 31,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-046",
+      "priority": 99,
+      "status": "queued",
+      "primaryKeyword": "draftkings or fanduel",
+      "slug": "draftkings-or-fanduel",
+      "targetPage": "draftkings or fanduel",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "draftkings vs"
+      ],
+      "requiredAngles": [
+        "daily fantasy sports software",
+        "draftkings simulator"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 510,
+      "primaryVolume": 480,
+      "keywordDifficulty": 27,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-115",
+      "priority": 100,
+      "status": "queued",
+      "primaryKeyword": "reds rain delay today",
+      "slug": "reds-rain-delay-today",
+      "targetPage": "reds rain delay today",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "reds weather delay"
+      ],
+      "requiredAngles": [
+        "mlb rain delay",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 480,
+      "primaryVolume": 390,
+      "keywordDifficulty": 51,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-033",
+      "priority": 101,
+      "status": "queued",
+      "primaryKeyword": "tigers game rain delay today",
+      "slug": "detroit-tigers-rain-out",
+      "targetPage": "detroit tigers rain out",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "will the tigers game be rained out today",
+        "detroit tigers rain out",
+        "tigers rain delay updates",
+        "tigers game cancelled today",
+        "tiger game delay today"
+      ],
+      "requiredAngles": [
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 6,
+      "clusterVolume": 460,
+      "primaryVolume": 110,
+      "keywordDifficulty": 39,
+      "intentVariants": [
+        "informational",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-056",
+      "priority": 102,
+      "status": "queued",
+      "primaryKeyword": "fantasy baseball team analyzer",
+      "slug": "fantasy-baseball-team-analyzer",
+      "targetPage": "fantasy baseball team analyzer",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "fantasy baseball lineup analyzer",
+        "fantasy baseball helper",
+        "fantasy baseball draft analyzer",
+        "fantasy baseball league analyzer"
+      ],
+      "requiredAngles": [
+        "fantasy baseball lineup analyzer",
+        "mlb optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 5,
+      "clusterVolume": 450,
+      "primaryVolume": 210,
+      "keywordDifficulty": 26,
+      "intentVariants": [
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-127",
+      "priority": 103,
+      "status": "queued",
+      "primaryKeyword": "twins weather",
+      "slug": "twins-weather",
+      "targetPage": "twins weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "twins baseball weather",
+        "twins game tonight weather",
+        "twins stadium weather",
+        "twins game weather"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 5,
+      "clusterVolume": 450,
+      "primaryVolume": 170,
+      "keywordDifficulty": 41,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-066",
+      "priority": 104,
+      "status": "queued",
+      "primaryKeyword": "kevin roth mlb weather",
+      "slug": "kevin-roth-mlb-weather",
+      "targetPage": "kevin roth mlb weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "roto weather baseball",
+        "world series weather",
+        "roth weather",
+        "baseball stadium wind direction",
+        "ballpark weather analyzer"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather",
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 6,
+      "clusterVolume": 440,
+      "primaryVolume": 170,
+      "keywordDifficulty": 13,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-070",
+      "priority": 105,
+      "status": "queued",
+      "primaryKeyword": "mets pitcher injured",
+      "slug": "mets-pitcher-injured",
+      "targetPage": "mets pitcher injured",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mets injury report today"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 430,
+      "primaryVolume": 390,
+      "keywordDifficulty": 49,
+      "intentVariants": [
+        "informational, transactional",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-128",
+      "priority": 106,
+      "status": "queued",
+      "primaryKeyword": "weather bears",
+      "slug": "weather-bears",
+      "targetPage": "weather bears",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "chicago weather for bears game"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 430,
+      "primaryVolume": 260,
+      "keywordDifficulty": 27,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-003",
+      "priority": 107,
+      "status": "queued",
+      "primaryKeyword": "angels injury list",
+      "slug": "angels-injury-list",
+      "targetPage": "angels injury list",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "angels player injured today",
+        "angels player injured",
+        "angels injury report today",
+        "angels injury update"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 5,
+      "clusterVolume": 400,
+      "primaryVolume": 140,
+      "keywordDifficulty": 32,
+      "intentVariants": [
+        "informational",
+        "informational, commercial",
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-026",
+      "priority": 108,
+      "status": "queued",
+      "primaryKeyword": "cleveland injury update",
+      "slug": "cleveland-injury-update",
+      "targetPage": "cleveland injury update",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "cleveland injuries",
+        "cleveland injury list"
+      ],
+      "requiredAngles": [
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 3,
+      "clusterVolume": 380,
+      "primaryVolume": 170,
+      "keywordDifficulty": 30,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-061",
+      "priority": 109,
+      "status": "queued",
+      "primaryKeyword": "great american ballpark weather",
+      "slug": "great-american-ballpark-weather",
+      "targetPage": "great american ballpark weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "reds weather",
+        "weather at cincinnati reds stadium"
+      ],
+      "requiredAngles": [
+        "mlb weather forecast",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 3,
+      "clusterVolume": 370,
+      "primaryVolume": 260,
+      "keywordDifficulty": 37,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-083",
+      "priority": 110,
+      "status": "queued",
+      "primaryKeyword": "mlb fantasy rest of season projections",
+      "slug": "mlb-fantasy-rest-of-season-projections",
+      "targetPage": "mlb fantasy rest of season projections",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball ros",
+        "fantasy baseball rest of season projections"
+      ],
+      "requiredAngles": [
+        "mlb fantasy baseball projections",
+        "fantasy baseball daily rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 370,
+      "primaryVolume": 260,
+      "keywordDifficulty": 20,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-023",
+      "priority": 111,
+      "status": "queued",
+      "primaryKeyword": "catcher fantasy rankings",
+      "slug": "catcher-fantasy-rankings",
+      "targetPage": "catcher fantasy rankings",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "rest of season catcher rankings",
+        "catcher rankings fantasy baseball",
+        "top catchers fantasy baseball",
+        "mlb fantasy catcher rankings"
+      ],
+      "requiredAngles": [
+        "fantasy baseball daily rankings",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 5,
+      "clusterVolume": 360,
+      "primaryVolume": 170,
+      "keywordDifficulty": 28,
+      "intentVariants": [
+        "informational, transactional",
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-121",
+      "priority": 112,
+      "status": "queued",
+      "primaryKeyword": "texas rangers injured list",
+      "slug": "texas-rangers-injury-update",
+      "targetPage": "texas rangers injury update",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "texas rangers injury update",
+        "texas rangers injury report today",
+        "texas baseball injuries"
+      ],
+      "requiredAngles": [
+        "mlb injury news",
+        "mlb injury report"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 4,
+      "clusterVolume": 360,
+      "primaryVolume": 140,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-106",
+      "priority": 113,
+      "status": "queued",
+      "primaryKeyword": "pca savant",
+      "slug": "pca-savant",
+      "targetPage": "pca savant",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "defensive stats baseball",
+        "pca statcast"
+      ],
+      "requiredAngles": [
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 350,
+      "primaryVolume": 210,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational, navigational",
+        "informational, transactional",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-089",
+      "priority": 114,
+      "status": "queued",
+      "primaryKeyword": "mlb pitching rotations",
+      "slug": "mlb-pitching-rotations",
+      "targetPage": "mlb pitching rotations",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb starting rotations",
+        "mlb rotations"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 340,
+      "primaryVolume": 140,
+      "keywordDifficulty": 58,
+      "intentVariants": [
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-120",
+      "priority": 115,
+      "status": "queued",
+      "primaryKeyword": "swish analytics weather",
+      "slug": "swish-analytics-weather",
+      "targetPage": "swish analytics weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "weather in sports"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 330,
+      "primaryVolume": 260,
+      "keywordDifficulty": 30,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-100",
+      "priority": 116,
+      "status": "queued",
+      "primaryKeyword": "mnf dfs",
+      "slug": "mnf-dfs",
+      "targetPage": "mnf dfs",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mnf dfs showdown picks",
+        "dfs sunday"
+      ],
+      "requiredAngles": [
+        "mlb dfs plays today",
+        "mlb dfs plays"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs exposure limits",
+      "clusterSize": 3,
+      "clusterVolume": 300,
+      "primaryVolume": 210,
+      "keywordDifficulty": 6,
+      "intentVariants": [
+        "informational, transactional",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-131",
+      "priority": 117,
+      "status": "queued",
+      "primaryKeyword": "yahoo dfs optimizer",
+      "slug": "yahoo-dfs-optimizer",
+      "targetPage": "yahoo dfs optimizer",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "yahoo daily fantasy optimizer",
+        "dfs lineup optimizer yahoo",
+        "yahoo daily fantasy lineup optimizer"
+      ],
+      "requiredAngles": [
+        "mlb optimizer",
+        "yahoo dfs optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 4,
+      "clusterVolume": 280,
+      "primaryVolume": 110,
+      "keywordDifficulty": 16,
+      "intentVariants": [
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-030",
+      "priority": 118,
+      "status": "queued",
+      "primaryKeyword": "dbacks injury list",
+      "slug": "dbacks-injury-list",
+      "targetPage": "dbacks injury list",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "diamondbacks injured list"
+      ],
+      "requiredAngles": [
+        "mlb injury report",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 250,
+      "primaryVolume": 140,
+      "keywordDifficulty": 34,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-007",
+      "priority": 119,
+      "status": "queued",
+      "primaryKeyword": "bad injuries in baseball",
+      "slug": "bad-injuries-in-baseball",
+      "targetPage": "bad injuries in baseball",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "baseball accidents"
+      ],
+      "requiredAngles": [
+        "mlb player injuries",
+        "mlb injury news"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 230,
+      "primaryVolume": 140,
+      "keywordDifficulty": 21,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-035",
+      "priority": 120,
+      "status": "queued",
+      "primaryKeyword": "dfs nascar picks",
+      "slug": "dfs-nascar-picks",
+      "targetPage": "dfs nascar picks",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "best nascar draftkings lineup for today"
+      ],
+      "requiredAngles": [
+        "best dfs lineup today"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 210,
+      "primaryVolume": 140,
+      "keywordDifficulty": 23,
+      "intentVariants": [
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-041",
+      "priority": 121,
+      "status": "queued",
+      "primaryKeyword": "dodgers rain delay today",
+      "slug": "dodgers-rain-delay-today",
+      "targetPage": "dodgers rain delay today",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "dodgers weather delay",
+        "dodger game rain delay today"
+      ],
+      "requiredAngles": [
+        "mlb weather updates",
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 3,
+      "clusterVolume": 200,
+      "primaryVolume": 110,
+      "keywordDifficulty": 36,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-037",
+      "priority": 122,
+      "status": "queued",
+      "primaryKeyword": "dj lemahieu injury update",
+      "slug": "dj-lemahieu-injury-update",
+      "targetPage": "dj lemahieu injury update",
+      "category": "injuries-rosters",
+      "intent": "informational",
+      "supportingKeywords": [
+        "d j lemahieu injury update"
+      ],
+      "requiredAngles": [
+        "mlb injury report"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player injuries",
+      "clusterSize": 2,
+      "clusterVolume": 190,
+      "primaryVolume": 140,
+      "keywordDifficulty": 24,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-072",
+      "priority": 123,
+      "status": "queued",
+      "primaryKeyword": "savant search",
+      "slug": "minor-league-savant",
+      "targetPage": "minor league savant",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "minor league statcast data",
+        "minor league savant"
+      ],
+      "requiredAngles": [
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 3,
+      "clusterVolume": 190,
+      "primaryVolume": 70,
+      "keywordDifficulty": 38,
+      "intentVariants": [
+        "informational, transactional"
+      ]
+    },
+    {
+      "id": "strategy-076",
+      "priority": 124,
+      "status": "queued",
+      "primaryKeyword": "mlb dfs cheat sheet",
+      "slug": "mlb-dfs-cheat-sheet",
+      "targetPage": "mlb dfs cheat sheet",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "awesemo mlb cheat sheet"
+      ],
+      "requiredAngles": [
+        "mlb dfs stacks today",
+        "mlb draftkings projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 2,
+      "clusterVolume": 180,
+      "primaryVolume": 90,
+      "keywordDifficulty": 8,
+      "intentVariants": [
+        "informational, commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-012",
+      "priority": 125,
+      "status": "queued",
+      "primaryKeyword": "baseball stats application",
+      "slug": "baseball-stats-application",
+      "targetPage": "baseball stats application",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "best baseball stats app"
+      ],
+      "requiredAngles": [
+        "mlb player stats",
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 170,
+      "primaryVolume": 140,
+      "keywordDifficulty": 33,
+      "intentVariants": [
+        "informational",
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-024",
+      "priority": 126,
+      "status": "queued",
+      "primaryKeyword": "cbs top 300",
+      "slug": "cbs-dynasty-baseball-rankings",
+      "targetPage": "cbs dynasty baseball rankings",
+      "category": "projections-stats",
+      "intent": "informational",
+      "supportingKeywords": [
+        "cbs dynasty baseball rankings",
+        "roto rankings",
+        "cbs top 300 fantasy baseball"
+      ],
+      "requiredAngles": [
+        "fantasy picks mlb",
+        "mlb dfs rankings"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 4,
+      "clusterVolume": 170,
+      "primaryVolume": 50,
+      "keywordDifficulty": 51,
+      "intentVariants": [
+        "informational",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-099",
+      "priority": 127,
+      "status": "queued",
+      "primaryKeyword": "mlb wheels",
+      "slug": "mlb-wheels",
+      "targetPage": "mlb wheels",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb generator"
+      ],
+      "requiredAngles": [
+        "mlb express lineup",
+        "mlb lineup builder"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 2,
+      "clusterVolume": 160,
+      "primaryVolume": 90,
+      "keywordDifficulty": 19,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-047",
+      "priority": 128,
+      "status": "queued",
+      "primaryKeyword": "epl fanduel optimizer",
+      "slug": "epl-fanduel-optimizer",
+      "targetPage": "epl fanduel optimizer",
+      "category": "dfs-strategy",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "fanduel epl lineup optimizer"
+      ],
+      "requiredAngles": [
+        "soccer dfs optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "fanduel mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 140,
+      "primaryVolume": 90,
+      "keywordDifficulty": 17,
+      "intentVariants": [
+        "commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-048",
+      "priority": 129,
+      "status": "queued",
+      "primaryKeyword": "espn mlb noticias",
+      "slug": "espn-mlb-noticias",
+      "targetPage": "espn mlb noticias",
+      "category": "projections-stats",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "espn lanzadores para hoy"
+      ],
+      "requiredAngles": [
+        "mlb dfs rankings",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 130,
+      "primaryVolume": 90,
+      "keywordDifficulty": 74,
+      "intentVariants": [
+        "navigational, transactional",
+        "informational, commercial"
+      ]
+    },
+    {
+      "id": "strategy-122",
+      "priority": 130,
+      "status": "queued",
+      "primaryKeyword": "thursday night football draftkings picks",
+      "slug": "thursday-night-football-draftkings-picks",
+      "targetPage": "thursday night football draftkings picks",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "thursday night draftkings picks"
+      ],
+      "requiredAngles": [
+        "draftkings lineup tonight"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "draftkings mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 130,
+      "primaryVolume": 90,
+      "keywordDifficulty": 9,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-015",
+      "priority": 131,
+      "status": "queued",
+      "primaryKeyword": "baseball lineups fantasy",
+      "slug": "best-mlb-fanduel-lineup-for-tonight",
+      "targetPage": "best mlb fanduel lineup for tonight",
+      "category": "dfs-strategy",
+      "intent": "informational",
+      "supportingKeywords": [
+        "best mlb fanduel lineup for tonight"
+      ],
+      "requiredAngles": [
+        "mlb optimizer"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "fanduel mlb strategy",
+      "clusterSize": 2,
+      "clusterVolume": 120,
+      "primaryVolume": 70,
+      "keywordDifficulty": 72,
+      "intentVariants": [
+        "commercial",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-010",
+      "priority": 132,
+      "status": "queued",
+      "primaryKeyword": "baseball postponed games",
+      "slug": "baseball-postponed-games",
+      "targetPage": "baseball postponed games",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "mlb cancelled games"
+      ],
+      "requiredAngles": [
+        "mlb weather updates"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 100,
+      "primaryVolume": 50,
+      "keywordDifficulty": 21,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-109",
+      "priority": 133,
+      "status": "queued",
+      "primaryKeyword": "pittsburgh pirates stadium weather",
+      "slug": "pittsburgh-pirates-stadium-weather",
+      "targetPage": "pittsburgh pirates stadium weather",
+      "category": "weather-ballparks",
+      "intent": "informational",
+      "supportingKeywords": [
+        "pirates stadium weather"
+      ],
+      "requiredAngles": [
+        "mlb dfs weather"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb weather & game conditions",
+      "clusterSize": 2,
+      "clusterVolume": 100,
+      "primaryVolume": 50,
+      "keywordDifficulty": 32,
+      "intentVariants": [
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-014",
+      "priority": 134,
+      "status": "queued",
+      "primaryKeyword": "best lineup",
+      "slug": "best-lineup",
+      "targetPage": "best lineup",
+      "category": "dfs-strategy",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "best lineup in baseball"
+      ],
+      "requiredAngles": [
+        "mlb lineup projections",
+        "mlb express lineup"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs lineup optimizer",
+      "clusterSize": 2,
+      "clusterVolume": 90,
+      "primaryVolume": 50,
+      "keywordDifficulty": 20,
+      "intentVariants": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "strategy-119",
+      "priority": 135,
+      "status": "queued",
+      "primaryKeyword": "statcast data",
+      "slug": "statcast-data",
+      "targetPage": "statcast data",
+      "category": "projections-stats",
+      "intent": "navigational",
+      "supportingKeywords": [
+        "espn statcast"
+      ],
+      "requiredAngles": [
+        "daily baseball projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb player projections & data",
+      "clusterSize": 2,
+      "clusterVolume": 90,
+      "primaryVolume": 50,
+      "keywordDifficulty": 67,
+      "intentVariants": [
+        "navigational, transactional",
+        "informational"
+      ]
+    },
+    {
+      "id": "strategy-040",
+      "priority": 136,
+      "status": "queued",
+      "primaryKeyword": "dodgers player props",
+      "slug": "dodgers-player-props",
+      "targetPage": "dodgers player props",
+      "category": "dfs-strategy",
+      "intent": "commercial",
+      "supportingKeywords": [
+        "dodgers props"
+      ],
+      "requiredAngles": [
+        "daily mlb projections"
+      ],
+      "parentPillar": "/",
+      "pageType": "Sub page",
+      "topic": "mlb dfs exposure limits",
+      "clusterSize": 2,
+      "clusterVolume": 80,
+      "primaryVolume": 40,
+      "keywordDifficulty": 13,
+      "intentVariants": [
+        "commercial"
+      ]
     }
-  ]
+  ],
+  "strategySource": {
+    "file": "mlb-optimizer_pages_2026-07-22.csv",
+    "groupBy": "Page",
+    "excludedTopics": [
+      "mlb betting odds & analysis"
+    ],
+    "excludedTerms": [
+      "nba",
+      "nfl",
+      "nhl",
+      "parlay",
+      "gambling",
+      "sportsbook",
+      "betting",
+      "odds"
+    ]
+  }
 }

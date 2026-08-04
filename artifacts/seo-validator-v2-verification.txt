@@ -1,0 +1,125 @@
+SEO validator v2 + keyword-strategy queue verification record
+RUN_TIME: 2026-08-04 Asia/Shanghai
+PROJECT: /Users/xumingyue/Downloads/MyProjects/MlbOptimizer
+INPUT_KEYWORDS: /Users/xumingyue/Downloads/视频制作/mlb-optimizer_pages_2026-07-22.csv
+BASELINE: existing articles remained approved; no article/image was generated in this change
+
+=== Validator syntax ===
+COMMAND: node --check content-pipeline/scripts/content-pipeline.mjs
+OUTPUT: node --check: exit 0
+EXIT_STATUS: 0
+
+=== Validator tests ===
+COMMAND: npm run content:test
+OUTPUT:
+TAP version 13
+# Subtest: strict version 2 article passes all deterministic gates
+ok 1 - strict version 2 article passes all deterministic gates
+# Subtest: approved primary keyword variants satisfy placement checks
+ok 2 - approved primary keyword variants satisfy placement checks
+# Subtest: strict article requires the primary keyword in the opening window
+ok 3 - strict article requires the primary keyword in the opening window
+# Subtest: blocked topics are hard failures
+ok 4 - blocked topics are hard failures
+# Subtest: numeric claims must be represented in the claim ledger
+ok 5 - numeric claims must be represented in the claim ledger
+1..5
+# tests 5
+# pass 5
+# fail 0
+EXIT_STATUS: 0
+
+=== Existing article compatibility ===
+COMMAND: npm run content:validate:all
+OUTPUT:
+PASS how-mlb-player-projections-work (2247 words, status=approved, seoAuditVersion=1)
+PASS how-to-use-mlb-lineup-optimizer (1434 words, status=approved, seoAuditVersion=1)
+PASS mlb-dfs-exposure-limits (2209 words, status=approved, seoAuditVersion=1)
+PASS mlb-dfs-stacking-strategy (2167 words, status=approved, seoAuditVersion=1)
+WARN: possible search-intent overlap with mlb-dfs-strategy (keyword token similarity 0.75)
+PASS mlb-dfs-strategy (1973 words, status=approved, seoAuditVersion=1)
+WARN: possible search-intent overlap with mlb-dfs-stacking-strategy (keyword token similarity 0.75)
+EXIT_STATUS: 0
+
+=== Queue selection and mapping ===
+COMMAND: npm run content:next
+OUTPUT:
+{"id":"mlb-006","priority":6,"status":"queued","primaryKeyword":"batter vs pitcher stats","slug":"batter-vs-pitcher-stats","targetPage":"bvp mlb","clusterSize":25,"clusterVolume":10470,"primaryVolume":5400,"keywordDifficulty":39}
+EXIT_STATUS: 0
+COMMAND: node task assertion
+OUTPUT: tasks=136 queued=131 mlb-006.targetPage=bvp mlb
+EXIT_STATUS: 0
+
+=== Full strategy-table import ===
+COMMAND: python3 -B /Users/xumingyue/.codex/skills/seo-keyword-article-pipeline/scripts/import_keywords.py /Users/xumingyue/Downloads/视频制作/mlb-optimizer_pages_2026-07-22.csv --output /tmp/tasks-final-import-check.json --existing /tmp/diamscore-seo-validator-backup-20260804/content-pipeline/tasks.json --site-id strategy --group-by-page --exclude-topic 'mlb betting odds & analysis' --exclude-term nba --exclude-term nfl --exclude-term nhl --exclude-term parlay --exclude-term gambling --exclude-term sportsbook --exclude-term betting --exclude-term odds
+OUTPUT:
+{"inputRows":1778,"groupedPages":131,"enriched":3,"added":128,"total":138,"output":"/tmp/tasks-final-import-check.json"}
+EXIT_STATUS: 0
+COMMAND: node importer assertion
+OUTPUT: standalone importer output tasks=138 queued=133 groupedPages=131
+EXIT_STATUS: 0
+
+=== Source reachability ===
+COMMAND: npm run content:validate:sources -- how-mlb-player-projections-work
+OUTPUT:
+PASS how-mlb-player-projections-work (2247 words, status=approved, seoAuditVersion=1)
+PASS mlb-projection-systems: HTTP 206
+PASS mlb-steamer: HTTP 206
+PASS savant-expected-statistics: HTTP 200
+PASS savant-park-factors: HTTP 200
+PASS mlb-starting-lineups: HTTP 206
+PASS mlb-plate-appearance: HTTP 206
+PASS diamscore-home: HTTP 200
+PASS fangraphs-projections: HTTP 200
+PASS fangraphs-current-projections: HTTP 200
+PASS fangraphs-depth-charts: HTTP 200
+PASS fangraphs-splits: HTTP 200
+EXIT_STATUS: 0
+
+=== Rendered SEO ===
+COMMAND: npm run content:verify-rendered -- how-mlb-player-projections-work
+OUTPUT:
+PASS how-mlb-player-projections-work (2247 words, status=approved, seoAuditVersion=1)
+PASS rendered SEO: /Users/xumingyue/Downloads/MyProjects/MlbOptimizer/frontend/out/blog/how-mlb-player-projections-work.html
+EXIT_STATUS: 0
+
+=== Frontend checks ===
+COMMAND: npm --prefix frontend run typecheck
+OUTPUT: tsc --noEmit
+EXIT_STATUS: 0
+COMMAND: npm --prefix frontend run build
+OUTPUT: Next.js 16.2.12 (Turbopack); Compiled successfully; TypeScript finished; generated static pages (15/15); production build complete.
+NOTE: one pre-existing non-fatal NFT trace warning from next.config.mjs.
+EXIT_STATUS: 0
+
+=== Reusable skill validation ===
+COMMAND: uv run --with pyyaml python /Users/xumingyue/.codex/skills/.system/skill-creator/scripts/quick_validate.py /Users/xumingyue/.codex/skills/seo-keyword-article-pipeline
+OUTPUT: Skill is valid!
+EXIT_STATUS: 0
+
+=== Skill archive integrity ===
+COMMAND: unzip -t artifacts/seo-keyword-article-pipeline.zip
+OUTPUT: No errors detected in compressed data of artifacts/seo-keyword-article-pipeline.zip.
+EXIT_STATUS: 0
+
+=== Rollback rehearsal ===
+COMMAND: isolated copy + artifacts/rollback-seo-validator-v2.sh
+OUTPUT:
+content-pipeline/quality-gates.json: OK
+content-pipeline/article.example.json: OK
+content-pipeline/WORKFLOW.md: OK
+content-pipeline/scripts/content-pipeline.mjs: OK
+package.json: OK
+content-pipeline/tasks.json: OK
+SEO validator v2 rollback verified
+EXIT_STATUS: 0
+
+=== Patch whitespace ===
+COMMAND: git diff --check
+OUTPUT: no output
+EXIT_STATUS: 0
+
+ARTIFACT_SHA256:
+932ece22c77e79702ace2d3b87c37e32d790ccecdb4c53fedc71201752d5397a  artifacts/seo-validator-v2.patch
+78f70c55669f1cbd199aeeed7de0ba032d2702362c31dcdb15e9a24696a7f460  artifacts/seo-keyword-article-pipeline.zip
+a2c2ce6d23ad51caa447633abae5a372cd945d5799da76fa656095ac66a5a34e  artifacts/rollback-seo-validator-v2.sh

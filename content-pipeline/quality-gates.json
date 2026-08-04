@@ -1,11 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "publishing": {
     "allowAutomaticPublish": true,
     "requiredStatus": "approved",
-    "requireNamedReviewer": false
+    "requireNamedReviewer": true,
+    "requireReachableSources": true,
+    "requireRenderedSeoVerification": true
   },
   "seo": {
+    "currentAuditVersion": 2,
     "titleMinCharacters": 35,
     "titleMaxCharacters": 65,
     "descriptionMinCharacters": 120,
@@ -14,13 +17,25 @@
     "maximumPrimaryKeywordDensity": 0.03,
     "minimumSections": 4,
     "minimumFaqItems": 3,
-    "minimumInternalLinks": 2
+    "minimumInternalLinks": 2,
+    "openingWordWindow": 100,
+    "minimumSupportingKeywords": 3,
+    "maximumSupportingKeywords": 5,
+    "requirePrimaryKeywordInTitle": true,
+    "requirePrimaryKeywordInOpening": true,
+    "requirePrimaryKeywordInSectionHeading": true,
+    "requirePrimaryKeywordInConclusion": true,
+    "requireConclusionSection": true,
+    "requireContentDifferentiation": true
   },
   "evidence": {
     "requireClaimSourceMapping": true,
     "requireAccessDate": true,
     "requireLimitationsSection": true,
-    "requireUpdatedAt": true
+    "requireUpdatedAt": true,
+    "requireClaimLedger": true,
+    "requireEditorialAudit": true,
+    "sourceRequestTimeoutMs": 15000
   },
   "hardFailures": [
     "missing or fabricated source",
