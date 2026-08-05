@@ -171,7 +171,7 @@
     {
       "id": "mlb-006",
       "priority": 6,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "batter vs pitcher stats",
       "slug": "batter-vs-pitcher-stats",
       "category": "projections-stats",
@@ -215,7 +215,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-05",
+      "updatedAt": "2026-08-05"
     },
     {
       "id": "mlb-007",

@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "batter-vs-pitcher-stats",
+  "category": "projections-stats",
+  "primaryKeyword": "batter vs pitcher stats",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "bvp mlb",
+    "pitchers vs batters today",
+    "bvp baseball",
+    "bvp stats",
+    "pitcher vs hitter stats"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a reader who wants to interpret a matchup table, test its reliability, and combine it with broader evidence.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [
+    "sample-size confidence",
+    "platoon context",
+    "pitch-mix fit"
+  ],
+  "contentDifferentiation": "The existing projection guide explains a complete forecasting pipeline, while this page answers the narrower question of what a direct batter-pitcher history means, why it is noisy, and how to audit it before using it.",
+  "uniqueValue": "The guide contributes an original evidence ladder and a fictional matchup audit that separates recorded BvP outcomes from repeatable matchup traits and late-breaking context.",
+  "title": "Batter vs Pitcher Stats: How to Read BvP Responsibly",
+  "description": "Learn what batter vs pitcher stats measure, why small matchup samples mislead, and how to add platoon, pitch-mix, lineup, and recency context.",
+  "excerpt": "Batter vs pitcher stats summarize direct history, but responsible BvP analysis checks opportunity, sample size, handedness, pitch mix, recency, and today's lineup context.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "keyTakeaways": [
+    "Treat direct matchup history as a description of past plate appearances, not a stand-alone forecast of the next one.",
+    "Use handedness, broader skill, pitch repertoire, and recent role as stronger context when the direct sample is thin.",
+    "Recheck the confirmed lineup, probable pitcher, weather, injuries, and contest rules before applying any matchup conclusion."
+  ],
+  "sections": [
+    {
+      "heading": "Batter vs pitcher stats: the direct answer",
+      "paragraphs": [
+        "Batter vs pitcher stats, often shortened to BvP, record what happened when one named hitter faced one named pitcher in official games. A typical table may show plate appearances, at-bats, hits, extra-base hits, walks, strikeouts, batting average, on-base percentage, slugging, or OPS. The table is descriptive: it answers what happened in those meetings. It does not by itself estimate the probability of the next result.",
+        "Start by identifying the denominator. MLB defines a plate appearance as a completed turn batting, while an at-bat excludes outcomes such as walks, sacrifices, and hit-by-pitches. A hitter who reached twice by walk can therefore have useful on-base results that an at-bat and hit line does not reveal. Read the component events before relying on one rate, and avoid translating a compact line into a story such as ownership or fear.",
+        "That distinction matters for anyone searching bvp mlb data or a page covering pitchers vs batters today. A direct record is one evidence layer, not the entire matchup. The responsible question is whether the record contains enough relevant opportunity and whether the skills that produced it still resemble the players expected to meet now."
+      ],
+      "sourceIds": [
+        "mlb-plate-appearance",
+        "mlb-batting-average",
+        "fangraphs-bvp-noise"
+      ]
+    },
+    {
+      "heading": "Read the events behind a BvP line",
+      "paragraphs": [
+        "A rate can hide the path that created it. Batting average counts hits per official at-bat, but MLB notes that it does not include the value of walks or distinguish a single from a more valuable extra-base hit. On-base and slugging components answer different questions. Strikeouts and walks add information about control of the plate, while the types of contact help distinguish a bloop from consistently authoritative contact.",
+        "Expected statistics can add another lens without turning a tiny matchup into certainty. MLB explains that expected weighted on-base average uses exit velocity and launch angle on batted balls and includes strikeouts, walks, and hit-by-pitches. Comparing actual outcomes with quality-of-contact evidence can show whether a direct record was helped by where balls landed, but expected results remain estimates rather than a promise about the next plate appearance.",
+        "Use the widest useful view of the record. A bvp baseball table that shows only hits and at-bats is less informative than one that preserves plate appearances, strikeouts, walks, extra-base hits, and contact quality. Even the richer table describes a narrow set of encounters, so its detail should improve the audit rather than create false precision."
+      ],
+      "sourceIds": [
+        "mlb-plate-appearance",
+        "mlb-batting-average",
+        "mlb-xwoba"
+      ]
+    },
+    {
+      "heading": "Let sample size control confidence",
+      "paragraphs": [
+        "Direct matchups are usually small because a hitter sees many pitchers and a pitcher faces many hitters. Dividing a season or career into one named pairing makes the sample narrower still. A few balls finding grass, one home run, or one unusual game can dominate the displayed rate. The correct response is not to ignore the history, but to reduce the confidence assigned to it.",
+        "FanGraphs' review of batter-pitcher matchup numbers argues that limited direct histories contain too much noise to prove that one player owns another. It also shows why age matters: an old result may describe a hitter and pitcher whose skills or repertoires were different at the time. That warning is especially relevant when a visually extreme rate comes from scattered meetings across multiple seasons.",
+        "A practical evidence ladder begins with broad current skill, moves to regressed handedness splits and pitch characteristics, then uses direct bvp stats as a final context check. The direct line earns more attention when the underlying plate appearances are recent, the players' roles are stable, and the same pitch patterns recur. It earns less when the record is tiny, old, or concentrated in a brief stretch."
+      ],
+      "sourceIds": [
+        "fangraphs-bvp-noise",
+        "fangraphs-splits"
+      ]
+    },
+    {
+      "heading": "Start with the platoon baseline",
+      "paragraphs": [
+        "Handedness provides a broader comparison group than a single head-to-head record. The relevant baseline asks how the batter performs against pitchers of that hand and how the pitcher performs against batters from that side. FanGraphs describes a common platoon pattern but cautions that the size of the split varies by player. That means the label left-versus-right is a starting point, not a fixed adjustment shared by everyone.",
+        "Observed platoon splits also need regression because splitting a player's record reduces the available data. A dramatic personal split can contain both skill and randomness. Compare the player's broader body of work, recent role, and projected talent rather than copying the raw split into a daily expectation. Switch hitters require the expected batting side as well as the pitcher's throwing hand.",
+        "When direct history and the broader platoon baseline disagree, do not automatically choose the more dramatic number. Ask which sample is larger, more recent, and more representative of the current players. A durable handedness pattern supported by pitch traits usually deserves more weight than a short direct line with no clear mechanism."
+      ],
+      "sourceIds": [
+        "fangraphs-splits",
+        "mlb-batting-average"
+      ]
+    },
+    {
+      "heading": "Compare pitch mix, movement, and contact fit",
+      "paragraphs": [
+        "The matchup becomes more useful when it is connected to repeatable traits. Baseball Savant's Statcast Search can filter and group pitch-level data by batter, pitcher, handedness, pitch type, count, result, and quality of contact. Its Pitch Arsenal leaderboard organizes pitcher results by pitch type and includes usage and performance measures. Together, those tools let an analyst ask how the pitcher currently attacks hitters and how the batter handles similar pitches.",
+        "Do not assume that a pitch name guarantees identical behavior. Two sliders can differ in velocity, movement, location, and usage, and the same pitcher can change an arsenal over time. A direct matchup collected before a repertoire change may not represent the current confrontation. Check recent pitch usage, locations, whiffs, and contact quality, then compare them with a batter's broader record against similar offerings.",
+        "Pitch fit is a hypothesis, not a hidden certainty. A batter may match one pitch well but struggle with the sequencing that sets it up. A pitcher may change plans by count, base state, catcher, or game situation. Use the repertoire analysis to explain why a direct record might be repeatable, not to manufacture confidence that the original sample does not contain."
+      ],
+      "sourceIds": [
+        "savant-search",
+        "savant-pitch-arsenals",
+        "fangraphs-splits"
+      ]
+    },
+    {
+      "heading": "Adjust for recency and today's game context",
+      "paragraphs": [
+        "Players change. A batter can alter swing decisions, contact quality, health, or role. A pitcher can gain velocity, lose command, add a pitch, change pitch usage, or return with a workload restriction. Direct history that crosses those changes should not be treated as though every plate appearance came from the current versions of the players.",
+        "The expected meeting must also exist. MLB's starting-lineup page lists the day's probable pitchers and posted batting orders while warning that lineups are subject to change. Confirm that the hitter starts, the named pitcher remains scheduled, and the batting slot matches the assumed opportunity. A late scratch or opener can remove or shorten the matchup that the historical table appears to promise.",
+        "DiamScore's public optimizer page says its workflow uses split-adjusted projections and live starting-lineup context. That is a useful separation of roles: pitcher vs hitter stats can inform a projection review, while the optimizer still needs current salary, site rules, locks, fades, and stack settings. Historical BvP should adjust a reasoned process only when the evidence supports the adjustment."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "savant-search",
+        "savant-pitch-arsenals",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Original example: audit a fictional matchup",
+      "paragraphs": [
+        "Consider the fictional matchup of hitter Jordan Vale against pitcher Casey North. Every name, event, and conclusion in this example is invented to demonstrate the audit; it is not a projection or a recommendation. The direct table looks excellent for Vale, but the first check finds that the history is limited and spread across old meetings. The analyst marks the direct result as low-confidence context rather than a decisive signal.",
+        "Next, the analyst compares broader handedness performance. The platoon baseline offers only a modest advantage, so it does not confirm the dramatic direct line. The pitch review then shows that North now relies more heavily on a breaking pitch that was not central to the older encounters, while Vale's broader results against similar movement are mixed. The mechanism therefore fails to support a large positive adjustment.",
+        "Finally, the analyst verifies that both fictional players are expected to start, records the lineup status and research time, and keeps the neutral projection nearly unchanged. The audit note says why: direct history is interesting, the sample is weak, the current repertoire differs, and broader evidence is inconclusive. If a later lineup or pitcher change occurs, the analyst discards the old matchup instead of preserving the narrative."
+      ],
+      "sourceIds": [
+        "fangraphs-bvp-noise",
+        "fangraphs-splits",
+        "savant-pitch-arsenals",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify before use",
+      "paragraphs": [
+        "BvP data can contain selection effects, changing skill, uneven game contexts, and outcomes driven by defense or ball placement. A richer Statcast view can describe pitch and contact traits, but tracked data coverage and definitions depend on the selected period and filters. Different sites may also display plate appearances, at-bats, postseason results, or date ranges differently, so confirm the table definition before comparing values.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Recheck the official lineup, probable pitcher, batting order, player availability, venue conditions, and the live platform rules close to decision time. If the named matchup changes, rebuild the analysis rather than substituting a new player into an old conclusion.",
+        "Avoid unsupported claims that a hitter owns a pitcher or that a pitcher is guaranteed to dominate. State the evidence and confidence separately: direct history, broader platoon baseline, current pitch mix, quality of contact, and present-game status. When those layers disagree or remain sparse, the responsible conclusion is uncertainty, not a stronger story."
+      ],
+      "sourceIds": [
+        "mlb-plate-appearance",
+        "mlb-xwoba",
+        "savant-search",
+        "mlb-starting-lineups",
+        "fangraphs-bvp-noise"
+      ]
+    },
+    {
+      "heading": "Conclusion: use batter vs pitcher stats as one layer",
+      "paragraphs": [
+        "Batter vs pitcher stats are most useful when they begin a question rather than end it. Read the denominator and component events, lower confidence for small or old samples, compare the broader platoon baseline, and look for a current pitch-mix mechanism. Then verify that the matchup and expected opportunity still exist.",
+        "A disciplined workflow records both the conclusion and the reason for its weight. Stronger confidence requires several aligned layers, while one extreme historical rate deserves restraint. This approach preserves the real information in the direct record without asking it to forecast more than it can support.",
+        "For the next slate, open the matchup table, label the sample and recency, review handedness and repertoire, and check the confirmed lineup. Then compare that evidence with the projection rather than replacing the projection with BvP. DiamScore can provide the slate, lineup, projection, and lineup-building context for that final review."
+      ],
+      "sourceIds": [
+        "fangraphs-bvp-noise",
+        "fangraphs-splits",
+        "savant-pitch-arsenals",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What do batter vs pitcher stats show?",
+      "answer": "They summarize the recorded outcomes when one hitter faced one pitcher. They describe past meetings and should be read with the plate-appearance count, component events, recency, and current player context."
+    },
+    {
+      "question": "Are BvP stats predictive?",
+      "answer": "They can contribute context, but direct samples are often too small or old to support a strong forecast by themselves. Broader skill, regressed platoon performance, pitch characteristics, and current role usually provide a firmer base."
+    },
+    {
+      "question": "Which BvP metrics should I check?",
+      "answer": "Begin with plate appearances, hits, extra-base hits, walks, and strikeouts. Add on-base and slugging context, then inspect pitch types and contact quality when reliable tracked data is available."
+    },
+    {
+      "question": "How should I use BvP for fantasy baseball?",
+      "answer": "Use it as a review layer after establishing a projection from broader skill and opportunity. Make only evidence-supported adjustments, and verify the official lineup, pitcher, weather, injuries, scoring, and lock status."
+    },
+    {
+      "question": "Does a hitter with good BvP always have the advantage?",
+      "answer": "No. The displayed rate may come from a narrow or outdated sample, and either player's skills or repertoire may have changed. Look for support from handedness, pitch fit, recent form, and current availability."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "A plate appearance is a completed batting turn, while an at-bat excludes some outcomes such as walks, sacrifices, and hit-by-pitches.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-plate-appearance"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "Batting average measures hits per at-bat and does not account for walks or distinguish hit value.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-batting-average"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "MLB says xwOBA uses exit velocity and launch angle on batted balls and includes strikeouts, walks, and hit-by-pitches.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-xwoba"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "Baseball Savant Statcast Search supports batter, pitcher, handedness, pitch-type, result, and contact-quality filters or outputs.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "savant-search"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "Baseball Savant publishes a pitch-arsenal leaderboard organized by pitch type with usage and performance measures.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "savant-pitch-arsenals"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "Limited direct batter-pitcher histories contain too much noise to prove that one player owns another.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "fangraphs-bvp-noise"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "The size of a handedness split varies by player and observed splits require adequate opportunity to interpret.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "fangraphs-splits"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "MLB's starting-lineup page lists probable pitchers and posted batting orders and labels the information subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "DiamScore's public page describes split-adjusted projections and live starting-lineup context.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "claim": "The Jordan Vale and Casey North matchup, events, and conclusions are invented solely to demonstrate an audit workflow.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-05",
+    "notes": "Reviewed direct-answer intent, differentiation from the general projection guide, source-to-claim mapping, current product wording, required disclosures, and the fictional-example labeling."
+  },
+  "sources": [
+    {
+      "id": "mlb-plate-appearance",
+      "title": "Plate Appearance (PA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/plate-appearance",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-batting-average",
+      "title": "Batting Average (AVG)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/batting-average",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-xwoba",
+      "title": "Expected Weighted On-base Average (xwOBA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/statcast/expected-woba",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "savant-search",
+      "title": "Statcast Search",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/statcast_search?lv=true",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "savant-pitch-arsenals",
+      "title": "Statcast Pitch Arsenals Leaderboard",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/leaderboard/pitch-arsenals",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    },
+    {
+      "id": "fangraphs-bvp-noise",
+      "title": "The Absurdities of Batter/Pitcher Match-Up Numbers",
+      "publisher": "FanGraphs",
+      "url": "https://blogs.fangraphs.com/the-absurdities-of-batterpitcher-match-up-numbers/",
+      "accessedAt": "2026-08-05",
+      "type": "secondary"
+    },
+    {
+      "id": "fangraphs-splits",
+      "title": "Batter/Pitcher Splits Crib Sheet",
+      "publisher": "FanGraphs",
+      "url": "https://blogs.fangraphs.com/batter-pitcher-splits-crib-sheet/",
+      "accessedAt": "2026-08-05",
+      "type": "secondary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-05",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}
