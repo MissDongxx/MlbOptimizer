@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "how-weather-affects-baseball",
+  "category": "weather-ballparks",
+  "primaryKeyword": "how weather affects baseball",
+  "primaryKeywordVariants": [
+    "weather effects on baseball"
+  ],
+  "supportingKeywords": [
+    "mlb weather today",
+    "mlb weather report",
+    "major league baseball weather",
+    "baseball weather",
+    "mlb wind"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits readers who want the physical mechanisms, park context, and a repeatable game-day weather review rather than a forecast alone.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "not_applicable",
+  "variantDimensions": [
+    "air density",
+    "wind relative to field",
+    "interruption risk"
+  ],
+  "contentDifferentiation": "The existing player-projection guide treats park context as one projection input, while this page explains the weather mechanisms and a game-day review workflow. It gives rain only broad availability treatment so the queued baseball-rain-delay-rules page can answer the distinct rules, official-game, suspension, and resumption intent.",
+  "uniqueValue": "The guide contributes an original three-layer weather model and a clearly fictional three-game audit that separates ball-flight effects, park translation, and interruption risk.",
+  "title": "How Weather Affects Baseball: Wind, Heat, Rain, and Parks",
+  "description": "Learn how wind, temperature, humidity, rain, roofs, and ballpark orientation affect baseball, then use a practical MLB game-day weather review.",
+  "excerpt": "How weather affects baseball depends on air density, wind relative to the field, the park, and whether rain or lightning threatens play.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-06",
+  "updatedAt": "2026-08-06",
+  "keyTakeaways": [
+    "Translate temperature, moisture, pressure, and elevation into air-density context instead of using one weather value in isolation.",
+    "Map wind direction to the actual field and roof state; the same compass wind can help, hurt, or move a fly ball sideways at different parks.",
+    "Separate performance effects from interruption risk, and recheck official forecasts, alerts, lineups, roof news, and game status close to first pitch."
+  ],
+  "sections": [
+    {
+      "heading": "How weather affects baseball: the direct answer",
+      "paragraphs": [
+        "How weather affects baseball begins with two separate questions. First, will the conditions change how the ball travels or how players execute? Second, will rain, lightning, or an unfit field delay or prevent play? Warmth, pressure, moisture, elevation, and wind can alter the air through which a pitch or batted ball moves. Rain and severe weather add a different kind of uncertainty: whether the expected innings and plate appearances will happen on schedule.",
+        "A useful MLB weather today check therefore needs more than a temperature icon. Read the hourly conditions for the stadium, translate the wind relative to home plate and the outfield, identify whether the roof is open or closed, and treat precipitation timing as an availability question. Then compare that information with the park and the expected players rather than labeling every warm game as favorable to hitters.",
+        "This framework is for explaining major league baseball weather, not producing a guaranteed scoring forecast. Weather modifies contact that players still have to create, and a forecast can change. The practical goal is to record a modest, evidence-based adjustment and the conditions that would invalidate it."
+      ],
+      "sourceIds": [
+        "savant-park-factors",
+        "nws-api",
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Start with temperature and air density",
+      "paragraphs": [
+        "Warmer air is generally less dense than colder air at the same pressure. Lower density means less aerodynamic drag on a ball in flight, so an otherwise similar fly ball can carry farther. Baseball Savant's Statcast Park Factors model makes this relationship concrete: within its defined batted-ball sample, the page attributes about one percent more distance for each ten-degree Fahrenheit increase. That is a model component, not a promise that every fly ball will gain the same distance.",
+        "A peer-reviewed study in the Bulletin of the American Meteorological Society compared observations from more than one hundred thousand MLB games and two hundred forty thousand individual batted balls. The authors found that higher temperature increased home runs on average, using game-level and Statcast analyses to separate temperature from several other influences. They also stressed that temperature is not the dominant explanation for every home run trend and cannot identify the cause of one individual result.",
+        "Apply temperature at the game level, not as a universal player upgrade. A high, well-struck fly ball near a fence has more room for the environment to change its outcome than a ground ball. Outdoor conditions matter differently from a controlled roof environment, and elevation, pressure, wind, park dimensions, batter quality, pitcher quality, and the baseball itself remain part of the result."
+      ],
+      "sourceIds": [
+        "savant-park-factors",
+        "bams-temperature-study"
+      ]
+    },
+    {
+      "heading": "Translate MLB wind into field direction",
+      "paragraphs": [
+        "A compass reading is not yet baseball information. Convert the reported direction into wind blowing out toward the outfield, in toward home plate, or across the field. An outflow can assist some airborne contact, an inflow can suppress it, and a crosswind can shift a ball laterally. The effect also depends on the ball's height, direction, spin, and time aloft, so one park-wide label is a simplification.",
+        "MLB's Statcast review of wind during the 2023 and 2024 seasons used in-park measurements rather than only a nearby pregame station. It reported nearly two thousand batted balls pushed more than ten feet in either direction and more than six hundred pushed more than twenty-five feet. Those observations show why direction and exposure matter, while also warning against converting a pregame wind speed into a fixed distance for every batted ball.",
+        "Ballpark orientation is the translation key. The 2026 Official Baseball Rules say it is desirable for the line from home plate through the mound to second base to run east-northeast, but that wording is a recommendation, not proof that every MLB field has identical alignment. Use the actual venue layout. Also check whether stands, open concourses, nearby structures, or a closed roof shelter the field from the wind measured outside."
+      ],
+      "sourceIds": [
+        "mlb-wind-analysis",
+        "mlb-rules-2026",
+        "savant-park-factors"
+      ]
+    },
+    {
+      "heading": "Read humidity with pressure and temperature",
+      "paragraphs": [
+        "Humidity is easy to overstate because relative humidity changes with temperature. The National Weather Service defines relative humidity as the moisture present compared with the amount that would be present at saturation at that temperature. Its glossary cautions that relative humidity alone does not directly state the actual moisture content. Two games with the same relative-humidity percentage can therefore have different air masses and different temperatures.",
+        "For ball-flight analysis, treat temperature, pressure, moisture, and elevation as a connected air-density picture. Moist air at a fixed temperature and pressure is slightly less dense than dry air, but the practical signal from one humidity number can be smaller and more ambiguous than popular shorthand suggests. Dew point is often a clearer description of actual moisture than relative humidity, while pressure and altitude help complete the density context.",
+        "Do not double-count a humid, warm day by making separate large adjustments for every correlated input. A park-factor model or projection may already incorporate venue and environment. Document whether the weather input is new information or something the baseline likely reflects, then make one coherent adjustment rather than stacking several versions of the same effect."
+      ],
+      "sourceIds": [
+        "nws-humidity-glossary",
+        "savant-park-factors",
+        "bams-temperature-study"
+      ]
+    },
+    {
+      "heading": "Separate rain and lightning from run environment",
+      "paragraphs": [
+        "Rain probability is not a hitting multiplier. Its clearest analytical role is availability: a late start, interruption, postponement, roof closure, wet field, or changed pitching plan can alter expected opportunity. Timing matters more than a daily precipitation percentage. An hourly forecast and radar trend can distinguish a brief window before first pitch from storms expected throughout the game, but neither should be treated as a certainty.",
+        "Lightning is a safety issue rather than a performance angle. National Weather Service guidance for outdoor sports says organizers should monitor forecasts, radar, and lightning-detection information, move people to substantial shelter when threatened, and wait at least thirty minutes after the last thunder before resuming an activity. MLB's 2026 rules also recognize club severe-weather and lightning-safety policies and define who controls weather decisions before a game.",
+        "This broad baseball weather guide stops at the decision boundary: verify official club and league status instead of predicting whether officials will play. The exact consequences of a postponement, suspended game, or resumed game depend on current rules and game state. Keeping that rules question separate prevents an uncertain forecast from turning into an unsupported claim about innings, statistics, or contest treatment."
+      ],
+      "sourceIds": [
+        "nws-api",
+        "nws-lightning-sports",
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Let the ballpark translate the forecast",
+      "paragraphs": [
+        "The same forecast can produce different baseball effects because parks differ. Dimensions, wall height, elevation, orientation, roof design, and local airflow change the path from atmospheric conditions to an on-field result. Baseball Savant's park tool attempts an apples-to-apples distance comparison by selecting batted balls with similar launch conditions and then separating temperature, elevation, roof, and an environment remainder that includes wind patterns and humidity.",
+        "Start with the park's normal baseline, then ask what is unusual today. A warm afternoon at a venue that is normally warm is not the same surprise as an unseasonably warm game at a cooler park. A roof closure can reduce the relevance of the outdoor wind, while a roof-open game can expose contact to it. Do not assume the roof state from the forecast; confirm it from current venue or club information when available.",
+        "Orientation also makes generic phrases such as wind from the west incomplete. Map the flow to center field and both foul lines. If the wind is mostly across the diamond, consider that the direction of pulled and opposite-field contact differs by batter handedness. This does not justify a precise player projection by itself, but it explains why one global park adjustment can miss the shape of the condition."
+      ],
+      "sourceIds": [
+        "savant-park-factors",
+        "mlb-wind-analysis",
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Build a repeatable MLB weather report",
+      "paragraphs": [
+        "Begin with location and time. Use the stadium coordinates, not a city-wide label, and read the hours around first pitch through the expected end of the game. The National Weather Service API publishes point-based forecast links, including hourly forecasts, grid data, observations, and active alerts. Record the retrieval time because forecasts and alerts are live inputs that can change after the first review.",
+        "Next capture five fields: temperature trend, wind speed and direction, moisture context such as dew point, precipitation or thunder timing, and roof or venue exposure. Translate the wind to the field, compare the conditions with the park baseline, and label the confidence. A current MLB weather report should say what was observed, what is forecast, and what decision could change; it should not hide uncertainty behind a single green or red icon.",
+        "Finally, separate the outputs. One note covers ball flight and the likely run environment. A second covers interruption and playing-time risk. A third lists verification triggers: a new alert, updated hourly forecast, confirmed roof decision, lineup change, pitcher change, or official game-status announcement. MLB's lineup page labels its daily information subject to change, and DiamScore's public optimizer describes live starting-lineup context, so weather should join rather than replace the late-news review."
+      ],
+      "sourceIds": [
+        "nws-api",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Original example: audit three fictional games",
+      "paragraphs": [
+        "Consider three completely fictional games at Harbor Park, Mesa Field, and Northgate Dome. The parks, players, forecasts, and conclusions in this example are invented to demonstrate the workflow; they are not current conditions, projections, or recommendations. The analyst begins with the same neutral run expectation for each game so the weather reasoning remains visible.",
+        "At fictional Harbor Park, the hourly outlook is warm with a crosswind and no thunder signal. The analyst maps the crosswind to left-to-right movement rather than calling it simply hitter-friendly, notes moderate confidence, and leaves the overall run expectation close to neutral. At fictional Mesa Field, lower-density air and wind toward the outfield point in the same direction, so the analyst records a small positive ball-flight adjustment but refuses to assign the effect equally to every contact type.",
+        "At fictional Northgate Dome, storms create an outdoor warning while the roof is expected to be closed. The analyst gives the outside wind no ball-flight weight, keeps an interruption trigger until official status is confirmed, and schedules another check close to first pitch. Across all three games, the final record preserves the inputs, venue translation, confidence, separate opportunity risk, and the event that would force a new decision."
+      ],
+      "sourceIds": [
+        "savant-park-factors",
+        "nws-api",
+        "mlb-wind-analysis",
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "Forecasts describe uncertain future conditions, and a nearby station may not reproduce wind inside a stadium. In-park airflow can vary by height and location. Park-factor estimates summarize selected historical samples and can change with rolling windows, venue alterations, roof conditions, measurement methods, and the selected metric. A relationship observed across many games does not determine the outcome of one pitch or one fly ball.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Recheck the official hourly forecast and alerts, club or league game status, roof decision, confirmed batting order, probable pitcher, player availability, and live platform rules. If the forecast or venue state changes, rebuild the weather note instead of preserving the earlier label.",
+        "Weather should not erase player skill, workload, bullpen quality, defense, park geometry, or random variation. Avoid precise run or home-run adjustments unless the model documents its inputs and validation. For fantasy decisions, use weather as one projection-review layer, then inspect the complete lineup and scoring constraints before acting."
+      ],
+      "sourceIds": [
+        "nws-api",
+        "savant-park-factors",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Conclusion: apply how weather affects baseball",
+      "paragraphs": [
+        "The clearest way to apply how weather affects baseball is to separate mechanism, park translation, and opportunity risk. Temperature, pressure, moisture, and elevation shape air density. Wind must be mapped to the field and the height of contact. Rain, lightning, and roof decisions primarily determine whether the expected game environment and playing time will exist.",
+        "Use an hourly stadium forecast, record the retrieval time, compare the conditions with the park baseline, and state confidence. Keep ball-flight and interruption conclusions separate, then define the next verification trigger. That process is more useful than a generic baseball weather icon because another analyst can see both the evidence and the reason for the adjustment.",
+        "For the next slate, build the weather note before reviewing final lineups, then refresh it near first pitch. Compare the evidence with the projection instead of replacing the projection with a forecast. DiamScore can provide the slate, starting-lineup, projection, and lineup-building context for that final review."
+      ],
+      "sourceIds": [
+        "nws-api",
+        "savant-park-factors",
+        "mlb-wind-analysis",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does warm weather make baseballs travel farther?",
+      "answer": "Generally, warmer air is less dense at the same pressure, which reduces drag. Statcast and peer-reviewed game data support an average temperature effect, but contact quality, wind, elevation, park geometry, roof state, and player skill still determine each outcome."
+    },
+    {
+      "question": "How does wind affect a baseball game?",
+      "answer": "Wind can add or remove carry and move a ball laterally. Translate the wind relative to the actual field, then consider ball height, direction, roof state, stands, and local airflow instead of applying one fixed distance to every fly ball."
+    },
+    {
+      "question": "Does humidity help hitters?",
+      "answer": "Humidity should not be read alone. Relative humidity depends on temperature, and the flight effect belongs in a combined air-density view with temperature, pressure, moisture, and elevation. Avoid adding several overlapping adjustments for the same air mass."
+    },
+    {
+      "question": "What should I check in an MLB game-day forecast?",
+      "answer": "Use stadium location and game hours to review temperature trend, wind speed and direction, dew point or moisture context, precipitation and thunder timing, active alerts, and roof exposure. Record when you checked and what change would trigger another review."
+    },
+    {
+      "question": "Should rain automatically remove players from a fantasy lineup?",
+      "answer": "No single precipitation percentage determines whether a game will play. Separate interruption risk from performance effects and verify current forecasts, official game status, lineups, roof news, and platform rules before making a decision."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "Baseball Savant's selected-distance model attributes about one percent more batted-ball distance for each ten-degree Fahrenheit temperature increase.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "savant-park-factors"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "The 2023 peer-reviewed temperature study analyzed more than one hundred thousand MLB games and two hundred forty thousand individual batted balls and found higher temperature increased home runs on average.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "bams-temperature-study"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "MLB's Statcast wind review reported nearly two thousand 2023-2024 batted balls moved more than ten feet by wind and more than six hundred moved more than twenty-five feet.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-wind-analysis"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "The 2026 Official Baseball Rules say an east-northeast line from home plate through the mound to second base is desirable, not mandatory.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "National Weather Service guidance says relative humidity depends on temperature and does not by itself directly indicate actual atmospheric moisture.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "nws-humidity-glossary"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "The NWS API provides point-linked hourly forecasts, grid forecast data, observations, and active weather alerts.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "nws-api"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "NWS outdoor-sports guidance says to wait at least thirty minutes after the last thunder before resuming an activity.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "nws-lightning-sports"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "MLB's 2026 rules recognize filed severe-weather and lightning-safety policies and define weather decision authority before a game.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "MLB's starting-lineup page labels daily lineups and probable pitchers subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "DiamScore's current public page describes live starting-lineup context, split-adjusted projections, stack controls, locks, fades, and DraftKings and FanDuel CSV export.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "claim": "Harbor Park, Mesa Field, Northgate Dome, their weather, and every conclusion in the example are invented only to demonstrate the review workflow.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-06",
+    "notes": "Reviewed the broad weather-mechanism intent, separation from the queued rain-delay-rules page, source-to-claim mapping, current MLB rules and product wording, support-keyword placement, uncertainty language, and the fictional-example label."
+  },
+  "sources": [
+    {
+      "id": "savant-park-factors",
+      "title": "Statcast Park Factors",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/leaderboard/statcast-park-factors",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-wind-analysis",
+      "title": "Statcast Analysis of Wind Impact on Baseball",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/news/the-big-impact-of-wind-on-baseball-outcomes",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-rules-2026",
+      "title": "2026 Official Baseball Rules",
+      "publisher": "Major League Baseball",
+      "url": "https://mktg.mlbstatic.com/mlb/official-information/2026-official-baseball-rules.pdf",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "nws-api",
+      "title": "National Weather Service API Web Service",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/documentation/services-web-api",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "nws-humidity-glossary",
+      "title": "Humidity and Relative Humidity",
+      "publisher": "National Weather Service",
+      "url": "https://forecast.weather.gov/glossary.php?word=humidity",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "nws-lightning-sports",
+      "title": "Lightning Safety and Outdoor Sports Activities",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/safety/lightning-sports",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "bams-temperature-study",
+      "title": "Global Warming, Home Runs, and the Future of America's Pastime",
+      "publisher": "Bulletin of the American Meteorological Society",
+      "url": "https://ccallahan45.github.io/pdfs/Callahan-et-al-BAMS-2023.pdf",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-06",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

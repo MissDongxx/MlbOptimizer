@@ -223,7 +223,7 @@
     {
       "id": "mlb-007",
       "priority": 7,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "how weather affects baseball",
       "slug": "how-weather-affects-baseball",
       "category": "weather-ballparks",
@@ -269,7 +269,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-06",
+      "updatedAt": "2026-08-06"
     },
     {
       "id": "mlb-008",
