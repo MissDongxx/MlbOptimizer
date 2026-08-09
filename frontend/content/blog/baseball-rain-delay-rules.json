@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "baseball-rain-delay-rules",
+  "category": "weather-ballparks",
+  "primaryKeyword": "baseball rain delay rules",
+  "primaryKeywordVariants": [
+    "MLB rain delay rules"
+  ],
+  "supportingKeywords": [
+    "rain delay baseball",
+    "rain delay baseball game",
+    "baseball in the rain",
+    "do baseball games get cancelled for rain",
+    "rain stoppage"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a rules question that requires readers to distinguish game states, official-game thresholds, resumption rules, and separate DFS consequences.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "not_applicable",
+  "variantDimensions": [
+    "pre-game versus in-game authority",
+    "game state when play stops",
+    "league result versus DFS scoring"
+  ],
+  "contentDifferentiation": "The existing weather guide explains wind, temperature, rain risk, and a forecast-review workflow while reserving the rules question for this page. This article answers the distinct reader intent: what delay, postponement, called game, and suspension mean under current MLB rules, then separates the MLB result from platform-specific DFS scoring.",
+  "uniqueValue": "The article contributes an original decision tree that starts with whether play began, tracks the inning and score state, and keeps MLB game status separate from DFS contest treatment.",
+  "title": "Baseball Rain Delay Rules: MLB and DFS Explained",
+  "description": "Understand baseball rain delay rules, official-game thresholds, suspended games, postponements, and the DFS checks to make before lineup lock.",
+  "excerpt": "Baseball rain delay rules depend on whether play has started, the inning and score when play stops, and the official status MLB assigns afterward.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-09",
+  "updatedAt": "2026-08-09",
+  "keyTakeaways": [
+    "A delay pauses the schedule, a postponement prevents the game from being played as scheduled, and a suspended game continues later from its stopping point.",
+    "The current MLB rulebook uses the game state—not a universal rain-delay clock—to determine whether a stopped game is regulation, suspended, or still awaiting a decision.",
+    "MLB status and DFS scoring are separate decisions, so verify official game news and the live rules for the exact contest before lineup lock."
+  ],
+  "sections": [
+    {
+      "heading": "Baseball rain delay rules: the direct answer",
+      "paragraphs": [
+        "Baseball rain delay rules do not impose one maximum wait that automatically cancels every game. A delay means the scheduled start or active game is paused while officials assess weather and field conditions. A postponement means the game will not be played as scheduled. A suspended game has started, stops, and is designated to continue later from the point of suspension. A called game has been ended by the appropriate authority; depending on the inning and score, it may stand as a regulation result or require later completion.",
+        "That vocabulary matters more than the everyday phrase rain delay baseball. The useful questions are whether the lineup cards were exchanged and play began, who then controlled the weather decision, how far the game progressed, what the score was when it stopped, and what official status MLB announced. A forecast or television graphic can describe risk, but it does not itself decide the game under the rulebook.",
+        "For fantasy players, add one more question: how does the selected platform score that exact slate? The league can resume a suspended game as a continuation of the original while a one-day fantasy contest excludes later statistics. Treat the MLB ruling and contest settlement as two related but independent records."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "mlb-suspended-game",
+        "draftkings-delay-help"
+      ]
+    },
+    {
+      "heading": "Separate a delay from a postponement",
+      "paragraphs": [
+        "Before the game starts, the current MLB rules generally assign the home team the decision on whether unsuitable weather or an unfit field prevents the game from starting, subject to stated exceptions. After the home lineup has been handed to the umpire-in-chief, the umpires take charge of the field, and the umpire-in-chief has authority over calling, suspending, or resuming play for weather or field conditions. The rules also preserve the role of a club policy filed with the league for severe weather and lightning safety.",
+        "Once play is suspended, the rulebook requires the umpire-in-chief to wait at least thirty minutes before calling the game and permits a longer suspension when a chance to resume remains. That is a minimum decision window after an in-game suspension, not a promise that every rain delay baseball game will restart after the same amount of time. The field, storm movement, safety policy, schedule, and official judgment can produce different outcomes.",
+        "A postponement is not merely a long delay. It is an official scheduling outcome for a game that will not proceed as planned. Do not infer it from steady rain, a covered field, or an announced delayed start. Wait for the club, league, or platform status to change, and record the timestamp because the designation can be updated."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "nws-lightning-sports"
+      ]
+    },
+    {
+      "heading": "Know when a called game is a regulation game",
+      "paragraphs": [
+        "A normal regulation game is nine innings, with the familiar exceptions for a home team already ahead or a tie that extends play. Weather can shorten a game when the umpire-in-chief or the Office of the Commissioner calls it. Under the current rulebook, a called game qualifies as a regulation game after five completed innings, or when the home team is ahead after the visiting team has completed five half-innings and the home team has completed four or part of its fifth. A home-team run that ties the score in the bottom of the fifth is also listed in the regulation-game test.",
+        "Reaching that threshold does not mean every stopped game instantly becomes final. If the score is tied, or if the visiting team ties or takes the lead in an incomplete inning and the home team has not answered, the rulebook treats the situation as a suspended game for later completion. The exact inning and score therefore matter alongside the number of outs.",
+        "This is why the common question baseball in the rain cannot be answered by saying that five innings always makes the result final. The game must first be called, and then the regulation and suspension provisions must be applied to the actual score state. Official game status is the decisive input for statistics and scheduling."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Understand suspended games and later resumption",
+      "paragraphs": [
+        "The current MLB rulebook directs postponed games and specified called games—including games stopped before becoming regulation, tied games, and certain incomplete innings in which the visitor has tied or moved ahead—to be scheduled for play or resumption to a completed regulation game. The preferred scheduling paths include the clubs' next scheduled meeting at the same grounds or a mutual off-day, while the Commissioner's Office decides difficult cases that cannot be completed through the ordinary schedule.",
+        "A suspended game resumes at the exact point where the original stopped. It remains a continuation of that game, with the same lineup and batting order subject to substitution rules. MLB's glossary uses the same core distinction: a suspended game stops early and must be completed later from its point of termination, although not every terminated game receives that designation.",
+        "A rain stoppage can therefore change pitcher availability without erasing the prior plate appearances. A pitcher is not automatically required to return when the game resumes, and players removed before the suspension do not regain eligibility. For projection review, treat the resumed segment as a new context attached to the old game state: confirm the date, remaining innings, eligible hitters, available pitchers, and official lineup information."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "mlb-suspended-game"
+      ]
+    },
+    {
+      "heading": "Use forecasts for risk, not for official status",
+      "paragraphs": [
+        "An hourly forecast, radar trend, and alert can show when rain or thunderstorms may reach the stadium. Those inputs help estimate the chance of a late start or interruption, but they do not replace an official decision. Weather changes, local field drainage differs, and in-park conditions may not match a city-level forecast. Build a time-stamped risk note rather than a binary prediction that the game will play or fail to play.",
+        "Lightning deserves separate treatment from ordinary rainfall. National Weather Service guidance for outdoor sports recommends monitoring forecasts, radar, and lightning information, moving people to substantial shelter when threatened, and waiting at least thirty minutes after the last thunder before resuming an activity. It also says dugouts and small rain shelters are not safe lightning shelters. That public-safety guidance explains why rain intensity alone is an incomplete measure of interruption risk.",
+        "For a practical check, note precipitation timing, thunder or alert risk, field exposure, roof state if relevant, and the next update time. Then follow official club and league messages. A weather model supports preparation; it does not declare a postponement, determine a regulation result, or settle a fantasy contest."
+      ],
+      "sourceIds": [
+        "nws-lightning-sports",
+        "mlb-rules-2026"
+      ]
+    },
+    {
+      "heading": "Apply rain-delay information to DFS lineups",
+      "paragraphs": [
+        "Start by separating late-start risk from mid-game interruption risk. Before lock, a postponed game can remove every expected plate appearance from a one-day slate. After play begins, a long interruption can shorten a starting pitcher's outing even if the game later resumes. Neither outcome is certain from precipitation probability alone, so record the official status and how much flexibility remains in the contest.",
+        "Platform rules are not interchangeable. DraftKings' current help center says cancellation, delay, postponement, and rescheduling are handled under sport- and contest-style rules, and its player-status guidance tells users to monitor lineups and consult Rules and Scoring for the relevant contest. The same discipline applies on any other platform: use its own current contest page instead of assuming that another site's settlement language applies.",
+        "The practical response is to open the rules for the exact slate rather than transfer a remembered rule across platforms or contest formats. Check whether late swap is offered, whether the affected roster spots have locked, how postponed and suspended games are defined, which statistics count, and whether the contest can be canceled. Save the rule and status you relied on because platform terms and operational decisions can change."
+      ],
+      "sourceIds": [
+        "draftkings-delay-help",
+        "draftkings-player-status"
+      ]
+    },
+    {
+      "heading": "Follow a game-status decision tree",
+      "paragraphs": [
+        "First, confirm whether the game has started. If it has not, distinguish a delayed start from an official postponement and keep monitoring the club, league, and fantasy platform. If it has started, record the inning, half-inning, outs, score, baserunners, pitchers used, and the time play stopped. Those fields determine which MLB rules may apply and what opportunity remains if play resumes.",
+        "Second, wait for an official label: delayed, postponed, resumed, called, suspended, completed, or no game. For a called game, compare the state with the regulation-game and suspension rules instead of applying a shortcut. For a suspended game, find the resumption schedule and remember that MLB continues the original game from the stopping point.",
+        "Third, open the live contest rules and status. Decide only from the platform's treatment of that slate, not from MLB's statistical continuity alone. Finally, refresh projected opportunity, starting-pitcher workload, bullpen availability, batting order, and roster locks. This sequence turns uncertainty into a documented update rather than an unsupported weather guess."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "draftkings-delay-help",
+        "draftkings-player-status"
+      ]
+    },
+    {
+      "heading": "Original example: classify three fictional rain scenarios",
+      "paragraphs": [
+        "Consider three completely fictional games at Harbor Park. The teams, innings, scores, weather, platform displays, and decisions are invented only to demonstrate the workflow; they are not current MLB games or fantasy recommendations. In the first scenario, rain arrives before lineup-card exchange and the home club announces a delayed start. The analyst keeps players under review because no postponement has been announced and schedules another status check.",
+        "In the second fictional scenario, play stops in the middle innings after the visiting team moves ahead during an unfinished frame. The analyst records the exact state and waits for the official designation rather than declaring a final score. If MLB labels it suspended, the analyst expects continuation from that point but still opens the exact contest rules to learn whether later statistics count.",
+        "In the third fictional scenario, an official postponement arrives before play. The analyst removes the game's projected opportunities from the working lineup set only where the contest still permits edits, checks each locked entry separately, and records the platform notice. The example's lesson is procedural: classify the league state, classify the contest state, then update projections and lineups."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "draftkings-delay-help"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "This guide explains the 2026 MLB rulebook and platform pages available on the access date. MLB may apply different postseason procedures, the Commissioner's Office can address extraordinary circumstances, and Minor League organizations may use different rules. Club severe-weather policies, venue operations, schedule constraints, and official announcements can also affect a real event. Do not apply this MLB summary to amateur, college, international, or development-league games without checking that competition's rules.",
+        "Fantasy rules and interface behavior can change by platform, jurisdiction, sport, slate, and contest style. Verify the current Rules and Scoring page, contest details, late-swap availability, official player locks, and platform notices. A league decision to preserve or resume statistics does not guarantee the same scoring treatment in a one-day fantasy contest.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Recheck the stadium forecast, active alerts, official club and MLB game status, confirmed lineup, probable and active pitchers, resumption schedule, and live contest rules close to lock. When any of those inputs changes, rebuild the projection and lineup decision instead of relying on the earlier label."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "nws-lightning-sports",
+        "draftkings-delay-help",
+        "draftkings-player-status"
+      ]
+    },
+    {
+      "heading": "Conclusion: use baseball rain delay rules correctly",
+      "paragraphs": [
+        "Use baseball rain delay rules as a state machine, not a stopwatch. Establish whether the game began, identify who controls the decision, record the inning and score when play stops, and wait for the official label. Then apply the regulation-game or suspended-game provisions to the recorded state rather than assuming that one inning threshold answers every case.",
+        "Keep weather risk, MLB status, and DFS settlement in separate fields. Forecasts help anticipate disruption; MLB decides the game's official path; the fantasy platform decides which statistics count for the specific contest. That separation prevents a resumed MLB game from being mistaken for guaranteed later fantasy scoring.",
+        "For the next slate, pair the game-status decision tree with current projections and lineup checks. Review the related weather guide for forecast mechanics, then use DiamScore to inspect the slate and rebuild after official changes. The final action is always verification: refresh game status, lineups, pitching context, and contest rules before lock."
+      ],
+      "sourceIds": [
+        "mlb-rules-2026",
+        "nws-lightning-sports",
+        "draftkings-delay-help"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How long can an MLB rain delay last?",
+      "answer": "There is no single maximum duration that decides every game. After an in-game weather suspension, the current rulebook requires the umpire-in-chief to wait at least thirty minutes before calling the game and allows the suspension to continue while a chance to resume remains."
+    },
+    {
+      "question": "Do baseball games get cancelled for rain?",
+      "answer": "They can be postponed before play or called after play begins, but the official label and consequences depend on the timing, field conditions, inning, score, and league decision. Many games are delayed or rescheduled rather than simply canceled."
+    },
+    {
+      "question": "When is a rain-shortened MLB game official?",
+      "answer": "The current rulebook generally recognizes a called game as regulation after five completed innings, with additional home-team situations around the bottom of the fifth. Ties and certain incomplete innings can instead require suspension and later completion."
+    },
+    {
+      "question": "Does a suspended MLB game restart from the beginning?",
+      "answer": "No. Under the current MLB rulebook, a suspended game resumes at the exact point of suspension as a continuation of the original, with the prior lineup and batting order subject to substitution rules."
+    },
+    {
+      "question": "Do suspended-game stats count in MLB DFS?",
+      "answer": "It depends on the platform, slate, and contest format. DraftKings directs users to the sport- and contest-specific Rules and Scoring page, and another platform may use different settlement terms. Verify the exact live contest before lock."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "Under the 2026 MLB rules, the home team generally decides whether unsuitable weather prevents a game from starting, while the umpire-in-chief controls weather decisions after lineup-card exchange, subject to stated exceptions and filed severe-weather policies.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "The 2026 MLB rules require at least a thirty-minute in-game suspension before the umpire-in-chief calls the game and allow a longer suspension while a chance to resume remains.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "Under the 2026 MLB rules, a called game can qualify as regulation after five completed innings or in specified home-team situations in the bottom of the fifth.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "The 2026 MLB rules treat tied called games and specified incomplete innings in which the visiting team ties or takes the lead as suspended games requiring later completion.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "The 2026 MLB rules say a suspended game resumes at the exact stopping point as a continuation of the original game with the same lineup and batting order, subject to substitution rules.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-rules-2026",
+        "mlb-suspended-game"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "National Weather Service outdoor-sports guidance says people should wait at least thirty minutes after the last thunder before resuming outdoor activity and that dugouts are not safe lightning shelters.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "nws-lightning-sports"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "DraftKings' accessed help pages state that postponed-game treatment depends on sport and contest style, direct users to Rules and Scoring, and tell users to monitor athlete status before lock.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "draftkings-delay-help",
+        "draftkings-player-status"
+      ],
+      "checkedAt": "2026-08-09"
+    },
+    {
+      "claim": "Harbor Park, every described team and game state, and all projection and lineup decisions in the example are invented only to demonstrate the workflow.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-09",
+    "notes": "Reviewed the rules-first informational intent, separation from the weather-mechanism article, current MLB decision authority and game-state provisions, current platform wording, section-level sourcing, uncertainty language, support-keyword coverage, and the fictional-example label."
+  },
+  "sources": [
+    {
+      "id": "mlb-rules-2026",
+      "title": "2026 Official Baseball Rules",
+      "publisher": "Major League Baseball",
+      "url": "https://mktg.mlbstatic.com/mlb/official-information/2026-official-baseball-rules.pdf",
+      "accessedAt": "2026-08-09",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-suspended-game",
+      "title": "Suspended Game",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/rules/suspended-game",
+      "accessedAt": "2026-08-09",
+      "type": "primary"
+    },
+    {
+      "id": "nws-lightning-sports",
+      "title": "Lightning Safety and Outdoor Sports Activities",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/safety/lightning-sports",
+      "accessedAt": "2026-08-09",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-delay-help",
+      "title": "What Happens to a Fantasy Sports Contest When a Game Is Canceled, Delayed, Postponed, or Rescheduled?",
+      "publisher": "DraftKings Help Center",
+      "url": "https://help.draftkings.com/hc/en-us/articles/4405230068499-What-happens-to-a-Fantasy-Sports-contest-when-a-game-is-canceled-delayed-postponed-or-rescheduled-US",
+      "accessedAt": "2026-08-09",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-player-status",
+      "title": "What Happens If an Athlete in My Roster Does Not Play or Has Their Game Cancelled?",
+      "publisher": "DraftKings Help Center",
+      "url": "https://help.draftkings.com/hc/en-us/articles/4405229777555-What-happens-if-one-of-the-athletes-in-my-roster-doesn-t-play-or-has-their-game-cancelled-US",
+      "accessedAt": "2026-08-09",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How weather affects baseball",
+      "href": "/blog/how-weather-affects-baseball"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}
