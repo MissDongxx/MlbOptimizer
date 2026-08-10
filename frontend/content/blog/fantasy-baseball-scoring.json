@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "fantasy-baseball-scoring",
+  "category": "fantasy-baseball",
+  "primaryKeyword": "fantasy baseball scoring",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "hitter fantasy scores",
+    "mlb hitter fantasy score",
+    "mlb fantasy scoring",
+    "mlb fantasy points",
+    "hitter fantasy score chart"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a rules-and-concepts query that requires readers to separate points, categories, standings, and daily contest settlement before evaluating players.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "not_applicable",
+  "variantDimensions": [
+    "points versus category scoring",
+    "hitter versus pitcher events",
+    "season-long versus daily contests"
+  ],
+  "contentDifferentiation": "The existing projection guide explains how expected baseball events become forecasts, while the DFS strategy guide covers contest decisions and lineup construction. This page answers a different reader question: how recorded hitter and pitcher statistics become fantasy results under points, category, rotisserie, head-to-head, and daily contest rules.",
+  "uniqueValue": "The article provides a reusable scoring audit and an original fictional score-sheet example that separates raw baseball events, league settings, roster status, and final platform settlement.",
+  "title": "Fantasy Baseball Scoring: Points, Categories, and DFS",
+  "description": "Learn how fantasy baseball scoring works across points, category, rotisserie, head-to-head, and daily formats, with hitter and pitcher examples.",
+  "excerpt": "Fantasy baseball scoring starts with real baseball statistics, but the league format and its current settings determine how those events affect your result.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-10",
+  "updatedAt": "2026-08-10",
+  "keyTakeaways": [
+    "Points leagues convert each tracked event into a weighted total, while category leagues compare team totals or rates without giving every event a universal point value.",
+    "A player's value changes with the scoring sheet: hitter opportunity, pitcher workload, penalties, rate categories, and roster eligibility can matter differently across leagues.",
+    "Platform defaults are examples rather than universal rules, so verify the live scoring page, league settings, active roster, and stat-correction policy before making a decision."
+  ],
+  "sections": [
+    {
+      "heading": "Fantasy baseball scoring: the direct answer",
+      "paragraphs": [
+        "Fantasy baseball scoring is the rule set that translates official baseball statistics into a league result. In a points league, tracked events receive positive or negative weights and accumulate into a fantasy total. In a category league, teams compete in selected statistics such as home runs, stolen bases, strikeouts, or earned run average. Rotisserie compares category standings across the season, while head-to-head formats compare opponents during scheduled matchup periods. Daily fantasy contests use their own event values, eligible player pool, roster rules, and settlement process.",
+        "The phrase mlb fantasy scoring therefore does not identify one universal formula. Two leagues can use the same MLB games and value the same player differently because one rewards total bases, another emphasizes batting average, and another applies a platform-specific daily scoring table. The first task is not to search for a generic player score. It is to identify the exact format, tracked statistics, point weights, lineup rules, and scoring period.",
+        "Keep three layers separate: the baseball event recorded by the official scorer, the fantasy rule that interprets that event, and the competition structure that turns the result into standings or a win. That separation makes scoring easier to audit and prevents a remembered default from being mistaken for the settings in the league or contest you are actually playing."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Identify the scoring format before valuing players",
+      "paragraphs": [
+        "Begin with the competition structure. Yahoo's current help material separates head-to-head points or categories, season points, and rotisserie. Head-to-head creates a matchup against another manager for a scoring period. Season points accumulates weighted fantasy points against the league over the season. Rotisserie accumulates selected real-life statistics and ranks teams against the entire league. Private-league commissioners may control settings, so even two leagues on the same platform can behave differently.",
+        "Category scoring asks whether a roster can gain or protect position across several separate statistics. A team can improve in one category while losing ground in another, and rate statistics can move in either direction when a new result enters the denominator. Points scoring collapses selected events into one total, which makes the weights decisive. A walk has no universal fantasy value: it can earn a direct point value, contribute indirectly to a rate, or be untracked.",
+        "Daily fantasy adds a shorter contest window, a slate-specific player pool, salaries or tiers, roster constraints, lock rules, and platform settlement. DraftKings' current overview describes multiple draft styles and says official scoring validation begins after the games in a contest are final. That workflow is not interchangeable with season-long category standings. Label the format first, then select the matching scoring sheet."
+      ],
+      "sourceIds": [
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Understand category and rotisserie scoring",
+      "paragraphs": [
+        "MLB's glossary says a typical fantasy baseball league uses batting average, home runs, runs batted in, runs scored, and stolen bases for hitters, plus wins, earned run average, WHIP, strikeouts, and saves for pitchers. Those are a familiar starting set, not a requirement for every league. A commissioner or platform can add, remove, or replace categories, so read the current settings rather than assuming a traditional list.",
+        "Counting categories accumulate events. More home runs or strikeouts generally move the team total in the favorable direction. Rate categories combine a numerator and denominator, so volume and efficiency interact. A hitter with another hit changes both hits and at-bats in batting average; a pitcher who allows baserunners while recording innings changes both sides of WHIP. This is why a category projection must carry the components needed to recompute a team rate instead of simply adding displayed averages.",
+        "In rotisserie, the practical question is how a player's contribution may change the team's position relative to every other roster. In head-to-head categories, the same contribution matters within the current matchup and schedule. A category win is not an mlb fantasy points total assigned to one player; it is the team-level outcome of comparing a tracked statistic under that league's rules."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Calculate a points-league result from events",
+      "paragraphs": [
+        "A points league is an event ledger. For each player, multiply every credited event by the league's weight, include any penalties or bonuses, and add the results. The concept is simple, but the scoring table controls the answer. Some systems reward total bases rather than separate hit types; some include walks, hit-by-pitch events, holds, losses, or quality starts; others omit them. Never mix weights from a public default with a customized private league.",
+        "For hitters, start from projected opportunities and event probabilities, then map only the events that the scoring sheet tracks. For pitchers, project workload separately from rates because outs or innings can earn points while hits, walks, and earned runs can subtract them. A strong rate performance over limited work may lose to a longer outing in a volume-heavy system, while an efficiency-focused scoring sheet can reverse that preference.",
+        "The clean audit trail has one row per event: event name, projected or recorded count, current league weight, subtotal, and evidence timestamp. Preserve negative values rather than folding them into a vague adjustment. If the platform later applies a stat correction, update the event count and recompute the same formula instead of manually forcing the displayed total."
+      ],
+      "sourceIds": [
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Read hitter fantasy scores in context",
+      "paragraphs": [
+        "Hitter fantasy scores begin with opportunity. A player usually needs a plate appearance before a hit, walk, run, or run batted in can help, so batting-order position and confirmed lineup status affect the number of chances. The scoring format then decides which outcomes matter directly. Total-base scoring distinguishes extra-base damage, category scoring may separate home runs and batting average, and some systems credit walks while others do not.",
+        "An mlb hitter fantasy score should therefore be read as the output of a named rule set, not as a portable measure of real-world quality. The same batting line can create different totals across platforms or leagues. Even within one league, a run and a run batted in depend partly on teammates and lineup context, while a stolen-base category can give a specialist value that a scoring sheet with no stolen-base reward would miss.",
+        "A useful hitter fantasy score chart lists the events that are actually tracked and marks whether each one affects a point total, a counting category, a rate category, or nothing. Add active-versus-benched status and the relevant scoring period. Yahoo's current overview notes that only active players at game time earn statistics for a fantasy team, which makes roster placement part of the audit rather than an afterthought."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Evaluate pitcher scoring through workload and damage",
+      "paragraphs": [
+        "Pitcher scoring usually combines opportunity, run prevention, baserunner prevention, strikeouts, and role-dependent outcomes. MLB's standard-stat glossary identifies wins, earned run average, WHIP, strikeouts, and saves as common fantasy categories. A points league may instead reward innings or outs and strikeouts while subtracting for earned runs, hits, walks, or losses. Relief roles can matter when saves or holds are tracked.",
+        "Treat workload as its own forecast. A starter's expected innings determine how many strikeout and run-prevention events can accumulate, while a reliever's chance to enter in a qualifying situation affects save or hold opportunity. Wins are also context dependent because they require official scoring conditions and team support. Do not replace those components with one generic pitcher grade before applying the league rules.",
+        "Rate categories need team context. Adding a pitcher's projected innings, earned runs, hits, and walks changes the roster's aggregate ratios; averaging player ERA or WHIP values directly can produce the wrong answer because pitchers contribute different inning totals. For a scoring audit, retain the underlying events, apply the league denominator rules, and verify minimums or roster limits shown in the current settings."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Compare platform settings without importing assumptions",
+      "paragraphs": [
+        "Platform names are not scoring formats. Yahoo's current help pages describe multiple season-long formats and explain that private-league commissioners control settings. DraftKings' current fantasy rules overview describes contest draft styles, lock behavior, position eligibility, and a validation process tied to the contest. These pages illustrate why a platform label alone is insufficient: the league, contest, and configuration still have to be identified.",
+        "Check the live rules in a fixed order: scoring type, tracked hitter events, tracked pitcher events, weights or category direction, active roster rules, scoring period, transaction timing, innings or games limits, tie handling, and stat-correction policy. For daily contests, also confirm slate membership, roster positions, salary or tier constraints, lock behavior, and what happens when a game changes status. Save the access time because these details can change.",
+        "Do not infer one platform's treatment from another platform's interface. DraftKings says its finalization uses official scoring validation after contest games are final and explains that later official-stat corrections generally do not change already finalized contests. Yahoo describes its own update and correction workflow for season-long play. The correct action is to follow the policy attached to the exact league or contest."
+      ],
+      "sourceIds": [
+        "yahoo-how-to-play",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Original example: audit a fictional scoring sheet",
+      "paragraphs": [
+        "Consider a completely fictional points league with invented weights. Harbor League awards the fictional hitter one point for a single, two for a double, four for a home run, one for a walk, and two for a stolen base. A fictional player records two singles, one walk, and one stolen base. The illustrative calculation is two times one, plus one times one, plus one times two, for a fictional total of five points. Those weights are teaching inputs, not a current platform table.",
+        "Now change only the invented rules. Beacon League ignores walks, gives the fictional stolen base one point, and evaluates batting average as a category rather than assigning points to hits. The same fictional batting line no longer produces the Harbor total and cannot be summarized by one portable number. The manager must carry the hits and at-bats into the team rate and compare the category result with an opponent or the league standings.",
+        "Apply the same fictional audit to a pitcher. Record invented outs, strikeouts, earned runs, hits, walks, and any decision or relief outcome; then map them to the selected sheet. If the player was benched, outside the slate, or locked under a different contest state, the event math alone is insufficient. The reusable workflow is event record, eligibility check, scoring rule, subtotal, team or contest result, then correction review."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "This guide explains scoring concepts and the official platform pages available on the access date. It does not reproduce every league's live scoring table. Public defaults, private configurations, contest types, eligibility rules, and correction windows can change. A commissioner may customize a season-long league, and a daily contest can apply rules that do not match another slate or platform.",
+        "Official baseball statistics can also be corrected. A live fantasy display may be provisional, and platforms can use different finalization schedules. Verify the game log, official league settings, active roster, scoring period, and platform notice before treating a result as final. When a total looks wrong, compare event credits first and the rule weights second; do not assume the projection or interface is the source of the discrepancy.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Also verify probable and confirmed pitchers, batting order, active roster status, game postponements or suspensions, transaction timing, and stat corrections. Those checks affect opportunity and eligibility even when the scoring formula itself has not changed."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-scoring-overview",
+        "draftkings-scoring-overview"
+      ]
+    },
+    {
+      "heading": "Conclusion: apply fantasy baseball scoring correctly",
+      "paragraphs": [
+        "Apply fantasy baseball scoring from the rules outward. Name the format, copy the current scoring settings, separate hitter and pitcher events, confirm which players are eligible to accrue statistics, and then calculate the team or contest result. That order prevents a familiar public default from silently replacing a custom league.",
+        "For category play, preserve the event totals and rate-stat components needed to update team standings. For points play, preserve every weight and subtotal. For daily contests, add slate, roster, lock, and finalization checks. In every format, keep the raw baseball event separate from the fantasy interpretation so a correction can be traced cleanly.",
+        "Next, read the projection guide to understand how expected events are estimated, then use the lineup optimizer to compare players under the scoring assumptions relevant to your slate. Before acting, refresh league settings, player status, lineups, injuries, weather, and contest rules."
+      ],
+      "sourceIds": [
+        "mlb-standard-stats",
+        "yahoo-how-to-play",
+        "draftkings-scoring-overview"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between points and category scoring?",
+      "answer": "Points scoring applies league-defined weights to tracked events and combines them into a total. Category scoring compares teams in separate statistics, either across a matchup period or in season-long standings."
+    },
+    {
+      "question": "Which hitter stats usually count in fantasy baseball?",
+      "answer": "MLB lists batting average, home runs, runs batted in, runs scored, and stolen bases as a typical category set. Your league may use a different set or a points table, so verify the current settings."
+    },
+    {
+      "question": "Which pitcher stats usually count in fantasy baseball?",
+      "answer": "MLB lists wins, earned run average, WHIP, strikeouts, and saves as common fantasy categories. Points leagues and customized leagues may add, remove, or reweight pitching events."
+    },
+    {
+      "question": "Why does the same player have different fantasy totals on different platforms?",
+      "answer": "Platforms and leagues can track different events, assign different weights, use different active-roster rules, and finalize corrections differently. Compare the exact scoring sheet and contest state rather than the player name alone."
+    },
+    {
+      "question": "Can fantasy baseball scores change after a game ends?",
+      "answer": "Yes. Official statistics and live fantasy displays can be corrected, but each platform controls when corrections are applied and when a contest or matchup becomes final. Check the relevant correction policy."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB identifies batting average, home runs, runs batted in, runs scored, and stolen bases as typical hitter fantasy statistics, with wins, earned run average, WHIP, strikeouts, and saves as typical pitcher statistics.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-standard-stats"
+      ],
+      "checkedAt": "2026-08-10"
+    },
+    {
+      "claim": "Yahoo's accessed Fantasy Baseball help describes head-to-head points or categories, season points, and rotisserie, and says private-league commissioners control league settings.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "yahoo-how-to-play"
+      ],
+      "checkedAt": "2026-08-10"
+    },
+    {
+      "claim": "Yahoo's accessed scoring overview says active rather than benched players accrue team statistics at game time and describes a platform-specific stat-correction workflow.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "yahoo-scoring-overview"
+      ],
+      "checkedAt": "2026-08-10"
+    },
+    {
+      "claim": "DraftKings' accessed fantasy scoring overview describes multiple contest draft styles, contest lock behavior, and official scoring validation after the games within a contest are final.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "draftkings-scoring-overview"
+      ],
+      "checkedAt": "2026-08-10"
+    },
+    {
+      "claim": "DraftKings' accessed overview says later official-stat corrections generally do not affect contests that have already been finalized, while correction of a feed or finalization error can trigger reversal and reprocessing.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "draftkings-scoring-overview"
+      ],
+      "checkedAt": "2026-08-10"
+    },
+    {
+      "claim": "Harbor League, Beacon League, every player line, and all point weights and results in the example are invented only to demonstrate the scoring audit.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-10",
+    "notes": "Reviewed the scoring-format informational intent, separation from existing projection and DFS strategy pages, current MLB and platform claims, hitter and pitcher coverage, exact supporting-keyword use, section-level evidence, limitation language, and fictional-example labels."
+  },
+  "sources": [
+    {
+      "id": "mlb-standard-stats",
+      "title": "Standard Stats",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats",
+      "accessedAt": "2026-08-10",
+      "type": "primary"
+    },
+    {
+      "id": "yahoo-how-to-play",
+      "title": "How to Play Yahoo Fantasy Baseball",
+      "publisher": "Yahoo Fantasy Help",
+      "url": "https://help.yahoo.com/kb/fantasy-baseball/SLN6802.html",
+      "accessedAt": "2026-08-10",
+      "type": "secondary"
+    },
+    {
+      "id": "yahoo-scoring-overview",
+      "title": "Overview of Scoring in Yahoo Fantasy",
+      "publisher": "Yahoo Help",
+      "url": "https://help.yahoo.com/kb/sln6523.html",
+      "accessedAt": "2026-08-10",
+      "type": "secondary"
+    },
+    {
+      "id": "draftkings-scoring-overview",
+      "title": "Fantasy Sports Contest Rules and Scoring Overview",
+      "publisher": "DraftKings Service Portal",
+      "url": "https://support.draftkings.com/dk/en-us/fantasy-sports-contest-rules-scoring-overview?id=kb_article_view&sysparm_article=KB0010560",
+      "accessedAt": "2026-08-10",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "Batter vs pitcher stats",
+      "href": "/blog/batter-vs-pitcher-stats"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

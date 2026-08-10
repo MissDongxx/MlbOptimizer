@@ -330,7 +330,7 @@
     {
       "id": "mlb-009",
       "priority": 9,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "fantasy baseball scoring",
       "slug": "fantasy-baseball-scoring",
       "category": "fantasy-baseball",
@@ -373,7 +373,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-10",
+      "updatedAt": "2026-08-10"
     },
     {
       "id": "mlb-010",
