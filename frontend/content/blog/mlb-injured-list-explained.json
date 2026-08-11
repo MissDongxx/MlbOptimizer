@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-injured-list-explained",
+  "category": "injuries-rosters",
+  "primaryKeyword": "mlb injured list explained",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "10-day injured list",
+    "15-day injured list",
+    "60-day injured list",
+    "MLB IL rules",
+    "MLB roster moves"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a rules query that requires readers to connect each injured-list period with eligibility, roster consequences, and projection updates.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "The existing projection guide explains how baseball inputs become forecasts, while the optimizer and DFS guides focus on lineup construction. This page answers a distinct transaction-rules question: what an injured-list designation means, how it changes active and reserve rosters, and how to convert that official status into an availability workflow without predicting recovery from the list name alone.",
+  "uniqueValue": "The article adds a roster-state decision tree and a fictional projection-change log that separate official eligibility dates from medical readiness and expected playing opportunity.",
+  "title": "MLB Injured List Explained: 10-, 15- and 60-Day IL",
+  "description": "Learn how MLB injured-list periods affect player eligibility, active and 40-man rosters, replacement moves, and responsible fantasy projection updates.",
+  "excerpt": "MLB injured list explained through the roster rules that distinguish position players, pitchers, minimum absences, replacement moves, and projection updates.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-11",
+  "updatedAt": "2026-08-11",
+  "keyTakeaways": [
+    "Position players ordinarily use the 10-day injured list, while pitchers and two-way players use the 15-day injured list.",
+    "A 60-day transfer creates a 40-man roster opening, but the shorter lists do not.",
+    "The minimum eligible-return date is a roster boundary, not a medical forecast or a guaranteed activation date."
+  ],
+  "sections": [
+    {
+      "heading": "MLB injured list explained: the direct answer",
+      "paragraphs": [
+        "The Major League injured list lets a club remove an unavailable player from its active roster and use that active spot for a replacement. The standard short list depends on the player's official designation: MLB's current glossary assigns position players to the 10-day injured list and pitchers and two-way players to the 15-day injured list. Either player type may be placed on the 60-day injured list when a longer absence and a 40-man roster decision are involved.",
+        "The number is a minimum period before reinstatement, not a promised recovery time. A player can remain on a short list well beyond its named period. A manager evaluating fantasy availability should therefore keep three questions separate: when the player is first eligible to return, whether the club has activated the player, and what role or workload the player is expected to have after activation.",
+        "These distinctions make MLB IL rules useful but limited evidence. The transaction confirms that the player is unavailable to the Major League active roster at that moment. It does not by itself confirm the injury's severity, the exact rehabilitation schedule, a future batting-order position, or a pitch count."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il"
+      ]
+    },
+    {
+      "heading": "Compare the 10-day and 15-day injured lists",
+      "paragraphs": [
+        "The 10-day injured list is the ordinary short list for position players. MLB says it removes the player from the 26-man active roster while the player remains on the 40-man roster. The 15-day injured list performs the same active-roster function for pitchers and two-way players. A hitter and a starting pitcher can therefore have different minimum absences even when both transactions occur on the same date.",
+        "Both short-list stints may be backdated, but only within MLB's stated limit. MLB explains that the placement can be retroactive to the day after the player's last game appearance and that the maximum backdating is three days. The transaction date shown in a news item is therefore not always the date from which the minimum is counted. Use the official placement and its retroactive date rather than estimating from the last box score.",
+        "A player does not automatically return when the minimum expires. The club must reinstate the player, and the player may stay on the list considerably longer. For projections, an eligible-return date is best stored as the earliest possible boundary. Keep the player unavailable until an official activation, then reassess playing time rather than restoring an old projection without review."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-26-man-roster"
+      ]
+    },
+    {
+      "heading": "Understand what a 60-day transfer changes",
+      "paragraphs": [
+        "The 60-day injured list has a second roster effect. MLB says a player transferred there must remain out for at least 60 days and is temporarily removed from the club's 40-man roster. That can create room for the club to select or add another player while the injured player continues to receive Major League injured-list treatment.",
+        "A transfer is not a medical measurement. MLB notes that a club can leave a player on the shorter list beyond 60 days when it does not need the 40-man space. Conversely, a club may use the long list because the roster opening is valuable. The label combines an absence floor with roster administration; it should not be converted into a precise recovery probability without additional evidence.",
+        "The return also creates a roster-management requirement. Because a 60-day player is outside the 40-man roster temporarily, the club needs an available 40-man spot to reinstate that player. That procedural step can affect the surrounding MLB roster moves, but it does not change the player's medical clearance standard or guarantee an immediate active role."
+      ],
+      "sourceIds": [
+        "mlb-60-day-il",
+        "mlb-40-man-roster"
+      ]
+    },
+    {
+      "heading": "Connect injured-list transactions to roster effects",
+      "paragraphs": [
+        "MLB's roster glossary separates the active roster from the broader 40-man roster. Players on the active roster must also be on the 40-man roster. Players on the 10-day and 15-day lists continue to occupy 40-man spots even though they no longer occupy active spots, while a 60-day placement opens both the active spot and, temporarily, the 40-man spot.",
+        "That distinction explains why the corresponding replacement is not always obvious. If a suitable replacement is already on the 40-man roster, the club can recall or activate that player for the open active spot. If the preferred replacement is outside the 40-man roster and no space exists, another transaction is required. MLB lists a trade, release, designation for assignment, or 60-day transfer among the ways a club can create room.",
+        "Do not assume that one injured player creates fantasy value for only one named backup. A club may rearrange several positions, change a platoon, promote a player, or distribute innings across the bullpen. Treat the official transaction as the start of a role review: identify the active replacement, confirm lineup or pitching usage, and update connected teammates only when that new allocation is supported."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il",
+        "mlb-26-man-roster",
+        "mlb-40-man-roster"
+      ]
+    },
+    {
+      "heading": "Build an availability-first projection workflow",
+      "paragraphs": [
+        "Begin with a status field, not a points estimate. Record the official transaction type, effective or retroactive placement date, earliest eligible return date, and source timestamp. While the player remains on the injured list, exclude that player from an MLB daily player pool tied to active participation. Preserve the prior baseline separately so the history is auditable rather than overwriting it with zero.",
+        "Next, record evidence that can change expected opportunity: club activation, rehabilitation appearances, announced role, confirmed batting order, named starter, expected pitch count, or bullpen assignment. The injured-list code answers availability; these later facts answer workload. A return from the list can justify changing availability from out to active without immediately assuming a full pre-injury workload.",
+        "Finally, rerun connected projections and constraints. A returning hitter can change plate-appearance expectations for teammates; a returning starter can move another pitcher to relief or the Minor Leagues. Review salaries, position eligibility, slate membership, confirmed lineups, and contest rules before using the updated projection. Predictions are estimates, not guaranteed outcomes."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il",
+        "mlb-26-man-roster"
+      ]
+    },
+    {
+      "heading": "Original example: keep eligibility and workload separate",
+      "paragraphs": [
+        "Consider a wholly fictional club and invented players. Harbor City places fictional position player Rowan Vale on a 10-day stint with a retroactive date stated in the official transaction. The analyst records the earliest eligible-return boundary but leaves Vale unavailable. No return date is projected from the list name, and the old plate-appearance baseline remains in an archived field rather than the active slate input.",
+        "The fictional club recalls utility player Eli North. North starts near the bottom of the order in the next confirmed lineup, so the analyst creates a temporary role based on that lineup instead of inheriting Vale's full workload. Teammate projections change only where the new batting order or defensive arrangement changes expected opportunity. The transaction supplies the availability fact; the confirmed lineup supplies the usage fact.",
+        "Later, the fictional club activates Vale but announces a reduced initial role. The analyst changes Vale to active, applies the invented workload assumption with a timestamp and reason, and retains North until a confirmed corresponding roster move appears. This illustrative log prevents three different statements—eligible, activated, and fully restored—from collapsing into one unsupported projection update."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-26-man-roster",
+        "mlb-40-man-roster"
+      ]
+    },
+    {
+      "heading": "Limitations and current facts to verify",
+      "paragraphs": [
+        "This guide summarizes the MLB glossary pages accessible on the publication date. Collective bargaining terms, roster limits, injured-list periods, special procedures, and league operations can change. The official transaction log, current MLB rules, club announcement, and live roster should control when they differ from a general explanation.",
+        "The injured-list category is not a diagnosis or personalized medical forecast. Public reports may use uncertain language, rehabilitation can progress or stop, and activation can be followed by limited playing time. Avoid turning the minimum absence into a guaranteed return or assigning a normal workload without current role evidence.",
+        "Readers should verify late lineup, injury, weather, and contest-rule changes. Also verify retroactive dates, official activation, slate membership, salaries, position eligibility, replacement roles, postponements, and lock times. A correct roster interpretation can still produce a poor fantasy estimate when the playing-time or contest inputs are stale."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il",
+        "mlb-26-man-roster",
+        "mlb-40-man-roster"
+      ]
+    },
+    {
+      "heading": "Conclusion: apply the MLB injured list explained workflow",
+      "paragraphs": [
+        "Use the MLB injured list explained framework in a fixed order: identify the player's official designation, read the effective date, calculate only the earliest eligibility boundary, confirm the active- and 40-man-roster effects, and wait for official activation before changing availability. Then rebuild expected workload from current role evidence.",
+        "The 10-day, 15-day, and 60-day labels answer different roster questions, but none promises that a player will return on the first eligible date or resume a previous role immediately. Keeping eligibility, activation, and workload in separate fields makes each projection change traceable and easier to reverse when news changes.",
+        "Next, review how MLB player projections work, then open the free MLB optimizer after confirmed roster and lineup updates are reflected in your inputs. Recheck the official transaction, injuries, weather, and the selected contest's rules before finalizing any lineup."
+      ],
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il",
+        "mlb-26-man-roster",
+        "mlb-40-man-roster"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between the 10-day and 15-day injured lists?",
+      "answer": "The shorter standard list depends on the player's roster designation. Position players use the 10-day list; pitchers and two-way players use the 15-day list. Both remove the player from the active roster while keeping the player on the 40-man roster."
+    },
+    {
+      "question": "Does a player return as soon as the injured-list minimum ends?",
+      "answer": "No automatic return occurs. The named period sets a minimum before reinstatement. The club must activate the player, and the player may remain listed longer if recovery or roster circumstances require it."
+    },
+    {
+      "question": "Why does a team transfer a player to the 60-day injured list?",
+      "answer": "The move establishes a longer minimum absence and temporarily removes the player from the 40-man roster, creating a roster opening. That administrative value does not reveal a precise medical timetable."
+    },
+    {
+      "question": "Can an injured-list placement be retroactive?",
+      "answer": "Yes. MLB's short-list glossary pages say a placement may be backdated to the day after the player's last game appearance, subject to the stated maximum backdating limit. Confirm the effective date in the official transaction."
+    },
+    {
+      "question": "How should a fantasy projection change when a player is activated?",
+      "answer": "Change availability only after official activation, then reassess expected playing time from current evidence such as the confirmed lineup, announced pitching role, rehabilitation work, or workload guidance. Do not automatically restore the old baseline."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB's current glossary assigns position players to the 10-day injured list and pitchers and two-way players to the 15-day injured list; either type may use the 60-day injured list.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-60-day-il"
+      ],
+      "checkedAt": "2026-08-11"
+    },
+    {
+      "claim": "Players on the 10-day or 15-day injured list leave the 26-man active roster but stay on the 40-man roster.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il",
+        "mlb-26-man-roster",
+        "mlb-40-man-roster"
+      ],
+      "checkedAt": "2026-08-11"
+    },
+    {
+      "claim": "MLB says a short-list placement may be retroactive to the day after the last game appearance and may be backdated by no more than three days.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-10-day-il",
+        "mlb-15-day-il"
+      ],
+      "checkedAt": "2026-08-11"
+    },
+    {
+      "claim": "A player on the 60-day injured list must remain there for at least 60 days and is temporarily removed from the club's 40-man roster.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-60-day-il",
+        "mlb-40-man-roster"
+      ],
+      "checkedAt": "2026-08-11"
+    },
+    {
+      "claim": "MLB's 40-man roster glossary lists designation for assignment, trade, release, or transfer to the 60-day injured list as ways to create a roster opening when needed.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-40-man-roster"
+      ],
+      "checkedAt": "2026-08-11"
+    },
+    {
+      "claim": "Harbor City, Rowan Vale, Eli North, their roles, and every projection adjustment in the example are invented solely to demonstrate the workflow.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-11",
+    "notes": "Reviewed the informational rules intent, separation from projection and lineup-building pages, current MLB glossary claims, exact supporting-keyword coverage, section evidence, roster consequences, fictional-example labels, limitations, and required disclosures."
+  },
+  "sources": [
+    {
+      "id": "mlb-10-day-il",
+      "title": "10-day Injured List",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/injuries/10-day-injured-list",
+      "accessedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-15-day-il",
+      "title": "15-day Injured List",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/injuries/15-day-injured-list",
+      "accessedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-60-day-il",
+      "title": "60-day Injured List",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/injuries/60-day-injured-list",
+      "accessedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-26-man-roster",
+      "title": "26-man Roster",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/transactions/26-man-roster",
+      "accessedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-40-man-roster",
+      "title": "40-man Roster",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/transactions/40-man-roster",
+      "accessedAt": "2026-08-11",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09",
+  "updatedAt": "2026-08-11",
   "tasks": [
     {
       "id": "mlb-001",
@@ -381,7 +381,7 @@
     {
       "id": "mlb-010",
       "priority": 10,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb injured list explained",
       "slug": "mlb-injured-list-explained",
       "category": "injuries-rosters",
@@ -406,7 +406,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-11",
+      "updatedAt": "2026-08-11"
     },
     {
       "id": "strategy-077",
