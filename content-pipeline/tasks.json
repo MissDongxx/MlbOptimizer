@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-11",
+  "updatedAt": "2026-08-12",
   "tasks": [
     {
       "id": "mlb-001",
@@ -414,7 +414,7 @@
     {
       "id": "strategy-077",
       "priority": 11,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb dfs",
       "slug": "mlb-dfs-picks-today",
       "targetPage": "mlb dfs picks today",
@@ -458,7 +458,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-12",
+      "updatedAt": "2026-08-12"
     },
     {
       "id": "strategy-002",

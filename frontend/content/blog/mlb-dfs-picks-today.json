@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-dfs-picks-today",
+  "category": "dfs-strategy",
+  "primaryKeyword": "mlb dfs",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "mlb daily fantasy baseball",
+    "mlb dfs picks today",
+    "daily fantasy sports mlb",
+    "mlb dfs picks",
+    "daily fantasy baseball"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a daily research query that needs an evidence hierarchy, an update schedule, and a repeatable way to turn slate information into conditional picks.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "The existing MLB DFS strategy guide covers contest selection, pitchers, stacks, ownership, and late news at a broad level; the projection guide explains model inputs; and the optimizer tutorial covers tool controls. This page answers a narrower daily intent: how to create, timestamp, challenge, and refresh today's player picks without publishing a stale list of names.",
+  "uniqueValue": "The article contributes a slate-specific pick card, a verification clock, and a fictional change log that distinguish stable skill evidence from live lineup, weather, salary, and contest inputs.",
+  "title": "MLB DFS Picks Today: A Repeatable Slate Workflow",
+  "description": "Build MLB DFS picks today with a repeatable process for slate rules, confirmed lineups, projections, weather, value, stacks, and final verification.",
+  "excerpt": "MLB DFS picks today should be a timestamped decision process, not a static name list: verify the slate, lineups, projections, weather, and constraints before lock.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-12",
+  "updatedAt": "2026-08-12",
+  "keyTakeaways": [
+    "Separate stable skill evidence from live slate facts so every pick has a clear refresh trigger.",
+    "Confirm the contest pool, starting lineup, batting slot, probable pitcher, salary, and weather before treating a player as usable.",
+    "Judge the finished lineup as a connected construction rather than assuming the highest individual projections automatically fit together."
+  ],
+  "sections": [
+    {
+      "heading": "MLB DFS picks today: the direct answer",
+      "paragraphs": [
+        "Useful MLB DFS picks today are conditional decisions tied to one platform, one contest slate, one update time, and one set of assumptions. A durable article should not pretend that the same player names remain correct after a scratch, batting-order move, pitching change, salary update, roof decision, or forecast shift. Instead, build a short list from current evidence and record what would make each selection invalid.",
+        "Begin with the live contest player pool, then confirm expected starters and batting orders. Compare projections with salaries and roles, evaluate pitchers and hitters separately, translate weather into playing-time or run-environment risk, and only then assemble MLB DFS lineups. The output is not simply a rank. It is a pick card containing the player, role, salary context, projection timestamp, supporting evidence, uncertainty, and next verification time.",
+        "This daily process differs from a general MLB DFS strategy framework. Strategy explains why contest selection, correlation, ownership, and late news matter across many slates. A daily workflow shows which facts must be current before the reasoning is usable. That distinction is especially important for MLB daily fantasy baseball because confirmed lineups and game conditions often arrive after early research begins."
+      ],
+      "sourceIds": [
+        "draftkings-rules",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Define the platform and slate before ranking players",
+      "paragraphs": [
+        "A pick has no usable context until the contest is identified. DraftKings' current official rules overview says a salary-cap contest uses an athlete pool with assigned salaries and that a valid lineup must stay under the contest cap. Its entry guide says game sets identify the included games and start times and cautions that sports and game styles can use different rules or scoring. Verify the exact live contest rather than importing assumptions from another format.",
+        "Write down the platform, contest type, included games, lock behavior, salary file version, and scoring rules before calculating value. A player may be an efficient option in one contest and an awkward construction in another because salary, eligibility, roster slots, and scoring weights differ. Do not move a ranking between platforms or formats without rebuilding expected fantasy points and lineup constraints.",
+        "Also separate the slate from the full MLB schedule. A game visible on MLB.com may not belong to the selected contest, and a player absent from the contest file cannot become usable merely because the matchup looks attractive. The first quality check for daily fantasy sports MLB research is therefore a three-way match among the live contest lobby, imported salary pool, and official game schedule."
+      ],
+      "sourceIds": [
+        "draftkings-rules",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Separate stable evidence from live availability",
+      "paragraphs": [
+        "Build the first research layer from relatively stable evidence: a player's longer-run skill baseline, handedness profile, batted-ball quality, strikeout and walk tendencies, expected role, and park context. Baseball Savant explains that expected batting average, expected slugging, and expected weighted on-base average use contact quality and other outcomes to describe performance beyond the observed result. These metrics add context; they do not forecast one exact box score.",
+        "Keep live facts in a separate layer. MLB's starting-lineup page displays probable pitchers and batting orders and explicitly labels the information subject to change. A hitter moving near the top can gain expected opportunities, while a player left out of the order may have little or no usable role. A probable pitcher is not the same as a confirmed participant with a guaranteed workload.",
+        "Every candidate should therefore carry both a baseline and a status. The baseline answers why the player's skills or matchup deserve attention. The status answers whether the player belongs in the current slate, is expected to start, occupies the assumed batting slot or pitching role, and remains available. Refresh the status near lock without erasing the original research trail."
+      ],
+      "sourceIds": [
+        "savant-expected-statistics",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Evaluate pitchers through opportunity, skill, and failure paths",
+      "paragraphs": [
+        "Start pitcher analysis with expected opportunity. Ask whether the pitcher is still scheduled, how deep the current role reasonably allows him to work, and whether recent usage or a returning injury creates workload uncertainty. Then assess skills that create fantasy scoring under the selected platform, such as strikeout ability and control, while accounting for the opposing batting order rather than relying on a season-long team label.",
+        "Next identify the failure paths. A talented pitcher can lose value through a shortened workload, difficult contact matchup, poor control, weather interruption, or salary that prevents a coherent offense. A cheaper pitcher can create roster flexibility but may widen the range of outcomes. State which assumption makes the salary trade worthwhile instead of calling a pitcher safe.",
+        "For MLB fantasy daily picks, record a pitcher thesis in one sentence: expected workload, primary scoring path, opponent feature, salary effect, and invalidation trigger. If the opposing lineup changes materially, the weather adds interruption risk, or role news changes, rerun the comparison. Do not preserve an early rank simply because it was published first."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "savant-expected-statistics",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Evaluate hitters as roles inside a game story",
+      "paragraphs": [
+        "For hitters, begin with confirmed lineup position and handedness context, then compare contact quality, power, plate discipline, salary, park, and expected opposing pitching. A strong long-run hitter placed late in the order may have fewer expected opportunities than the early projection assumed. A low-salary hitter near the top can be useful because of opportunity and construction flexibility, not because a low price creates talent.",
+        "Use Statcast expected statistics to challenge results-based narratives. A recent run of hits can come from contact that was not consistently authoritative, while a quiet stretch can contain stronger underlying contact. The expected metrics still need sample and role context; they should inform a projection rather than replace it. Avoid using one metric as a complete definition of upside.",
+        "Then place each hitter into a game story. Solo selections should have a clear individual role and price case. Teammates can express a connected scoring outcome when on-base events and run production reinforce one another, but the stack must remain legal for the chosen platform. This article stops at the daily evidence card; the dedicated stacking guide covers stack sizes and portfolio structure in depth."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "savant-expected-statistics",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Treat weather as a decision trigger, not a pick",
+      "paragraphs": [
+        "Weather can affect both expected performance and whether the anticipated playing time occurs. Use a stadium-specific hourly forecast rather than a daily city icon. The National Weather Service web API documents point-linked forecast data, hourly forecasts, observations, and active alerts. Record the retrieval time because the evidence is live and can change between the first research pass and lock.",
+        "Separate two questions. The first is environment: temperature, wind translated to the field, roof status, and park context may influence how the game is expected to play. The second is availability: rain, lightning, delay risk, or a possible postponement can change innings and plate appearances. Do not convert a precipitation percentage directly into a player downgrade without considering timing and official game status.",
+        "Attach a trigger to every affected pick. Examples include a new alert, worsening hourly timing, announced roof position, official delay, pitcher change, or confirmed lineup. If that trigger occurs, return to the projection and the full lineup rather than swapping one player in isolation. The weather guide explains the physical and rules context in more detail."
+      ],
+      "sourceIds": [
+        "nws-api",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Turn MLB DFS picks into an auditable lineup",
+      "paragraphs": [
+        "After ranking candidates, test them inside the complete roster. DiamScore's current public interface supports DraftKings and FanDuel slate selection, projections, confirmed-lineup context, salary inputs, locks, exclusions, team-stack settings, player exposure controls, and CSV export. Those controls express decisions; they do not repair a stale player pool or guarantee that the chosen assumptions are correct.",
+        "Start with few hard constraints. Generate a baseline, inspect salary used, roster eligibility, projected points, team concentration, pitcher-hitter conflicts, and warnings, then compare the result with the pick cards. If a favorite player repeatedly forces weaker combinations, decide whether the conviction justifies the opportunity cost. For multiple builds, inspect exposure as a count across the whole set rather than judging each lineup alone.",
+        "Keep selection and verification separate. A model can identify a high-projected legal combination, while the analyst confirms that each player is on the correct slate, active, correctly priced, and supported by the intended game story. Open the exported file before entry and repeat the news check. The MLB optimizer is a calculation and review surface, not a source of certainty."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "draftkings-rules",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Original example: refresh a fictional pick card",
+      "paragraphs": [
+        "Consider a wholly fictional slate with invented teams, players, salaries, forecasts, and projections. At the first review, fictional hitter Rowan Vale is expected to bat near the top against a pitcher of the opposite hand. The analyst records Vale as a conditional value candidate, cites the assumed role and projection timestamp, and sets confirmed batting order as the next trigger. No part of this example describes a real contest or recommendation.",
+        "Later, the fictional lineup places Vale near the bottom. His skill baseline is unchanged, but expected opportunity falls, so the analyst lowers the invented projection and removes the hard lock. Fictional teammate Eli North moves near the top, yet North is not promoted automatically; his salary, skill baseline, position, and fit with the rest of the roster are evaluated before a new build is generated.",
+        "A later fictional forecast update adds interruption risk to the same game. The analyst preserves the earlier versions, labels the current confidence lower, and builds an alternative without the affected stack. The value of the log is not whether the final players score well. It is that another reader can see the evidence, assumption changes, decision, and condition for switching paths."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "savant-expected-statistics",
+        "nws-api",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify before lock",
+      "paragraphs": [
+        "This workflow explains how to construct MLB DFS picks; it does not supply a permanent list of today's best players. Salaries, slate membership, scoring, eligibility, lock behavior, starting lineups, probable pitchers, injuries, roles, projections, weather, alerts, and product interfaces can change. The live contest and current official information control when they differ from this guide.",
+        "Expected statistics summarize modeled contact outcomes and are not single-game forecasts. A confirmed starting spot does not guarantee a full game, and a probable pitcher does not guarantee a normal workload. Forecasts are uncertain, while correlation, ownership assumptions, and projection differences do not remove baseball variance. Predictions are estimates, not guaranteed outcomes.",
+        "Readers should verify late lineup, injury, weather, and contest-rule changes. Also confirm platform, contest type, included games, salary file, position eligibility, batting order, opposing starter, roof or game status, lock time, lineup constraints, and exported identifiers. Set personal entry and risk limits, and discard any pick whose supporting assumption is no longer current."
+      ],
+      "sourceIds": [
+        "draftkings-rules",
+        "mlb-starting-lineups",
+        "savant-expected-statistics",
+        "nws-api",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Conclusion: use MLB DFS as a refreshable process",
+      "paragraphs": [
+        "The most useful MLB DFS process is repeatable and time-stamped. Define the platform and contest, match the slate to the salary pool, separate stable skill evidence from live availability, confirm pitchers and batting orders, review stadium-specific weather, and turn projections into a connected lineup. Every pick should state both its reason and its invalidation trigger.",
+        "That approach makes mlb dfs picks today more durable than a static list. A changed batting slot, starter, salary, forecast, or contest rule becomes a clear instruction to rerun the work rather than an inconvenient fact to ignore. Preserve the prior version so changes are auditable and the final decision reflects the newest supported inputs.",
+        "Next, use the dedicated projection, stacking, exposure, and weather guides for deeper analysis, then open DiamScore after the current slate and confirmed lineup data are ready. Review every candidate and exported lineup again before lock, remembering that a strong process manages uncertainty rather than eliminating it."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "savant-expected-statistics",
+        "nws-api",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Where should I start my MLB DFS research each day?",
+      "answer": "Start with the exact platform and contest slate. Match the included games with the salary player pool, then review probable pitchers, confirmed batting orders, projections, and stadium-specific weather before ranking candidates."
+    },
+    {
+      "question": "Should MLB DFS picks be published as a fixed player list?",
+      "answer": "A fixed list becomes stale quickly. A better pick card includes the platform, slate, role, salary context, projection time, supporting evidence, uncertainty, and the specific update that would invalidate the selection."
+    },
+    {
+      "question": "How should I use Statcast expected statistics for daily fantasy baseball?",
+      "answer": "Use expected statistics to add contact-quality context and challenge recent-results narratives. Combine them with playing time, batting order, matchup, park, salary, scoring, and uncertainty rather than treating one metric as a complete forecast."
+    },
+    {
+      "question": "When should I refresh MLB daily fantasy picks today?",
+      "answer": "Refresh after confirmed lineups, pitcher changes, injury news, meaningful forecast or alert changes, roof or game-status updates, salary-file corrections, and any live contest-rule change. Run one final review near lock."
+    },
+    {
+      "question": "What does an MLB optimizer add to the process?",
+      "answer": "An optimizer tests player projections against salary, roster, stack, lock, exclusion, and exposure constraints. It helps compare legal combinations, while the user still verifies inputs, late news, contest rules, and the exported lineup."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "DraftKings' current official rules say salary-cap contests use an athlete pool with assigned salaries, require valid lineups to stay under the cap, and define the included games through a contest game set.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "draftkings-rules"
+      ],
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "claim": "MLB's starting-lineup page publishes probable pitchers and batting orders and labels the information subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "claim": "Baseball Savant says xBA, xSLG, and xwOBA use batted-ball contact quality and relevant plate-appearance outcomes to describe expected results.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "savant-expected-statistics"
+      ],
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "claim": "The National Weather Service API documentation provides point-linked forecast data, including hourly forecasts, observations, and active alerts.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "nws-api"
+      ],
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "claim": "DiamScore's current public interface supports DraftKings and FanDuel slate selection, projections, confirmed-lineup context, salary inputs, locks, exclusions, team-stack settings, exposure controls, and CSV export.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "claim": "Rowan Vale, Eli North, their teams, roles, salaries, forecasts, projections, and every decision in the worked example are fictional.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-12",
+    "notes": "Reviewed the daily informational intent, separation from existing strategy and optimizer pages, current primary-source claims, supporting-keyword coverage, evidence mapping, fictional labels, limitations, disclosures, and late-update workflow."
+  },
+  "sources": [
+    {
+      "id": "draftkings-rules",
+      "title": "Fantasy Sports Contest Rules and Scoring - Overview",
+      "publisher": "DraftKings Help Center",
+      "url": "https://help.draftkings.com/hc/en-us/articles/4405229758867-Fantasy-Sports-Contest-Rules-Scoring-Overview-US",
+      "accessedAt": "2026-08-12",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-12",
+      "type": "primary"
+    },
+    {
+      "id": "savant-expected-statistics",
+      "title": "Statcast Expected Statistics Leaderboard",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/expected_statistics",
+      "accessedAt": "2026-08-12",
+      "type": "primary"
+    },
+    {
+      "id": "nws-api",
+      "title": "National Weather Service API Web Service",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/documentation/services-web-api",
+      "accessedAt": "2026-08-12",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-12",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "MLB DFS stacking strategy",
+      "href": "/blog/mlb-dfs-stacking-strategy"
+    },
+    {
+      "label": "MLB DFS exposure limits",
+      "href": "/blog/mlb-dfs-exposure-limits"
+    },
+    {
+      "label": "How weather affects baseball",
+      "href": "/blog/how-weather-affects-baseball"
+    },
+    {
+      "label": "MLB DFS optimizer",
+      "href": "/mlb-dfs-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}
