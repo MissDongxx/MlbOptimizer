@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-12",
+  "updatedAt": "2026-08-13",
   "tasks": [
     {
       "id": "mlb-001",
@@ -466,7 +466,7 @@
     {
       "id": "strategy-002",
       "priority": 12,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb injury report",
       "slug": "al-injury-report",
       "targetPage": "al injury report",
@@ -507,7 +507,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
     },
     {
       "id": "strategy-088",

@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "al-injury-report",
+  "category": "injuries-rosters",
+  "primaryKeyword": "mlb injury report",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "mlb injuries",
+    "al injury report",
+    "baseball injuries",
+    "baseball injured",
+    "mlb injured list"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits an informational report query by teaching readers how to interpret current AL status, transaction, and role evidence before building a lineup.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "not_applicable",
+  "variantDimensions": [],
+  "contentDifferentiation": "The existing injured-list guide explains the meaning of 10-, 15-, and 60-day designations. This page answers a different reader question: how to read the live MLB injury report, filter it to American League clubs, verify a status through transactions, and translate availability into a current DFS player-pool decision.",
+  "uniqueValue": "The article provides a repeatable AL injury-report triage workflow that separates status, transaction timing, medical updates, and expected playing opportunity, with a dated but clearly bounded example.",
+  "title": "MLB Injury Report: How to Read AL Updates for DFS",
+  "description": "Learn how to read the MLB injury report, verify American League updates, separate injured-list status from playing time, and refresh a DFS player pool.",
+  "excerpt": "The MLB injury report is most useful when you treat it as a verification workflow: find the American League update, confirm the transaction, then reassess availability and role before building a DFS lineup.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-13",
+  "updatedAt": "2026-08-13",
+  "keyTakeaways": [
+    "Use the official MLB injury report to discover updates, then confirm roster status in the transactions feed.",
+    "An injured-list label answers an availability question; it does not guarantee a return date, workload, or lineup spot.",
+    "For AL DFS research, record the status timestamp and wait for current lineup or pitching-role evidence before restoring a player to the active pool."
+  ],
+  "sections": [
+    {
+      "heading": "MLB injury report: the direct answer",
+      "paragraphs": [
+        "The MLB injury report is a starting index for current player-health updates, not a complete projection. MLB's official report groups club updates by league and division, so an American League reader can narrow the page to AL East, AL Central, and AL West teams before opening the underlying news item. The practical sequence is simple: identify the player, read the date and status language, verify the corresponding roster transaction, and then check whether the player is expected to appear in the current slate.",
+        "That sequence matters because a player can be unavailable without being on the injured list, can be on the injured list without being close to activation, or can be medically progressing while still lacking a confirmed role. Treat the report as evidence about availability and news context. Treat the official transaction, confirmed lineup, announced starter, and current contest slate as separate evidence fields."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates",
+        "mlb-transactions"
+      ]
+    },
+    {
+      "heading": "How to filter an AL injury report",
+      "paragraphs": [
+        "Start with the league, division, and club rather than scanning every headline. The official report presents American League teams in the AL East, AL Central, and AL West groupings. Open the club's latest injury and transaction page, then prefer the newest item that describes the player's current status. A new evaluation, rehab assignment, or activation can supersede an older absence note even when both remain visible in a club's update stream.",
+        "For an AL injury report workflow, record four fields: player and club, update date, status phrase, and next verification step. A status phrase such as unavailable, on the injured list, progressing, or beginning a rehab assignment describes a different point in the process. Do not collapse those states into a binary healthy-or-injured label. The report may mention medical information, but a fantasy decision still needs current baseball usage evidence."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates"
+      ]
+    },
+    {
+      "heading": "Verify the transaction before changing your player pool",
+      "paragraphs": [
+        "After finding a report item, check MLB's transactions feed for the corresponding move. The feed can show a player being placed on the 10-day, 15-day, or 60-day injured list, activated from an injured list, sent on a rehab assignment, or handled through another roster transaction. This second check helps distinguish a report about a developing medical update from an official roster state.",
+        "The injured-list designation also has roster meaning. MLB's glossary explains that the 10-day list removes position players from the 26-man active roster while keeping them on the 40-man roster, and that the 15-day list is used for pitchers and two-way players. Those rules explain why a player may disappear from the active pool while remaining part of the organization's broader roster. They do not supply a guaranteed activation date or a full post-return workload.",
+        "Store the transaction date and any stated retroactive date exactly as published. If the report and the transaction page appear to disagree, use the official transaction for roster status and keep the report as context until a newer official update resolves the difference."
+      ],
+      "sourceIds": [
+        "mlb-transactions",
+        "mlb-10-day-il",
+        "mlb-15-day-il"
+      ]
+    },
+    {
+      "heading": "Translate MLB injuries into DFS decisions",
+      "paragraphs": [
+        "Use a three-state model instead of immediately editing a projection. State one is unavailable: remove the player from the active slate pool when the official roster and current game information support that conclusion. State two is eligible or progressing: keep the player flagged for review while checking activation, rehab work, lineup placement, or pitching assignment. State three is active: confirm the player's current role before restoring the prior workload assumption.",
+        "This is where baseball injuries affect more than the injured player. A missing hitter can change a lineup slot, a platoon, or defensive alignment. A missing pitcher can change the rotation, bullpen usage, or the opposing lineup's expected matchup. Those are analysis steps, not automatic outcomes. Update a teammate only when the club's current lineup or role information supports the change, and keep the prior baseline in a separate field so the adjustment can be reversed.",
+        "The same discipline applies to baseball injured news outside the formal list. A player scratched for a precaution, a day-to-day note, and an official placement are different signals. Use the strongest current evidence available for the slate, and timestamp your last check so late changes are visible rather than silently overwritten."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates",
+        "mlb-transactions"
+      ]
+    },
+    {
+      "heading": "Original example: an AL injury-report audit trail",
+      "paragraphs": [
+        "Consider a fictional American League club and invented players. At 2:00 p.m., the report says fictional hitter Rowan Vale is unavailable with a hamstring issue, but the transactions feed has not yet shown an injured-list move. The analyst marks Vale out for the current player-pool review, records the report timestamp, and schedules a transaction check instead of assigning a return date.",
+        "At 4:00 p.m., the fictional transaction feed shows a 10-day injured-list placement. Vale remains out, and a replacement is added to the review list. The analyst then waits for the next confirmed lineup before changing the replacement's expected opportunity. If Vale later appears as activated, the analyst changes availability to active but still checks lineup position or announced usage before restoring the old projection.",
+        "This invented example demonstrates the key distinction: the report discovers the event, the transaction confirms roster status, and current usage evidence controls the workload decision. No fictional player, date, or projection in this example is a real statistic or a forecast."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-transactions",
+        "mlb-10-day-il"
+      ]
+    },
+    {
+      "heading": "Limitations and current facts to verify",
+      "paragraphs": [
+        "An MLB injury report changes throughout the day and may contain a mixture of official transactions, club updates, and developing information. This guide was checked on 2026-08-13 against MLB's current report, injury-updates page, transactions feed, and injured-list glossary pages. The live pages should control when an older article statement differs from a newer transaction or club update.",
+        "A listed injury is not a medical diagnosis for the reader, and an injured-list minimum is not a recovery forecast. Rehab participation does not guarantee activation, activation does not guarantee a full workload, and a current lineup can change after publication. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes.",
+        "Before entering a slate, recheck the player's active status, the official transaction date, the confirmed lineup or pitching role, salary and position eligibility, game postponement risk, and the selected platform's current rules. The report is valuable because it narrows research; it is not a substitute for the final slate audit."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates",
+        "mlb-transactions",
+        "mlb-10-day-il",
+        "mlb-15-day-il"
+      ]
+    },
+    {
+      "heading": "Conclusion: use the MLB injury report as a checklist",
+      "paragraphs": [
+        "Use the MLB injury report in a fixed order: filter to the relevant AL club, read the newest update, verify the official transaction, assign an availability state, and then confirm the current role. That workflow is more reliable than turning every headline into a same-day projection change.",
+        "The useful output is a timestamped decision record: what changed, which source confirmed it, what remains uncertain, and which player-pool or lineup field was updated. Keep the mlb injured list designation separate from medical progress and expected opportunity. That makes the analysis easier to audit when a late lineup or transaction changes the slate.",
+        "Next, review how MLB player projections work and how to use an MLB lineup optimizer, then open the free MLB optimizer after your injury, lineup, weather, and contest-rule checks are current."
+      ],
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-transactions",
+        "mlb-10-day-il",
+        "mlb-15-day-il"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Where should I start when checking an MLB injury report?",
+      "answer": "Start with MLB's official injury report, filter to the relevant American League division and club, then open the newest update and verify its roster status in the MLB transactions feed."
+    },
+    {
+      "question": "Does an injured-list designation tell me when a player will return?",
+      "answer": "No. It establishes a roster status and, for some lists, a minimum absence. Activation, rehab progress, lineup placement, and announced role still need separate confirmation."
+    },
+    {
+      "question": "How should MLB injuries affect a DFS projection?",
+      "answer": "First update availability, then reassess expected opportunity from current lineup or pitching-role evidence. Do not automatically restore an old workload or assign all of a missing player's opportunity to one teammate."
+    },
+    {
+      "question": "What is the difference between an injury report and the MLB injured list?",
+      "answer": "The injury report is a news and status index. The mlb injured list is an official roster designation with specific active-roster consequences. Use the report to find an update and the transaction record to confirm the designation."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB's official injury report groups club updates by American League and National League divisions.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-injury-report"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "MLB's transactions feed records injured-list placements, activations, and rehab assignments as roster transactions.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-transactions"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "The 10-day injured list removes position players from the 26-man active roster while keeping them on the 40-man roster.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-10-day-il"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "The 15-day injured list is used for pitchers and two-way players.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-15-day-il"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "The 60-day injured list is a distinct roster designation that should be checked in the official transactions feed rather than inferred from a news headline.",
+      "type": "numeric",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-transactions"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "The article's current-source review date is 2026-08-13.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates",
+        "mlb-transactions"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "The report, transaction, and usage evidence represent separate workflow inputs rather than a guaranteed return or workload forecast.",
+      "type": "time-sensitive",
+      "action": "softened",
+      "sourceIds": [
+        "mlb-injury-report",
+        "mlb-injury-updates",
+        "mlb-transactions"
+      ],
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "claim": "Rowan Vale, the fictional club, and every date and decision in the example are invented solely to demonstrate an audit trail.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-13",
+    "notes": "Reviewed the informational AL injury-report intent, differentiation from the existing injured-list rules guide, current MLB source pages, claim mappings, exact supporting-keyword coverage, original example labeling, limitations, disclosures, internal links, and text-only format."
+  },
+  "sources": [
+    {
+      "id": "mlb-injury-report",
+      "title": "MLB Injury Report",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/injury-report",
+      "accessedAt": "2026-08-13",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-injury-updates",
+      "title": "Baseball injury updates",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/news/baseball-injury-updates",
+      "accessedAt": "2026-08-13",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-transactions",
+      "title": "MLB Transactions",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/transactions",
+      "accessedAt": "2026-08-13",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-10-day-il",
+      "title": "10-day Injured List",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/injuries/10-day-injured-list",
+      "accessedAt": "2026-08-13",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-15-day-il",
+      "title": "15-day Injured List",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/injuries/15-day-injured-list",
+      "accessedAt": "2026-08-13",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB injured list explained",
+      "href": "/blog/mlb-injured-list-explained"
+    },
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}
