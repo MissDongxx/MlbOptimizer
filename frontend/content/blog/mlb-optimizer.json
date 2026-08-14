@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-optimizer",
+  "category": "dfs-strategy",
+  "primaryKeyword": "mlb optimizer",
+  "primaryKeywordVariants": [
+    "mlb lineup optimizer"
+  ],
+  "supportingKeywords": [
+    "dfs mlb optimizer",
+    "fanduel optimal lineup mlb",
+    "best mlb fanduel lineup",
+    "fanduel mlb lineup",
+    "mlb lineup builder"
+  ],
+  "intent": "navigational",
+  "contentFormat": "tool_landing_page",
+  "formatReason": "A tool landing page matches a navigational query because the reader is looking for a working MLB lineup tool, its supported inputs, and a clear path to start.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "start_optimizer",
+  "requiredModules": [
+    "hero",
+    "problem",
+    "useCases",
+    "examples",
+    "features",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [
+    "platform: DraftKings or FanDuel",
+    "slate state: early research or confirmed lineups",
+    "build goal: baseline, stack-focused, or diversified"
+  ],
+  "contentDifferentiation": "Existing pages for MLB DFS strategy, stacking, exposure limits, picks, and the step-by-step lineup tutorial were reviewed. This page answers the distinct navigational question of what the DiamScore MLB optimizer does, which inputs it accepts, and when to open it; it does not replace those deeper strategy guides.",
+  "uniqueValue": "The page connects the product controls to a practical review workflow and makes the boundary between optimization, platform rules, and human verification explicit.",
+  "title": "MLB Optimizer: Build DraftKings and FanDuel Lineups",
+  "description": "Use the DiamScore MLB optimizer to compare projections, apply lineup constraints, review stacks and exposure, and export a cleaner DFS workflow.",
+  "excerpt": "The MLB optimizer gives DFS players a structured place to compare projections, platform rules, stacks, locks, exclusions, and export checks before a lineup is entered.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "keyTakeaways": [
+    "Start with the exact DraftKings or FanDuel slate and its current player pool.",
+    "Use projections and constraints to compare legal lineup combinations, not to predict a guaranteed result.",
+    "Review confirmed lineups, contest rules, salary inputs, and the exported file before entry."
+  ],
+  "useCases": [
+    "Build a baseline lineup from a current slate and platform-specific salary inputs.",
+    "Test team stacks, locks, exclusions, and player exposure while comparing multiple builds.",
+    "Export a CSV after checking player identifiers, salary, roster eligibility, and late news."
+  ],
+  "examples": [
+    "A fictional slate review that starts with a baseline build, reacts to a batting-order change, and exports only after the assumptions are checked."
+  ],
+  "sections": [
+    {
+      "heading": "MLB optimizer: a direct answer for lineup builders",
+      "paragraphs": [
+        "The DiamScore MLB optimizer is a web-based workspace for turning a current baseball slate into candidate DFS lineups. It combines player projections, platform-specific salary inputs, roster rules, team-stack settings, locks, exclusions, exposure controls, and CSV export in one review flow. The goal is not to announce a magical answer; it is to make the assumptions behind a lineup easier to inspect and change.",
+        "That makes the tool useful for a player who has already chosen a contest and wants to move from a long player pool to a smaller set of legal combinations. DraftKings explains that salary-cap contests use an athlete pool with assigned salaries and require a valid lineup to stay within the cap. DiamScore lists DraftKings and FanDuel support, but the first action is still selecting the correct site and slate rather than copying a build from another format. Use the live FanDuel contest rules and salary file when that is the selected platform.",
+        "The optimizer is a starting surface for research, not a substitute for the official contest lobby or late baseball news. Treat every generated lineup as a candidate that still needs a final check."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Who benefits from a DFS MLB optimizer",
+      "paragraphs": [
+        "A beginner can use the tool to see how a salary cap, roster eligibility, and a simple stack interact. An experienced player can use the same workspace to test a baseline against a few controlled variations instead of editing every player by hand. The distinction is important: the optimizer reduces repetitive combination work, while the player decides which evidence is reliable and which constraints reflect the contest plan.",
+        "The workflow also fits players moving between platforms. A FanDuel optimal lineup MLB search and a DraftKings build are not interchangeable because scoring, roster construction, and salary data can differ. Use the platform selector, load the matching slate inputs, and review the returned lineup in that platform's terms. If a search for the best MLB FanDuel lineup leads to a generic list, bring the question back to the current contest, current salaries, and current confirmed availability.",
+        "Use cases include a quick single-build check, a stack-focused exploration, a diversified set with exposure limits, or a final CSV review. In each case, the value is a repeatable process that exposes tradeoffs rather than a claim that one combination must win."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "How the MLB lineup builder workflow fits together",
+      "paragraphs": [
+        "Begin by choosing DraftKings or FanDuel and matching the optimizer's slate to the contest you intend to enter. Confirm that the games, player pool, salary file, positions, and contest start time agree. DraftKings notes that contest game sets and formats can carry different rules. For FanDuel, use the live contest rules and matching salary file as the controlling inputs. A legal lineup in one context is not automatically legal in another.",
+        "Next, review the player pool. Use projections as an estimate of expected fantasy production, then check status, probable pitchers, batting order, position eligibility, and salary. MLB's official starting-lineup page labels its information subject to change, so a player who appeared usable during early research may need to be removed or re-evaluated near lock. Apply locks only when the underlying reason is strong enough to survive that review; use exclusions for players whose current assumptions no longer fit.",
+        "Then set the construction experiment. Start with few hard constraints, generate a baseline, and inspect projected points, salary used, team concentration, roster legality, and any warnings. Add a stack or exposure limit one decision at a time so you can tell what changed. When comparing multiple lineups, judge exposure across the set instead of treating each lineup as an isolated answer.",
+        "Finish by opening the export. Check the platform, player names, external identifiers, salaries, positions, and lineup count against the contest upload instructions. A CSV is a handoff format, not proof that the final entry is correct. Repeat the lineup, injury, weather, and contest-rule review after export if the slate has changed."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "mlb-starting-lineups",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Original example: a fictional lineup review",
+      "paragraphs": [
+        "Consider a wholly fictional slate with invented teams, players, salaries, projections, and weather. The analyst opens the MLB optimizer on the intended platform, imports the fictional player pool, and creates a baseline without a hard stack. The first review records the salary used, the projected total, each player's roster position, and the assumption behind the highest-impact selections. None of these invented values is a real contest recommendation.",
+        "The fictional lineup then adds a four-player team stack and a modest exposure ceiling for one volatile hitter. The new build improves correlation but forces a different salary tradeoff. Instead of calling the first build best, the analyst keeps both versions and writes down why the second exists. That creates a useful comparison between a neutral baseline and a stack-focused variant.",
+        "Later, the fictional starting lineup moves one hitter out of the order. The analyst removes the lock, refreshes the projection, regenerates the affected builds, and checks the export again. The lesson is operational: a lineup tool can make the revision quick, but the trigger still comes from current official information and the user still decides whether the new assumptions are acceptable."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Features and boundaries to verify before entry",
+      "paragraphs": [
+        "DiamScore's public product information describes DraftKings and FanDuel support, split-adjusted projections, live starting-lineup context, stack controls, exposure control, and CSV export. The interface also exposes salary and projection inputs, lock and exclude controls, and a minimum-salary setting. These features help organize a decision; they do not make stale data current or turn an estimate into a fact.",
+        "Confirm the exact platform rules before relying on a generated roster. DraftKings describes salary-cap validation and contest game sets in its official overview. For FanDuel, use the live contest rules for the final roster and scoring check. Both platforms can update contest details, so use the live contest page as the controlling source when it conflicts with a general guide.",
+        "The practical boundary is simple: the optimizer searches within the inputs it receives. It cannot know that a late scratch, pitcher change, weather alert, salary correction, or contest-rule change has invalidated a previous build unless that input is refreshed or corrected. Keep a short change log for material updates and rerun the affected lineups rather than patching one player in isolation."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "draftkings-rules",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "The MLB optimizer does not guarantee a result, identify a permanently best lineup, or remove baseball variance. Projections are estimates, and an optimal calculation is only optimal relative to its current projections, salaries, roster rules, and constraints. A high-projection build can fail when playing time, scoring, matchup, or game conditions differ from the assumptions.",
+        "Before entry, verify the platform, contest type, included games, salary file, positions, player status, batting order, opposing pitcher, weather, lock time, team-stack rules, exposure settings, and exported identifiers. MLB's lineup page is explicitly subject to change, and official platform rules control when a product guide and a live contest display differ.",
+        "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes. Use personal entry and risk limits, and remove any player whose supporting assumption is no longer current."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "mlb-starting-lineups",
+        "draftkings-rules"
+      ]
+    },
+    {
+      "heading": "Conclusion: start with the MLB optimizer, finish with verification",
+      "paragraphs": [
+        "The best reason to use an MLB optimizer is process clarity. Select the correct platform, match the slate and salary inputs, review current lineups, set only the constraints you can explain, compare a baseline with intentional variants, and inspect the CSV before it leaves the workspace. That sequence turns a vague search for a best MLB FanDuel lineup into a checkable decision path.",
+        "Use the related strategy, projection, stacking, and exposure guides when you need the reasoning behind a particular choice. Return to the optimizer when you are ready to test that reasoning against a live player pool and platform rules. Open the free tool from the CTA below, then perform the final news and contest review yourself."
+      ],
+      "sourceIds": [
+        "diamscore-home",
+        "mlb-starting-lineups",
+        "draftkings-rules"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What does an MLB optimizer do?",
+      "answer": "It tests player projections against salary, roster, stack, lock, exclusion, and exposure constraints to produce candidate lineups for the selected platform. The user still checks current data and contest rules."
+    },
+    {
+      "question": "Can I use the tool for a FanDuel MLB lineup?",
+      "answer": "Yes. Select FanDuel, use the matching slate and salary inputs, review the platform's current scoring and lineup restrictions, and inspect the exported file before upload."
+    },
+    {
+      "question": "How should I search for the best MLB FanDuel lineup?",
+      "answer": "Treat that search as a starting question rather than a fixed answer. Define the contest, refresh player status and salaries, compare projections with your constraints, and verify the final build against FanDuel's live rules."
+    },
+    {
+      "question": "Does the optimizer replace lineup news checks?",
+      "answer": "No. MLB's official starting-lineup information is subject to change. Refresh lineups, pitchers, injuries, weather, salaries, and contest details near lock, then rerun affected builds."
+    },
+    {
+      "question": "Can I export an MLB lineup builder result?",
+      "answer": "DiamScore provides CSV export for generated lineups. Open the file, confirm player identifiers and platform fields, and follow the current destination platform's upload instructions."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "DiamScore's public product information describes DraftKings and FanDuel support, projections, starting-lineup context, stack and exposure controls, and CSV export.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-14"
+    },
+    {
+      "claim": "DraftKings' official overview says salary-cap contests use an athlete pool with assigned salaries and require a valid lineup to stay within the salary cap.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "draftkings-rules"
+      ],
+      "checkedAt": "2026-08-14"
+    },
+    {
+      "claim": "MLB's official starting-lineup page displays lineups and probable pitchers and labels the information subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-14"
+    },
+    {
+      "claim": "All teams, players, salaries, projections, weather, and decisions in the worked example are fictional.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-14",
+    "notes": "Reviewed the navigational tool intent against existing strategy, picks, stacking, exposure, and tutorial pages; checked current product claims against the DiamScore homepage and platform rules; mapped sections and claims to sources; labeled the original example fictional; and rechecked disclosures, limitations, internal links, and CTA language."
+  },
+  "sources": [
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-14",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-14",
+      "type": "primary"
+    },
+    {
+      "id": "draftkings-rules",
+      "title": "Fantasy Sports Contest Rules & Scoring - Overview (US)",
+      "publisher": "DraftKings Help Center",
+      "url": "https://help.draftkings.com/hc/en-us/articles/4405229758867-Fantasy-Sports-Contest-Rules-Scoring-Overview-US",
+      "accessedAt": "2026-08-14",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB DFS stacking strategy",
+      "href": "/blog/mlb-dfs-stacking-strategy"
+    },
+    {
+      "label": "MLB DFS exposure limits",
+      "href": "/blog/mlb-dfs-exposure-limits"
+    },
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

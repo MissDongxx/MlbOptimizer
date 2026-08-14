@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-08-14",
   "tasks": [
     {
       "id": "mlb-001",
@@ -515,7 +515,7 @@
     {
       "id": "strategy-088",
       "priority": 13,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb optimizer",
       "slug": "mlb-optimizer",
       "targetPage": "mlb optimizer",
@@ -558,7 +558,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-14",
+      "updatedAt": "2026-08-14"
     },
     {
       "id": "strategy-085",
