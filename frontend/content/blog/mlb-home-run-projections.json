@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-home-run-projections",
+  "category": "projections-stats",
+  "primaryKeyword": "major league baseball projections",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "mlb home run projections today",
+    "mlb home run projections",
+    "fantasy baseball projections",
+    "how often are mlb stat projections updated",
+    "home run projections today"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits an informational query because readers need a careful model of projection inputs, expected statistics, uncertainty, and daily verification rather than a static list of player picks.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "Existing pages cover how player projections work, DFS strategy, daily picks, stacking, exposure, scoring, weather, injuries, and the optimizer product. This page answers the narrower reader question of how to interpret home-run-oriented projections as estimates, compare them with Statcast expected results, and refresh the inputs for a daily decision without publishing a picks list.",
+  "uniqueValue": "The article separates forward-looking projections from descriptive Statcast expected metrics, then gives readers an auditable daily workflow and a fictional example for checking opportunity, contact quality, and uncertainty.",
+  "title": "Major League Baseball Projections: Read Home Run Estimates",
+  "description": "Learn how major league baseball projections estimate home run potential, how Statcast expected metrics fit in, and how to verify daily inputs.",
+  "excerpt": "Major league baseball projections are estimates of future player output. This guide shows how to read home run projections, separate them from Statcast expected metrics, and refresh the inputs before using them for fantasy or DFS research.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "keyTakeaways": [
+    "A projection estimates future output; it is not a record of what already happened and not a guarantee of a result.",
+    "A useful home-run view combines a stable skill baseline with playing-time opportunity, matchup context, and current availability.",
+    "Statcast expected metrics describe contact quality and comparable outcomes, so use them as evidence inside a projection review rather than as a replacement for the forecast.",
+    "Refresh the lineup, pitcher, park, weather, salary, and contest inputs before treating a daily projection as current."
+  ],
+  "sections": [
+    {
+      "heading": "Major league baseball projections: the direct answer",
+      "paragraphs": [
+        "Major league baseball projections are estimates of what a player may produce over a defined future window. A season projection asks a longer-horizon question; a daily projection asks what the player may do in one scheduled game. A home-run projection is therefore an estimate of home-run opportunity and likelihood under stated assumptions, not a declaration that a homer will happen.",
+        "MLB's explanation of projection systems describes the basic idea clearly: projection systems use past performance, age, recent weighting, and other inputs to estimate future performance, while different systems apply those criteria differently. That means two credible models can disagree without either one being an error. The first useful question is not which number looks most exciting. It is which time window, inputs, and playing-time assumptions produced the number.",
+        "For research, read the projection as a structured starting point. Separate the estimate from the evidence behind it, record what could change before the game, and avoid turning a high estimate into a promise. The same discipline applies to fantasy baseball projections and to DFS research, even when the decision deadline is close."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems"
+      ]
+    },
+    {
+      "heading": "What a home-run projection is combining",
+      "paragraphs": [
+        "A practical home-run projection has at least four layers. The first is a skill baseline: prior production, contact quality, swing decisions, and the player's established ability to turn opportunities into extra-base damage. The second is opportunity: expected plate appearances, lineup position, playing time, and whether the player is actually available. The third is matchup context, including the opposing pitcher's characteristics and the batter's handedness context. The fourth is environment, such as the park and conditions that can affect the flight of a batted ball.",
+        "This is an editorial framework for reading a model, not a claim that every provider exposes the same fields. The key is to avoid mixing layers. A hitter can have strong contact evidence but a weak opportunity estimate if a lineup spot or playing-time assumption is uncertain. A favorable environment can raise the ceiling without changing the player's underlying skill. A recent hot streak can be relevant evidence without automatically replacing a longer baseline.",
+        "When comparing mlb home run projections, write down the horizon and the opportunity assumption beside each number. A season total, a remaining-season rate, and a single-game probability answer different questions. A model that appears lower may simply be using a more conservative playing-time estimate or a different regression toward the league baseline."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Separate projections from Statcast expected results",
+      "paragraphs": [
+        "Statcast expected statistics are valuable evidence, but they are not interchangeable with a forward-looking projection. MLB defines expected batting average from the outcomes of comparable batted balls using measures such as exit velocity, launch angle, and, for certain contact, sprint speed. MLB's xwOBA explanation likewise describes expected outcomes built from contact quality plus real-world walks, strikeouts, and hit-by-pitches.",
+        "That distinction matters for home-run analysis. An expected metric can describe the quality of contact a player has already made and the outcome that comparable contact has produced. A projection must still estimate future contact, future opportunities, and future context. A player with strong expected contact but uncertain playing time may not be the best daily option. A player with modest recent outcomes but stable opportunity and improving contact evidence may deserve a closer review.",
+        "Baseball Savant's expected-statistics leaderboard is useful for checking xBA, xSLG, and xwOBA together rather than treating one column as a complete forecast. Use the gap between actual and expected results as a prompt for investigation, not as a mechanical buy or fade signal. The clean workflow is: inspect the projection, inspect the quality-of-contact evidence, then ask which assumption explains the difference.",
+        "This is also why mlb home run projections should not be copied from a single leaderboard without reading the definitions. Expected slugging includes more than homers, and expected wOBA is a broader offensive measure. They can strengthen or weaken a home-run hypothesis, but neither metric alone is a complete daily forecast."
+      ],
+      "sourceIds": [
+        "mlb-xba",
+        "mlb-xwoba",
+        "baseballsavant-expected"
+      ]
+    },
+    {
+      "heading": "A daily workflow for mlb home run projections today",
+      "paragraphs": [
+        "Start by naming the date, slate, and decision window. Then check whether the player is expected to start. MLB's starting-lineups page shows the scheduled lineups and probable pitchers and labels the information subject to change. Treat that page as a live input, not as a permanent record. If a player is not confirmed or the opposing pitcher has changed, mark the projection as pending and avoid comparing it as if the assumptions were equal.",
+        "Next, audit the projection inputs in a fixed order. Confirm the player's expected opportunity, the opposing pitcher and handedness, the park, and any weather concern that could affect the game. Review the player's contact evidence through Statcast expected metrics and recent role information. Then compare the estimate with the baseline rather than asking whether the number is simply high or low. A useful note might say: the estimate rises because opportunity is stable and contact quality supports the skill assumption, or it falls because the lineup and pitcher inputs remain uncertain.",
+        "If you are searching for mlb home run projections today or home run projections today, add a timestamp to your notes. There is no universal answer to how often are mlb stat projections updated across providers; cadence depends on the provider and on which inputs it refreshes. Use the displayed update time when available, and recheck the official lineup and pitcher information near the relevant lock. A stale estimate is a different object from a current estimate even when the displayed player name is the same.",
+        "Finally, preserve the reason for the decision. Keep the projection, the supporting evidence, the change that would invalidate it, and the next check time together. That small audit trail prevents a single attractive number from silently becoming the whole analysis."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-projection-systems",
+        "baseballsavant-expected"
+      ]
+    },
+    {
+      "heading": "Original example: a fictional projection audit",
+      "paragraphs": [
+        "Consider a wholly fictional hitter called Rowan Vale on an invented team. The example uses invented projections, players, salaries, weather, matchups, and outcomes; it is not a real player note or a current recommendation. The initial model gives Rowan a moderate home-run estimate because the season baseline is solid, the expected lineup spot is stable, and the contact profile supports the power assumption.",
+        "The analyst then checks the evidence in separate columns. The skill column records the baseline and the quality-of-contact indicators. The opportunity column records the expected plate-appearance role and whether the player is confirmed in the lineup. The context column records the opposing pitcher, park, and conditions. The uncertainty column records what would make the estimate stale. This is more useful than replacing the estimate with a louder label such as lock or must play.",
+        "In the fictional audit, the lineup later moves Rowan lower and the opposing pitcher changes handedness. The analyst does not claim that the original projection was wrong. Instead, the analyst marks the old estimate as based on outdated inputs, requests a refresh, and compares the new estimate with the same baseline. The lesson is portable: change the assumption that changed, keep the evidence that did not, and make the update visible."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": [
+        "A projection is a model of uncertainty. It can be well built and still miss because baseball outcomes are noisy, playing time can change, and the observed sample may not represent the next opportunity. Expected statistics also have boundaries: they describe modeled outcomes from measured contact and related events, not every future event a player will create. Do not treat a small gap between actual and expected results as proof of a correction that must occur.",
+        "Before using a daily projection, verify the date and slate, starting status, probable pitcher, batting order, park, weather, data timestamp, platform salary, position eligibility, and contest rules that apply to your decision. If the source definitions or update time are unclear, reduce the weight of the number or wait for better evidence. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes.",
+        "This page intentionally does not publish a current list of player picks. That would age quickly and could create a false impression of certainty. Use the method to inspect the latest inputs, and link the result to the source definitions so another reader can reproduce the reasoning."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-xba",
+        "mlb-xwoba",
+        "mlb-starting-lineups"
+      ]
+    },
+    {
+      "heading": "Conclusion: apply major league baseball projections as inputs",
+      "paragraphs": [
+        "The best way to use major league baseball projections is to treat them as an organized starting point. Identify the horizon, separate skill from opportunity and context, inspect Statcast expected results, check current lineup information, and record the assumption that would change the decision. That process is more durable than chasing a single daily ranking.",
+        "When you are ready to turn the research into candidate lineups, open the DiamScore MLB optimizer and use the projection as one input among the current player pool, platform rules, and your stated constraints. Finish with the same verification routine: refresh late information, inspect the output, and keep the final decision proportional to the uncertainty."
+      ],
+      "sourceIds": [
+        "mlb-projection-systems",
+        "mlb-starting-lineups",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What are major league baseball projections?",
+      "answer": "They are estimates of future player or team performance over a defined time window. They use historical performance and other assumptions, so they should be read as uncertain forecasts rather than records or guarantees."
+    },
+    {
+      "question": "Are Statcast expected statistics the same as a home-run projection?",
+      "answer": "No. Expected statistics describe modeled outcomes from observed contact and related events. A home-run projection also needs a forward-looking estimate of future opportunities, playing time, matchup, and environment."
+    },
+    {
+      "question": "How often are MLB stat projections updated?",
+      "answer": "There is no universal cadence across providers. Check the provider's timestamp or update note, then refresh lineup, pitcher, injury, weather, and contest inputs near the decision deadline."
+    },
+    {
+      "question": "How should I read MLB home run projections today?",
+      "answer": "Confirm the date and slate, check that the player is expected to start, inspect the projection horizon and opportunity assumption, compare contact evidence, and record what would make the estimate stale."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB describes projection systems as estimates of future performance that can use age, past performance, recent weighting, and other factors, with different systems applying criteria differently.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-projection-systems"
+      ],
+      "checkedAt": "2026-08-15"
+    },
+    {
+      "claim": "MLB defines xBA using comparable batted balls and measures including exit velocity, launch angle, and in some cases sprint speed.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-xba"
+      ],
+      "checkedAt": "2026-08-15"
+    },
+    {
+      "claim": "MLB describes xwOBA as using expected hit-type outcomes from comparable batted balls together with real-world walks, strikeouts, and hit-by-pitches.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-xwoba"
+      ],
+      "checkedAt": "2026-08-15"
+    },
+    {
+      "claim": "Baseball Savant provides an expected-statistics leaderboard for xBA, xSLG, and xwOBA and explains that the measures use quality and amount of contact rather than only observed outcomes.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "baseballsavant-expected"
+      ],
+      "checkedAt": "2026-08-15"
+    },
+    {
+      "claim": "MLB's starting-lineups page displays scheduled lineups and probable pitchers and labels the information subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-15"
+    },
+    {
+      "claim": "All players, teams, projections, salaries, matchups, weather, and outcomes in the worked example are fictional.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-15",
+    "notes": "Reviewed the queued informational intent against existing projection, DFS strategy, picks, stacking, exposure, weather, injury, scoring, tutorial, and product pages; used current MLB and Baseball Savant definitions; separated descriptive expected metrics from forward-looking projections; labeled the example fictional; and rechecked disclosures, source mappings, internal links, and CTA wording."
+  },
+  "sources": [
+    {
+      "id": "mlb-projection-systems",
+      "title": "Projection Systems",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/projection-systems",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-xba",
+      "title": "Expected Batting Average (xBA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/statcast/expected-batting-average",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-xwoba",
+      "title": "Expected Weighted On-base Average (xwOBA)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/statcast/expected-woba",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    },
+    {
+      "id": "baseballsavant-expected",
+      "title": "Statcast Expected wOBA, xBA, xSLG",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/expected_statistics",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-15",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "MLB DFS strategy guide",
+      "href": "/blog/mlb-dfs-strategy"
+    },
+    {
+      "label": "MLB DFS picks today workflow",
+      "href": "/blog/mlb-dfs-picks-today"
+    },
+    {
+      "label": "MLB optimizer",
+      "href": "/blog/mlb-optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

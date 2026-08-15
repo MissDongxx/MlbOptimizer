@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-08-15",
   "tasks": [
     {
       "id": "mlb-001",
@@ -566,7 +566,7 @@
     {
       "id": "strategy-085",
       "priority": 14,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "major league baseball projections",
       "slug": "mlb-home-run-projections",
       "targetPage": "mlb home run projections",
@@ -611,7 +611,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-15",
+      "updatedAt": "2026-08-15"
     },
     {
       "id": "strategy-087",
