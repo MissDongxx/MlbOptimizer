@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-lineups",
+  "category": "projections-stats",
+  "primaryKeyword": "mlb lineups",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "mlb starting lineups",
+    "mlb lineups today",
+    "major league baseball lineups for today",
+    "starting pitchers today",
+    "mlb starting lineups today"
+  ],
+  "intent": "navigational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits a navigational query when readers need to find the right official lineup view, interpret its status, and connect it to a current research workflow.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "Existing pages cover player projections, daily DFS picks, strategy, weather, injuries, the optimizer, and how to use an optimizer. This page answers the distinct navigational question of where to read MLB lineup information, how to separate public from official status, and when to refresh the inputs before research.",
+  "uniqueValue": "The guide turns the official lineup and pitcher pages into a timestamped verification workflow, then shows how to connect batting order, availability, and projection review without publishing stale player picks.",
+  "title": "MLB Lineups: How to Read Starting Lineups Today",
+  "description": "Find MLB lineups, read starting pitchers today, and verify lineup status before using projections or building a DFS research workflow.",
+  "excerpt": "MLB lineups are a live starting point, not a permanent list. Learn how to find MLB starting lineups, check MLB lineups today, and refresh the information before using projections or an optimizer.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-16",
+  "updatedAt": "2026-08-16",
+  "keyTakeaways": [
+    "Use MLB's starting-lineups page to find the scheduled batting orders and associated game context, then note that the page labels the information subject to change.",
+    "Treat a public lineup as a live research input; official status can change until the lineup is delivered to the umpire.",
+    "Check starting pitchers today, batting order, handedness, park, weather, and contest settings before relying on a projection or ranking.",
+    "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes."
+  ],
+  "sections": [
+    {
+      "heading": "MLB lineups: the direct answer",
+      "paragraphs": [
+        "MLB lineups are the scheduled batting orders and game context that help you identify who is expected to play, where each hitter is listed, and which pitcher is attached to the matchup. For a current lookup, start with MLB's official Starting Lineups page rather than a copied social post or an undated search result. The page presents team lineups, game times, ballparks, and pitcher information, and it labels the information as subject to change.",
+        "The important distinction is between finding a lineup and treating it as final. MLB has explained that clubs can make lineups public before the lineup is official; official status arrives when the card is handed to the umpire. That makes MLB lineups today a time-sensitive research object. Save the date and access time, then check again near your decision deadline.",
+        "This page is a reading and verification guide, not a list of today's player picks. The goal is to help you move from MLB starting lineups to a clean player pool, then decide whether the current evidence is strong enough for projections, fantasy research, or DFS lineup construction."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-lineup-status"
+      ]
+    },
+    {
+      "heading": "Where to find MLB starting lineups",
+      "paragraphs": [
+        "Open MLB's Starting Lineups page and select the date or game you need. Read the matchup, scheduled time, venue, probable starters, and both batting orders together. The surrounding context matters: a hitter's listed team and batting slot are useful only when attached to the correct game and date. The page also shows handedness beside players and pitchers, which is a valuable input for split-aware research.",
+        "Use the official Probable Pitchers page as a companion check for starting pitchers today. MLB labels those times and assignments as subject to change, so a probable pitcher is a planning input rather than a guarantee that the pitcher will take the first pitch. If the lineup page and pitcher page disagree, keep the player or matchup in a pending state and investigate the newest official update.",
+        "Readers who search for mlb starting lineups today or major league baseball lineups for today often want a fast answer. A fast answer still needs a date, time zone, and status check. Do not silently merge yesterday's lineup with today's probable pitcher, and do not copy a lineup into a spreadsheet without recording when it was retrieved."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers"
+      ]
+    },
+    {
+      "heading": "How to connect lineups to projections and DFS rankings",
+      "paragraphs": [
+        "A batting order is not a projection, but it changes the opportunity question a projection is trying to answer. Start by confirming that the player is listed to start. Then record the batting slot, position, opponent, opposing pitcher's handedness, park, and any late availability note. These inputs help explain why two otherwise similar projection rows may deserve different confidence levels.",
+        "Next, separate evidence from interpretation. Baseball Savant's Statcast Search lets readers query MLB data by pitch, game, player, team, and season. That makes it a useful place to inspect underlying performance evidence, but the search result is not itself a forward-looking guarantee. A model's mlb lineup projections may combine opportunity and skill differently from your own notes, so preserve the source definition and timestamp beside the estimate.",
+        "The same rule applies to mlb dfs rankings. A ranking is an ordering produced under stated assumptions; it is not an official MLB statement and it should not override a late scratch or a changed pitcher. If you see an mlb express lineup label, first ask what it includes: confirmed status, projected order, pitcher context, salaries, or only a shortcut view. Naming the fields prevents a convenient label from hiding missing evidence.",
+        "DiamScore's product workflow describes a similar handoff from slate context to lineup review: it brings together starting lineups, probable pitchers, batting order, and performance signals before applying platform rules and user constraints. That is useful when you want to compare a research hypothesis with generated candidates, but the final review still belongs to the reader."
+      ],
+      "sourceIds": [
+        "baseballsavant-search",
+        "diamscore-home",
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers"
+      ]
+    },
+    {
+      "heading": "A repeatable MLB lineups verification workflow",
+      "paragraphs": [
+        "Begin with a small header in your notes: date, slate, time zone, source URL, and access time. Then use the following order so that a stale assumption is easy to find.",
+        "First, confirm the game exists on the official schedule view and attach the correct venue and scheduled time. Second, check the public batting order for each team. Third, check the probable pitcher page and record the handedness. Fourth, compare the lineup with the player pool used by your projection or optimizer. Fifth, review injuries, weather, salary, position eligibility, and contest rules that can change the practical decision. Finally, revisit the official pages near lock and mark every change rather than overwriting the old note.",
+        "This workflow makes the difference between a data refresh and a new opinion visible. If the lineup changes but the skill evidence does not, update the opportunity field. If the pitcher changes, recheck split assumptions and matchup notes. If a player is removed, remove the player from the active pool instead of allowing an old projection to remain silently eligible."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers",
+        "mlb-lineup-status"
+      ]
+    },
+    {
+      "heading": "Original example: audit a fictional lineup update",
+      "paragraphs": [
+        "Consider a wholly fictional team called Harbor City and a fictional hitter called Rowan Vale. The names, lineup, pitcher, projections, salary, weather, and outcome in this example are invented; they are not a current MLB report or a recommendation.",
+        "At the first check, Rowan is listed in the middle of Harbor City's public batting order and the opposing starter is listed as a right-hander. The analyst records the source time, keeps Rowan in the candidate pool, and notes that the lineup is still subject to change. The analyst does not call Rowan a lock, because the page is a live status input rather than a promise.",
+        "At the second check, the club moves Rowan lower and the opposing starter changes. The analyst updates the opportunity and split-context fields, requests a projection refresh, and keeps the old note for comparison. If the player disappears from the order, the correct action is to mark the prior research stale and remove the active candidate until a new official update appears. The example's lesson is simple: preserve the evidence, change the assumption that changed, and avoid turning a rank into a fact."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": [
+        "MLB lineup pages are valuable because they are close to the source, but they are not frozen records. Public information can be revised, a probable pitcher can change, and a player's availability can move after you first check. A lineup page also does not answer every fantasy or DFS question: you still need the relevant platform's scoring, roster, salary, and contest rules, plus any projection definitions you rely on.",
+        "Avoid treating batting order as a promise of plate appearances, a projection as a fact, or a ranking as a recommendation detached from context. When a source lacks a clear date or status, lower your confidence and keep the item pending. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes.",
+        "This guide intentionally avoids naming a live slate or publishing a current player list. That keeps the article useful after today's games finish and reduces the risk that a stale lineup is mistaken for current research."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers",
+        "mlb-lineup-status"
+      ]
+    },
+    {
+      "heading": "Conclusion: use MLB lineups as a live input",
+      "paragraphs": [
+        "The practical way to use MLB lineups is to find the official page, record the date and status, pair the batting order with starting pitchers today, and refresh the assumptions before acting. Then connect the verified player pool to projections, mlb dfs rankings, or a lineup optimizer without losing the source trail.",
+        "When you are ready to turn the verified slate into candidate builds, open the DiamScore MLB optimizer. Use the current lineup information as an input, apply the platform and contest settings that fit your decision, inspect the generated results, and perform one last late-news check before export."
+      ],
+      "sourceIds": [
+        "mlb-starting-lineups",
+        "mlb-probable-pitchers",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Where can I find MLB lineups?",
+      "answer": "Start with MLB's official Starting Lineups page, select the relevant date or game, and read the matchup, time, venue, pitchers, and batting orders together. Recheck it near your decision deadline because the page labels the information subject to change."
+    },
+    {
+      "question": "Are MLB starting lineups official when they first appear online?",
+      "answer": "Not necessarily. MLB has stated that clubs may make lineups public before they are official; official status arrives when the lineup is handed to the umpire. Treat the first public listing as a live input and verify later."
+    },
+    {
+      "question": "How should I use MLB lineups today for DFS research?",
+      "answer": "Confirm the player is listed, record the batting order and opposing pitcher, then refresh projections, salary, position eligibility, weather, and contest rules. A lineup listing supports research but does not guarantee a fantasy result."
+    },
+    {
+      "question": "What is the difference between a lineup page and MLB lineup projections?",
+      "answer": "A lineup page reports scheduled or public team information. A projection estimates future performance under assumptions. Keep the official status check separate from the model output, and record the timestamp for both."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB's Starting Lineups page presents scheduled batting orders, game context, pitcher information, and a subject-to-change label.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-starting-lineups"
+      ],
+      "checkedAt": "2026-08-16"
+    },
+    {
+      "claim": "MLB's Probable Pitchers page labels times and pitcher assignments as subject to change.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-probable-pitchers"
+      ],
+      "checkedAt": "2026-08-16"
+    },
+    {
+      "claim": "MLB states that a public lineup is not official until it is handed to the umpire.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-lineup-status"
+      ],
+      "checkedAt": "2026-08-16"
+    },
+    {
+      "claim": "Baseball Savant's Statcast Search supports queries by pitch, game, player, team, and season.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "baseballsavant-search"
+      ],
+      "checkedAt": "2026-08-16"
+    },
+    {
+      "claim": "DiamScore describes a workflow that brings together starting lineups, probable pitchers, batting order, and performance signals before applying platform rules and user constraints.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-16"
+    },
+    {
+      "claim": "The Harbor City, Rowan Vale, lineup, pitcher, projection, salary, weather, and outcome example is invented.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-16",
+    "notes": "Reviewed the navigational mlb lineups intent against the existing optimizer, tutorial, projections, DFS, weather, injury, and scoring pages; used current official MLB lineup and pitcher pages plus Baseball Savant and the product page; separated public lineup status from official status; labeled the example fictional; and rechecked disclosures, source mappings, internal links, and CTA wording."
+  },
+  "sources": [
+    {
+      "id": "mlb-starting-lineups",
+      "title": "MLB Starting Lineups Today",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/starting-lineups",
+      "accessedAt": "2026-08-16",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-probable-pitchers",
+      "title": "Baseball Probable Pitchers",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/probable-pitchers/",
+      "accessedAt": "2026-08-16",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-lineup-status",
+      "title": "Today's MLB starting lineups",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/news/todays-mlb-starting-lineups-july-12/c-52367882",
+      "accessedAt": "2026-08-16",
+      "type": "primary"
+    },
+    {
+      "id": "baseballsavant-search",
+      "title": "Statcast Search",
+      "publisher": "Baseball Savant",
+      "url": "https://baseballsavant.mlb.com/en/statcast_search",
+      "accessedAt": "2026-08-16",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-16",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB optimizer",
+      "href": "/"
+    },
+    {
+      "label": "How to use an MLB lineup optimizer",
+      "href": "/blog/how-to-use-mlb-lineup-optimizer"
+    },
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

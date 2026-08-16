@@ -619,7 +619,7 @@
     {
       "id": "strategy-087",
       "priority": 15,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb lineups",
       "slug": "mlb-lineups",
       "targetPage": "mlb lineups",
@@ -663,7 +663,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-16",
+      "updatedAt": "2026-08-16"
     },
     {
       "id": "strategy-102",
