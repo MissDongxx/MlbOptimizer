@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "nl-batting-leaders",
+  "category": "projections-stats",
+  "primaryKeyword": "mlb home run leaders",
+  "primaryKeywordVariants": [
+    "home run leaders"
+  ],
+  "supportingKeywords": [
+    "baseball player",
+    "baseball stats",
+    "mlb player stats",
+    "baseball statistics"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits readers who want to interpret a live leaderboard rather than receive a static list of names.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "Existing pages cover projections, home-run estimates, lineups, and DFS workflows. This page answers a narrower question: how to read the official live home-run leaderboard, filter it to the National League, and use the result as context without confusing current totals with projections.",
+  "uniqueValue": "The guide turns a live leaderboard into an auditable workflow: confirm the filter, read the underlying batting line, compare power indicators, and refresh the decision before building a lineup.",
+  "title": "MLB Home Run Leaders: How to Read Today’s Rankings",
+  "description": "Learn how to read the official MLB home run leaders, filter National League results, and pair current baseball statistics with context for fantasy and DFS decisions.",
+  "excerpt": "MLB home run leaders are a live snapshot of official results, not a projection. Use this guide to read the leaderboard, check the National League filter, and turn a baseball player’s power record into a more careful research input.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-17",
+  "updatedAt": "2026-08-17",
+  "keyTakeaways": [
+    "Start with the official MLB Stats filter and confirm the season, league, split, and player pool.",
+    "Treat home runs as an outcome measure; pair the total with playing time, plate-appearance opportunity, and Statcast context.",
+    "Use the leaderboard to generate research questions, then refresh lineups, injuries, weather, and contest rules before acting."
+  ],
+  "sections": [
+    {
+      "heading": "MLB home run leaders: the direct answer",
+      "paragraphs": [
+        "The MLB home run leaders page is a live ranking of official home-run totals for the selected season and filters. It answers who has hit the most home runs in that view; it does not answer who is the best play for the next game. For the National League use case behind this page, select the league first, then confirm that the season, regular-season scope, team selection, player pool, and split match the question.",
+        "A leaderboard is most useful as a starting point. A leading total can reflect power, opportunity, health, lineup role, park context, or a combination of those factors. Read the result as one piece of MLB player stats, then inspect the surrounding batting line before carrying it into fantasy baseball or DFS research."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-mlb-hr"
+      ]
+    },
+    {
+      "heading": "How to read the official leaderboard without mixing filters",
+      "paragraphs": [
+        "Begin with the page controls, not the first name in the table. A league filter changes the comparison set, while a team or player-pool filter can narrow it further. A season-to-date view is different from a selected split, and a standard-stat view is different from a Statcast view. Record the filters in your notes so a later refresh reproduces the same baseball statistics question.",
+        "Next, read the columns around HR instead of treating the rank as a complete scouting report. Games played, at-bats, runs, hits, extra-base hits, runs batted in, walks, strikeouts, stolen bases, and slash-line fields help explain whether a total comes from sustained opportunity, a short burst, or a particular player profile. The official glossary defines HR as a fair-ball result in which the batter scores without being put out or reaching on an error; that definition makes the column an outcome, not a forecast.",
+        "Finally, check the page’s timestamp and scope whenever you quote a rank. The current leaders can change after every game, and a National League table should not be silently presented as an all-MLB table."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-mlb-hr"
+      ]
+    },
+    {
+      "heading": "What a home-run total says about a baseball player",
+      "paragraphs": [
+        "A home-run total is a strong signal that a baseball player has produced valuable power outcomes, but it has several layers. First ask whether the player is receiving regular plate appearances. A part-time hitter can show excellent power in a smaller opportunity set, while a full-time hitter can accumulate a larger total through volume. The leaderboard itself gives the result; the surrounding batting fields are useful baseball stats that help you separate those stories.",
+        "Then ask what kind of decision the number supports. For season-long fantasy research, the total can help identify established power and guide a deeper review of role and playing time. For a daily slate, the total is a historical anchor rather than a daily projection. A player’s lineup position, opposing pitcher, handedness context, park, weather, and confirmed availability can change the next-game view even when the season total stays the same.",
+        "This is where the distinction between MLB home run leaders and projections matters. Leaders describe what has already happened. Projections estimate a future distribution of outcomes. Keeping those labels separate prevents a leaderboard rank from becoming an unsupported promise about the next slate."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-mlb-hr",
+        "source-statcast"
+      ]
+    },
+    {
+      "heading": "Pair current leaders with Statcast and lineup context",
+      "paragraphs": [
+        "When the official table identifies a hitter worth researching, use Baseball Savant as a second layer rather than replacing the official result. MLB describes Statcast as a tracking system for pitch, hit, player, and bat data, and identifies Baseball Savant as the clearinghouse for public Statcast data and custom queries. That makes it useful for asking why a power result may be stable, noisy, or dependent on contact quality.",
+        "A practical review can compare the home-run result with batted-ball quality, exit velocity, launch-angle patterns, barrel-related indicators, and the hitter’s opportunity. These are context questions, not a claim that any one Statcast field guarantees a future homer. Use the official result to establish the baseline, then use tracking data to test the baseball story behind it.",
+        "For DFS work, finish by checking the confirmed lineup and slate conditions. The best workflow is a refreshable chain: current result, underlying contact context, expected opportunity, and late information. DiamScore’s optimizer can be one step in that workflow, while the final review remains a separate decision."
+      ],
+      "sourceIds": [
+        "source-statcast",
+        "source-mlb-leaderboard",
+        "source-diamscore"
+      ]
+    },
+    {
+      "heading": "Original example: audit a fictional National League leader",
+      "paragraphs": [
+        "Consider a fictional hitter whose leaderboard rank rises after a strong stretch. The analyst records the exact league and season filters, saves the current HR total, and checks whether the hitter has been in the lineup consistently. The analyst then reviews the surrounding batting line and a Baseball Savant query for contact quality before deciding whether the result deserves more attention.",
+        "The analyst does not turn the rank into a pick. Instead, the next note says: verify the hitter’s confirmed lineup position, opposing pitcher, park, weather, and contest rules before using any projection or optimizer output. If the player has fewer opportunities than the comparison group, the analyst labels the result as a rate-and-role question rather than a simple power ranking. This audit trail keeps a fictional example separate from live MLB data while showing how to reproduce the reasoning."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-statcast",
+        "source-diamscore"
+      ]
+    },
+    {
+      "heading": "Limitations and facts to verify",
+      "paragraphs": [
+        "A live leaderboard changes, and a rank can move without the hitter changing skill because other games have been completed. A home-run total also leaves out important context such as playing-time stability, matchup quality, batting-order position, park effects, weather, and contest scoring. Statcast context can clarify contact quality, but it remains evidence for analysis rather than a guarantee of a future result.",
+        "Before using MLB home run leaders in a lineup decision, verify the page filters, the latest official transaction and lineup information, the game environment, and the rules of the selected contest. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-statcast",
+        "source-diamscore"
+      ]
+    },
+    {
+      "heading": "Conclusion: use MLB home run leaders as a research input",
+      "paragraphs": [
+        "MLB home run leaders are most valuable when they start a disciplined question instead of ending the analysis. Confirm the official scope, read the surrounding MLB player stats, test the power story with available Statcast context, and then refresh the live conditions that affect the next slate. That process turns a simple ranking into useful baseball research without confusing past results with future certainty.",
+        "For the next slate, save the leaderboard view, compare the relevant hitters, and open the MLB optimizer only after checking the final inputs."
+      ],
+      "sourceIds": [
+        "source-mlb-leaderboard",
+        "source-statcast",
+        "source-diamscore"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Where should I check the MLB home run leaders?",
+      "answer": "Use the official MLB Stats leaderboard, then confirm the season, league, player pool, team, and split filters before comparing names."
+    },
+    {
+      "question": "Do home run leaders predict the next game?",
+      "answer": "No. The leaderboard records completed results. Use it as a starting signal and combine it with opportunity, matchup, lineup, park, weather, and projection context."
+    },
+    {
+      "question": "How can I research a leader beyond the total?",
+      "answer": "Read the surrounding batting line, then use Baseball Savant to investigate contact and tracking context. Treat every metric as evidence, not a promise."
+    },
+    {
+      "question": "Should I use the leaders list directly in DFS?",
+      "answer": "Use it to build a research shortlist, not as an automatic lineup. Confirm the slate, salary, lineup status, contest rules, and late news before submitting a build."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "The official MLB Stats page provides a live home-run leaderboard with selectable season, league, team, player-pool, and split context.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "source-mlb-leaderboard"
+      ],
+      "checkedAt": "2026-08-17"
+    },
+    {
+      "claim": "MLB defines a home run as a fair-ball result in which the batter scores without being put out or reaching on an error.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "source-mlb-hr"
+      ],
+      "checkedAt": "2026-08-17"
+    },
+    {
+      "claim": "MLB describes Statcast as tracking pitch, hit, player, and bat data, and identifies Baseball Savant as a public Statcast data clearinghouse.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "source-statcast"
+      ],
+      "checkedAt": "2026-08-17"
+    },
+    {
+      "claim": "DiamScore provides an MLB optimizer entry point for the workflow described in the article.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "source-diamscore"
+      ],
+      "checkedAt": "2026-08-17"
+    },
+    {
+      "claim": "The fictional National League leader audit is an invented workflow example, not a live player record.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-17",
+    "notes": "Reviewed the existing article inventory and kept this page focused on interpreting the official live leaderboard and National League filter. Verified claims against reachable MLB and Baseball Savant sources, labeled the example fictional, separated historical totals from projections, and checked disclosures, internal links, CTA, and late-news limitations."
+  },
+  "sources": [
+    {
+      "id": "source-mlb-leaderboard",
+      "title": "2026 MLB Player Hitting Stat Leaders",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/stats/national-league/home-runs/player",
+      "accessedAt": "2026-08-17",
+      "type": "primary"
+    },
+    {
+      "id": "source-mlb-hr",
+      "title": "Home Run (HR) Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/home-run",
+      "accessedAt": "2026-08-17",
+      "type": "primary"
+    },
+    {
+      "id": "source-statcast",
+      "title": "Statcast Glossary and Baseball Savant Overview",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/statcast",
+      "accessedAt": "2026-08-17",
+      "type": "primary"
+    },
+    {
+      "id": "source-diamscore",
+      "title": "DiamScore MLB Optimizer",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-17",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB home run projections guide",
+      "href": "/blog/mlb-home-run-projections"
+    },
+    {
+      "label": "MLB lineups verification guide",
+      "href": "/blog/mlb-lineups"
+    },
+    {
+      "label": "MLB optimizer",
+      "href": "/#optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

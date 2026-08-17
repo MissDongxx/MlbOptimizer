@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-17",
   "tasks": [
     {
       "id": "mlb-001",
@@ -671,7 +671,7 @@
     {
       "id": "strategy-102",
       "priority": 16,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "mlb home run leaders",
       "slug": "nl-batting-leaders",
       "targetPage": "nl batting leaders",
@@ -716,7 +716,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-17",
+      "updatedAt": "2026-08-17"
     },
     {
       "id": "strategy-074",
