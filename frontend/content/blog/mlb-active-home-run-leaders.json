@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "approved",
+  "slug": "mlb-active-home-run-leaders",
+  "category": "projections-stats",
+  "primaryKeyword": "all time home run leaders",
+  "primaryKeywordVariants": [
+    "all-time home run leaders"
+  ],
+  "supportingKeywords": [
+    "home runs today",
+    "home run record",
+    "mlb home run record",
+    "mlb all time home run leaders",
+    "most home runs all time"
+  ],
+  "intent": "commercial",
+  "contentFormat": "structured_recommendation",
+  "formatReason": "A structured recommendation fits a reader choosing between career, active-player, and current-season leaderboards for a specific research question.",
+  "funnelStage": "BOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "selectionCriteria",
+    "recommendations",
+    "limitations",
+    "faq",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "optional",
+  "variantDimensions": [],
+  "contentDifferentiation": "Existing pages explain MLB home run leaders as a live National League leaderboard and explain home-run projections as estimates. This page answers the distinct selection question: when to use all-time career totals, an active-player view, or current-season home runs for research and lineup decisions.",
+  "uniqueValue": "The guide gives a repeatable recommendation matrix for choosing leaderboard scope, recording filters and access time, then joining historical power with current opportunity and Statcast context.",
+  "title": "All Time Home Run Leaders: Active MLB Players Guide",
+  "description": "Learn how to choose between all-time, active-player, and current-season home run leaders, verify MLB filters, and use the result for research.",
+  "excerpt": "All time home run leaders answer a historical question, while active-player and current-season lists answer different questions. Use this guide to choose the right MLB leaderboard before researching a hitter or building a lineup.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "DiamScore Automated Quality Gate",
+  "publishedAt": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "keyTakeaways": [
+    "Use the official all-time totals view for career context, not as a current-game ranking.",
+    "Use an active-player view when the question is about current careers, and use the season-to-date view for home runs today.",
+    "Record the season, league, team, position, split, player pool, and access date beside every leaderboard result.",
+    "Pair a historical home-run result with opportunity, lineup status, environment, and Statcast evidence before making a daily decision."
+  ],
+  "recommendationCriteria": [
+    "Time horizon: career totals, active careers, or the current regular season.",
+    "Player pool: all players, active players, a league, a team, a position, or a defined split.",
+    "Decision use: historical comparison, shortlist creation, or current-slate research.",
+    "Evidence quality: official filters, visible update context, and supporting player or Statcast data."
+  ],
+  "recommendations": [
+    "Choose the official all-time totals view for historical ranking and home run record research.",
+    "Choose an active-player career view when you need current players compared on accumulated career production; record how active status was determined.",
+    "Choose the current year-to-date leaderboard for home runs today and refresh it before a slate decision.",
+    "Use a leaderboard as a research filter, then confirm opportunity and current context in the MLB optimizer workflow."
+  ],
+  "sections": [
+    {
+      "heading": "All time home run leaders: choose the right list",
+      "paragraphs": [
+        "All time home run leaders are the answer to a career-history question: which players have accumulated the most official regular-season home runs in the selected record set? That is different from asking which active player has the most career home runs, which hitter leads the current season, or which batter is useful for a slate tonight. Start by naming the question before opening a leaderboard.",
+        "The official MLB Stats home-run page offers an All Time Totals view with controls for league, team, position, split, and statistical presentation. Those controls are not decoration. Changing the league or position changes the comparison group, while changing the split changes the baseball question. A result is reproducible only when the scope and access date are recorded with the player name and total.",
+        "For a reader searching for mlb all time home run leaders or most home runs all time, the best recommendation is the official career view first. For a reader researching a current player pool, the best recommendation is to narrow the result to the active set or move to the current season view. Do not present one list as if it answered all three questions."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-hr-glossary"
+      ]
+    },
+    {
+      "heading": "A recommendation framework for MLB player stats",
+      "paragraphs": [
+        "Use four selection questions before trusting a ranking. First, what is the time horizon: career, current career among active players, or the present season? Second, what is the player pool: all MLB players, one league, a team, a position, or a split? Third, what will the result do: document history, create a research shortlist, or inform a current slate? Fourth, what evidence will you check next: the surrounding batting line, the player profile, the confirmed lineup, or Statcast contact data?",
+        "For historical comparison, recommend the all-time totals view and retain the official filter state. For active-career comparison, recommend a career list narrowed to players who remain active, but label the method and date because active status can change through retirement, release, injury, or roster movement. For a daily question, recommend the current year-to-date view rather than a career list. A high career total is evidence of accumulated production, not a forecast for the next game.",
+        "This framework keeps mlb player stats aligned with the decision. It also makes the page useful when the searcher changes from an historical question to a commercial workflow: the leaderboard identifies a candidate or a comparison, while the rest of the research determines whether the player belongs in a current pool."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-current-hr",
+        "mlb-diamscore"
+      ]
+    },
+    {
+      "heading": "When the career home run record is the right recommendation",
+      "paragraphs": [
+        "Use the career view when the reader wants historical scale, record progression, or a stable comparison across completed careers. The official table presents HR beside other standard batting fields, so a reader can inspect games, at-bats, hits, runs, runs batted in, and slash-line context instead of treating one column as a complete player evaluation. The MLB glossary defines a home run as a fair-ball result on which the batter scores without being put out or reaching on an error; the leaderboard is counting that defined event.",
+        "The home run record is a cumulative achievement. It rewards both power and the opportunity to keep appearing, and it can reflect the ballparks in which a player competed. MLB's glossary notes that park dimensions and wind can affect whether a ball leaves the yard. That does not make the record unhelpful; it explains why a historical total should be read as a result within an era and environment rather than as a complete measure of hitting quality.",
+        "Recommendation: use the career list for a historical answer, use the surrounding columns to describe the player's production, and avoid converting the record into a daily pick. If the query is specifically the mlb home run record, keep the wording tied to the selected official scope and access date."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-hr-glossary"
+      ]
+    },
+    {
+      "heading": "When to use active players or home runs today",
+      "paragraphs": [
+        "Choose an active-player career view when the reader wants to compare current careers with historical totals. This is the closest match for the phrase active home run leaders, but it requires a clearly stated membership rule. A live roster, a player page, or a current-season appearance can produce different boundaries than a list that includes unsigned free agents. Record the rule instead of implying that active is a permanent label.",
+        "Choose the season-to-date page when the question is home runs today, the current home-run race, or a hitter's present-season pace. The official MLB current-season page exposes the regular-season, league, team, year-to-date, position, player-pool, split, and standard-versus-expanded context needed to describe that view. Refresh the page after games and before a current decision because rankings and totals change as new games become official.",
+        "Recommendation: answer a historical query with career totals, answer an active-career query with a dated active set, and answer a daily or current-season query with the year-to-date table. The same player can appear in all three views with different meanings. A career list should never be silently substituted for home runs today, and a season leaderboard should not be called an all-time record."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-current-hr",
+        "mlb-position-leaders"
+      ]
+    },
+    {
+      "heading": "Use Statcast to test a power profile",
+      "paragraphs": [
+        "A leaderboard tells you what happened; it does not explain every reason behind the result. MLB describes Statcast as tracking pitches, hits, players, and bats, with measurements such as exit velocity, launch angle, and batted-ball distance. Use that evidence as a second layer when a historical or season leader becomes a research candidate.",
+        "The useful question is not whether a Statcast number proves another home run will happen. Instead, ask whether the contact profile, playing time, and current matchup support the story suggested by the leaderboard. A high career total may identify established power, while a current-season total may identify recent production. Neither one settles the next-game question without opportunity and context.",
+        "For daily fantasy research, finish the chain with the confirmed lineup, opposing pitcher, park, weather, salary, position eligibility, and contest rules. The DiamScore optimizer can help turn a verified player pool into candidate lineups, but the leaderboard remains a historical or current-stat input rather than an automatic recommendation."
+      ],
+      "sourceIds": [
+        "mlb-statcast",
+        "mlb-current-hr",
+        "mlb-diamscore"
+      ]
+    },
+    {
+      "heading": "Original example: a fictional leaderboard decision",
+      "paragraphs": [
+        "Consider a fictional hitter named Rowan Vale on an invented team. The example uses invented players, totals, filters, matchups, salaries, and outcomes; it is not a live ranking or a player recommendation. A reader begins with the search phrase most home runs all time, so the analyst opens the official career table and records the chosen scope instead of copying a name from a cached snippet.",
+        "The reader then changes the question to active players. The analyst creates a dated active-player set, writes down the inclusion rule, and does not compare that set with the career table as if the populations were identical. Finally, the reader asks about home runs today. The analyst switches to the current year-to-date page, records the date and filters, and checks the player's lineup status before using the result in a DFS workflow.",
+        "The fictional audit produces three separate notes: historical rank, active-career comparison, and current-season result. A final note lists the evidence still needed: opportunity, matchup, environment, and contest settings. The value is the decision trail, not a fabricated total or a promise that the leader will produce again."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-current-hr",
+        "mlb-diamscore"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": [
+        "Leaderboards are snapshots with boundaries. Historical totals can depend on the official record set and the filters selected. Active lists depend on the date and membership rule. Season-to-date tables move after games are completed. A position-specific list can also use a qualification method that differs from the general all-player table; MLB's position-leader article explains a position qualification rule for its own comparison, so do not transplant that rule to another page without saying so.",
+        "Before publishing or using a ranking, verify the source URL, the time horizon, league, team, position, split, player pool, sort order, and access date. Recheck the official page when a current result matters. Then verify the lineup, injuries, weather, park, opposing pitcher, platform salary, eligibility, and contest rules. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes.",
+        "This article intentionally does not publish a static list of current active players or current totals. Those facts age quickly, and a static list could be mistaken for a live data product. Use the official filtered page for the latest result and use the linked workflow pages for interpretation."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-current-hr",
+        "mlb-position-leaders",
+        "mlb-hr-glossary"
+      ]
+    },
+    {
+      "heading": "Conclusion: apply all time home run leaders correctly",
+      "paragraphs": [
+        "All time home run leaders are the right tool for historical career comparison, not a substitute for active-player or current-season context. Choose the time horizon first, preserve the filters and access date, inspect the surrounding MLB player stats, and then add Statcast and current opportunity evidence. That sequence keeps the mlb home run record distinct from home runs today and from a forward-looking projection.",
+        "For the next research session, save the official leaderboard view that matches your question, note the assumption that would make it stale, and open the DiamScore MLB optimizer only after the current player pool and contest inputs are verified."
+      ],
+      "sourceIds": [
+        "mlb-all-time-hr",
+        "mlb-current-hr",
+        "mlb-statcast",
+        "mlb-diamscore"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Where can I find the all time home run leaders?",
+      "answer": "Use the official MLB Stats home-run page, select All Time Totals, confirm the league, team, position, split, and sort context, and record the access date."
+    },
+    {
+      "question": "Are active home run leaders the same as the all-time list?",
+      "answer": "No. An active list is a dated subset of current players, while an all-time list includes completed careers. State how active status was defined before comparing the two."
+    },
+    {
+      "question": "Which list should I use for home runs today?",
+      "answer": "Use the official current-season year-to-date leaderboard, then refresh it after games and confirm lineup, matchup, park, weather, and contest context."
+    },
+    {
+      "question": "Does a career home run record predict the next game?",
+      "answer": "No. A career total describes accumulated production. Use it as historical context and add current opportunity, Statcast evidence, and late lineup information before a daily decision."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "The official MLB home-run statistics page provides an All Time Totals view with league, team, position, split, and standard or expanded presentation context.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-all-time-hr"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "The official MLB current-season home-run page provides regular-season, year-to-date, league, team, position, player-pool, split, and standard or expanded context.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-current-hr"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "MLB defines a home run as a fair-ball result on which the batter scores without being put out or reaching on an error, and notes that park conditions can affect home-run totals.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-hr-glossary"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "MLB describes Statcast as tracking pitch, hit, player, and bat data and reports measurements including exit velocity, launch angle, and batted-ball distance.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-statcast"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "MLB's position-leader article states a position qualification rule for that article and presents active-leader context as of its publication date.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-position-leaders"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "DiamScore provides an MLB optimizer entry point for the workflow described in the article.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-diamscore"
+      ],
+      "checkedAt": "2026-08-18"
+    },
+    {
+      "claim": "The worked leaderboard audit uses invented players, totals, filters, matchups, salaries, and outcomes.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-18",
+    "notes": "Reviewed the full article inventory and kept this page focused on choosing leaderboard scope for all-time, active-career, and current-season questions. Verified filter and definition claims against reachable MLB sources, labeled the worked example fictional, separated historical totals from current results and projections, and checked disclosures, mappings, links, and CTA wording."
+  },
+  "sources": [
+    {
+      "id": "mlb-all-time-hr",
+      "title": "All-Time MLB Player Hitting Stat Leaders",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/stats/home-runs/all-time-totals",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-current-hr",
+      "title": "2026 MLB Player Hitting Stat Leaders: Home Runs",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/stats/home-runs?playerPool=ALL",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-hr-glossary",
+      "title": "Home Run (HR) Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/standard-stats/home-run",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-statcast",
+      "title": "Statcast Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/statcast",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-position-leaders",
+      "title": "Each Position's Top Home Run Hitter",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/news/all-time-home-run-leaders-at-each-position",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-diamscore",
+      "title": "DiamScore MLB Optimizer",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-18",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB home run projections guide",
+      "href": "/blog/mlb-home-run-projections"
+    },
+    {
+      "label": "MLB home run leaders interpretation guide",
+      "href": "/blog/nl-batting-leaders"
+    },
+    {
+      "label": "MLB lineups verification guide",
+      "href": "/blog/mlb-lineups"
+    },
+    {
+      "label": "MLB optimizer",
+      "href": "/#optimizer"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

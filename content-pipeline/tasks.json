@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-17",
+  "updatedAt": "2026-08-18",
   "tasks": [
     {
       "id": "mlb-001",
@@ -724,7 +724,7 @@
     {
       "id": "strategy-074",
       "priority": 17,
-      "status": "queued",
+      "status": "approved",
       "primaryKeyword": "all time home run leaders",
       "slug": "mlb-active-home-run-leaders",
       "targetPage": "mlb active home run leaders",
@@ -764,7 +764,10 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "reviewer": "DiamScore Automated Quality Gate",
+      "publishedAt": "2026-08-18",
+      "updatedAt": "2026-08-18"
     },
     {
       "id": "strategy-097",
