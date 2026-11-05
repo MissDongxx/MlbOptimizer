@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "seoAuditVersion": 2,
+  "status": "draft",
+  "slug": "mlb-trade-tracker",
+  "category": "projections-stats",
+  "primaryKeyword": "mlb news and rumors",
+  "primaryKeywordVariants": [],
+  "supportingKeywords": [
+    "baseball rumors",
+    "mlb trade tracker",
+    "major league transactions",
+    "minor league transactions",
+    "baseball trades"
+  ],
+  "intent": "informational",
+  "contentFormat": "deep_explanation",
+  "formatReason": "A deep explanation fits an informational query because readers need a verification workflow that separates rumor language, completed trades, and roster consequences before using current player information.",
+  "funnelStage": "TOFU",
+  "conversionGoal": "learn_and_apply",
+  "requiredModules": [
+    "directAnswer",
+    "originalAnalysis",
+    "limitations",
+    "internalLinks",
+    "cta"
+  ],
+  "visualRequirement": "not_applicable",
+  "variantDimensions": [],
+  "contentDifferentiation": "Existing pages cover MLB lineups, player projections, injuries, and daily DFS research. This page answers the distinct question of how to verify baseball rumors and transaction language, connect a completed move to playing opportunity, and preserve a dated research trail without publishing an unverified rumor list.",
+  "uniqueValue": "The guide turns official MLB news, transaction entries, glossary definitions, and lineup checks into a practical evidence ladder, with a fictional example that shows how to update a player pool without treating rumor momentum as a confirmed roster change.",
+  "title": "MLB News and Rumors: How to Verify Trade Updates",
+  "description": "Use an MLB trade tracker responsibly: separate baseball rumors from completed moves, read transaction language, and refresh player-pool decisions.",
+  "excerpt": "MLB news and rumors become useful for research only after you separate reported interest from an official transaction. This guide shows how to verify baseball trades, read roster updates, and refresh a player pool without turning speculation into a fact.",
+  "author": "DiamScore Editorial Team",
+  "reviewer": "Pending editorial review",
+  "publishedAt": null,
+  "updatedAt": "2026-08-24",
+  "keyTakeaways": [
+    "Treat a rumor as a lead until an official club, league, or transaction record confirms what happened.",
+    "Use the MLB transactions page and transaction glossary to distinguish a trade from a designation, activation, recall, option, or rehabilitation assignment.",
+    "A completed move changes a research question, not automatically a projection: recheck role, lineup, pitcher context, venue, and platform inputs.",
+    "Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes."
+  ],
+  "sections": [
+    {
+      "heading": "MLB news and rumors: the direct answer",
+      "paragraphs": [
+        "MLB news and rumors are two different evidence states. News can report that clubs are discussing a move, considering a fit, or monitoring a player. A rumor can be useful for deciding what to verify next, but it is not proof that a player changed organizations. The dependable answer comes from an official transaction record, a club announcement, or a league source that states the move is complete.",
+        "The best workflow is an evidence ladder. Start with the report to identify the player, teams, and proposed action. Then check the MLB news page for the underlying story, the official transactions page for a completed roster event, and the relevant glossary entry for unfamiliar terms. Finally, check the current lineup and player pool. This sequence keeps a fast headline from becoming a stale assumption in a projection or optimizer.",
+        "An mlb trade tracker should therefore be read as a time-stamped research index, not as a permanent list of confirmed outcomes. Record the source, access time, status language, and next verification step. If the official record does not support the headline, keep the item in a pending research state and do not write a player into a current lineup thesis."
+      ],
+      "sourceIds": [
+        "mlb-news",
+        "mlb-transactions",
+        "mlb-trade-deadline"
+      ]
+    },
+    {
+      "heading": "How to separate baseball rumors from completed baseball trades",
+      "paragraphs": [
+        "Read the verb before reading the reaction. Phrases such as interest, talks, could acquire, and monitoring describe possibility. Phrases such as acquired, traded, designated, activated, recalled, or assigned describe a transaction state that still needs a source check, but they point to different roster events. Do not collapse every headline into baseball trades, because the fantasy and lineup implications differ by event.",
+        "A completed trade answers where the player is assigned, but it may leave open questions about arrival, role, lineup position, and eligibility in a particular contest. A report about interest answers none of those questions. The reader should preserve both the source wording and the verification result, so later updates can be compared without quietly rewriting the original claim.",
+        "The league glossary is useful when a headline uses roster language that sounds familiar but has a specific meaning. A designation can remove a player from a club's roster while a later outcome is still pending. An activation can restore availability without guaranteeing a starting role. A rehabilitation assignment can show progress while leaving current Major League opportunity unresolved. These are not interchangeable labels."
+      ],
+      "sourceIds": [
+        "mlb-news",
+        "mlb-transactions",
+        "mlb-dfa",
+        "mlb-40-man"
+      ]
+    },
+    {
+      "heading": "What to read in major league transactions",
+      "paragraphs": [
+        "The official transactions page is the place to confirm the event type, club, player, and recorded date. Filter to the relevant club when possible, then read the complete entry rather than relying on a social summary. The page can include trades, signings, options, recalls, injured-list moves, designations, activations, and rehabilitation assignments. A transaction line is evidence of a roster action; it is not a complete forecast of playing time.",
+        "Use the glossary as a translation layer. The trade-deadline definition explains the deadline as the last point in the season when a player can be traded from one club to another, while the designation-for-assignment definition explains that the contract enters a different decision path. The point is not to memorize every rule. The point is to attach the right next question to the record instead of assuming a new team, active status, or available salary follows immediately.",
+        "Do not ignore minor league transactions. A player sent to or recalled from a Minor League affiliate may affect depth, but the entry alone does not establish a starting lineup or a stable role. Treat minor league transactions as roster context, then verify the current club announcement, lineup, probable pitcher, and player availability before changing a research pool."
+      ],
+      "sourceIds": [
+        "mlb-transactions",
+        "mlb-trade-deadline",
+        "mlb-dfa",
+        "mlb-40-man"
+      ]
+    },
+    {
+      "heading": "Turn a verified update into a DFS research decision",
+      "paragraphs": [
+        "A confirmed move changes the inputs you review; it does not dictate the conclusion. First, confirm the player's organization and the relevant slate. Next, check the expected role, batting order or pitching assignment, opponent, park, weather, salary, position eligibility, and contest rules. Then refresh the projection or ranking that uses those fields. This separates the factual roster update from the analytical response to it.",
+        "For hitters, a new organization can change expected opportunity, lineup slot, platoon context, and park environment. For pitchers, it can change opponent, workload expectation, bullpen context, and the defensive support around the role. Those effects are hypotheses until the current schedule, lineup, and role evidence supports them. If the evidence is mixed, record the uncertainty instead of forcing a confident label.",
+        "For a multi-lineup workflow, keep a short change log: what the official source confirmed, which input changed, which projection was refreshed, and what would invalidate the update. Use the optimizer only after the player pool and contest settings are current. Generated candidates are a comparison surface, not proof that a rumor was correct or that a move creates a profitable outcome."
+      ],
+      "sourceIds": [
+        "mlb-transactions",
+        "mlb-news",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Original example: audit a fictional rumor without publishing it as fact",
+      "paragraphs": [
+        "Consider a wholly fictional club called Harbor City, a fictional player called Rowan Vale, and a fictional report that another club is discussing a trade. The names, report, roster status, lineup, salary, projection, weather, and outcome are invented. This is a process example, not a current MLB report or a recommendation.",
+        "At the first check, the analyst records the report as a rumor and copies its exact status language into a research note. The analyst does not move Rowan into a new team's player pool, does not assign a new batting order, and does not describe the trade as complete. The next step is to look for an official transaction record or a direct club announcement.",
+        "At the second check, an official entry confirms that Rowan was acquired. The analyst updates the organization field, preserves the earlier rumor note, and marks the roster change as verified. The analyst still checks the current lineup, role, opponent, park, weather, salary, and contest eligibility before refreshing a projection. If no lineup or role confirmation arrives, the conclusion remains conditional. This is the useful lesson: confirm the event first, then test the baseball consequence."
+      ],
+      "sourceIds": [
+        "mlb-transactions",
+        "mlb-news"
+      ]
+    },
+    {
+      "heading": "Limitations and what to verify",
+      "paragraphs": [
+        "Official records are stronger than anonymous summaries, but they are still time-sensitive and may not answer every practical question. A transaction does not guarantee a starting assignment, a full workload, immediate travel availability, a new salary, or eligibility in a selected contest. A news report can add context while still using uncertain language. Keep those evidence types separate.",
+        "This guide intentionally does not publish a live list of names or claim that a current rumor will become a trade. The trade deadline, roster rules, player availability, lineup, weather, platform data, and contest settings can change. Predictions are estimates, not guaranteed outcomes. Readers should verify late lineup, injury, weather, and contest-rule changes.",
+        "When evidence conflicts, prefer the newest accessible official record, note the conflict, and wait for the field that matters to your decision. If the move is confirmed but role evidence is missing, the right output is a refreshed watchlist or a conditional player-pool note, not a fabricated certainty."
+      ],
+      "sourceIds": [
+        "mlb-transactions",
+        "mlb-news",
+        "mlb-trade-deadline",
+        "diamscore-home"
+      ]
+    },
+    {
+      "heading": "Conclusion: use MLB news and rumors as a verification queue",
+      "paragraphs": [
+        "The practical way to use MLB news and rumors is to treat each report as a question. Identify the claim, find the official transaction or club source, translate the event type, and then recheck the lineup and role inputs that affect your research. An mlb trade tracker is most useful when it preserves that trail instead of flattening confirmed moves, roster procedures, and speculation into one feed.",
+        "When the evidence is current, open the DiamScore MLB optimizer and use the verified player pool, projections, and contest settings to compare legal candidates. Review the generated output against the latest official news before export. The next action is simple: save the source and timestamp, refresh the changed fields, and keep every unverified baseball rumor labeled as pending."
+      ],
+      "sourceIds": [
+        "mlb-news",
+        "mlb-transactions",
+        "diamscore-home"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the most reliable MLB trade tracker?",
+      "answer": "Use MLB's official news and transactions pages together. The news page provides reporting and context, while the transactions page records roster events. Recheck both when a current decision depends on the update."
+    },
+    {
+      "question": "How can I tell whether baseball rumors are confirmed?",
+      "answer": "Look for an official transaction entry, club announcement, or league source that states the move is complete. Keep language such as interest or talks labeled as a rumor until that evidence appears."
+    },
+    {
+      "question": "Do major league transactions automatically change a DFS player pool?",
+      "answer": "No. A transaction changes the organization or roster context, but you still need to verify the player's slate, role, lineup or pitching assignment, salary, eligibility, weather, and contest rules."
+    },
+    {
+      "question": "Why should I check minor league transactions?",
+      "answer": "They can explain roster depth, rehabilitation progress, options, or recalls, but they do not by themselves prove a current Major League role. Pair the entry with current lineup and availability evidence."
+    }
+  ],
+  "claimLedger": [
+    {
+      "claim": "MLB's official transactions page records club, date, player, and transaction entries and includes multiple roster-event types.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-transactions"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "MLB's news page provides current news coverage and links to news, transactions, lineups, and injury information.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-news"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "MLB defines the trade deadline as the last point during the season when players can be traded from one club to another.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-trade-deadline"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "MLB defines designation for assignment as a roster action that removes a player's contract from the club's forty-man roster while a later outcome remains possible.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-dfa"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "MLB explains that the forty-man roster connects Major League and Minor League roster management and can require a club to make a corresponding move before a promotion.",
+      "type": "factual",
+      "action": "verified",
+      "sourceIds": [
+        "mlb-40-man"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "DiamScore's public page describes an MLB optimizer workflow that combines current player information with user-selected lineup constraints.",
+      "type": "time-sensitive",
+      "action": "verified",
+      "sourceIds": [
+        "diamscore-home"
+      ],
+      "checkedAt": "2026-08-24"
+    },
+    {
+      "claim": "The Harbor City, Rowan Vale, rumor, transaction, lineup, salary, projection, weather, and outcome example is invented.",
+      "type": "fictional",
+      "action": "fictional",
+      "sourceIds": []
+    }
+  ],
+  "editorialAudit": {
+    "searchIntent": "pass",
+    "contentDepth": "pass",
+    "factCheck": "pass",
+    "humanization": "pass",
+    "auditedAt": "2026-08-24",
+    "notes": "Reviewed the queued informational trade-tracker intent against existing lineup, injury, projection, DFS, and optimizer pages; separated rumor language from official transaction evidence; used current MLB news, transactions, and glossary sources plus the product page; labeled the example fictional; and rechecked disclosures, source mappings, internal links, CTA wording, and text-only output."
+  },
+  "sources": [
+    {
+      "id": "mlb-news",
+      "title": "MLB News: Scores, Standings, Stats, Trades, Rumors",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/news",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-transactions",
+      "title": "Transactions",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/transactions",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-trade-deadline",
+      "title": "Trade Deadline | Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/transactions/trade-deadline",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-dfa",
+      "title": "Designate for Assignment | Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/transactions/designate-for-assignment",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    },
+    {
+      "id": "mlb-40-man",
+      "title": "40-man Roster | Glossary",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/glossary/transactions/40-man-roster",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    },
+    {
+      "id": "diamscore-home",
+      "title": "MLB Optimizer for DFS Lineups",
+      "publisher": "DiamScore",
+      "url": "https://diamscore.com/",
+      "accessedAt": "2026-08-24",
+      "type": "primary"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "MLB lineup optimizer",
+      "href": "/mlb-lineup-optimizer"
+    },
+    {
+      "label": "MLB lineups guide",
+      "href": "/blog/mlb-lineups"
+    },
+    {
+      "label": "How MLB player projections work",
+      "href": "/blog/how-mlb-player-projections-work"
+    },
+    {
+      "label": "MLB injury report",
+      "href": "/blog/al-injury-report"
+    }
+  ],
+  "cta": {
+    "label": "Open the free MLB optimizer",
+    "href": "/#optimizer"
+  }
+}

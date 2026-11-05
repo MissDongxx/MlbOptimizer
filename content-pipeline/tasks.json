@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-18",
+  "updatedAt": "2026-08-24",
   "tasks": [
     {
       "id": "mlb-001",
@@ -772,7 +772,7 @@
     {
       "id": "strategy-097",
       "priority": 18,
-      "status": "queued",
+      "status": "blocked",
       "primaryKeyword": "mlb news and rumors",
       "slug": "mlb-trade-tracker",
       "targetPage": "mlb trade tracker",
@@ -811,7 +811,9 @@
         "cta"
       ],
       "visualRequirement": "optional",
-      "variantDimensions": []
+      "variantDimensions": [],
+      "blockedReason": "Source reachability gate failed: npm run content:validate:sources -- mlb-trade-tracker returned fetch failed for every configured source; local DNS/network could not resolve www.mlb.com or diamscore.com.",
+      "blockedAt": "2026-08-24"
     },
     {
       "id": "strategy-017",
